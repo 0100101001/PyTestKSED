@@ -6,7 +6,7 @@
 
 # How to run:
 
-#    python3 -m pytest -v --driver Chrome --driver-path /tests/chrome --alluredir ./allure_report
+#    H:\Мои документы\ФАЙЛЫ\PyTestKSED\test-tasks-example>python -m pytest -v --driver Chrome --driver-path C:\path\chromedriver --alluredir ./allure_report
 
 #
 
