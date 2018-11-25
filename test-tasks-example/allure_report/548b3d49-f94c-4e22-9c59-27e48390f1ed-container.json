@@ -1,1 +1,0 @@
-{"uuid": "04d78359-7e82-44bd-a5bb-0b876d8e1560", "children": ["79334c29-e375-4aef-90a4-0c4c504377d7"], "befores": [{"name": "selenium", "status": "passed", "start": 1543077307450, "stop": 1543077307451}], "afters": [{"name": "selenium::teardown", "status": "passed", "start": 1543077339375, "stop": 1543077339375}], "start": 1543077307450, "stop": 1543077339375}
