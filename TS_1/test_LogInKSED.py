@@ -7,8 +7,8 @@
 
 # How to run:
 
-#.... H:\Мои документы\ФАЙЛЫ\PyTestKSED\test-tasks-example>python -m pytest -v --driver Chrome --driver-path C:\path\chromedriver --alluredir ./allure_report
-#.... allure generate ./allure_report && allure open allure-report
+#.... H:\Мои документы\ФАЙЛЫ\PyTestKSED\test-tasks-example>python -m pytest -v --driver Chrome --driver-path WebDriver\chromedriver --alluredir ./allure_report
+#.... allure generate ./allure_report && allure open allure-result #allure-report
 #
 
 
@@ -39,7 +39,3 @@ def test_LogInKSED(web_browser, Ln, Ps):
     LogIn_page = page.LogIN(Ln, Ps)
 
     assert "АРМ" in web_browser.title
-#    assertTrue(self.driver.title == "АРМ")
-    # Verify that default search page shows 48 results:
-
-#    assert results_page.results_count() == 48, 'No results found!'
