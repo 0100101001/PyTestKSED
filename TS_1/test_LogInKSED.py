@@ -38,8 +38,8 @@ def test_LogInKSED(web_browser, Ln, Ps):
 
     LogIn_page = page.LogIN(Ln, Ps)
 
-
-
+    assert "АРМ" in web_browser.title
+#    assertTrue(self.driver.title == "АРМ")
     # Verify that default search page shows 48 results:
 
 #    assert results_page.results_count() == 48, 'No results found!'
