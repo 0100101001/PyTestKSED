@@ -92,6 +92,11 @@ class KSEDMainPage(PageObject):
 
     SearchBox = PageElement(id_='HEADER_SEARCHBOX_FORM_FIELD')
 
+    www = PageElement(xpath='//button[contains(@id, "default-cntrl-split-panel-button-button")]')
+    eee = PageElement(xpath='//button[contains(@id, "fileUpload-button-button")]')
+
+    sss = PageElement(xpath='//input[@type="file"]')
+
 
 
 
@@ -169,8 +174,15 @@ class KSEDMainPage(PageObject):
         self.btnCreateDoc.click()
 
         wait_page_loaded(self.w)
-        time.sleep(1)
+        time.sleep(3)
         assert "Документ" in self.w.title
+
+        self.www.click()
+        time.sleep(3)
+        self.eee.click()
+        time.sleep(2)
+        self.sss.send_keys('C://logo.png')
+
 
         #dd = self.Document_title.text
         #print('Тра та та'+ dd)
