@@ -43,7 +43,12 @@ def wait_page_loaded(driver):
         time.sleep(0.1)
 
 
+# Обёртка для локаторов
+def OB(a):
 
+    d = "PageObject(xpath='" + str(a) + "')"
+
+    return d
 
 
 class KSEDCreatDoc(PageObject):
