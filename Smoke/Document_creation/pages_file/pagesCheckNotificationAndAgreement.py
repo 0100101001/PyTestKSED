@@ -46,7 +46,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDNotificationOfDecision(PageObject):
+class KSEDNotification(PageObject):
 
 
 
@@ -58,9 +58,7 @@ class KSEDNotificationOfDecision(PageObject):
 
     notif = PageElement(id_='NOTIFICATIONS_text')
 
-    notif_2 = PageElement(xpath='(//div[contains(@class, "notification-row")]//*[contains(text(), "Принято решение")])')
-
-    notifClick = PageElement(xpath='//div[contains(@class, "notification-row")]')
+    notif_1 = PageElement(xpath='(//a[contains(text(), "Протокол совещания")])[1]')
 
     approved = PageElement(xpath='//button[contains(@id, "APPROVED-button")]')
 
@@ -99,16 +97,26 @@ class KSEDNotificationOfDecision(PageObject):
 
         assert "АРМ" in self.w.title
 
-    def Notification(self,):
+    def NotificationAndAgreement(self,):
 
         self.notif.click()
         time.sleep(1)
 
-        self.w.execute_script("arguments[0].scrollIntoView();", self.notif_2)
-#        self.notif_1.click()
-        time.sleep(2)
+        self.w.execute_script("arguments[0].scrollIntoView();", self.notif_1)
+        self.notif_1.click()
 
-        assert "Принято решение по документу" in self.notif_2.text
+        wait_page_loaded(self.w)
+
+        time.sleep(3)
+
+        self.approved.click()
+
+        self.comment.send_keys("С документом ознакомился, замечаний нет!")
+        time.sleep(0.5)
+
+        self.applyBtn_ok.click()
+
+        wait_page_loaded(self.w)
 
 
 
