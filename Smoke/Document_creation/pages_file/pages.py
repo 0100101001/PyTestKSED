@@ -126,7 +126,7 @@ class KSEDCreatDoc(PageObject):
         self.Secretary.send_keys(u'Главный')
         self.Secretary.send_keys(Keys.RETURN)
         # Присутствовали
-        self.person_present.send_keys(u'Строганов')
+        self.person_present.send_keys(u'Яцкин')
         self.person_present.send_keys(Keys.RETURN)
         # Категория документа
         self.category_doc.send_keys(u'Открытый')
@@ -156,4 +156,4 @@ class KSEDCreatDoc(PageObject):
 
         #self.SearchBox.send_keys(dd)
 
-        time.sleep(4)
+#        time.sleep(4)

@@ -77,7 +77,7 @@ class KSEDAgreement(PageObject):
 
     sendFor_approval = PageElement(xpath='// div[contains(text(), "Направить на согласование")]')#// div[contains( @ id, "actions")]
 
-    fileYes = PageElement(xpath='//a[contains(text(), "test.txt")]')
+    fileYes = PageElement(xpath='(//a[contains(text(), "test.txt")])[2]')
 
     heading_inf = PageElement(xpath='//h2[contains(@id, "heading")][contains(text(), "Основные сведения")]')
 
@@ -93,7 +93,7 @@ class KSEDAgreement(PageObject):
     def addPoruchenie(self,):
 
         self.show_main.click()
-
+        time.sleep(0.5)
         self.points.click()
         time.sleep(0.5)
 
@@ -104,7 +104,7 @@ class KSEDAgreement(PageObject):
 
         self.TextInstr.send_keys("Произвольный текст")
 
-        self.type_point.send_keys("Поручение по пункту РД для сведения")
+        self.type_point.send_keys("Поручение по пункту РД")
         self.type_point.send_keys(Keys.RETURN)
 
         self.Responsible_executor.send_keys("Главный")
@@ -120,12 +120,13 @@ class KSEDAgreement(PageObject):
     def attachment(self,):
 
         self.mode.click()
-        time.sleep(3)
+        time.sleep(2)
         self.fileUpload.click()
         time.sleep(2)
         self.files.send_keys('C://test.txt')
 
-        assert "test.txt" in self.fileYes
+#        time.sleep(2)
+#        assert "test.txt" in self.fileYes.text
         time.sleep(0.5)
 
 
@@ -139,4 +140,4 @@ class KSEDAgreement(PageObject):
         # Проверим статус документа
         self.heading_inf.click()
         time.sleep(0.5)
-        assert "На согласовании" in self.status_Doc
+        assert "На согласовании" in self.status_Doc.text
