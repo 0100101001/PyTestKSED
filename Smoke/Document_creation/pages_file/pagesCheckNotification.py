@@ -102,11 +102,11 @@ class KSEDNotificationOfDecision(PageObject):
     def Notification(self,):
 
         self.notif.click()
-        time.sleep(1)
+
 
         self.w.execute_script("arguments[0].scrollIntoView();", self.notif_2)
 #        self.notif_1.click()
-        time.sleep(2)
+
 
         assert "Принято решение по документу" in self.notif_2.text
 

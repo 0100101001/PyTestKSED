@@ -93,14 +93,14 @@ class KSEDAgreement(PageObject):
     def addPoruchenie(self,):
 
         self.show_main.click()
-        time.sleep(0.5)
+
         self.points.click()
-        time.sleep(0.5)
+
 
         self.btnPoint.click()
 
         self.Instr.click()
-        time.sleep(0.6)
+
 
         self.TextInstr.send_keys("Произвольный текст")
 
@@ -112,22 +112,22 @@ class KSEDAgreement(PageObject):
 
         dd = datetime.date.today().strftime('%d%m%Y')
         self.term.send_keys(dd)
-        time.sleep(0.5)
+
 
         self.btnForm_ok.click()
-        time.sleep(0.8)
+
 
     def attachment(self,):
 
         self.mode.click()
-        time.sleep(2)
+
         self.fileUpload.click()
-        time.sleep(2)
+
         self.files.send_keys('C://test.txt')
 
 #        time.sleep(2)
 #        assert "test.txt" in self.fileYes.text
-        time.sleep(0.5)
+
 
 
     def Agreement(self,):
@@ -135,9 +135,9 @@ class KSEDAgreement(PageObject):
         self.sendFor_approval.click()
 
         wait_page_loaded(self.w)
-        time.sleep(4)
+
 
         # Проверим статус документа
         self.heading_inf.click()
-        time.sleep(0.5)
+
         assert "На согласовании" in self.status_Doc.text

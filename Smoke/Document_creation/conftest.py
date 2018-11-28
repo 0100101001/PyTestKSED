@@ -56,6 +56,7 @@ def web_browser(request, selenium):
 
     # Return browser instance to test case:
 
+    browser.implicitly_wait(10)
     yield browser
 
 

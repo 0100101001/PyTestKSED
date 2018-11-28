@@ -100,19 +100,19 @@ class KSEDNotification(PageObject):
     def NotificationAndAgreement(self,):
 
         self.notif.click()
-        time.sleep(1)
+
 
         self.w.execute_script("arguments[0].scrollIntoView();", self.notif_1)
         self.notif_1.click()
 
         wait_page_loaded(self.w)
 
-        time.sleep(3)
+
 
         self.approved.click()
 
         self.comment.send_keys("С документом ознакомился, замечаний нет!")
-        time.sleep(0.5)
+
 
         self.applyBtn_ok.click()
 
