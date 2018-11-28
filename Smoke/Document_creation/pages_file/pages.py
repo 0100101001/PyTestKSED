@@ -44,6 +44,7 @@ def wait_page_loaded(driver):
 
 
 
+
 class KSEDCreatDoc(PageObject):
 
     btnCreate = PageElement(xpath='//button[contains(text(), "Создать")]')
@@ -93,22 +94,27 @@ class KSEDCreatDoc(PageObject):
 
         assert "Страница создания документа" in self.w.title
 
+        time.sleep(1)
         # Атрибуты документа
 
         # Вид документа
         self.doc_type.click()
 
+        time.sleep(1)
+
         self.addEl.click()
 
+        time.sleep(1)
         self.btnOKDT.click()
 
+        time.sleep(1)
         # Заголовок
         self.title.send_keys(u'Документ')
 
         # Дата совещания
         dd = datetime.date.today().strftime('%d%m%Y')
         self.date.send_keys(dd)
-
+        time.sleep(0.5)
         # Категория
         self.category.send_keys(u'Оперативное')
         self.category.send_keys(Keys.RETURN)
@@ -124,7 +130,7 @@ class KSEDCreatDoc(PageObject):
         # Категория документа
         self.category_doc.send_keys(u'Открытый')
         self.category_doc.send_keys(Keys.RETURN)
-
+        time.sleep(0.5)
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", self.btnCreateDoc)
         self.btnCreateDoc.click()

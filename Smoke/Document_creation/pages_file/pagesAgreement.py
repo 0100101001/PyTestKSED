@@ -93,10 +93,12 @@ class KSEDAgreement(PageObject):
     def addPoruchenie(self,):
 
         self.show_main.click()
-
+        i_points = '//em[contains(text(), "Пункты")]'
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, i_points)))
         self.points.click()
 
-
+        i_btnPoint = '//button[contains(@id, "create-point-button")]'
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, i_btnPoint)))
         self.btnPoint.click()
 
         self.Instr.click()
@@ -121,8 +123,10 @@ class KSEDAgreement(PageObject):
 
         self.mode.click()
 
+        time.sleep(0.5)
         self.fileUpload.click()
 
+        time.sleep(0.5)
         self.files.send_keys('C://test.txt')
 
 #        time.sleep(2)
@@ -132,6 +136,7 @@ class KSEDAgreement(PageObject):
 
     def Agreement(self,):
 
+        time.sleep(0.5)
         self.sendFor_approval.click()
 
         wait_page_loaded(self.w)
