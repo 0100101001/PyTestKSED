@@ -20,6 +20,8 @@ from selenium.webdriver.common.by import By
 
 from selenium.webdriver.support.ui import WebDriverWait
 
+from selenium.common.exceptions import *
+
 from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
@@ -86,6 +88,10 @@ class KSEDCreatDoc(PageObject):
 
 
     def Creat(self,):
+        wait = WebDriverWait(self.w, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
 
 
         self.btnCreate.click()
@@ -94,27 +100,27 @@ class KSEDCreatDoc(PageObject):
 
         assert "Страница создания документа" in self.w.title
 
-        time.sleep(1)
+ #       time.sleep(1)
         # Атрибуты документа
 
         # Вид документа
         self.doc_type.click()
 
-        time.sleep(1)
+#        time.sleep(1)
 
         self.addEl.click()
 
-        time.sleep(1)
+ #       time.sleep(1)
         self.btnOKDT.click()
 
-        time.sleep(1)
+#        time.sleep(1)
         # Заголовок
         self.title.send_keys(u'Документ')
 
         # Дата совещания
         dd = datetime.date.today().strftime('%d%m%Y')
         self.date.send_keys(dd)
-        time.sleep(0.5)
+ #       time.sleep(0.5)
         # Категория
         self.category.send_keys(u'Оперативное')
         self.category.send_keys(Keys.RETURN)
@@ -130,13 +136,16 @@ class KSEDCreatDoc(PageObject):
         # Категория документа
         self.category_doc.send_keys(u'Открытый')
         self.category_doc.send_keys(Keys.RETURN)
-        time.sleep(0.5)
+#        time.sleep(0.5)
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", self.btnCreateDoc)
         self.btnCreateDoc.click()
 
         wait_page_loaded(self.w)
 #        time.sleep(2)
+
+        wait.until(EC.title_is(self.w.title))
+
         assert "Документ" in self.w.title
 
         # self.mode.click()

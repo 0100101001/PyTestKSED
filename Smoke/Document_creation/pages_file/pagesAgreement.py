@@ -18,11 +18,12 @@ from page_objects import MultiPageElement
 
 from selenium.webdriver.common.by import By
 
-from selenium.webdriver.support.ui import WebDriverWait
-
 from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import *
 
 
 
@@ -120,13 +121,18 @@ class KSEDAgreement(PageObject):
 
 
     def attachment(self,):
+        # Определим ожидание;
+        wait = WebDriverWait(self.w, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
 
         self.mode.click()
 
-        time.sleep(0.5)
+#        time.sleep(0.5)
         self.fileUpload.click()
 
-        time.sleep(0.5)
+#        time.sleep(0.5)
         self.files.send_keys('C://test.txt')
 
 #        time.sleep(2)
@@ -135,8 +141,15 @@ class KSEDAgreement(PageObject):
 
 
     def Agreement(self,):
+# Определим ожидание;
+        wait = WebDriverWait(self.w, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
 
-        time.sleep(0.5)
+#        time.sleep(0.5)
+        sendFor_approval = '// div[contains(text(), "Направить на согласование")]'
+        wait.until(EC.element_to_be_clickable((By.XPATH, sendFor_approval)))
         self.sendFor_approval.click()
 
         wait_page_loaded(self.w)
