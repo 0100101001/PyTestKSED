@@ -6,7 +6,12 @@ from page_objects import MultiPageElement
 
 
 
-class homePage(PageObject):
+class Locator(PageObject):
+
+    # Форма авторизации
+    username_text = PageElement(name='username')
+    password_text = PageElement(name='password')
+    LogIn_button = PageElement(xpath='//span/button')
 
     # Строка меню
     ksed            = PageElement(xpath='(//a[contains(@title, "КСЭД")])[1]')              # КСЭД
@@ -74,7 +79,16 @@ class homePage(PageObject):
     allu_ReesContrF = PageElement(xpath='//a[contains(text(), "Реестр фактических исполнительных контрольных поручений")]')
     allu_SostIspR   = PageElement(xpath='//a[contains(text(), "Состояние исполнения резолюций")]')
 
+
     #Формы отчетов
+
+
+    # def __init__(self, web_driver, uri=''):
+    #
+    #     super().__init__(web_driver, uri)
+
+
+
 
 
 
