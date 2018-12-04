@@ -87,7 +87,7 @@ class KSEDallureTest(PageObject):
         self.stat_tipDoc.click()
         time.sleep(2)
 
-        pageH_url = self.w.current_url
+        pageH_url = self.w.current_url # урл текущей страницы
 
         self.btnOK.click()
         time.sleep(3)
@@ -102,34 +102,13 @@ class KSEDallureTest(PageObject):
         newWindow = [window for window in self.w.window_handles if window != current][0]
         self.w.switch_to.window(newWindow)
 
-        page_url = self.w.current_url
+        page_url = self.w.current_url # урл нового окна
         r = requests.get(page_url, cookies=cookies)
 
-        url = 'http://213.128.208.34/share/cookies'
-        #cookies = dict(cookies_are='working')
-#       # r = requests.get(page_url, cookies=cookies)
-        #r = requests.get(page_url, auth=('StroganovSN', '12345'))
         my_file = open("some.txt", "w")
         my_file.write(str(r.text))
         my_file.close()
         #r = requests.get(page_url, cookies=cookies)
         #code = str(r.text())
         #print(str(r.status_code))
-    #
-    #     urllib.request.urlopen(page_url)
-    # # current = self.driver.current_window_handle
-    #
-    # newWindow = [window for window in self.driver.window_handles if window != current][0]
-    # self.driver.switch_to.window(newWindow)
-    # wait = WebDriverWait(self.driver, 30)
-    #
-    #
-    # page_url = self.driver.current_url
-    # urllib.request.urlopen(page_url)
-    # self.fail("step №1")
 
-
-        #
-        # wait_page_loaded(self.w)
-        #
-        # assert "АРМ" in self.w.title
