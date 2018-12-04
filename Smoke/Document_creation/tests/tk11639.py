@@ -62,13 +62,13 @@ class KSEDLogin(Locator):
 
 
     def LogIN(self, username, password):
-        wait = WebDriverWait(self.w, 10, poll_frequency=1,
-                             ignored_exceptions=[NoSuchElementException,
-                                                 ElementNotVisibleException,
-                                                 ElementNotSelectableException])
+        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
+        #                      ignored_exceptions=[NoSuchElementException,
+        #                                          ElementNotVisibleException,
+        #                                          ElementNotSelectableException])
 
         Locator.username_text = username
-
+        print(Locator.username_text)
         Locator.password_text = password
 
         Locator.LogIn_button.click()

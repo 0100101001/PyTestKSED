@@ -98,51 +98,55 @@ class KSEDAgreement(PageObject):
 
     def attachment(self, ):
         # Определим ожидание;
-        wait = WebDriverWait(self.w, 10, poll_frequency=1,
-                             ignored_exceptions=[NoSuchElementException,
-                                                 ElementNotVisibleException,
-                                                 ElementNotSelectableException])
+        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
+        #                      ignored_exceptions=[NoSuchElementException,
+        #                                          ElementNotVisibleException,
+        #                                          ElementNotSelectableException])
+        wait = WebDriverWait(self.w, 10)
 
         self.mode.click()
 
         #        time.sleep(0.5)
-        wait.until(EC.invisibility_of_element_located((By.XPATH, '//div[contains(@id, "default-dialog")]')))
+       # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         fileUpload = '(//button[contains(@id, "fileUpload-button-button")])[2]'
-        wait.until(EC.visibility_of_element_located((By.XPATH, fileUpload)))
+
+        wait.until(EC.element_to_be_clickable((By.XPATH, fileUpload)))
         self.fileUpload.click()
 
         #        time.sleep(0.5)
-        #        files = '//input[@type="file"][@name="files[]"]'
-        #        wait.until(EC.visibility_of_element_located((By.XPATH, files)))
-        wait.until(EC.invisibility_of_element_located((By.XPATH, '//div[contains(@id, "default-dialog")]')))
+        files = '//input[@type="file"][@name="files[]"]'
+        wait.until(EC.presence_of_element_located((By.XPATH, files)))
+        #wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         self.files.send_keys('C://test.txt')
 
         # '//div[contains(@id, "default-dialog")]'
         # //div[contains(@id, "confirm-edit-fields-form-container_mask")]
-        wait.until(EC.invisibility_of_element_located((By.XPATH, '//div[contains(@id, "default-dialog")]')))
+        #wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
 
     #        time.sleep(2)
     #        assert "test.txt" in self.fileYes.text
 
     def Agreement(self, ):
         # Определим ожидание;
-        wait = WebDriverWait(self.w, 10, poll_frequency=1,
-                             ignored_exceptions=[NoSuchElementException,
-                                                 ElementNotVisibleException,
-                                                 ElementNotSelectableException])
+        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
+        #                      ignored_exceptions=[NoSuchElementException,
+        #                                          ElementNotVisibleException,
+        #                                          ElementNotSelectableException])
+        wait = WebDriverWait(self.w, 10)
 
         #        time.sleep(0.5)
         sendFor_approval = '//div[contains(text(), "Направить на согласование")]'
         # wait.until(EC.element_to_be_clickable((By.XPATH, sendFor_approval)))
-
-        wait.until(EC.visibility_of_element_located((By.XPATH, sendFor_approval)))
-
+#        wait.until(EC.presence_of_element_located(sendFor_approval))
+#        wait.until(EC.element_to_be_clickable((By.XPATH, sendFor_approval)))
+        time.sleep(3)
+#        wait.until(EC.invisibility_of_element_located((By.ID, 'loadingImage')))
         self.sendFor_approval.click()
 
         wait_page_loaded(self.w)
 
         # Проверим статус документа
-        wait.until(EC.invisibility_of_element_located((By.XPATH, '//div[contains(@id, "default-dialog")]')))
+        #wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         heading_inf = '//h2[contains(@id, "heading")][contains(text(), "Основные сведения")]'
         wait.until(EC.element_to_be_clickable((By.XPATH, heading_inf)))
         self.heading_inf.click()

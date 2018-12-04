@@ -83,9 +83,10 @@ class Locator(PageObject):
     #Формы отчетов
 
 
-    # def __init__(self, web_driver, uri=''):
-    #
-    #     super().__init__(web_driver, uri)
+
+
+    def __init__(self, web_driver, uri=''):
+        super().__init__(web_driver, uri)
 
 
 
