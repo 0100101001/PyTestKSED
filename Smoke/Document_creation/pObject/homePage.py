@@ -50,7 +50,7 @@ class Locator(PageObject):
     #Отчеты
     section_allur   = PageElement(xpath='//div[contains(@id, "ac-head")][contains(text(), "Отчеты")]') # Раздел "Отчеты"
     node_Logs       = PageElement(xpath='//span[contains(text(), "Журналы")]')              # "Журналы"
-    node_Statis     = PageElement(xpath='//span[contains(text(), "Статистические отчеты"]') # "Статистические отчеты"
+    node_Statis     = PageElement(xpath='//span[contains(@class, "ygtvlabel")][contains(text(), "Статистические")]') # "Статистические отчеты"
     node_ispDisp    = PageElement(xpath='//span[contains(text(), "Отчеты по исполнительской дисциплине")]')
 
     logs_incDoc     = PageElement(xpath='//a[contains(text(), "Журнал регистрации входящих документов")]')

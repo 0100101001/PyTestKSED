@@ -22,6 +22,7 @@ from pages_file.pagesLogIn import KSEDLoginPage
 from pages_file.pagesAgreement import KSEDAgreement
 from pages_file.pagesCheckNotificationAndAgreement import KSEDNotification
 from pages_file.pagesCheckNotification import KSEDNotificationOfDecision
+from pages_file.allureTest import KSEDallureTest
 
 
 
@@ -59,30 +60,30 @@ from pages_file.pagesCheckNotification import KSEDNotificationOfDecision
 #
 #
 #
-@allure.feature('Agreement')
-@pytest.mark.KSED_smoke_test
-def test_AgreementDoc(web_browser):
-
-    # Авторизуемся
-    page = KSEDLoginPage(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', '12345')
-
-    # Создадим документ
-    page = KSEDCreatDoc(web_browser)
-
-    page.Creat()
-
-    # Добавим пункт поручение к документу
-    page = KSEDAgreement(web_browser)
-    page.addPoruchenie()
-
-    # Добавим вложение
-    page.attachment()
-
-    # Направим на согласование
-
-    page.Agreement()
+# @allure.feature('Agreement')
+# @pytest.mark.KSED_smoke_test
+# def test_AgreementDoc(web_browser):
+#
+#     # Авторизуемся
+#     page = KSEDLoginPage(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
+#
+#     # Создадим документ
+#     page = KSEDCreatDoc(web_browser)
+#
+#     page.Creat()
+#
+#     # Добавим пункт поручение к документу
+#     page = KSEDAgreement(web_browser)
+#     page.addPoruchenie()
+#
+#     # Добавим вложение
+#     page.attachment()
+#
+#     # Направим на согласование
+#
+#     page.Agreement()
 
 # @allure.feature('Check notification and agreement')
 # @pytest.mark.KSED_smoke_test
@@ -126,5 +127,21 @@ def test_AgreementDoc(web_browser):
 #     page = KSEDLoginPage(web_browser)
 #
 #     LogIn_page = page.LogIN('StrogSN', '12345')
+
+@allure.feature('Agreement')
+@pytest.mark.KSED_smoke_test
+def test_allure(web_browser):
+
+    # Авторизуемся
+    page = KSEDLoginPage(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    # Откроем отчет
+    page = KSEDallureTest(web_browser)
+
+    page.openAllure()
+
+
 
 
