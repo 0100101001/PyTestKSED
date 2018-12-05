@@ -10,7 +10,7 @@ import time, datetime
 
 from selenium.webdriver import ActionChains
 
-#from page_objects import PageObject
+from page_objects import PageObject
 
 from page_objects import PageElement
 
@@ -48,7 +48,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDLogin(Locator):
+class KSEDLogin(PageElement, Locator):
 
 
     def __init__(self, web_driver, uri=''):
@@ -60,13 +60,11 @@ class KSEDLogin(Locator):
         wait_page_loaded(self.w)
 
 
-
     def LogIN(self, username, password):
         # wait = WebDriverWait(self.w, 10, poll_frequency=1,
         #                      ignored_exceptions=[NoSuchElementException,
         #                                          ElementNotVisibleException,
         #                                          ElementNotSelectableException])
-
         Locator.username_text = username
         print(Locator.username_text)
         Locator.password_text = password

@@ -4,7 +4,7 @@
 
 
 
-import time
+import time, datetime
 
 
 
@@ -20,9 +20,12 @@ from selenium.webdriver.common.by import By
 
 from selenium.webdriver.support.ui import WebDriverWait
 
+from selenium.common.exceptions import *
+
 from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
+from Locators import Locator
 
 
 
@@ -45,17 +48,13 @@ def wait_page_loaded(driver):
 
 
 
-
-class KSEDLoginPage(PageObject):
-
+class KSEDLogin(PageObject, Locator):
 
 
-    username_text = PageElement(name='username')
-
-    password_text = PageElement(name='password')
-
-    LogIn_button = PageElement(xpath='//span/button')
-
+    # Форма авторизации
+    username_text = PageElement(name=Locator.username_text)
+    password_text = PageElement(name=Locator.password_text)
+    LogIn_button = PageElement(xpath=Locator.LogIn_button)
 
 
     def __init__(self, web_driver, uri=''):
@@ -67,15 +66,17 @@ class KSEDLoginPage(PageObject):
         wait_page_loaded(self.w)
 
 
-
     def LogIN(self, username, password):
-
+        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
+        #                      ignored_exceptions=[NoSuchElementException,
+        #                                          ElementNotVisibleException,
+        #
+        #                                        ElementNotSelectableException])
         self.username_text = username
-
         self.password_text = password
 
-        self.LogIn_button.click()
 
+        self.LogIn_button.click()
 
 
 

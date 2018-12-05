@@ -13,6 +13,7 @@ class Locator(PageObject):
     password_text = PageElement(name='password')
     LogIn_button = PageElement(xpath='//span/button')
 
+
     # Строка меню
     ksed            = PageElement(xpath='(//a[contains(@title, "КСЭД")])[1]')              # КСЭД
 
@@ -83,10 +84,6 @@ class Locator(PageObject):
     #Формы отчетов
 
 
-
-
-    def __init__(self, web_driver, uri=''):
-        super().__init__(web_driver, uri)
 
 
 

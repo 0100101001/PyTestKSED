@@ -137,6 +137,8 @@ def test_allure(web_browser):
 
     LogIn_page = page.LogIN('StroganovSN', '12345')
 
+ #   assert page.login_error_displayed()
+
     # Откроем отчет
     page = KSEDallureTest(web_browser)
 
