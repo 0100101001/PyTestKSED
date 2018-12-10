@@ -92,6 +92,7 @@ class KSEDCreatDoc(PageObject):
         #                      ignored_exceptions=[NoSuchElementException,
         #                                          ElementNotVisibleException,
         #                                          ElementNotSelectableException])
+
         wait = WebDriverWait(self.w, 10)
 
         self.btnCreate.click()

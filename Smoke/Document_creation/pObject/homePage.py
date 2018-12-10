@@ -1,8 +1,5 @@
-from page_objects import PageObject
-
-from page_objects import PageElement
-
-from page_objects import MultiPageElement
+from page_objects import PageObject, PageElement
+#from Locators import HomePageLocators
 
 
 

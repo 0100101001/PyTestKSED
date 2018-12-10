@@ -48,7 +48,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDLogin(PageElement, Locator):
+class KSEDLogin(Locator):
 
 
     def __init__(self, web_driver, uri=''):
@@ -65,11 +65,12 @@ class KSEDLogin(PageElement, Locator):
         #                      ignored_exceptions=[NoSuchElementException,
         #                                          ElementNotVisibleException,
         #                                          ElementNotSelectableException])
-        Locator.username_text = username
+        page = Locator(self.w)
+        page.username_text = username
         print(Locator.username_text)
-        Locator.password_text = password
+        page.password_text = password
 
-        Locator.LogIn_button.click()
+        page.LogIn_button.click()
 
 
 
