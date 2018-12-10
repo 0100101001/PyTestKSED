@@ -37,18 +37,24 @@ class Locator(PageObject):
     newDoc_button   = PageElement(xpath='//button[contains(@id, "newDocumentButton-button")]')  # "Создать"
 
     protocol        = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Протокол")]') # Протокол
+    rd              = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Распорядительный документ")]') # РД
 
     # Форма создания документа
     doc_type        = PageElement(xpath='//button[contains(@id, "type-assoc-cntrl-tree-picker-button-button")]') #Вид документа(кнопка выбора)
     addEl           = PageElement(xpath='(//span[@class="addIcon"])[7]') # Вид документа(Протокол совещания рабочей группы)
     btnOKDT         = PageElement(xpath='//button[contains(@id, "type-assoc-cntrl-ok-button")]') # Вид документа (ОК)
-    title           = PageElement(name='prop_lecm-document_title') # Заголовок
+    title           = PageElement(name='prop_lecm-document_title') # Заголовок *****
+    preambula       = PageElement(xpath='//textarea[contains(@id, "-eds-document_summaryContent")]') # Преамбула
+    podpisant       = PageElement(xpath='//input[contains(@id, "signerEmployeeAssoc-cntrl-autocomplete-input")]') # Подписант
+    obcontrol       = PageElement(xpath='//input[contains(@id, "-ord_controller-assoc-cntrl-autocomplete-input")]')  # Общий контроль
+    wid_doc         = PageElement(xpath='(//select[contains(@id, "_assoc_lecm-eds-document_document-type-assoc")])[1]')# Вид документа в РД
+    wid_doc_rasp    = PageElement(xpath='//option[contains(text(), "Распоряжение")]') # Вид документа РД (Распоряжение)
     date            = PageElement(xpath='//input[contains(@id, "_meeting-date-cntrl-date")]') # Дата совещания
     category        = PageElement(xpath='//input[contains(@id, "_category-assoc-cntrl-autocomplete-input")]') # Категория
     Chairman        = PageElement(xpath='//input[contains(@id, "chairman-assoc-cntrl-autocomplete-input")]') # Председатель
     Secretary       = PageElement(xpath='//input[contains(@id, "_secretary-assoc-cntrl-autocomplete-input")]') # Секретарь
     person_present  = PageElement(xpath='//input[contains(@id, "_attended-assoc-cntrl-autocomplete-input")]') #Присутствовали
-    category_doc    = PageElement(xpath='//input[contains(@id, "-category-assoc-cntrl-autocomplete-input")]') # Категория документа
+    category_doc    = PageElement(xpath='//input[contains(@id, "-category-assoc-cntrl-autocomplete-input")]') # Категория документа *****
     btnCreateDoc    = PageElement(xpath='//button[contains(@id, "_default-form-submit-button")]') # Кнопка "Создать"
 
     myWork          = PageElement(xpath='//div[contains(text(), "Моя работа")]')           # Моя работа

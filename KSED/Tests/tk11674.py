@@ -49,7 +49,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocP(Locator):
+class KSEDCreatDocRD(Locator):
 
 
     def __init__(self, web_driver, uri=''):
@@ -91,47 +91,37 @@ class KSEDCreatDocP(Locator):
 
         page.newDoc_button.click()
 
-        page.protocol.click()
+        page.rd.click()
 
         assert "Страница создания документа" in self.w.title
 
  #       time.sleep(1)
         # Атрибуты документа
 
-        # Вид документа
-        page.doc_type.click()
-
-#        time.sleep(1)
-
-        page.addEl.click()
-
- #       time.sleep(1)
-        page.btnOKDT.click()
-
-#        time.sleep(1)
         # Заголовок
         page.title.send_keys(u'Документ')
 
-        # Дата совещания
-        dd = datetime.date.today().strftime('%d%m%Y')
-        page.date.send_keys(dd)
- #       time.sleep(0.5)
-        # Категория
-        page.category.send_keys(u'Оперативное')
-        page.category.send_keys(Keys.RETURN)
-        # Председатель
-        page.Chairman.send_keys(u'Строганов')
-        page.Chairman.send_keys(Keys.RETURN)
-        # Секретарь
-        page.Secretary.send_keys(u'Главный')
-        page.Secretary.send_keys(Keys.RETURN)
-        # Присутствовали
-        page.person_present.send_keys(u'Яцкин')
-        page.person_present.send_keys(Keys.RETURN)
         # Категория документа
         page.category_doc.send_keys(u'Открытый')
         page.category_doc.send_keys(Keys.RETURN)
-#        time.sleep(0.5)
+
+        # Преамбула
+        page.preambula.send_keys(u'Преамбула')
+
+        # Вид документа
+        page.wid_doc.click()
+        page.wid_doc_rasp.click()
+#        time.sleep(5)
+        # Подписант
+        page.podpisant.send_keys(u'Строганов')
+        page.podpisant.send_keys(Keys.RETURN)
+#        time.sleep(5)
+        # Общий контроль
+        page.obcontrol.send_keys(u'Строганов')
+        page.obcontrol.send_keys(Keys.RETURN)
+
+#        time.sleep(5)
+
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
         wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(@id, "_default-form-submit-button")]')))
