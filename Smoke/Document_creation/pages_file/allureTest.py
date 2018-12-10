@@ -7,7 +7,7 @@
 import time
 
 
-
+import pickle
 from selenium.webdriver import ActionChains
 
 from page_objects import PageObject
@@ -95,7 +95,7 @@ class KSEDallureTest(PageObject):
         r = requests.get(pageH_url)
         cookies = r.cookies
         #cookies = dict(cookies_are='working')
-
+        pickle.dump(self.w.get_cookies(), open("cookies.pkl", "wb"))
 
         current = self.w.current_window_handle
 
@@ -103,10 +103,14 @@ class KSEDallureTest(PageObject):
         self.w.switch_to.window(newWindow)
 
         page_url = self.w.current_url # урл нового окна
-        r = requests.get(page_url, cookies=cookies)
+        r = requests.get(page_url)
+        cookies = pickle.load(open("cookies.pkl", "rb"))
+        for cookie in cookies:
+            self.w.add_cookie(cookie)
+            r = requests.get(page_url)
 
         my_file = open("some.txt", "w")
-        my_file.write(str(r.text))
+        my_file.write(str(r.status_code))
         my_file.close()
         #r = requests.get(page_url, cookies=cookies)
         #code = str(r.text())
