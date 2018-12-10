@@ -17,7 +17,7 @@ import pytest
 import allure
 
 from Tests.tk11639 import KSEDLogin
-from Tests.tk11674 import KSEDCreatDoc
+from Tests.tk11669 import KSEDCreatDoc
 
 
 
