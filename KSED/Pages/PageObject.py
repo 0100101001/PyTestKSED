@@ -42,7 +42,7 @@ class Locator(PageObject, KSEDLocators):
     resolution      = PageElement(xpath=KSEDLocators.resolution)  # Резолюция
     SZ              = PageElement(xpath=KSEDLocators.SZ)  # Служебная записка
     proizvDoc       = PageElement(xpath=KSEDLocators.proizvDoc) # Произвольный документ
-
+    paket_vh        = PageElement(xpath=KSEDLocators.paket_vh) # Пакет входящей корреспонденции
 
 
 
@@ -71,7 +71,8 @@ class Locator(PageObject, KSEDLocators):
     btnCreateSend   = PageElement(xpath=KSEDLocators.btnCreateSend)  # Кнопка "Создать и отправить"
     inpDoc          = PageElement(xpath=KSEDLocators.inpDoc) # Поле "Документы"
     poluchatel      = PageElement(xpath=KSEDLocators.poluchatel) # Поле "Получатель"
-    adresat         = PageElement(xpath=KSEDLocators.adresat) # Адресаты
+    adresati        = PageElement(xpath=KSEDLocators.adresati) # Адресаты
+    adresat         = PageElement(xpath=KSEDLocators.adresat)  # Адресат
     prorabotka      = PageElement(xpath=KSEDLocators.prorabotka) # Проработка
     normokontrol    = PageElement(xpath=KSEDLocators.normokontrol) # Нормоконтроль
     soglasovanie    = PageElement(xpath=KSEDLocators.soglasovanie) # Согласование
@@ -82,6 +83,8 @@ class Locator(PageObject, KSEDLocators):
     tipPoruch       = PageElement(xpath=KSEDLocators.tipPoruch) # Тип поручения
     text_poruch     = PageElement(xpath=KSEDLocators.text_poruch) # Текст поручения
     otvetstv_ispoln = PageElement(xpath=KSEDLocators.otvetstv_ispoln) # Ответственный исполнитель
+    korrespondent   = PageElement(xpath=KSEDLocators.korrespondent) # Корреспондент
+    sposob_dost     = PageElement(xpath=KSEDLocators.sposob_dost) # Способ доставки
 
     clickNull       = PageElement(xpath=KSEDLocators.clickNull) # КЛИК ВНЕ АТРИБУТОВ
 

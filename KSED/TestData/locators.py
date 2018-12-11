@@ -35,6 +35,7 @@ class KSEDLocators:
     resolution = '//a[contains(@class, "hassubmenu")][contains(text(), "Резолюция")]' #xpath  # Резолюция
     SZ = '//a[contains(@class, "hassubmenu")][contains(text(), "Служебная записка")]' #xpath  # Служебная записка
     proizvDoc = '//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Произвольный документ")]' # xpath Произвольный документ
+    paket_vh = '//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Пакет входящей корреспонденции")]' #xpath #Пакет Вх. кор.
 
     # Форма создания документа
     doc_type = '//button[contains(@id, "type-assoc-cntrl-tree-picker-button-button")]' #xpath  # Вид документа(кнопка выбора)
@@ -61,7 +62,8 @@ class KSEDLocators:
     btnCreateSend = '//button[contains(text(), "Создать и отправить")]'  # Кнопка "Создать и отправить"
     inpDoc = '//input[contains(@id, "registry_doc-assoc-cntrl-autocomplete-input")]' #xpath  # Поле "Документы"
     poluchatel = '//input[contains(@id, "document-registry_receiver-assoc-autocomplete")]' #xpath  # Поле "Получатель"
-    adresat = '//input[contains(@id, "internal_recipients-assoc-autocomplete")]'#xpath # Адресаты
+    adresati = '//input[contains(@id, "internal_recipients-assoc-autocomplete")]'#xpath # Адресаты
+    adresat = '//input[contains(@id, "incoming_recipient-assoc-autocomplete")]'  # xpath # Адресат
     prorabotka = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[1]'#xpath # Проработка
     normokontrol = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[2]'#xpath # Нормоконтроль
     soglasovanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[3]'#xpath # Согласование
@@ -72,6 +74,8 @@ class KSEDLocators:
     tipPoruch = '//input[contains(@id, "type-assoc-cntrl-autocomplete-input")]'#xpath # Тип поручения
     text_poruch = 'prop_lecm-errands_content' # name #Текст поручения
     otvetstv_ispoln = '//input[contains(@id, "executor-assoc-autocomplete")]'#xpath # Ответственный исполнитель
+    korrespondent = '//input[contains(@id, "sender-assoc-autocomplete")]' #xpath # Корреспондент
+    sposob_dost = '//input[contains(@id, "_delivery-method-assoc-cntrl-autocomplete-input")]' #xpath # Способ доставки
 
 
     clickNull = '//div[contains(@id, "_default-form-container")]' # КЛИК ВНЕ АТРИБУТОВ

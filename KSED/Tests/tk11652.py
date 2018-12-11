@@ -28,6 +28,7 @@ from selenium.webdriver.common.keys import Keys
 
 from Pages.PageObject import Locator
 from TestData.data import dataTest
+from TestData.locators import KSEDLocators
 
 
 
@@ -49,7 +50,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocSZ(Locator, dataTest):
+class KSEDCreatDocPVH(Locator, dataTest):
 
 
     def __init__(self, web_driver, uri=''):
@@ -91,34 +92,31 @@ class KSEDCreatDocSZ(Locator, dataTest):
 
         page.newDoc_button.click()
 
-        page.SZ.click()
+        page.paket_vh.click()
 
         assert "Страница создания документа" in self.w.title
 
  #       time.sleep(1)
         # Атрибуты документа
 
-        # Заголовок
-        page.title.send_keys(u'Документ')
+        # Корреспондент
+        self.w.execute_script("arguments[0].scrollIntoView();", page.korrespondent)
 
-        # Вид документа
-        page.doc_type.click()
-        page.addEl2.click()
-        page.btnOKDT.click()
+        page.korrespondent.send_keys(u'Сибинтек' + Keys.RETURN)
+        page.korrespondent.send_keys(Keys.RETURN)
 
-        # Категория документа
-        page.category_doc.send_keys(u'Открытый'+Keys.RETURN)
+        # Способ доставки
+        page.sposob_dost.send_keys(u'КСЭД' + Keys.RETURN)
 
-
-        # Адресаты
-        page.adresati.send_keys(u'Строганов'+Keys.RETURN)
+        # Адресат
+        page.adresat.send_keys(u'Строганов'+ Keys.RETURN)
 
 
         time.sleep(0.5)
 
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
-        wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(@id, "_default-form-submit-button")]')))
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))
         page.btnCreateDoc.click()
 
 #        wait.until(EC.number_of_windows_to_be(2))
