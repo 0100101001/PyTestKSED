@@ -48,6 +48,7 @@ class Locator(PageObject, KSEDLocators):
     # Форма создания документа
     doc_type        = PageElement(xpath=KSEDLocators.doc_type) #Вид документа(кнопка выбора)
     addEl           = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
+    addEl2          = PageElement(xpath=KSEDLocators.addEl2) #xpath Вид документа "Служебная записка"
     btnOKDT         = PageElement(xpath=KSEDLocators.btnOKDT) # Вид документа (ОК)
     title           = PageElement(name=KSEDLocators.title) # Заголовок *****
     preambula       = PageElement(xpath=KSEDLocators.preambula) # Преамбула
@@ -69,6 +70,7 @@ class Locator(PageObject, KSEDLocators):
     btnCreateSend   = PageElement(xpath=KSEDLocators.btnCreateSend)  # Кнопка "Создать и отправить"
     inpDoc          = PageElement(xpath=KSEDLocators.inpDoc) # Поле "Документы"
     poluchatel      = PageElement(xpath=KSEDLocators.poluchatel) # Поле "Получатель"
+    adresat         = PageElement(xpath=KSEDLocators.adresat) # Адресаты
     clickNull       = PageElement(xpath=KSEDLocators.clickNull) # КЛИК ВНЕ АТРИБУТОВ
 
 

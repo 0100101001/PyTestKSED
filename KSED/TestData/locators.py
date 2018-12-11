@@ -38,8 +38,9 @@ class KSEDLocators:
     # Форма создания документа
     doc_type = '//button[contains(@id, "type-assoc-cntrl-tree-picker-button-button")]' #xpath  # Вид документа(кнопка выбора)
     addEl = '(//span[@class="addIcon"])[7]' #xpath  # Вид документа(Протокол совещания рабочей группы)
+    addEl2 = '(//span[@class="addIcon"])[6]' #xpath Вид документа "Служебная записка"
     btnOKDT = '//button[contains(@id, "type-assoc-cntrl-ok-button")]' #xpath # Вид документа (ОК)
-    title = 'prop_lecm-document_title' #xpath  # Заголовок *****
+    title = 'prop_lecm-document_title' #name  # Заголовок *****
     preambula = '//textarea[contains(@id, "-eds-document_summaryContent")]' #xpath  # Преамбула
     podpisant = '//input[contains(@id, "signerEmployeeAssoc-cntrl-autocomplete-input")]' #xpath  # Подписант
     obcontrol = '//input[contains(@id, "-ord_controller-assoc-cntrl-autocomplete-input")]' #xpath  # Общий контроль
@@ -59,6 +60,7 @@ class KSEDLocators:
     btnCreateSend = '//button[contains(text(), "Создать и отправить")]'  # Кнопка "Создать и отправить"
     inpDoc = '//input[contains(@id, "registry_doc-assoc-cntrl-autocomplete-input")]' #xpath  # Поле "Документы"
     poluchatel = '//input[contains(@id, "document-registry_receiver-assoc-autocomplete")]' #xpath  # Поле "Получатель"
+    adresat = '//input[contains(@id, "internal_recipients-assoc-autocomplete")]' # Адресаты
     clickNull = '//div[contains(@id, "_default-form-container")]' # КЛИК ВНЕ АТРИБУТОВ
 
 
