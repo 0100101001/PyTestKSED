@@ -61,14 +61,18 @@ class KSEDLocators:
     btnCreateSend = '//button[contains(text(), "Создать и отправить")]'  # Кнопка "Создать и отправить"
     inpDoc = '//input[contains(@id, "registry_doc-assoc-cntrl-autocomplete-input")]' #xpath  # Поле "Документы"
     poluchatel = '//input[contains(@id, "document-registry_receiver-assoc-autocomplete")]' #xpath  # Поле "Получатель"
-    adresat = '//input[contains(@id, "internal_recipients-assoc-autocomplete")]' # Адресаты
-    prorabotka = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[1]' # Проработка
-    normokontrol = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[2]' # Нормоконтроль
-    soglasovanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[3]' # Согласование
-    podpisanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[4]' # Подписание
-    utverzhdenie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[5]' # Утверждение
-    oznakomlenie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[7]' # Ознакомление
-    vid_docInput = '//input[contains(@id, "_document-type-assoc-cntrl-autocomplete-input")]' # Вид документа (Поле)
+    adresat = '//input[contains(@id, "internal_recipients-assoc-autocomplete")]'#xpath # Адресаты
+    prorabotka = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[1]'#xpath # Проработка
+    normokontrol = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[2]'#xpath # Нормоконтроль
+    soglasovanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[3]'#xpath # Согласование
+    podpisanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[4]'#xpath # Подписание
+    utverzhdenie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[5]'#xpath # Утверждение
+    oznakomlenie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[7]'#xpath # Ознакомление
+    vid_docInput = '//input[contains(@id, "_document-type-assoc-cntrl-autocomplete-input")]'#xpath # Вид документа (Поле)
+    tipPoruch = '//input[contains(@id, "type-assoc-cntrl-autocomplete-input")]'#xpath # Тип поручения
+    text_poruch = 'prop_lecm-errands_content' # name #Текст поручения
+    otvetstv_ispoln = '//input[contains(@id, "executor-assoc-autocomplete")]'#xpath # Ответственный исполнитель
+
 
     clickNull = '//div[contains(@id, "_default-form-container")]' # КЛИК ВНЕ АТРИБУТОВ
 

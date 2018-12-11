@@ -79,6 +79,9 @@ class Locator(PageObject, KSEDLocators):
     utverzhdenie    = PageElement(xpath=KSEDLocators.utverzhdenie) # Утверждение
     oznakomlenie    = PageElement(xpath=KSEDLocators.oznakomlenie) # Ознакомление
     vid_docInput    = PageElement(xpath=KSEDLocators.vid_docInput) # Вид документа (поле)
+    tipPoruch       = PageElement(xpath=KSEDLocators.tipPoruch) # Тип поручения
+    text_poruch     = PageElement(xpath=KSEDLocators.text_poruch) # Текст поручения
+    otvetstv_ispoln = PageElement(xpath=KSEDLocators.otvetstv_ispoln) # Ответственный исполнитель
 
     clickNull       = PageElement(xpath=KSEDLocators.clickNull) # КЛИК ВНЕ АТРИБУТОВ
 
