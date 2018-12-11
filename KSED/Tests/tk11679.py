@@ -49,7 +49,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocRD(Locator, dataTest):
+class KSEDCreatDocReestr(Locator, dataTest):
 
 
     def __init__(self, web_driver, uri=''):
@@ -91,41 +91,23 @@ class KSEDCreatDocRD(Locator, dataTest):
 
         page.newDoc_button.click()
 
-        page.rd.click()
+        page.reestr.click()
 
         assert "Страница создания документа" in self.w.title
 
  #       time.sleep(1)
         # Атрибуты документа
 
-        # Заголовок
-        page.title.send_keys(u'Документ')
-
-        # Категория документа
-        page.category_doc.send_keys(u'Открытый')
-        page.category_doc.send_keys(Keys.RETURN)
-
-        # Преамбула
-        page.preambula.send_keys(u'Преамбула')
-
-        # Вид документа
-        page.wid_doc.click()
-        page.wid_doc_rasp.click()
+        # Вид реестра
+        page.vid_reestra.click()
+        page.vid_reestraPR.click()
 #        time.sleep(5)
-        # Подписант
-        page.podpisant.send_keys(u'Строганов')
+        # Документы
+        page.inpDoc.send_keys(dataTest.BARCODE)
         page.podpisant.send_keys(Keys.RETURN)
-#        time.sleep(5)
-        # Общий контроль
-        page.obcontrol.send_keys(u'Строганов')
-        page.obcontrol.send_keys(Keys.RETURN)
 
-#        time.sleep(5)
-
-        # Кнопка "Создать"
-        self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
-        wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(@id, "_default-form-submit-button")]')))
-        page.btnCreateDoc.click()
+        # Кнопка "Создать черновик"
+        page.btnCreateChern.click()
 
 #        wait.until(EC.number_of_windows_to_be(2))
 

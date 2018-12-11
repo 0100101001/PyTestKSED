@@ -26,6 +26,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 
 from Pages.PageObject import Locator
+from TestData.data import dataTest
 
 
 
@@ -50,14 +51,14 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDLogin(Locator):
+class KSEDLogin(Locator, dataTest):
 
 
     def __init__(self, web_driver, uri=''):
 
         super().__init__(web_driver, uri)
 
-        self.get('http://213.128.208.34/share/page/arm?code=SED')
+        self.get(dataTest.baseURL)
 
         wait_page_loaded(self.w)
 

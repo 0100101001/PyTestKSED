@@ -5,7 +5,11 @@ from page_objects import PageObject, PageElement
 
 class Locator(PageObject):
 
+    # ПРЕДУСЛОВИЕ
     baseURL = 'http://213.128.208.34/share/page/arm?code=SED'
+
+    BARCODE = '171267'
+    # ---------------------------------------------
 
     # Форма авторизации
     username_text = PageElement(name='username')
@@ -38,6 +42,13 @@ class Locator(PageObject):
 
     protocol        = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Протокол")]') # Протокол
     rd              = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Распорядительный документ")]') # РД
+    reestr          = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Реестр")]') # Реестр
+    poruchenie      = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Поручение")]') # Поручение
+    resolution      = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Резолюция")]')  # Резолюция
+    SZ              = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Служебная записка")]')  # Служебная записка
+
+
+
 
     # Форма создания документа
     doc_type        = PageElement(xpath='//button[contains(@id, "type-assoc-cntrl-tree-picker-button-button")]') #Вид документа(кнопка выбора)
@@ -56,6 +67,14 @@ class Locator(PageObject):
     person_present  = PageElement(xpath='//input[contains(@id, "_attended-assoc-cntrl-autocomplete-input")]') #Присутствовали
     category_doc    = PageElement(xpath='//input[contains(@id, "-category-assoc-cntrl-autocomplete-input")]') # Категория документа *****
     btnCreateDoc    = PageElement(xpath='//button[contains(@id, "_default-form-submit-button")]') # Кнопка "Создать"
+    vid_reestra     = PageElement(xpath='//select[contains(@id, "_document-registry_type")]') # Вид реестра
+    vid_reestraPR   = PageElement(xpath='//option[contains(text(), "Передачи на регистрацию")]') # Вид реестра (Передачи на рег..)
+    vid_reestraPP   = PageElement(xpath='//option[contains(text(), "Приема/передачи")]') # Вид реестра (Приема/передачи)
+    btnCreateChern  = PageElement(xpath='//button[contains(text(), "Создать черновик")]') # Кнопка "Создать черновик"
+    btnCreateSend   = PageElement(xpath='//button[contains(text(), "Создать и отправить")]')  # Кнопка "Создать черновик"
+    inpDoc          = PageElement(xpath='//input[contains(@id, "registry_doc-assoc-cntrl-autocomplete-input")]') # Поле "Документы"
+    poluchatel      = PageElement(xpath='//input[contains(@id, "document-registry_receiver-assoc-autocomplete")]') # Поле "Получатель"
+
 
     myWork          = PageElement(xpath='//div[contains(text(), "Моя работа")]')           # Моя работа
     expedition      = PageElement(xpath='//div[contains(text(), "Экспедиция")]')           # Экспедиция
