@@ -1,0 +1,11 @@
+pytest
+
+selenium
+
+pytest-selenium
+
+allure-pytest
+
+page-objects
+
+requests
