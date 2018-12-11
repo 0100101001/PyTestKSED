@@ -34,6 +34,7 @@ class KSEDLocators:
     poruchenie = '//a[contains(@class, "hassubmenu")][contains(text(), "Поручение")]' #xpath  # Поручение
     resolution = '//a[contains(@class, "hassubmenu")][contains(text(), "Резолюция")]' #xpath  # Резолюция
     SZ = '//a[contains(@class, "hassubmenu")][contains(text(), "Служебная записка")]' #xpath  # Служебная записка
+    proizvDoc = '//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Произвольный документ")]' # xpath Произвольный документ
 
     # Форма создания документа
     doc_type = '//button[contains(@id, "type-assoc-cntrl-tree-picker-button-button")]' #xpath  # Вид документа(кнопка выбора)
@@ -61,6 +62,14 @@ class KSEDLocators:
     inpDoc = '//input[contains(@id, "registry_doc-assoc-cntrl-autocomplete-input")]' #xpath  # Поле "Документы"
     poluchatel = '//input[contains(@id, "document-registry_receiver-assoc-autocomplete")]' #xpath  # Поле "Получатель"
     adresat = '//input[contains(@id, "internal_recipients-assoc-autocomplete")]' # Адресаты
+    prorabotka = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[1]' # Проработка
+    normokontrol = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[2]' # Нормоконтроль
+    soglasovanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[3]' # Согласование
+    podpisanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[4]' # Подписание
+    utverzhdenie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[5]' # Утверждение
+    oznakomlenie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[7]' # Ознакомление
+    vid_docInput = '//input[contains(@id, "_document-type-assoc-cntrl-autocomplete-input")]' # Вид документа (Поле)
+
     clickNull = '//div[contains(@id, "_default-form-container")]' # КЛИК ВНЕ АТРИБУТОВ
 
 

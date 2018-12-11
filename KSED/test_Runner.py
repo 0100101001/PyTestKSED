@@ -22,6 +22,7 @@ from Tests.tk11674 import KSEDCreatDocRD
 from Tests.tk11679 import KSEDCreatDocReestr
 from Tests.tk11691 import KSEDCreatDocSZ
 from Tests.tk12957 import KSEDCreatDocREZ
+from Tests.tk11664 import KSEDCreatDocPD
 
 
 
@@ -99,15 +100,29 @@ from Tests.tk12957 import KSEDCreatDocREZ
 #
 #     Creat_doc  = page.Creat()
 
-@allure.feature('Создание Резолюции')
+# @allure.feature('Создание Резолюции')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_12957(web_browser):
+#
+#     """ Check authorization. """
+#
+#     page = KSEDCreatDocREZ(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
+#
+#     Creat_doc  = page.Creat()
+
+@allure.feature('Создание Произвольного документа')
 
 @pytest.mark.KSED_smoke_test
 
-def test_12957(web_browser):
+def test_11664(web_browser):
 
     """ Check authorization. """
 
-    page = KSEDCreatDocREZ(web_browser)
+    page = KSEDCreatDocPD(web_browser)
 
     LogIn_page = page.LogIN('StroganovSN', '12345')
 

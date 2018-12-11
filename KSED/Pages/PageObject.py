@@ -41,6 +41,7 @@ class Locator(PageObject, KSEDLocators):
     poruchenie      = PageElement(xpath=KSEDLocators.poruchenie) # Поручение
     resolution      = PageElement(xpath=KSEDLocators.resolution)  # Резолюция
     SZ              = PageElement(xpath=KSEDLocators.SZ)  # Служебная записка
+    proizvDoc       = PageElement(xpath=KSEDLocators.proizvDoc) # Произвольный документ
 
 
 
@@ -71,6 +72,14 @@ class Locator(PageObject, KSEDLocators):
     inpDoc          = PageElement(xpath=KSEDLocators.inpDoc) # Поле "Документы"
     poluchatel      = PageElement(xpath=KSEDLocators.poluchatel) # Поле "Получатель"
     adresat         = PageElement(xpath=KSEDLocators.adresat) # Адресаты
+    prorabotka      = PageElement(xpath=KSEDLocators.prorabotka) # Проработка
+    normokontrol    = PageElement(xpath=KSEDLocators.normokontrol) # Нормоконтроль
+    soglasovanie    = PageElement(xpath=KSEDLocators.soglasovanie) # Согласование
+    podpisanie      = PageElement(xpath=KSEDLocators.podpisanie) # Подписание
+    utverzhdenie    = PageElement(xpath=KSEDLocators.utverzhdenie) # Утверждение
+    oznakomlenie    = PageElement(xpath=KSEDLocators.oznakomlenie) # Ознакомление
+    vid_docInput    = PageElement(xpath=KSEDLocators.vid_docInput) # Вид документа (поле)
+
     clickNull       = PageElement(xpath=KSEDLocators.clickNull) # КЛИК ВНЕ АТРИБУТОВ
 
 
