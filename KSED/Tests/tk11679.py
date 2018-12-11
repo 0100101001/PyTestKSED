@@ -28,6 +28,7 @@ from selenium.webdriver.common.keys import Keys
 
 from Pages.PageObject import Locator
 from TestData.data import dataTest
+from TestData.locators import KSEDLocators
 
 
 
@@ -49,7 +50,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocReestr(Locator, dataTest):
+class KSEDCreatDocReestr(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -80,10 +81,11 @@ class KSEDCreatDocReestr(Locator, dataTest):
 
 
     def Creat(self,):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
+        wait = WebDriverWait(self.w, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        actions = ActionChains(self.w)
 
         page = Locator(self.w)
 
@@ -103,16 +105,18 @@ class KSEDCreatDocReestr(Locator, dataTest):
         page.vid_reestraPP.click()
 #        time.sleep(5)
         # Получатель
-        page.poluchatel.send_keys("Сибинтек")
-        page.poluchatel.send_keys(Keys.RETURN)
+        page.poluchatel.send_keys("Сибинтек"+Keys.RETURN)
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.poluchatel)))
 
         # Документы
-        page.inpDoc.send_keys(dataTest.BARCODE)
-        page.inpDoc.send_keys(Keys.RETURN)
+        page.inpDoc.send_keys(dataTest.BARCODE+Keys.RETURN)
 
+        time.sleep(0.5)
         # Кнопка "Создать и отправить"
-        page.btnCreateSend.click()
-        time.sleep(2)
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateSend)))
+        actions.move_to_element(page.btnCreateSend).click().perform()
+        #page.btnCreateSend.click()
+
 #        wait.until(EC.number_of_windows_to_be(2))
 
         wait_page_loaded(self.w)

@@ -59,6 +59,8 @@ class KSEDLocators:
     btnCreateSend = '//button[contains(text(), "Создать и отправить")]'  # Кнопка "Создать и отправить"
     inpDoc = '//input[contains(@id, "registry_doc-assoc-cntrl-autocomplete-input")]' #xpath  # Поле "Документы"
     poluchatel = '//input[contains(@id, "document-registry_receiver-assoc-autocomplete")]' #xpath  # Поле "Получатель"
+    clickNull = '//div[contains(@id, "_default-form-container")]' # КЛИК ВНЕ АТРИБУТОВ
+
 
     myWork = '//div[contains(text(), "Моя работа")]' #xpath  # Моя работа
     expedition = '//div[contains(text(), "Экспедиция")]' #xpath  # Экспедиция

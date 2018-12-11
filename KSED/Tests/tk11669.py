@@ -118,20 +118,20 @@ class KSEDCreatDocP(Locator, dataTest):
         page.date.send_keys(dd)
  #       time.sleep(0.5)
         # Категория
-        page.category.send_keys(u'Оперативное')
-        page.category.send_keys(Keys.RETURN)
+        page.category.send_keys(u'Оперативное'+Keys.RETURN)
+
         # Председатель
-        page.Chairman.send_keys(u'Строганов')
-        page.Chairman.send_keys(Keys.RETURN)
+        page.Chairman.send_keys(u'Строганов'+Keys.RETURN)
+
         # Секретарь
-        page.Secretary.send_keys(u'Главный')
-        page.Secretary.send_keys(Keys.RETURN)
+        page.Secretary.send_keys(u'Главный'+Keys.RETURN)
+
         # Присутствовали
-        page.person_present.send_keys(u'Яцкин')
-        page.person_present.send_keys(Keys.RETURN)
+        page.person_present.send_keys(u'Яцкин'+Keys.RETURN)
+
         # Категория документа
-        page.category_doc.send_keys(u'Открытый')
-        page.category_doc.send_keys(Keys.RETURN)
+        page.category_doc.send_keys(u'Открытый'+Keys.RETURN)
+
 #        time.sleep(0.5)
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)

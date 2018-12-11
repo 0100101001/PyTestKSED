@@ -69,6 +69,8 @@ class Locator(PageObject, KSEDLocators):
     btnCreateSend   = PageElement(xpath=KSEDLocators.btnCreateSend)  # Кнопка "Создать и отправить"
     inpDoc          = PageElement(xpath=KSEDLocators.inpDoc) # Поле "Документы"
     poluchatel      = PageElement(xpath=KSEDLocators.poluchatel) # Поле "Получатель"
+    clickNull       = PageElement(xpath=KSEDLocators.clickNull) # КЛИК ВНЕ АТРИБУТОВ
+
 
 
     myWork          = PageElement(xpath=KSEDLocators.myWork)           # Моя работа

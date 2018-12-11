@@ -102,8 +102,8 @@ class KSEDCreatDocRD(Locator, dataTest):
         page.title.send_keys(u'Документ')
 
         # Категория документа
-        page.category_doc.send_keys(u'Открытый')
-        page.category_doc.send_keys(Keys.RETURN)
+        page.category_doc.send_keys(u'Открытый'+Keys.RETURN)
+
 
         # Преамбула
         page.preambula.send_keys(u'Преамбула')
@@ -113,12 +113,12 @@ class KSEDCreatDocRD(Locator, dataTest):
         page.wid_doc_rasp.click()
 #        time.sleep(5)
         # Подписант
-        page.podpisant.send_keys(u'Строганов')
-        page.podpisant.send_keys(Keys.RETURN)
+        page.podpisant.send_keys(u'Строганов'+Keys.RETURN)
+
 #        time.sleep(5)
         # Общий контроль
-        page.obcontrol.send_keys(u'Строганов')
-        page.obcontrol.send_keys(Keys.RETURN)
+        page.obcontrol.send_keys(u'Строганов'+Keys.RETURN)
+
 
 #        time.sleep(5)
 
