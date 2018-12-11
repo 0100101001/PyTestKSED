@@ -1,9 +1,0 @@
-pytest
-
-selenium
-
-pytest-selenium
-
-pytest-allure
-
-page-objects

@@ -5,16 +5,11 @@ from TestData.locators import KSEDLocators
 
 class Locator(PageObject, KSEDLocators):
 
-    # ПРЕДУСЛОВИЕ
-    baseURL = 'http://213.128.208.34/share/page/arm?code=SED'
-
-    BARCODE = '171267'
-    # ---------------------------------------------
 
     # Форма авторизации
-    username_text = PageElement(name=KSEDLocators.username_text)
-    password_text = PageElement(name=KSEDLocators.password_text)
-    LogIn_button = PageElement(xpath=KSEDLocators.LogIn_button)
+    username_text = PageElement(name=KSEDLocators.username_text) # Логин
+    password_text = PageElement(name=KSEDLocators.password_text) # Пароль
+    LogIn_button = PageElement(xpath=KSEDLocators.LogIn_button) # Кнопка "Войти"
 
 
     # Строка меню
