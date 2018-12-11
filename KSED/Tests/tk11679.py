@@ -100,15 +100,19 @@ class KSEDCreatDocReestr(Locator, dataTest):
 
         # Вид реестра
         page.vid_reestra.click()
-        page.vid_reestraPR.click()
+        page.vid_reestraPP.click()
 #        time.sleep(5)
+        # Получатель
+        page.poluchatel.send_keys("Сибинтек")
+        page.poluchatel.send_keys(Keys.RETURN)
+
         # Документы
         page.inpDoc.send_keys(dataTest.BARCODE)
-        page.podpisant.send_keys(Keys.RETURN)
+        page.inpDoc.send_keys(Keys.RETURN)
 
-        # Кнопка "Создать черновик"
-        page.btnCreateChern.click()
-
+        # Кнопка "Создать и отправить"
+        page.btnCreateSend.click()
+        time.sleep(2)
 #        wait.until(EC.number_of_windows_to_be(2))
 
         wait_page_loaded(self.w)

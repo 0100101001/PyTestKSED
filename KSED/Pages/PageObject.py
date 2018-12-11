@@ -1,9 +1,9 @@
 from page_objects import PageObject, PageElement
-#from Locators import HomePageLocators
+from TestData.locators import KSEDLocators
 
 
 
-class Locator(PageObject):
+class Locator(PageObject, KSEDLocators):
 
     # ПРЕДУСЛОВИЕ
     baseURL = 'http://213.128.208.34/share/page/arm?code=SED'
@@ -12,119 +12,116 @@ class Locator(PageObject):
     # ---------------------------------------------
 
     # Форма авторизации
-    username_text = PageElement(name='username')
-    password_text = PageElement(name='password')
-    LogIn_button = PageElement(xpath='//span/button')
+    username_text = PageElement(name=KSEDLocators.username_text)
+    password_text = PageElement(name=KSEDLocators.password_text)
+    LogIn_button = PageElement(xpath=KSEDLocators.LogIn_button)
 
 
     # Строка меню
-    ksed            = PageElement(xpath='(//a[contains(@title, "КСЭД")])[1]')              # КСЭД
+    ksed            = PageElement(xpath=KSEDLocators.ksed) # КСЭД
 
-    barcode_search  = PageElement(id_='SEARCH_BARCODE_text')                               # Поиск по ШК
-    search_bc       = PageElement(xpath='//input[contains(@id, "search_bc")]')             # Строка поиска по ШК
+    barcode_search  = PageElement(id_=KSEDLocators.barcode_search) # Поиск по ШК
+    search_bc       = PageElement(xpath=KSEDLocators.search_bc) # Строка поиска по ШК
 
-    more_menu       = PageElement(id_='LOGIC_ECM_MORE_MENU_BAR')                           # Меню "Ещё"
-    ksed_in_more_m  = PageElement(id_='SED_MENU_ITEM_ADDITIONAL_text')                     # КСЭД в меню "Ещё"
-    Company_dir     = PageElement(xpath='//a[contains(@title, "Справочник организации")]') # Справочник организации
-    admin           = PageElement(xpath='//a[contains(@title, "Администрирование")]')      # Администрирование
-    transfer        = PageElement(xpath='//a[contains(@title, "Передача дел")]')           # Передача дел
-    arm_arh         = PageElement(xpath='//a[contains(@title, "Передача дел")]')           # АРМ Архивное дело
-    verify          = PageElement(xpath='//a[contains(@title, "Верификация")]')            # Верификация
-    scanner         = PageElement(xpath='//a[contains(@title, "Верификация")]')            # Работа со сканером ШК
+    more_menu       = PageElement(id_=KSEDLocators.more_menu) # Меню "Ещё"
+    ksed_in_more_m  = PageElement(id_=KSEDLocators.ksed_in_more_m) # КСЭД в меню "Ещё"
+    Company_dir     = PageElement(xpath=KSEDLocators.Company_dir) # Справочник организации
+    admin           = PageElement(xpath=KSEDLocators.admin) # Администрирование
+    transfer        = PageElement(xpath=KSEDLocators.transfer) # Передача дел
+    arm_arh         = PageElement(xpath=KSEDLocators.arm_arh) # АРМ Архивное дело
+    verify          = PageElement(xpath=KSEDLocators.verify) # Верификация
+    scanner         = PageElement(xpath=KSEDLocators.scanner) # Работа со сканером ШК
 
-    notification    = PageElement(id_='NOTIFICATIONS_text')                                # Уведомления
+    notification    = PageElement(id_=KSEDLocators.notification) # Уведомления
 
     # Меню пользователя
-    user_menu       = PageElement(id_='HEADER_USER_MENU_POPUP_text')                       # Меню пользователя
+    user_menu       = PageElement(id_=KSEDLocators.user_menu) # Меню пользователя
 
     # Левая часть страницы (Кнопка "Создать" и разделы)
-    newDoc_button   = PageElement(xpath='//button[contains(@id, "newDocumentButton-button")]')  # "Создать"
+    newDoc_button   = PageElement(xpath=KSEDLocators.newDoc_button) # "Создать"
 
-    protocol        = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Протокол")]') # Протокол
-    rd              = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Распорядительный документ")]') # РД
-    reestr          = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Реестр")]') # Реестр
-    poruchenie      = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Поручение")]') # Поручение
-    resolution      = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Резолюция")]')  # Резолюция
-    SZ              = PageElement(xpath='//a[contains(@class, "hassubmenu")][contains(text(), "Служебная записка")]')  # Служебная записка
+    protocol        = PageElement(xpath=KSEDLocators.protocol) # Протокол
+    rd              = PageElement(xpath=KSEDLocators.rd) # РД
+    reestr          = PageElement(xpath=KSEDLocators.reestr) # Реестр
+    poruchenie      = PageElement(xpath=KSEDLocators.poruchenie) # Поручение
+    resolution      = PageElement(xpath=KSEDLocators.resolution)  # Резолюция
+    SZ              = PageElement(xpath=KSEDLocators.SZ)  # Служебная записка
 
 
 
 
     # Форма создания документа
-    doc_type        = PageElement(xpath='//button[contains(@id, "type-assoc-cntrl-tree-picker-button-button")]') #Вид документа(кнопка выбора)
-    addEl           = PageElement(xpath='(//span[@class="addIcon"])[7]') # Вид документа(Протокол совещания рабочей группы)
-    btnOKDT         = PageElement(xpath='//button[contains(@id, "type-assoc-cntrl-ok-button")]') # Вид документа (ОК)
-    title           = PageElement(name='prop_lecm-document_title') # Заголовок *****
-    preambula       = PageElement(xpath='//textarea[contains(@id, "-eds-document_summaryContent")]') # Преамбула
-    podpisant       = PageElement(xpath='//input[contains(@id, "signerEmployeeAssoc-cntrl-autocomplete-input")]') # Подписант
-    obcontrol       = PageElement(xpath='//input[contains(@id, "-ord_controller-assoc-cntrl-autocomplete-input")]')  # Общий контроль
-    wid_doc         = PageElement(xpath='(//select[contains(@id, "_assoc_lecm-eds-document_document-type-assoc")])[1]')# Вид документа в РД
-    wid_doc_rasp    = PageElement(xpath='//option[contains(text(), "Распоряжение")]') # Вид документа РД (Распоряжение)
-    date            = PageElement(xpath='//input[contains(@id, "_meeting-date-cntrl-date")]') # Дата совещания
-    category        = PageElement(xpath='//input[contains(@id, "_category-assoc-cntrl-autocomplete-input")]') # Категория
-    Chairman        = PageElement(xpath='//input[contains(@id, "chairman-assoc-cntrl-autocomplete-input")]') # Председатель
-    Secretary       = PageElement(xpath='//input[contains(@id, "_secretary-assoc-cntrl-autocomplete-input")]') # Секретарь
-    person_present  = PageElement(xpath='//input[contains(@id, "_attended-assoc-cntrl-autocomplete-input")]') #Присутствовали
-    category_doc    = PageElement(xpath='//input[contains(@id, "-category-assoc-cntrl-autocomplete-input")]') # Категория документа *****
-    btnCreateDoc    = PageElement(xpath='//button[contains(@id, "_default-form-submit-button")]') # Кнопка "Создать"
-    vid_reestra     = PageElement(xpath='//select[contains(@id, "_document-registry_type")]') # Вид реестра
-    vid_reestraPR   = PageElement(xpath='//option[contains(text(), "Передачи на регистрацию")]') # Вид реестра (Передачи на рег..)
-    vid_reestraPP   = PageElement(xpath='//option[contains(text(), "Приема/передачи")]') # Вид реестра (Приема/передачи)
-    btnCreateChern  = PageElement(xpath='//button[contains(text(), "Создать черновик")]') # Кнопка "Создать черновик"
-    btnCreateSend   = PageElement(xpath='//button[contains(text(), "Создать и отправить")]')  # Кнопка "Создать черновик"
-    inpDoc          = PageElement(xpath='//input[contains(@id, "registry_doc-assoc-cntrl-autocomplete-input")]') # Поле "Документы"
-    poluchatel      = PageElement(xpath='//input[contains(@id, "document-registry_receiver-assoc-autocomplete")]') # Поле "Получатель"
+    doc_type        = PageElement(xpath=KSEDLocators.doc_type) #Вид документа(кнопка выбора)
+    addEl           = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
+    btnOKDT         = PageElement(xpath=KSEDLocators.btnOKDT) # Вид документа (ОК)
+    title           = PageElement(name=KSEDLocators.title) # Заголовок *****
+    preambula       = PageElement(xpath=KSEDLocators.preambula) # Преамбула
+    podpisant       = PageElement(xpath=KSEDLocators.podpisant) # Подписант
+    obcontrol       = PageElement(xpath=KSEDLocators.obcontrol)  # Общий контроль
+    wid_doc         = PageElement(xpath=KSEDLocators.wid_doc)# Вид документа в РД
+    wid_doc_rasp    = PageElement(xpath=KSEDLocators.wid_doc_rasp) # Вид документа РД (Распоряжение)
+    date            = PageElement(xpath=KSEDLocators.date) # Дата совещания
+    category        = PageElement(xpath=KSEDLocators.category) # Категория
+    Chairman        = PageElement(xpath=KSEDLocators.Chairman) # Председатель
+    Secretary       = PageElement(xpath=KSEDLocators.Secretary) # Секретарь
+    person_present  = PageElement(xpath=KSEDLocators.person_present) #Присутствовали
+    category_doc    = PageElement(xpath=KSEDLocators.category_doc) # Категория документа *****
+    btnCreateDoc    = PageElement(xpath=KSEDLocators.btnCreateDoc) # Кнопка "Создать"
+    vid_reestra     = PageElement(xpath=KSEDLocators.vid_reestra) # Вид реестра
+    vid_reestraPR   = PageElement(xpath=KSEDLocators.vid_reestraPR) # Вид реестра (Передачи на рег..)
+    vid_reestraPP   = PageElement(xpath=KSEDLocators.vid_reestraPP) # Вид реестра (Приема/передачи)
+    btnCreateChern  = PageElement(xpath=KSEDLocators.btnCreateChern) # Кнопка "Создать черновик"
+    btnCreateSend   = PageElement(xpath=KSEDLocators.btnCreateSend)  # Кнопка "Создать и отправить"
+    inpDoc          = PageElement(xpath=KSEDLocators.inpDoc) # Поле "Документы"
+    poluchatel      = PageElement(xpath=KSEDLocators.poluchatel) # Поле "Получатель"
 
 
-    myWork          = PageElement(xpath='//div[contains(text(), "Моя работа")]')           # Моя работа
-    expedition      = PageElement(xpath='//div[contains(text(), "Экспедиция")]')           # Экспедиция
-    navigation      = PageElement(xpath='//div[contains(text(), "Навигатор")]')            # Навигатор
-    allur           = PageElement(xpath='//div[contains(text(), "Отчеты")]')               # Отчеты
-    workReg         = PageElement(xpath='//div[contains(text(), "Работа регистратора")]')  # Работа регистратора
-    medo            = PageElement(xpath='//div[contains(text(), "МЭДО")]')                 # МЭДО
-    mySearch        = PageElement(xpath='//div[contains(text(), "Мои поисковые запросы")]')# Мои поисковые запросы
+    myWork          = PageElement(xpath=KSEDLocators.myWork)           # Моя работа
+    expedition      = PageElement(xpath=KSEDLocators.expedition)           # Экспедиция
+    navigation      = PageElement(xpath=KSEDLocators.navigation)            # Навигатор
+    allur           = PageElement(xpath=KSEDLocators.allur)               # Отчеты
+    workReg         = PageElement(xpath=KSEDLocators.workReg)  # Работа регистратора
+    medo            = PageElement(xpath=KSEDLocators.medo)                 # МЭДО
+    mySearch        = PageElement(xpath=KSEDLocators.mySearch)# Мои поисковые запросы
 
     # Область просмотра
 
 
     #Отчеты
-    section_allur   = PageElement(xpath='//div[contains(@id, "ac-head")][contains(text(), "Отчеты")]') # Раздел "Отчеты"
-    node_Logs       = PageElement(xpath='//span[contains(text(), "Журналы")]')              # "Журналы"
-    node_Statis     = PageElement(xpath='//span[contains(@class, "ygtvlabel")][contains(text(), "Статистические")]') # "Статистические отчеты"
-    node_ispDisp    = PageElement(xpath='//span[contains(text(), "Отчеты по исполнительской дисциплине")]')
+    section_allur   = PageElement(xpath=KSEDLocators.section_allur) # Раздел "Отчеты"
+    node_Logs       = PageElement(xpath=KSEDLocators.node_Logs)              # "Журналы"
+    node_Statis     = PageElement(xpath=KSEDLocators.node_Statis) # "Статистические отчеты"
+    node_ispDisp    = PageElement(xpath=KSEDLocators.node_ispDisp) # Отчеты по исполнительской дисциплине
 
-    logs_incDoc     = PageElement(xpath='//a[contains(text(), "Журнал регистрации входящих документов")]')
-    logs_outDoc     = PageElement(xpath='//a[contains(text(), "Журнал регистрации исходящих документов")]')
-    logs_raspDoc    = PageElement(xpath='//a[contains(text(), "Журнал регистрации Распорядительных документов")]')
-    logs_sluDoc     = PageElement(xpath='//a[contains(text(), "Журнал Регистрации служебных записок")]')
+    logs_incDoc     = PageElement(xpath=KSEDLocators.logs_incDoc) # Журнал регистрации входящих документов
+    logs_outDoc     = PageElement(xpath=KSEDLocators.logs_outDoc) # Журнал регистрации исходящих документов
+    logs_raspDoc    = PageElement(xpath=KSEDLocators.logs_raspDoc) # Журнал регистрации Распорядительных документов
+    logs_sluDoc     = PageElement(xpath=KSEDLocators.logs_sluDoc) # Журнал Регистрации служебных записок
 
-    stat_specDoc    = PageElement(xpath='//a[contains(text(), "Сводка по видам документов")]')
-    stat_temDoc     = PageElement(xpath='//a[contains(text(), "Сводка по тематикам документов")]')
-    stat_temDocO    = PageElement(xpath='//a[contains(text(), "Сводка по тематикам документов (объедин.)")]')
-    stat_tipDoc     = PageElement(xpath='//a[contains(text(), "Сводка по типам документов")]')
+    stat_specDoc    = PageElement(xpath=KSEDLocators.stat_specDoc) # Сводка по видам документов
+    stat_temDoc     = PageElement(xpath=KSEDLocators.stat_temDoc) # Сводка по тематикам документов
+    stat_temDocO    = PageElement(xpath=KSEDLocators.stat_temDocO) # Сводка по тематикам документов (объедин.)
+    stat_tipDoc     = PageElement(xpath=KSEDLocators.stat_tipDoc) # Сводка по типам документов
 
-    allu_ispIncDoc  = PageElement(xpath='//a[contains(text(), "Исполнение входящих документов")]')
-    allu_raspDoc    = PageElement(xpath='//a[contains(text(), "Исполнение распорядительного документа")]')
-    allu_sluDoc     = PageElement(xpath='//a[contains(text(), "Исполнение служебных записок")]')
-    allu_ispDis     = PageElement(xpath='//a[contains(text(), "Исполнительская дисциплина по авторам")]')
-    allu_ispDispA   = PageElement(xpath='//a[contains(text(), "Исполнительская дисциплина по исполнителям")]')
-    allu_NispDI     = PageElement(xpath='//a[contains(text(), "Неисполнительные поручения с истекшим сроком")]')
-    allu_NispDIrg   = PageElement(xpath='//a[contains(text(), "Неисполнительные поручения с истекшим сроком РГ")]')
-    allu_istS       = PageElement(xpath='//a[contains(text(), "Поручения с истекающим сроком")]')
-    allu_narS       = PageElement(xpath='//a[contains(text(), "Поручения, исполненные с нарушением срока")]')
-    allu_prodIsp    = PageElement(xpath='//a[contains(text(), "Продуктивность по Исполнителям")]')
-    allu_prodPodr   = PageElement(xpath='//a[contains(text(), "Продуктивность по Подразделениям")]')
-    allu_ReesContr  = PageElement(xpath='//a[contains(text(), "Реестр для закрытия неактуальных контрольных поручений")]')
-    allu_ReesContrN = PageElement(xpath='//a[contains(text(), "Реестр неисполнительных контрольных поручений")]')
-    allu_ReesContrF = PageElement(xpath='//a[contains(text(), "Реестр фактических исполнительных контрольных поручений")]')
-    allu_SostIspR   = PageElement(xpath='//a[contains(text(), "Состояние исполнения резолюций")]')
+    allu_ispIncDoc  = PageElement(xpath=KSEDLocators.allu_ispIncDoc) #Исполнение входящих документов
+    allu_raspDoc    = PageElement(xpath=KSEDLocators.allu_raspDoc) #Исполнение распорядительного документа
+    allu_sluDoc     = PageElement(xpath=KSEDLocators.allu_sluDoc) # Исполнение служебных записок
+    allu_ispDis     = PageElement(xpath=KSEDLocators.allu_ispDis) # Исполнительская дисциплина по авторам
+    allu_ispDispA   = PageElement(xpath=KSEDLocators.allu_ispDispA) # Исполнительская дисциплина по исполнителям
+    allu_NispDI     = PageElement(xpath=KSEDLocators.allu_NispDI) # Неисполнительные поручения с истекшим сроком
+    allu_NispDIrg   = PageElement(xpath=KSEDLocators.allu_NispDIrg) # Неисполнительные поручения с истекшим сроком РГ
+    allu_istS       = PageElement(xpath=KSEDLocators.allu_istS) # Поручения с истекающим сроком
+    allu_narS       = PageElement(xpath=KSEDLocators.allu_narS) # Поручения, исполненные с нарушением срока
+    allu_prodIsp    = PageElement(xpath=KSEDLocators.allu_prodIsp) # Продуктивность по Исполнителям
+    allu_prodPodr   = PageElement(xpath=KSEDLocators.allu_prodPodr) # Продуктивность по Подразделениям
+    allu_ReesContr  = PageElement(xpath=KSEDLocators.allu_ReesContr) # Реестр для закрытия неактуальных контрольных поручений
+    allu_ReesContrN = PageElement(xpath=KSEDLocators.allu_ReesContrN) # Реестр неисполнительных контрольных поручений
+    allu_ReesContrF = PageElement(xpath=KSEDLocators.allu_ReesContrF) # Реестр фактических исполнительных контрольных поручений
+    allu_SostIspR   = PageElement(xpath=KSEDLocators.allu_SostIspR) # Состояние исполнения резолюций
 
 
     #Формы отчетов
 
-    def PE(self):
-        r = self.username_text.locator
-        print('123')
 
 
 
