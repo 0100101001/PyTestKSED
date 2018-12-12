@@ -105,10 +105,34 @@ class KSEDLocators:
 
     korrespondent = '//input[contains(@id, "sender-assoc-autocomplete")]'  # xpath # Корреспондент
 
-    # ПРОТОКОЛ
-    #(форма создания документа)
-    addEl = '(//span[@class="addIcon"])[7]' #xpath  # Вид документа(Протокол совещания рабочей группы)
-    addEl2 = '(//span[@class="addIcon"])[6]' #xpath Вид документа "Служебная записка"
+    # (карточка документа)
+    attachments = '//h2[contains(@id, "heading")][contains(text(), "Вложения")]' #xpath # Вложения (раскрытие раздела)
+    osnSvedeniya = '//h2[contains(@id, "heading")][contains(text(), "Основные сведения")]' #xpath # Основные сведения (раскрытие раздела)
+    mode = '//button[contains(@id, "default-cntrl-split-panel-button-button")]' #xpath
+    fileUpload = '(//button[contains(@id, "fileUpload-button-button")])[2]' #xpath # Загрузить файл
+    files = '//input[@type="file"][@name="files[]"]' #xpath # Выберите файлы
+    show = '//a[contains(@id, "action-show-main")]' #xpath # Показать общую карточка
+    punkti = '//em[contains(text(), "Пункты")]' #xpath # Вкладка "Пункты"
+    punktiBtn = '//button[contains(@id, "create-point-button")]' #xpath # Кнопка "Пункты"
+    punktPoruch = '(//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Поручение")])[1]' #xpath # Пункт/Поручение
+    textPoruch = '//textarea[contains(@id, "ts_point-desc")]' #xpath # Текст поручения
+    tipPoruch = '//input[contains(@id, "type-assoc-cntrl-autocomplete-input")]'  # xpath # Тип поручения
+    otvetstv_ispolnVpunktah = '//input[contains(@id, "_executor-assoc-cntrl-autocomplete-input")]'  # xpath # Ответственный исполнитель в пунктах карточки документа
+    srokIspoln = '//input[contains(@id, "ts_limitation-date-cntrl-date")]' #xpath # Срок исполнения (среднее знач)
+
+    btnOKform = '//button[contains(@id, "form-submit-button")]' #xpath # Кнопка ОК на форме
+
+    sendFor_approval = '//div[contains(text(), "Направить на согласование")]' #xpath # Действие "Направить на согласование"
+
+    status_Doc = '//span[contains(@id, "_status")]' #xpath # Статус документа во вкладке (Основные сведения)
+
+
+
+
+    # # ПРОТОКОЛ
+    # #(форма создания документа)
+    # addEl = '(//span[@class="addIcon"])[7]' #xpath  # Вид документа(Протокол совещания рабочей группы)
+    # addEl2 = '(//span[@class="addIcon"])[6]' #xpath Вид документа "Служебная записка"
 
     # РАСПОРЯДИТЕЛЬНЫЙ ДОКУМЕНТ
     #(форма создания документа)
@@ -119,11 +143,15 @@ class KSEDLocators:
 
     # ПРОТОКОЛ
     #(форма создания документа)
+    addEl = '(//span[@class="addIcon"])[7]' #xpath  # Вид документа(Протокол совещания рабочей группы)
+    addEl2 = '(//span[@class="addIcon"])[6]' #xpath Вид документа "Служебная записка"
     date = '//input[contains(@id, "_meeting-date-cntrl-date")]' #xpath  # Дата совещания
     category = '//input[contains(@id, "_category-assoc-cntrl-autocomplete-input")]'#xpath  # Категория
     Chairman = '//input[contains(@id, "chairman-assoc-cntrl-autocomplete-input")]'#xpath  # Председатель
     Secretary = '//input[contains(@id, "_secretary-assoc-cntrl-autocomplete-input")]'#xpath  # Секретарь
     person_present = '//input[contains(@id, "_attended-assoc-cntrl-autocomplete-input")]'#xpath  # Присутствовали
+    #(карточка документа)
+
 
 
     #РЕЕСТР
@@ -151,7 +179,6 @@ class KSEDLocators:
 
     # ПОРУЧЕНИЕ
     # (форма создания документа)
-    tipPoruch = '//input[contains(@id, "type-assoc-cntrl-autocomplete-input")]'#xpath # Тип поручения
     text_poruch = 'prop_lecm-errands_content' # name #Текст поручения
     otvetstv_ispoln = '//input[contains(@id, "executor-assoc-autocomplete")]'#xpath # Ответственный исполнитель
 

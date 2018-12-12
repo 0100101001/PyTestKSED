@@ -27,40 +27,37 @@ from Tests.tk11655 import KSEDCreatDocPor
 from Tests.tk11652 import KSEDCreatDocPVH
 from Tests.tk11644 import KSEDCreatDocVH
 from Tests.tk11645 import KSEDCreatDocISH
+from Tests.tk13756 import KSEDCreatDocPSoglas
 
 
 
 
 
 
-
-# @allure.feature('Authorization')
 
 # @pytest.mark.parametrize('Ln', ['StroganovSN', 'tst_gid'])
 # @pytest.mark.parametrize('Ps', ['12345'])
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11639(web_browser):
-#
-#     """ Check authorization. """
-#
-#     page = KSEDLogin(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
 
-# @allure.feature('Создание Протокола')
 
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11639(web_browser):
-#
-#     """ Check authorization. """
-#
-#     page = KSEDCreatDocP(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
+@allure.feature('Направление Протокола на согласование')
+
+@pytest.mark.KSED_smoke_test
+
+def test_13756(web_browser):
+
+    """ Check authorization. """
+
+    page = KSEDCreatDocPSoglas(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    Creat_doc  = page.Creat()
+
+    Attach = page.attachment()
+
+    addPoruch = page.addPoruchenie()
+
+    NaprNaSogl = page.NapSoglasovanie()
 
 # @allure.feature('Создание РД')
 #
@@ -174,16 +171,16 @@ from Tests.tk11645 import KSEDCreatDocISH
 #
 #     Creat_doc  = page.Creat()
 
-@allure.feature('Создание Исходящий документ')
-
-@pytest.mark.KSED_smoke_test
-
-def test_11645(web_browser):
-
-    """ Check authorization. """
-
-    page = KSEDCreatDocISH(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', '12345')
-
-    Creat_doc  = page.Creat()
+# @allure.feature('Создание Исходящий документ')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_11645(web_browser):
+#
+#     """ Check authorization. """
+#
+#     page = KSEDCreatDocISH(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
+#
+#     Creat_doc  = page.Creat()

@@ -112,17 +112,41 @@ class Locator(PageObject, KSEDLocators):
 
     korrespondent = PageElement(xpath=KSEDLocators.korrespondent)  # Корреспондент
 
-    # ПРОТОКОЛ
-    #(форма создания документа)
-    addEl = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
-    addEl2 = PageElement(xpath=KSEDLocators.addEl2) #Вид документа "Служебная записка"
+    # # ПРОТОКОЛ
+    # #(форма создания документа)
+    # addEl = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
+    # addEl2 = PageElement(xpath=KSEDLocators.addEl2) #Вид документа "Служебная записка"
 
     # РАСПОРЯДИТЕЛЬНЫЙ ДОКУМЕНТ
     #(форма создания документа)
+    addEl = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
+    addEl2 = PageElement(xpath=KSEDLocators.addEl2) #Вид документа "Служебная записка"
     preambula = PageElement(xpath=KSEDLocators.preambula) # Преамбула
     obcontrol = PageElement(xpath=KSEDLocators.obcontrol) # Общий контроль
     wid_doc = PageElement(xpath=KSEDLocators.wid_doc) # Вид документа (в РД)
     wid_doc_rasp = PageElement(xpath=KSEDLocators.wid_doc_rasp) # Вид документа РД (Распоряжение)
+    # (карточка документа)
+    attachments = PageElement(xpath=KSEDLocators.attachments) # Вложения (раскрытие раздела)
+    osnSvedeniya = PageElement(xpath=KSEDLocators.osnSvedeniya) # Основные сведения (раскрытие раздела)
+    mode = PageElement(xpath=KSEDLocators.mode) # Переключение однопанельный/двухпанельный вид
+    fileUpload = PageElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
+    files = PageElement(xpath=KSEDLocators.files) # Выберите файлы
+    show = PageElement(xpath=KSEDLocators.show) # Показать общую карточка
+
+    punkti = PageElement(xpath=KSEDLocators.punkti) # Вкладка "Пункты"
+    punktiBtn = PageElement(xpath=KSEDLocators.punktiBtn) # Кнопка "Пункты"
+    punktPoruch = PageElement(xpath=KSEDLocators.punktPoruch) # Пункт/Поручение
+    textPoruch = PageElement(xpath=KSEDLocators.textPoruch) # Текст поручения
+    tipPoruch = PageElement(xpath=KSEDLocators.tipPoruch) # Тип поручения
+    otvetstv_ispolnVpunktah = PageElement(xpath=KSEDLocators.otvetstv_ispolnVpunktah) # Ответственный исполнитель в пунктах карточки документа
+    srokIspoln = PageElement(xpath=KSEDLocators.srokIspoln) # Срок исполнения (среднее знач)
+
+    btnOKform = PageElement(xpath=KSEDLocators.btnOKform) # Кнопка ОК на форме
+
+    sendFor_approval = PageElement(xpath=KSEDLocators.sendFor_approval) # Действие "Направить на согласование"
+
+    status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
+
 
     # ПРОТОКОЛ
     #(форма создания документа)

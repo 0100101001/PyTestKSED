@@ -51,7 +51,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -149,4 +149,66 @@ class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
 #        wait.until(EC.title_is(self.w.title))
 
         assert "Документ" in self.w.title
+
+    def attachment(self,):
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        page.mode.click()
+
+        #        time.sleep(0.5)
+        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
+
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
+        page.fileUpload.click()
+
+        #        time.sleep(0.5)
+        wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
+        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
+        page.files.send_keys('C://test.txt')
+
+    def addPoruchenie(self, ):
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        time.sleep(1)
+        page.show.click()
+
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punkti)))
+        page.punkti.click()
+
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punktiBtn)))
+        page.punktiBtn.click()
+
+        page.punktPoruch.click()
+
+        page.textPoruch.send_keys("Произвольный текст")
+
+        page.tipPoruch.send_keys("Поручение по пункту РД" + Keys.RETURN)
+
+        page.otvetstv_ispolnVpunktah.send_keys("Главный" + Keys.RETURN)
+
+        dd = datetime.date.today().strftime('%d%m%Y')
+        page.srokIspoln.send_keys(dd)
+
+        page.btnOKform.click()
+
+    def NapSoglasovanie(self, ):
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+
+        page.sendFor_approval.click()
+
+        wait_page_loaded(self.w)
+
+        # Проверим статус документа
+
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
+        page.osnSvedeniya.click()
+
+        assert "На согласовании" in self.status_Doc.text
 
