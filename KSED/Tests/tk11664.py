@@ -103,7 +103,7 @@ class KSEDCreatDocPD(Locator, dataTest, KSEDLocators):
         page.title.send_keys(u'Документ')
 
         # Вид документа
-        page.vid_docInput.send_keys(u'Договор'+Keys.RETURN)
+        page.doc_typeInp.send_keys(u'Договор'+Keys.RETURN)
 
         # Проработка
         self.w.execute_script("arguments[0].scrollIntoView();", page.prorabotka)
