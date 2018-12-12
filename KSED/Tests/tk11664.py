@@ -133,7 +133,7 @@ class KSEDCreatDocPD(Locator, dataTest, KSEDLocators):
 
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
-        wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(@id, "_default-form-submit-button")]')))
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))
         page.btnCreateDoc.click()
 
 #        wait.until(EC.number_of_windows_to_be(2))
