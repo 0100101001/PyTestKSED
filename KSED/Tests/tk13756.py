@@ -8,13 +8,6 @@ import time, datetime
 
 
 
-from selenium.webdriver import ActionChains
-
-from page_objects import PageObject
-
-from page_objects import PageElement
-
-from page_objects import MultiPageElement
 
 from selenium.webdriver.common.by import By
 
