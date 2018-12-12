@@ -108,7 +108,7 @@ class KSEDCreatDocPD(Locator, dataTest, KSEDLocators):
         # Проработка
         self.w.execute_script("arguments[0].scrollIntoView();", page.prorabotka)
         page.prorabotka.send_keys(u'Строганов'+Keys.RETURN)
-
+        time.sleep(0.5)
         # Нормоконтроль
         self.w.execute_script("arguments[0].scrollIntoView();", page.normokontrol)
         page.normokontrol.send_keys(u'Строганов' + Keys.RETURN)

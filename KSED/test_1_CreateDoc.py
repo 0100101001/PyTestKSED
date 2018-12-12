@@ -35,9 +35,9 @@ from Tests.tk11645 import KSEDCreatDocISH
 
 
 # @allure.feature('Авторизация')
-
-# @pytest.mark.parametrize('Ln', ['StroganovSN', 'tst_gid'])
-# @pytest.mark.parametrize('Ps', ['12345'])
+#
+# # @pytest.mark.parametrize('Ln', ['StroganovSN', 'tst_gid'])
+# # @pytest.mark.parametrize('Ps', ['12345'])
 # @pytest.mark.KSED_smoke_test
 #
 # def test_11639(web_browser):
@@ -47,9 +47,9 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     page = KSEDLogin(web_browser)
 #
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
-
+#
 # @allure.feature('Создание Протокола')
-
+#
 # @pytest.mark.KSED_smoke_test
 #
 # def test_11669(web_browser):
@@ -61,7 +61,7 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
-
+#
 # @allure.feature('Создание РД')
 #
 # @pytest.mark.KSED_smoke_test
@@ -75,7 +75,7 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
-
+#
 # @allure.feature('Создание Реестра')
 #
 # @pytest.mark.KSED_smoke_test
@@ -89,7 +89,7 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
-
+#
 # @allure.feature('Создание Служебной записки')
 #
 # @pytest.mark.KSED_smoke_test
@@ -103,7 +103,7 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
-
+#
 # @allure.feature('Создание Резолюции')
 #
 # @pytest.mark.KSED_smoke_test
@@ -117,7 +117,7 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
-
+#
 # @allure.feature('Создание Произвольного документа')
 #
 # @pytest.mark.KSED_smoke_test
@@ -131,7 +131,7 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
-
+#
 # @allure.feature('Создание Поручения')
 #
 # @pytest.mark.KSED_smoke_test
@@ -145,7 +145,7 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
-
+#
 # @allure.feature('Создание Пакет входящей корреспонденции')
 #
 # @pytest.mark.KSED_smoke_test
@@ -159,7 +159,7 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
-
+#
 # @allure.feature('Создание Входящий документ')
 #
 # @pytest.mark.KSED_smoke_test
@@ -173,17 +173,17 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
+#
+@allure.feature('Создание Исходящий документ')
 
-# @allure.feature('Создание Исходящий документ')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11645(web_browser):
-#
-#     """ Check authorization. """
-#
-#     page = KSEDCreatDocISH(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
+@pytest.mark.KSED_smoke_test
+
+def test_11645(web_browser):
+
+    """ Check authorization. """
+
+    page = KSEDCreatDocISH(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    Creat_doc  = page.Creat()

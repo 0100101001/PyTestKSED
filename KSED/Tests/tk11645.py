@@ -121,6 +121,7 @@ class KSEDCreatDocISH(Locator, dataTest, KSEDLocators):
         time.sleep(0.5)
         page.podpisant.send_keys(u'Строганов' + Keys.RETURN)
 
+        time.sleep(0.5)
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))
@@ -130,7 +131,7 @@ class KSEDCreatDocISH(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 #        self.w.set_page_load_timeout(30)
-        time.sleep(2)
+#        time.sleep(2)
 
 #
 #        wait.until(EC.title_is(self.w.title))

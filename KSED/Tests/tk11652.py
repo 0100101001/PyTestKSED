@@ -96,7 +96,7 @@ class KSEDCreatDocPVH(Locator, dataTest):
 
         assert "Страница создания документа" in self.w.title
 
- #       time.sleep(1)
+        time.sleep(1)
         # Атрибуты документа
 
         # Корреспондент

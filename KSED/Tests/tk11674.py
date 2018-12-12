@@ -116,12 +116,12 @@ class KSEDCreatDocRD(Locator, dataTest, KSEDLocators):
         # Подписант
         page.podpisant.send_keys(u'Строганов'+Keys.RETURN)
 
-#        time.sleep(5)
+        time.sleep(0.5)
         # Общий контроль
         page.obcontrol.send_keys(u'Строганов'+Keys.RETURN)
 
 
-#        time.sleep(5)
+        time.sleep(0.5)
 
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
@@ -132,7 +132,7 @@ class KSEDCreatDocRD(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 #        self.w.set_page_load_timeout(30)
-        time.sleep(2)
+#        time.sleep(2)
 
 #
 #        wait.until(EC.title_is(self.w.title))

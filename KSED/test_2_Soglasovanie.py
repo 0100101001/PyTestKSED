@@ -39,25 +39,25 @@ from Tests.tk13756 import KSEDCreatDocPSoglas
 # @pytest.mark.parametrize('Ps', ['12345'])
 
 
-@allure.feature('Направление Протокола на согласование')
-
-@pytest.mark.KSED_smoke_test
-
-def test_13756(web_browser):
-
-    """ Check authorization. """
-
-    page = KSEDCreatDocPSoglas(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', '12345')
-
-    Creat_doc  = page.Creat()
-
-    Attach = page.attachment()
-
-    addPoruch = page.addPoruchenie()
-
-    NaprNaSogl = page.NapSoglasovanie()
+# @allure.feature('Направление Протокола на согласование')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_13756(web_browser):
+#
+#     """ Check authorization. """
+#
+#     page = KSEDCreatDocPSoglas(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
+#
+#     Creat_doc  = page.Creat()
+#
+#     Attach = page.attachment()
+#
+#     addPoruch = page.addPoruchenie()
+#
+#     NaprNaSogl = page.NapSoglasovanie()
 
 # @allure.feature('Создание РД')
 #
@@ -171,16 +171,16 @@ def test_13756(web_browser):
 #
 #     Creat_doc  = page.Creat()
 
-# @allure.feature('Создание Исходящий документ')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11645(web_browser):
-#
-#     """ Check authorization. """
-#
-#     page = KSEDCreatDocISH(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
+@allure.feature('Создание Исходящий документ')
+
+@pytest.mark.KSED_smoke_test
+
+def test_11645(web_browser):
+
+    """ Check authorization. """
+
+    page = KSEDCreatDocISH(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    Creat_doc  = page.Creat()
