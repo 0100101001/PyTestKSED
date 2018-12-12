@@ -36,6 +36,8 @@ class KSEDLocators:
     SZ = '//a[contains(@class, "hassubmenu")][contains(text(), "Служебная записка")]' #xpath  # Служебная записка
     proizvDoc = '//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Произвольный документ")]' # xpath Произвольный документ
     paket_vh = '//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Пакет входящей корреспонденции")]' #xpath #Пакет Вх. кор.
+    vhDoc = '//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Входящий документ")]'
+    ishDoc = '//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Исходящий документ")]'
 
     # РАЗДЕЛЫ
     myWork = '//div[contains(text(), "Моя работа")]' #xpath  # Моя работа
@@ -101,6 +103,8 @@ class KSEDLocators:
 
     adresat = '//input[contains(@id, "_recipient-assoc-autocomplete")]'  # xpath # Адресат
 
+    korrespondent = '//input[contains(@id, "sender-assoc-autocomplete")]'  # xpath # Корреспондент
+
     # ПРОТОКОЛ
     #(форма создания документа)
     addEl = '(//span[@class="addIcon"])[7]' #xpath  # Вид документа(Протокол совещания рабочей группы)
@@ -152,7 +156,17 @@ class KSEDLocators:
     otvetstv_ispoln = '//input[contains(@id, "executor-assoc-autocomplete")]'#xpath # Ответственный исполнитель
 
     # ПАКЕТ ВХОДЯЩЕЙ КОРРЕСПОНДЕНЦИИ
-    korrespondent = '//input[contains(@id, "sender-assoc-autocomplete")]' #xpath # Корреспондент
+
+    # ВХОДЯЩИЙ ДОКУМЕНТ
+    #(форма создания документа)
+    ishNumber = 'prop_lecm-incoming_outgoing-number' #name # Исходящий номер
+    dateIS = '//input[contains(@id, "-incoming_outgoing-date-cntrl-date")]'  # xpath  # Дата исходящего
+
+    # ИСХОДЯЩИЙ ДОКУМЕНТ
+    #(форма создания документа)
+    osnovPodpis = 'prop_lecm-outgoing_signing-basis' #name # Основание подписания
+    korrespondentISH = '//input[contains(@id, "contractor-assoc-autocomplete")]' #xpath # Корреспондент
+
 
 
 
