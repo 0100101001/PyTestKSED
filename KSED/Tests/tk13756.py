@@ -80,7 +80,7 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
 
         assert "АРМ" in self.w.title
 
-
+    # Создание документа (открытие формы создания и заполнение атрибутов)
     def Creat(self,):
         # wait = WebDriverWait(self.w, 10, poll_frequency=1,
         #                      ignored_exceptions=[NoSuchElementException,
@@ -150,6 +150,7 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
 
         assert "Документ" in self.w.title
 
+    # Добавление вложения
     def attachment(self,):
         page = Locator(self.w)
 
@@ -168,6 +169,7 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         page.files.send_keys('C://test.txt')
 
+    # Добавление пункта "Поручение"
     def addPoruchenie(self, ):
         page = Locator(self.w)
 
@@ -195,6 +197,7 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
 
         page.btnOKform.click()
 
+    # Направление на согласование и проверка статуса документа
     def NapSoglasovanie(self, ):
         page = Locator(self.w)
 
@@ -206,7 +209,6 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         wait_page_loaded(self.w)
 
         # Проверим статус документа
-
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
         page.osnSvedeniya.click()
 

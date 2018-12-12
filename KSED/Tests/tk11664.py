@@ -79,7 +79,7 @@ class KSEDCreatDocPD(Locator, dataTest, KSEDLocators):
 
         assert "АРМ" in self.w.title
 
-
+    # Создание документа (открытие формы создания и заполнение атрибутов)
     def Creat(self,):
         # wait = WebDriverWait(self.w, 10, poll_frequency=1,
         #                      ignored_exceptions=[NoSuchElementException,
