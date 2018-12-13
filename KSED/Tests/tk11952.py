@@ -42,7 +42,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocP_sendDorab(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -55,28 +55,21 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
 
     # Авторизация
     def LogIN(self, username, password):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
+
         page = Locator(self.w)
 
         page.username_text = username
-        print(Locator.username_text)
+
         page.password_text = password
 
         page.LogIn_button.click()
 
         wait_page_loaded(self.w)
 
-        assert "АРМ" in self.w.title
+        #assert "АРМ" in self.w.title
 
     # Создание документа (открытие формы создания и заполнение атрибутов)
     def Creat(self,):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
 
         page = Locator(self.w)
 
@@ -124,20 +117,14 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         # Категория документа
         page.category_doc.send_keys(u'Открытый'+Keys.RETURN)
 
-#        time.sleep(0.5)
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))
         page.btnCreateDoc.click()
 
-#        wait.until(EC.number_of_windows_to_be(2))
-
         wait_page_loaded(self.w)
-#        self.w.set_page_load_timeout(30)
-        time.sleep(2)
 
-#
-#        wait.until(EC.title_is(self.w.title))
+        time.sleep(2)
 
         assert "Документ" in self.w.title
 
@@ -147,17 +134,18 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
 
         wait = WebDriverWait(self.w, 10)
 
+        wait_page_loaded(self.w)
+
         page.mode.click()
 
-        #        time.sleep(0.5)
-        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
+        time.sleep(0.5)
 
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
         page.fileUpload.click()
 
         #        time.sleep(0.5)
-        wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
-        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
+        WebDriverWait(self.w, 10).until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
+
         page.files.send_keys('C://test.txt')
 
     # Добавление пункта "Поручение"
@@ -204,4 +192,58 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         page.osnSvedeniya.click()
 
         assert "На согласовании" in self.status_Doc.text
+
+    # Выйдем из системы
+    def USER_LOGOUTs(self,):
+
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        page.user_menu.click()
+
+        page.USER_LOGOUT.click()
+
+        wait_page_loaded(self.w)
+
+        assert "Войти" in self.w.title
+
+    # Откроем докуммент из уведомления
+    def notificationOpen(self):
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        wait_page_loaded(self.w)
+
+        page.notification.click()
+
+        time.sleep(0.5)
+        page.notificationProtokol.click()
+
+        wait_page_loaded(self.w)
+
+    # Отклонить согласование и вернуть на доработку
+    def REJECTED(self,):
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.REJECTED_button)))
+        page.REJECTED_button.click()
+
+        page.prop_bpm_comment.send_keys('я так хотю')
+
+        page.apply_button_button.click()
+
+        wait_page_loaded(self.w)
+
+        # Проверим статус документа
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
+        page.osnSvedeniya.click()
+
+        assert "На доработке" in self.status_Doc.text
+
+
+
 

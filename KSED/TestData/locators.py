@@ -21,9 +21,11 @@ class KSEDLocators:
     scanner = '//a[contains(@title, "Верификация")]' #xpath  # Работа со сканером ШК
 
     notification = 'NOTIFICATIONS_text' #id  # Уведомления
+    notificationProtokol = '(//a[contains(text(), "Протокол:")])[1]' #xpath # Первое в списке уведомление о протоколе
 
     # *******МЕНЮ ПОЛЬЗОВАТЕЛЯ*******
     user_menu = 'HEADER_USER_MENU_POPUP_text' #id  # Меню пользователя
+    USER_LOGOUT = 'HEADER_USER_MENU_LOGOUT_text' #id # Выход из системы
 
     # *******ЛЕВАЯ ЧАСТЬ СТРАНИЦЫ (Кнопка "Создать" и разделы)*******
     newDoc_button = '//button[contains(@id, "newDocumentButton-button")]' #xpath  # "Создать"
@@ -83,7 +85,7 @@ class KSEDLocators:
     allu_SostIspR = '//a[contains(text(), "Состояние исполнения резолюций")]' #xpath
 
 
-    # *******ФОРМА СОЗДАНИЯ ДОКУМЕНТА*******
+    # *******РАБОТА С ДОКУМЕНТОМ*******
 
     # ОБЩИЕ АТРИБУТЫ
     #(форма создания документа)
@@ -126,6 +128,13 @@ class KSEDLocators:
 
     status_Doc = '//span[contains(@id, "_status")]' #xpath # Статус документа во вкладке (Основные сведения)
 
+    # (панель согласования)
+    APPROVED_button = '//button[contains(@id, "APPROVED-button")]' #xpath # Кнопка "Согласовать"
+    APPROVED_WITH_REMARK_button = '//button[contains(@id, "APPROVED_WITH_REMARK-button")]' #xpath # Кнопка "Согласовать с комментариями"
+    REJECTED_button = '//button[contains(@id, "REJECTED-button")]' #xpath # Кнопка "Отклонить"
+    internal_approval = '//button[contains(@id, "internal_approval-button")]' #xpath # Кнопка "Внутреннее согласование"
+    prop_bpm_comment = 'prop_bpm_comment' #name # Поле комментария
+    apply_button_button = '//button[contains(@id, "apply-button")]' #xpath # Кнопка "ОК" при вынесении решения согласования
 
 
 

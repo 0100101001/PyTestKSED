@@ -28,9 +28,11 @@ class Locator(PageObject, KSEDLocators):
     scanner = PageElement(xpath=KSEDLocators.scanner) # Работа со сканером ШК
 
     notification = PageElement(id_=KSEDLocators.notification) # Уведомления
+    notificationProtokol = PageElement(xpath=KSEDLocators.notificationProtokol) # Первое в списке уведомление о протоколе
 
     # *******МЕНЮ ПОЛЬЗОВАТЕЛЯ*******
-    user_menu = PageElement(id_=KSEDLocators.notification) # Меню пользователя
+    user_menu = PageElement(id_=KSEDLocators.user_menu) # Меню пользователя
+    USER_LOGOUT = PageElement(id_=KSEDLocators.USER_LOGOUT) # Выход из системы
 
     # *******ЛЕВАЯ ЧАСТЬ СТРАНИЦЫ (Кнопка "Создать" и разделы)*******
     newDoc_button = PageElement(xpath=KSEDLocators.newDoc_button) # "Создать"
@@ -90,7 +92,7 @@ class Locator(PageObject, KSEDLocators):
     allu_SostIspR = PageElement(xpath=KSEDLocators.allu_SostIspR)
 
 
-    # *******ФОРМА СОЗДАНИЯ ДОКУМЕНТА*******
+    # *******РАБОТА С ДОКУМЕНТАМИ*******
 
     # ОБЩИЕ АТРИБУТЫ
     #(форма создания документа)
@@ -112,27 +114,13 @@ class Locator(PageObject, KSEDLocators):
 
     korrespondent = PageElement(xpath=KSEDLocators.korrespondent)  # Корреспондент
 
-    # # ПРОТОКОЛ
-    # #(форма создания документа)
-    # addEl = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
-    # addEl2 = PageElement(xpath=KSEDLocators.addEl2) #Вид документа "Служебная записка"
-
-    # РАСПОРЯДИТЕЛЬНЫЙ ДОКУМЕНТ
-    #(форма создания документа)
-    addEl = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
-    addEl2 = PageElement(xpath=KSEDLocators.addEl2) #Вид документа "Служебная записка"
-    preambula = PageElement(xpath=KSEDLocators.preambula) # Преамбула
-    obcontrol = PageElement(xpath=KSEDLocators.obcontrol) # Общий контроль
-    wid_doc = PageElement(xpath=KSEDLocators.wid_doc) # Вид документа (в РД)
-    wid_doc_rasp = PageElement(xpath=KSEDLocators.wid_doc_rasp) # Вид документа РД (Распоряжение)
     # (карточка документа)
     attachments = PageElement(xpath=KSEDLocators.attachments) # Вложения (раскрытие раздела)
     osnSvedeniya = PageElement(xpath=KSEDLocators.osnSvedeniya) # Основные сведения (раскрытие раздела)
-    mode = PageElement(xpath=KSEDLocators.mode) # Переключение однопанельный/двухпанельный вид
+    mode = PageElement(xpath=KSEDLocators.mode) # Переключение в двупанельный вид
     fileUpload = PageElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
     files = PageElement(xpath=KSEDLocators.files) # Выберите файлы
     show = PageElement(xpath=KSEDLocators.show) # Показать общую карточка
-
     punkti = PageElement(xpath=KSEDLocators.punkti) # Вкладка "Пункты"
     punktiBtn = PageElement(xpath=KSEDLocators.punktiBtn) # Кнопка "Пункты"
     punktPoruch = PageElement(xpath=KSEDLocators.punktPoruch) # Пункт/Поручение
@@ -146,6 +134,28 @@ class Locator(PageObject, KSEDLocators):
     sendFor_approval = PageElement(xpath=KSEDLocators.sendFor_approval) # Действие "Направить на согласование"
 
     status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
+
+    # (панель согласования)
+    APPROVED_button = PageElement(xpath=KSEDLocators.APPROVED_button) # Кнопка "Согласовать"
+    APPROVED_WITH_REMARK_button = PageElement(xpath=KSEDLocators.APPROVED_WITH_REMARK_button) # Кнопка "Согласовать с комментариями"
+    REJECTED_button = PageElement(xpath=KSEDLocators.REJECTED_button) # Кнопка "Отклонить"
+    internal_approval = PageElement(xpath=KSEDLocators.internal_approval) # Кнопка "Внутреннее согласование"
+    prop_bpm_comment = PageElement(name=KSEDLocators.prop_bpm_comment) # Поле комментария
+    apply_button_button = PageElement(xpath=KSEDLocators.apply_button_button) # Кнопка "ОК" при вынесении решения согласования
+
+    # # ПРОТОКОЛ
+    # #(форма создания документа)
+    # addEl = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
+    # addEl2 = PageElement(xpath=KSEDLocators.addEl2) #Вид документа "Служебная записка"
+
+    # РАСПОРЯДИТЕЛЬНЫЙ ДОКУМЕНТ
+    #(форма создания документа)
+    addEl = PageElement(xpath=KSEDLocators.addEl) # Вид документа(Протокол совещания рабочей группы)
+    addEl2 = PageElement(xpath=KSEDLocators.addEl2) #Вид документа "Служебная записка"
+    preambula = PageElement(xpath=KSEDLocators.preambula) # Преамбула
+    obcontrol = PageElement(xpath=KSEDLocators.obcontrol) # Общий контроль
+    wid_doc = PageElement(xpath=KSEDLocators.wid_doc) # Вид документа (в РД)
+    wid_doc_rasp = PageElement(xpath=KSEDLocators.wid_doc_rasp) # Вид документа РД (Распоряжение)
 
 
     # ПРОТОКОЛ
