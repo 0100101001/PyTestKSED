@@ -83,9 +83,9 @@ class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
 
 
  #       time.sleep(1)
-        # Вид документа
+        # Кнопка поиск по ШК
         page.barcode_search.click()
-
+        # Ввод номера ШК
 #        time.sleep(1)
         page.search_bc.send_keys('469722'+Keys.RETURN)
 
@@ -93,6 +93,6 @@ class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
 
 #        wait.until(EC.title_is(self.w.title))
         wait_page_loaded(self.w)
-
+        # Проверка, что документ открылся
         assert "Документ" in self.w.title
 

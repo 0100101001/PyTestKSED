@@ -3,7 +3,6 @@
 # -*- encoding=utf8 -*-
 
 
-
 import time, datetime
 
 
@@ -30,10 +29,6 @@ from Pages.PageObject import Locator
 from TestData.data import dataTest
 from TestData.locators import KSEDLocators
 
-
-
-
-
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -41,14 +36,11 @@ def wait_page_loaded(driver):
     page_loaded = False
 
 
-
     while not page_loaded:
 
         page_loaded = driver.execute_script("return document.readyState == 'complete';")
 
         time.sleep(0.1)
-
-
 
 
 class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
@@ -83,16 +75,21 @@ class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
 
 
  #       time.sleep(1)
-        # Вид документа
-        page.barcode_search.click()
+        # Переход в раздел Мои поисковые запросы
+        page.mySearch.click()
 
+        # развернуть узел + в Поисковых запросах (Локатор не нашел)
 #        time.sleep(1)
-        page.search_bc.send_keys('469722'+Keys.RETURN)
+        page._____________.click()
 
  #       time.sleep(1)
 
+        # Перейти в строку созданного запроса (Локатор не нашел), возможно логику надо поменять, сначала создать запрос, но тогда они будут плодиться при исполнении
+        #        time.sleep(1)
+        page._____________.click()
+
 #        wait.until(EC.title_is(self.w.title))
         wait_page_loaded(self.w)
+        # Проверка, что список отображается
 
-        assert "Документ" in self.w.title
-
+        assert page.search - query - view.is_displayed()
