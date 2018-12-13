@@ -108,7 +108,8 @@ class KSEDLocators:
     korrespondent = '//input[contains(@id, "sender-assoc-autocomplete")]'  # xpath # Корреспондент
 
     # (карточка документа)
-    attachments = '//h2[contains(@id, "heading")][contains(text(), "Вложения")]' #xpath # Вложения (раскрытие раздела)
+    attachments = '//span[contains(@id, "action-expand")][contains(@class, "attachments-expand")]' #xpath # Переход во вкладку "Вложения"
+    vlozheniya = '//h2[contains(@id, "heading")][contains(text(), "Вложения")]'  # xpath # Вложения (раскрытие раздела)
     osnSvedeniya = '//h2[contains(@id, "heading")][contains(text(), "Основные сведения")]' #xpath # Основные сведения (раскрытие раздела)
     mode = '//button[contains(@id, "default-cntrl-split-panel-button-button")]' #xpath
     fileUpload = '(//button[contains(@id, "fileUpload-button-button")])[2]' #xpath # Загрузить файл
@@ -125,6 +126,7 @@ class KSEDLocators:
     btnOKform = '//button[contains(@id, "form-submit-button")]' #xpath # Кнопка ОК на форме
 
     sendFor_approval = '//div[contains(text(), "Направить на согласование")]' #xpath # Действие "Направить на согласование"
+    confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[1]' #xpath # Подтверждение согласования
 
     status_Doc = '//span[contains(@id, "_status")]' #xpath # Статус документа во вкладке (Основные сведения)
 

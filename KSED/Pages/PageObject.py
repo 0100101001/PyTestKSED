@@ -115,7 +115,8 @@ class Locator(PageObject, KSEDLocators):
     korrespondent = PageElement(xpath=KSEDLocators.korrespondent)  # Корреспондент
 
     # (карточка документа)
-    attachments = PageElement(xpath=KSEDLocators.attachments) # Вложения (раскрытие раздела)
+    attachments = PageElement(xpath=KSEDLocators.attachments) # # Переход во вкладку "Вложения"
+    vlozheniya = PageElement(xpath=KSEDLocators.vlozheniya) # Вложения (раскрытие раздела)
     osnSvedeniya = PageElement(xpath=KSEDLocators.osnSvedeniya) # Основные сведения (раскрытие раздела)
     mode = PageElement(xpath=KSEDLocators.mode) # Переключение в двупанельный вид
     fileUpload = PageElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
@@ -132,6 +133,7 @@ class Locator(PageObject, KSEDLocators):
     btnOKform = PageElement(xpath=KSEDLocators.btnOKform) # Кнопка ОК на форме
 
     sendFor_approval = PageElement(xpath=KSEDLocators.sendFor_approval) # Действие "Направить на согласование"
+    confirm = PageElement(xpath=KSEDLocators.confirm) # Подтверждение согласования
 
     status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 
