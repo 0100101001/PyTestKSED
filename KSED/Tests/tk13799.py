@@ -10,6 +10,7 @@ import time, datetime
 from selenium.webdriver.common.by import By
 
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 
 from selenium.common.exceptions import *
 
@@ -42,7 +43,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocPDSoglas(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -72,7 +73,7 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         assert "АРМ" in self.w.title
 
     # Создание документа (открытие формы создания и заполнение атрибутов)
-    def Creat(self,):
+    def Creat(self, ):
         # wait = WebDriverWait(self.w, 10, poll_frequency=1,
         #                      ignored_exceptions=[NoSuchElementException,
         #                                          ElementNotVisibleException,
@@ -84,70 +85,71 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
 
         page.newDoc_button.click()
 
-        page.protocol.click()
+        page.proizvDoc.click()
 
         assert "Страница создания документа" in self.w.title
 
- #       time.sleep(1)
+        #       time.sleep(1)
         # Атрибуты документа
 
-        # Вид документа
-        page.doc_type.click()
-
-#        time.sleep(1)
-
-        page.addEl.click()
-
- #       time.sleep(1)
-        page.btnOKDT.click()
-
-#        time.sleep(1)
         # Заголовок
         page.title.send_keys(u'Документ')
+        time.sleep(0.5)
 
-        # Дата совещания
-        dd = datetime.date.today().strftime('%d%m%Y')
-        page.date.send_keys(dd)
- #       time.sleep(0.5)
-        # Категория
-        page.category.send_keys(u'Оперативное'+Keys.RETURN)
+        # Вид документа
+        page.doc_typeInp.send_keys(u'Договор' + Keys.RETURN)
+        time.sleep(0.5)
+        # Проработка
+        self.w.execute_script("arguments[0].scrollIntoView();", page.prorabotka)
+        page.prorabotka.send_keys(u'Строганов' + Keys.RETURN)
+        time.sleep(0.5)
+        # Нормоконтроль
+        self.w.execute_script("arguments[0].scrollIntoView();", page.normokontrol)
+        page.normokontrol.send_keys(u'Строганов' + Keys.RETURN)
 
-        # Председатель
-        page.Chairman.send_keys(u'Строганов'+Keys.RETURN)
+        # Согласование
+        self.w.execute_script("arguments[0].scrollIntoView();", page.soglasovanie)
+        page.soglasovanie.send_keys(u'Строганов' + Keys.RETURN)
 
-        # Секретарь
-        page.Secretary.send_keys(u'Главный'+Keys.RETURN)
+        # Подписание
+        self.w.execute_script("arguments[0].scrollIntoView();", page.podpisanie)
+        page.podpisanie.send_keys(u'Главный' + Keys.RETURN)
 
-        # Присутствовали
-        page.person_present.send_keys(u'Яцкин'+Keys.RETURN)
+        # Утверждение
+        self.w.execute_script("arguments[0].scrollIntoView();", page.utverzhdenie)
+        page.utverzhdenie.send_keys(u'Главный' + Keys.RETURN)
 
-        # Категория документа
-        page.category_doc.send_keys(u'Открытый'+Keys.RETURN)
+        # Ознакомление
+        self.w.execute_script("arguments[0].scrollIntoView();", page.oznakomlenie)
+        page.oznakomlenie.send_keys(u'Строганов' + Keys.RETURN)
 
-#        time.sleep(0.5)
+        time.sleep(0.5)
+
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))
         page.btnCreateDoc.click()
 
-#        wait.until(EC.number_of_windows_to_be(2))
+        #        wait.until(EC.number_of_windows_to_be(2))
 
         wait_page_loaded(self.w)
-#        self.w.set_page_load_timeout(30)
-        time.sleep(2)
+        #        self.w.set_page_load_timeout(30)
+ #       time.sleep(2)
 
-#
-#        wait.until(EC.title_is(self.w.title))
+        #
+        #        wait.until(EC.title_is(self.w.title))
 
         assert "Документ" in self.w.title
-
     # Добавление вложения
     def attachment(self,):
         page = Locator(self.w)
 
         wait = WebDriverWait(self.w, 10)
 
-        page.mode.click()
+        actions = ActionChains(self.w)
+        actions.move_to_element(page.vlozheniya).perform()
+        time.sleep(0.5)
+        page.attachments.click()
 
         #        time.sleep(0.5)
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
@@ -160,33 +162,6 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         page.files.send_keys('C://test.txt')
 
-    # Добавление пункта "Поручение"
-    def addPoruchenie(self, ):
-        page = Locator(self.w)
-
-        wait = WebDriverWait(self.w, 10)
-
-        time.sleep(1)
-        page.show.click()
-
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punkti)))
-        page.punkti.click()
-
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punktiBtn)))
-        page.punktiBtn.click()
-
-        page.punktPoruch.click()
-
-        page.textPoruch.send_keys("Произвольный текст")
-
-        page.tipPoruch.send_keys("Поручение по пункту РД" + Keys.RETURN)
-
-        page.otvetstv_ispolnVpunktah.send_keys("Главный" + Keys.RETURN)
-
-        dd = datetime.date.today().strftime('%d%m%Y')
-        page.srokIspoln.send_keys(dd)
-
-        page.btnOKform.click()
 
     # Направление на согласование и проверка статуса документа
     def NapSoglasovanie(self, ):
@@ -194,8 +169,10 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
 
         wait = WebDriverWait(self.w, 10)
 
-
+        time.sleep(1)
         page.sendFor_approval.click()
+        time.sleep(1)
+        page.confirm.click()
 
         wait_page_loaded(self.w)
 

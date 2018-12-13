@@ -16,17 +16,7 @@
 import pytest
 import allure
 
-from Tests.tk11639 import KSEDLogin
-from Tests.tk11669 import KSEDCreatDocP
-from Tests.tk11674 import KSEDCreatDocRD
-from Tests.tk11679 import KSEDCreatDocReestr
-from Tests.tk11691 import KSEDCreatDocSZ
-from Tests.tk12957 import KSEDCreatDocREZ
-from Tests.tk11664 import KSEDCreatDocPD
-from Tests.tk11655 import KSEDCreatDocPor
-from Tests.tk11652 import KSEDCreatDocPVH
-from Tests.tk11644 import KSEDCreatDocVH
-from Tests.tk11645 import KSEDCreatDocISH
+from Tests.tk13799 import KSEDCreatDocPDSoglas
 from Tests.tk13756 import KSEDCreatDocPSoglas
 
 
@@ -59,128 +49,20 @@ from Tests.tk13756 import KSEDCreatDocPSoglas
 #
 #     NaprNaSogl = page.NapSoglasovanie()
 
-# @allure.feature('Создание РД')
+# @allure.feature('Направление Произвольного документа на согласование')
 #
 # @pytest.mark.KSED_smoke_test
 #
-# def test_11674(web_browser):
+# def test_13799(web_browser):
 #
-#     """ Создание Распорядительного документа. """
+#     """ Создание и Направление Протокола на согласование. """
 #
-#     page = KSEDCreatDocRD(web_browser)
+#     page = KSEDCreatDocPDSoglas(web_browser)
 #
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
 #
-# @allure.feature('Создание Реестра')
+#     Attach = page.attachment()
 #
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11679(web_browser):
-#
-#     """ Создание реестра. """
-#
-#     page = KSEDCreatDocReestr(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
-#
-# @allure.feature('Создание Служебной записки')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11691(web_browser):
-#
-#     """ Создание Служебной записки. """
-#
-#     page = KSEDCreatDocSZ(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
-#
-# @allure.feature('Создание Резолюции')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_12957(web_browser):
-#
-#     """ Создание Резолюции. """
-#
-#     page = KSEDCreatDocREZ(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
-#
-# @allure.feature('Создание Произвольного документа')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11664(web_browser):
-#
-#     """ Создание Произвольного документа. """
-#
-#     page = KSEDCreatDocPD(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
-#
-# @allure.feature('Создание Поручения')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11655(web_browser):
-#
-#     """ Создание Поручения. """
-#
-#     page = KSEDCreatDocPor(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
-#
-# @allure.feature('Создание Пакет входящей корреспонденции')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11652(web_browser):
-#
-#     """ Создание Пакет входящей корреспонденции. """
-#
-#     page = KSEDCreatDocPVH(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
-#
-# @allure.feature('Создание Входящий документ')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11644(web_browser):
-#
-#     """ Создание Входящий документ. """
-#
-#     page = KSEDCreatDocVH(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
-#
-# @allure.feature('Создание Исходящий документ')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11645(web_browser):
-#
-#     """ Создание Исходящий документ. """
-#
-#     page = KSEDCreatDocISH(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
+#     NaprNaSogl = page.NapSoglasovanie()
