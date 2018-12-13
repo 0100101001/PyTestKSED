@@ -43,7 +43,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocPDSoglas(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocPDSoglas_sendDorab(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -101,7 +101,7 @@ class KSEDCreatDocPDSoglas(Locator, dataTest, KSEDLocators):
         time.sleep(0.5)
         # Проработка
         self.w.execute_script("arguments[0].scrollIntoView();", page.prorabotka)
-        page.prorabotka.send_keys(u'Строганов' + Keys.RETURN)
+        page.prorabotka.send_keys(u'Яцкин' + Keys.RETURN)
         time.sleep(0.5)
         # Нормоконтроль
         self.w.execute_script("arguments[0].scrollIntoView();", page.normokontrol)
@@ -109,7 +109,7 @@ class KSEDCreatDocPDSoglas(Locator, dataTest, KSEDLocators):
 
         # Согласование
         self.w.execute_script("arguments[0].scrollIntoView();", page.soglasovanie)
-        page.soglasovanie.send_keys(u'Строганов' + Keys.RETURN)
+        page.soglasovanie.send_keys(u'Яцкин' + Keys.RETURN)
 
         # Подписание
         self.w.execute_script("arguments[0].scrollIntoView();", page.podpisanie)
@@ -146,6 +146,7 @@ class KSEDCreatDocPDSoglas(Locator, dataTest, KSEDLocators):
 
         wait = WebDriverWait(self.w, 10)
 
+        time.sleep(1)
         actions = ActionChains(self.w)
         actions.move_to_element(page.vlozheniya).perform()
         time.sleep(0.5)
@@ -157,8 +158,8 @@ class KSEDCreatDocPDSoglas(Locator, dataTest, KSEDLocators):
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
         page.fileUpload.click()
 
-        #        time.sleep(0.5)
-        wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
+        time.sleep(0.5)
+        #wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         page.files.send_keys('C://test.txt')
 
@@ -181,4 +182,55 @@ class KSEDCreatDocPDSoglas(Locator, dataTest, KSEDLocators):
         page.osnSvedeniya.click()
 
         assert "На согласовании" in self.status_Doc.text
+        time.sleep(1)
 
+ # Выйдем из системы
+    def USER_LOGOUTs(self,):
+
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        page.user_menu.click()
+
+        page.USER_LOGOUT.click()
+
+        wait_page_loaded(self.w)
+
+        assert "Войти" in self.w.title
+
+    # # Откроем докуммент из уведомления
+    # def notificationOpen(self):
+    #     page = Locator(self.w)
+    #
+    #     wait = WebDriverWait(self.w, 10)
+    #
+    #     wait_page_loaded(self.w)
+    #
+    #     page.notification.click()
+    #
+    #     time.sleep(0.5)
+    #     page.notificationProtokol.click()
+    #
+    #     wait_page_loaded(self.w)
+
+    # Отклонить согласование и вернуть на доработку
+    def REJECTED(self,):
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.REJECTED_button)))
+        page.REJECTED_button.click()
+
+        page.prop_bpm_comment.send_keys('я так хотю')
+
+        page.apply_button_button.click()
+
+        wait_page_loaded(self.w)
+
+        # Проверим статус документа
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
+        page.osnSvedeniya.click()
+
+        assert "На доработке" in self.status_Doc.text

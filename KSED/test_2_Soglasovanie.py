@@ -49,20 +49,20 @@ from Tests.tk13756 import KSEDCreatDocPSoglas
 #
 #     NaprNaSogl = page.NapSoglasovanie()
 
-@allure.feature('Направление Произвольного документа на согласование')
-
-@pytest.mark.KSED_smoke_test
-
-def test_13799(web_browser):
-
-    """ Создание и Направление Протокола на согласование. """
-
-    page = KSEDCreatDocPDSoglas(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', '12345')
-
-    Creat_doc  = page.Creat()
-
-    Attach = page.attachment()
-
-    NaprNaSogl = page.NapSoglasovanie()
+# @allure.feature('Направление Произвольного документа на согласование')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_13799(web_browser):
+#
+#     """ Создание и Направление Протокола на согласование. """
+#
+#     page = KSEDCreatDocPDSoglas(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
+#
+#     Creat_doc  = page.Creat()
+#
+#     Attach = page.attachment()
+#
+#     NaprNaSogl = page.NapSoglasovanie()
