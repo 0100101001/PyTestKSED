@@ -43,7 +43,7 @@ def wait_page_loaded(driver):
         time.sleep(0.1)
 
 
-class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -80,16 +80,15 @@ class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
 
         # развернуть узел + в Поисковых запросах (Локатор не нашел)
 #        time.sleep(1)
-        page._____________.click()
+        page.poiskzapr.click()
 
- #       time.sleep(1)
+        time.sleep(1)
 
-        # Перейти в строку созданного запроса (Локатор не нашел), возможно логику надо поменять, сначала создать запрос, но тогда они будут плодиться при исполнении
-        #        time.sleep(1)
-        page._____________.click()
+        # Перейти в строку созданного запроса
+        page.myPoiskZapr.click()
 
 #        wait.until(EC.title_is(self.w.title))
         wait_page_loaded(self.w)
         # Проверка, что список отображается
 
-        assert page.search - query - view.is_displayed()
+        assert page.oblProsm.is_displayed()
