@@ -31,18 +31,18 @@ from Tests.tk11778 import KSEDCreatDocPorSoglas
 
 
 
-@allure.feature('Направление Cогласование поручения')
-
-@pytest.mark.KSED_smoke_test
-
-def test_11778(web_browser):
-
-    """ Направление Cогласование поручения. """
-
-    page = KSEDCreatDocPorSoglas(web_browser)
-
-    LogIn_page = page.LogIN('YatskinRS', '12345')
-
-    getDoc = page.getDoc()
-
-    Soglasovanie = page.Soglasovanie()
+# @allure.feature('Направление Cогласование поручения')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_11778(web_browser):
+#
+#     """ Направление Cогласование поручения. """
+#
+#     page = KSEDCreatDocPorSoglas(web_browser)
+#
+#     LogIn_page = page.LogIN('YatskinRS', '12345')
+#
+#     getDoc = page.getDoc()
+#
+#     Soglasovanie = page.Soglasovanie()

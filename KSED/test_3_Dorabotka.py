@@ -18,7 +18,7 @@ import allure
 
 from Tests.tk11952 import KSEDCreatDocP_sendDorab
 from Tests.tk11955 import KSEDCreatDocPDSoglas_sendDorab
-from Tests.experiment import KSEDLogin
+from Tests.tk11943 import KSEDCreatDocPorDorab
 
 
 
@@ -80,16 +80,21 @@ from Tests.experiment import KSEDLogin
 #
 #     REJECTED = page.REJECTED() # Отклоним и вернем документ на доработку
 
-# @allure.feature('Авторизация')
-#
-# # @pytest.mark.parametrize('Ln', ['StroganovSN', 'tst_gid'])
-# # @pytest.mark.parametrize('Ps', ['12345'])
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11639(web_browser):
-#
-#     """ Проверка авторизации. """
-#
-#     page = KSEDLogin(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
+
+
+@allure.feature('Возврат произвольного документа на доработку при согласовании.')
+
+@pytest.mark.KSED_smoke_test
+
+def test_11943(web_browser):
+
+    """ Возврат произвольного документа на доработку при согласовании.
+     Тест падает, причина - не приходит уведомление согласующему (БАГ!)"""
+
+    page = KSEDCreatDocPorDorab(web_browser)
+
+    LogIn_page = page.LogIN('YatskinRS', '12345') # Авторизуемся согласующим созданного документа
+
+    getDoc = page.getDoc()
+
+    REJECTED = page.REJECTED() # Отклоним и вернем документ на доработку
