@@ -130,3 +130,15 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
 
         assert "Документ" in self.w.title
 
+
+    # Сохраним ссылку на документ в файл
+    def LinkDocWFile(self):
+
+        url = self.w.current_url
+        my_file = open("TestData\linkDoc.txt", "w")
+        my_file.write(str(url))
+        my_file.close()
+
+    # def getDoc(self):
+    #
+    #     self.w.get(KSEDLocators.LinkDoc)

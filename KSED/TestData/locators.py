@@ -1,5 +1,28 @@
+# Извлечение номера документа из файла
+def rFile():
+
+    my_file = open("TestData\linkDoc.txt", "r")
+    my_string = my_file.read()
+    my_string.strip()
+    return my_string
+    my_file.close()
+#
+#     my_file = open("tempDoc.txt")
+#     my_string = my_file.read()
+#     my_string.strip()
+#
+#     locator = str("'//a[text() = ") + '"' + str(my_string) + '"]' + "'"
+#     return (locator)
+#
+#     my_file.close()
+
 
 class KSEDLocators:
+
+    # Ссылка на документ
+    LinkDoc = rFile()
+
+
     # Форма авторизации
     username_text = 'username' # name
     password_text = 'password' # name
@@ -43,18 +66,28 @@ class KSEDLocators:
 
     # РАЗДЕЛЫ
     myWork = '//div[contains(text(), "Моя работа")]' #xpath  # Моя работа
+
     expedition = '//div[contains(text(), "Экспедиция")]' #xpath  # Экспедиция
+
     navigation = '//div[contains(text(), "Навигатор")]' #xpath  # Навигатор
+
     allur = '//div[contains(text(), "Отчеты")]' #xpath  # Отчеты
+
     workReg = '//div[contains(text(), "Работа регистратора")]' #xpath  # Работа регистратора
+
     medo = '//div[contains(text(), "МЭДО")]' #xpath  # МЭДО
+
     mySearch = '//div[contains(text(), "Мои поисковые запросы")]' #xpath  # Мои поисковые запросы
+    poiskzapr = '//span[text() = "Поисковые запросы"]' #xpath # Поисковые запросы
+
 
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = '(//div[contains(@id, "_default-body")][contains(@class, "datagrid")])[2]' #xpath # Область просмотра
+    full_text_search = '(//input[contains(@id, "_default-full-text-search")])[1]' #xpath # Поисковая строка
 
-    poiskzapr = '(//a[contains(@class, "ygtvspacer")])[1]'
-    myPoiskZapr = '(//span[contains(@class, "ygtvlabel")])[2]'
+    #oneDocInList = rFile()
+
+
 
     # ОТЧЕТЫ
     section_allur = '//div[contains(@id, "ac-head")][contains(text(), "Отчеты")]' #xpath  # Раздел "Отчеты"
@@ -117,8 +150,19 @@ class KSEDLocators:
     osnSvedeniya = '//h2[contains(@id, "heading")][contains(text(), "Основные сведения")]' #xpath # Основные сведения (раскрытие раздела)
     mode = '//button[contains(@id, "default-cntrl-split-panel-button-button")]' #xpath
     fileUpload = '(//button[contains(@id, "fileUpload-button-button")])[2]' #xpath # Загрузить файл
+    fileUpload2 = '//button[contains(@id, "fileUpload-button-button")]'  # xpath # Загрузить файл в поручении
     files = '//input[@type="file"][@name="files[]"]' #xpath # Выберите файлы
     show = '//a[contains(@id, "action-show-main")]' #xpath # Показать общую карточка
+
+    soglasovanieWkladka = '//em[contains(text(), "Согласование")]'  # xpath # Вкладка "Согласование"
+    createRuleBtn = '//button[contains(@id, "create-approval-list-button-button")]'  # xpath # Кнопка "Создать маршрут"
+    createRuleIndivid = '//a[text() = "Индивидуальный маршрут"]' #xpath # "Индивидуальный маршрут"
+    addEtap = '//button[contains(@id, "cntrl-add-stage-button")]' #xpath # Кнопка "Добавить этап"
+    tipeEtap = '//input[contains(@id, "type-cntrl-autocomplete-input")]' #xpath # "Вид этапа"
+    soglasuychie = '//input[contains(@id, "approvers-autocomplete")]' #xpath # "Согласующие"
+    btnOKformSogl = '//button[contains(@id, "form-submit-button")]' #xpath # Кнопка "ОК" на форме добавления этапа согласования
+
+
     punkti = '//em[contains(text(), "Пункты")]' #xpath # Вкладка "Пункты"
     punktiBtn = '//button[contains(@id, "create-point-button")]' #xpath # Кнопка "Пункты"
     punktPoruch = '(//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Поручение")])[1]' #xpath # Пункт/Поручение

@@ -18,6 +18,7 @@ import allure
 
 from Tests.tk11952 import KSEDCreatDocP_sendDorab
 from Tests.tk11955 import KSEDCreatDocPDSoglas_sendDorab
+from Tests.experiment import KSEDLogin
 
 
 
@@ -78,3 +79,17 @@ from Tests.tk11955 import KSEDCreatDocPDSoglas_sendDorab
 #     #notification = page.notificationOpen() # Откроем уведомления и перейдем в документ
 #
 #     REJECTED = page.REJECTED() # Отклоним и вернем документ на доработку
+
+# @allure.feature('Авторизация')
+#
+# # @pytest.mark.parametrize('Ln', ['StroganovSN', 'tst_gid'])
+# # @pytest.mark.parametrize('Ps', ['12345'])
+# @pytest.mark.KSED_smoke_test
+#
+# def test_11639(web_browser):
+#
+#     """ Проверка авторизации. """
+#
+#     page = KSEDLogin(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')

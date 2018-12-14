@@ -50,18 +50,23 @@ class Locator(PageObject, KSEDLocators):
 
     # РАЗДЕЛЫ
     myWork = PageElement(xpath=KSEDLocators.myWork) # Моя работа
+
     expedition = PageElement(xpath=KSEDLocators.expedition) # Экспедиция
+
     navigation = PageElement(xpath=KSEDLocators.navigation) # Навигатор
+
     allur = PageElement(xpath=KSEDLocators.allur) # Отчеты
+
     workReg = PageElement(xpath=KSEDLocators.workReg) # Работа регистратора
+
     medo = PageElement(xpath=KSEDLocators.medo) # МЭДО
+
     mySearch = PageElement(xpath=KSEDLocators.mySearch) # Мои поисковые запросы
+    poiskzapr = PageElement(xpath=KSEDLocators.poiskzapr) # Поисковые запросы
 
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = PageElement(xpath=KSEDLocators.oblProsm) # Область просмотра
 
-    poiskzapr = PageElement(xpath=KSEDLocators.poiskzapr)
-    myPoiskZapr = PageElement(xpath=KSEDLocators.myPoiskZapr)
 
     # ОТЧЕТЫ
     section_allur = PageElement(xpath=KSEDLocators.section_allur) # Раздел "Отчеты"
@@ -124,8 +129,18 @@ class Locator(PageObject, KSEDLocators):
     osnSvedeniya = PageElement(xpath=KSEDLocators.osnSvedeniya) # Основные сведения (раскрытие раздела)
     mode = PageElement(xpath=KSEDLocators.mode) # Переключение в двупанельный вид
     fileUpload = PageElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
+    fileUpload2 = PageElement(xpath=KSEDLocators.fileUpload2)  # Загрузить файл в поручении
     files = PageElement(xpath=KSEDLocators.files) # Выберите файлы
     show = PageElement(xpath=KSEDLocators.show) # Показать общую карточка
+
+    soglasovanieWkladka = PageElement(xpath=KSEDLocators.soglasovanieWkladka) # Вкладка "Согласование"
+    createRuleBtn = PageElement(xpath=KSEDLocators.createRuleBtn) # Кнопка "Создать маршрут"
+    createRuleIndivid = PageElement(xpath=KSEDLocators.createRuleIndivid) # "Индивидуальный маршрут"
+    addEtap = PageElement(xpath=KSEDLocators.addEtap) # Кнопка "Добавить этап"
+    tipeEtap = PageElement(xpath=KSEDLocators.tipeEtap) # "Вид этапа"
+    soglasuychie = PageElement(xpath=KSEDLocators.soglasuychie) # "Согласующие"
+    btnOKformSogl = PageElement(xpath=KSEDLocators.btnOKformSogl) # Кнопка "ОК" на форме добавления этапа согласования
+
     punkti = PageElement(xpath=KSEDLocators.punkti) # Вкладка "Пункты"
     punktiBtn = PageElement(xpath=KSEDLocators.punktiBtn) # Кнопка "Пункты"
     punktPoruch = PageElement(xpath=KSEDLocators.punktPoruch) # Пункт/Поручение

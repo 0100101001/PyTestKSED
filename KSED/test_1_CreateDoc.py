@@ -132,19 +132,23 @@ from Tests.tk11645 import KSEDCreatDocISH
 #
 #     Creat_doc  = page.Creat()
 #
-# @allure.feature('Создание Поручения')
-#
-# @pytest.mark.KSED_smoke_test
-#
-# def test_11655(web_browser):
-#
-#     """ Создание Поручения. """
-#
-#     page = KSEDCreatDocPor(web_browser)
-#
-#     LogIn_page = page.LogIN('StroganovSN', '12345')
-#
-#     Creat_doc  = page.Creat()
+@allure.feature('Создание Поручения')
+
+@pytest.mark.KSED_smoke_test
+
+def test_11655(web_browser):
+
+    """ Создание Поручения. """
+
+    page = KSEDCreatDocPor(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    Creat_doc  = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+#    getDoc = page.getDoc()
 #
 # @allure.feature('Создание Пакет входящей корреспонденции')
 #
