@@ -187,6 +187,13 @@ class Locator(PageObject, KSEDLocators):
     wid_doc = PageElement(xpath=KSEDLocators.wid_doc) # Вид документа (в РД)
     wid_doc_rasp = PageElement(xpath=KSEDLocators.wid_doc_rasp) # Вид документа РД (Распоряжение)
 
+    addPunkt = PageElement(xpath=KSEDLocators.addPunkt) # Кнопка "Добавить пункт"
+    textPunktaRD = PageElement(name=KSEDLocators.textPunktaRD) # Текст пункта РД
+    otvetstv_ispolnVpunktahRD = PageElement(xpath=KSEDLocators.otvetstv_ispolnVpunktahRD) # Ответственный исполнитель в пункте РД
+    rassilka = PageElement(xpath=KSEDLocators.rassilka) # Вкладка "Рассылка"
+    btnVipolnit = PageElement(xpath=KSEDLocators.btnVipolnit) # Кнопка "Создать маршрут"
+    punktBtnVipolnit = PageElement(xpath=KSEDLocators.punktBtnVipolnit) # Создать и заполнить
+
 
     # ПРОТОКОЛ
     #(форма создания документа)

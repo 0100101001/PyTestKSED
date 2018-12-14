@@ -76,6 +76,9 @@ from Tests.tk11645 import KSEDCreatDocISH
 #
 #     Creat_doc  = page.Creat()
 #
+#     saveLink = page.LinkDocWFile()
+
+#
 # @allure.feature('Создание Реестра')
 #
 # @pytest.mark.KSED_smoke_test

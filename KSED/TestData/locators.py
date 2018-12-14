@@ -6,6 +6,14 @@ def rFile():
     my_string.strip()
     return my_string
     my_file.close()
+
+def rFileRD():
+
+    my_file = open("TestData\linkDocRD.txt", "r")
+    my_string = my_file.read()
+    my_string.strip()
+    return my_string
+    my_file.close()
 #
 #     my_file = open("tempDoc.txt")
 #     my_string = my_file.read()
@@ -21,6 +29,7 @@ class KSEDLocators:
 
     # Ссылка на документ
     LinkDoc = rFile()
+    LinkDocRD = rFileRD()
 
 
     # Форма авторизации
@@ -172,6 +181,13 @@ class KSEDLocators:
     srokIspoln = '//input[contains(@id, "ts_limitation-date-cntrl-date")]' #xpath # Срок исполнения (среднее знач)
 
     btnOKform = '//button[contains(@id, "form-submit-button")]' #xpath # Кнопка ОК на форме
+
+    addPunkt = '(//button[@title = "Добавить пункт"])[1]' #xpath # Кнопка "Добавить пункт"
+    textPunktaRD = 'prop_lecm-ord-table-structure_item-content' #name # Текст пункта РД
+    rassilka = '//em[text() = "Рассылка"]' #xpath # Вкладка "Рассылка"
+    btnVipolnit = '(//button[contains(@id, "create-mailing-list-button-button")])[1]'  # xpath # Кнопка "Создать маршрут"
+    punktBtnVipolnit = '//a[text() = "Создать и заполнить указатель"]' #xpath # Создать и заполнить
+    otvetstv_ispolnVpunktahRD = '//input[contains(@id, "executor-assoc-cntrl-autocomplete-input")]' #xpath # Ответственный исполнитель в пункте РД
 
     #(Функциональное меню "Действия")
     #Согласовать

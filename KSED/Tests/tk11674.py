@@ -112,7 +112,7 @@ class KSEDCreatDocRD(Locator, dataTest, KSEDLocators):
         # Вид документа
         page.wid_doc.click()
         page.wid_doc_rasp.click()
-#        time.sleep(5)
+        time.sleep(5)
         # Подписант
         page.podpisant.send_keys(u'Строганов'+Keys.RETURN)
 
@@ -139,3 +139,11 @@ class KSEDCreatDocRD(Locator, dataTest, KSEDLocators):
 
         assert "Документ" in self.w.title
 
+
+    # Сохраним ссылку на документ в файл
+    def LinkDocWFile(self):
+
+        url = self.w.current_url
+        my_file = open("TestData\linkDocRD.txt", "w")
+        my_file.write(str(url))
+        my_file.close()

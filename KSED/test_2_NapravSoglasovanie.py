@@ -19,7 +19,7 @@ import allure
 from Tests.tk13799 import KSEDCreatDocPDSoglas
 from Tests.tk13756 import KSEDCreatDocPSoglas
 from Tests.tk13862 import KSEDCreatDocPorNSoglas
-
+from Tests.tk11706 import KSEDDocPDNapSoglas
 
 
 
@@ -87,3 +87,27 @@ from Tests.tk13862 import KSEDCreatDocPorNSoglas
 #     Attach = page.attachment()
 #
 #     NaprNaSogl = page.NapSoglasovanie()
+
+@allure.feature('Направление РД на согласование')
+
+@pytest.mark.KSED_smoke_test
+
+def test_11706(web_browser):
+
+    """ Направление РД на согласование. """
+
+    page = KSEDDocPDNapSoglas(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    getDoc = page.getDoc()
+
+    Attach = page.attachment()
+
+    addPunkt = page.addPunkt()
+
+    create_route = page.creation_of_the_approval_route()
+
+ #   Attach = page.attachment()
+
+    NaprNaSogl = page.NapSoglasovanie()
