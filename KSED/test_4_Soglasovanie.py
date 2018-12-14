@@ -41,7 +41,8 @@ def test_11778(web_browser):
 
     page = KSEDCreatDocPorSoglas(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('YatskinRS', '12345')
 
     getDoc = page.getDoc()
 
+    Soglasovanie = page.Soglasovanie()

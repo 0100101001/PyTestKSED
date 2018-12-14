@@ -18,7 +18,7 @@ import allure
 
 from Tests.tk13799 import KSEDCreatDocPDSoglas
 from Tests.tk13756 import KSEDCreatDocPSoglas
-from Tests.tk11778 import KSEDCreatDocPorSoglas
+from Tests.tk13862 import KSEDCreatDocPorNSoglas
 
 
 
@@ -68,22 +68,22 @@ from Tests.tk11778 import KSEDCreatDocPorSoglas
 #
 #     NaprNaSogl = page.NapSoglasovanie()
 
-@allure.feature('Направление Поручения на согласование')
-
-@pytest.mark.KSED_smoke_test
-
-def test_13862(web_browser):
-
-    """ Направление Поручения на согласование. """
-
-    page = KSEDCreatDocPorSoglas(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', '12345')
-
-    getDoc = page.getDoc()
-
-    create_route = page.creation_of_the_approval_route()
-
-    Attach = page.attachment()
-
-    NaprNaSogl = page.NapSoglasovanie()
+# @allure.feature('Направление Поручения на согласование')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_13862(web_browser):
+#
+#     """ Направление Поручения на согласование. """
+#
+#     page = KSEDCreatDocPorNSoglas(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
+#
+#     getDoc = page.getDoc()
+#
+#     create_route = page.creation_of_the_approval_route()
+#
+#     Attach = page.attachment()
+#
+#     NaprNaSogl = page.NapSoglasovanie()

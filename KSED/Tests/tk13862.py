@@ -44,7 +44,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocPorSoglas(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocPorNSoglas(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
