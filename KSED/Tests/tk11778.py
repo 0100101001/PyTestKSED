@@ -80,116 +80,25 @@ class KSEDCreatDocPorSoglas(Locator, dataTest, KSEDLocators):
         self.w.get(KSEDLocators.LinkDoc)
         wait_page_loaded(self.w)
 
-    # Добавление вложения
-    def attachment(self,):
+    def Soglasovanie(self, ):
         page = Locator(self.w)
 
         wait = WebDriverWait(self.w, 10)
 
-        actions = ActionChains(self.w)
-        actions.move_to_element(page.vlozheniya).perform()
-        time.sleep(0.5)
-        page.attachments.click()
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.APPROVED_button)))
+        page.APPROVED_button.click()
 
-        #        time.sleep(0.5)
-        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
-        time.sleep(0.5)
-        #wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
-        page.fileUpload2.click()
+        page.prop_bpm_comment.send_keys('я так хотю')
 
-        time.sleep(0.5)
-        #wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
-        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
-        page.files.send_keys('C://test.txt')
-
-    # # Добавление пункта "Поручение"
-    # def addPoruchenie(self, ):
-    #     page = Locator(self.w)
-    #
-    #     wait = WebDriverWait(self.w, 10)
-    #
-    #     time.sleep(1)
-    #     page.show.click()
-    #
-    #     WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punkti)))
-    #     page.punkti.click()
-    #
-    #     WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punktiBtn)))
-    #     page.punktiBtn.click()
-    #
-    #     page.punktPoruch.click()
-    #
-    #     page.textPoruch.send_keys("Произвольный текст")
-    #
-    #     page.tipPoruch.send_keys("Поручение по пункту РД" + Keys.RETURN)
-    #
-    #     page.otvetstv_ispolnVpunktah.send_keys("Главный" + Keys.RETURN)
-    #
-    #     dd = datetime.date.today().strftime('%d%m%Y')
-    #     page.srokIspoln.send_keys(dd)
-    #
-    #     page.btnOKform.click()
-
-    # Создание маршрута согласования
-    def creation_of_the_approval_route(self):
-
-        page = Locator(self.w)
-
-        wait = WebDriverWait(self.w, 10)
-
-        time.sleep(1)
-        # "Показать общую карточку" клик
-        page.show.click()
-
-        # "Согласование" вкладка
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.soglasovanieWkladka)))
-        page.soglasovanieWkladka.click()
-
-        # "Создать маршрут" клик по кнопке
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.createRuleBtn)))
-        page.createRuleBtn.click()
-
-        # Выберем "Индивидуальный маршрут"
-        page.createRuleIndivid.click()
-
-        # Появилась форма "Редактирование маршрута" нажмем "ОК"
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnOKform)))
-        page.btnOKform.click()
-
-        # Нажмем кнопку "Добавить этап"
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.addEtap)))
-        page.addEtap.click()
-
-        time.sleep(1.5)
-        # Заполним "Вид этапа"
-        page.tipeEtap.send_keys("Согласование" + Keys.RETURN)
-        time.sleep(0.5)
-
-        # Заполним "Согласующие"
-        page.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
-
-        # Нажмем кнопку "ОК" на форме
-        time.sleep(0.5)
-        page.btnOKformSogl.click()
-
-        wait_page_loaded(self.w)
-
-    # Направление на согласование и проверка статуса документа
-    def NapSoglasovanie(self, ):
-        page = Locator(self.w)
-
-        wait = WebDriverWait(self.w, 10)
-
-        time.sleep(1)
-        page.sendFor_approval.click()
+        page.apply_button_button.click()
 
         wait_page_loaded(self.w)
 
         # Проверим статус документа
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
         page.osnSvedeniya.click()
 
-        assert "На согласовании" in self.status_Doc.text
+        assert "На исполнении" in self.status_Doc.text
 
     # # Сохраним ссылку на документ в файл
     # def LinkDocWFile(self):

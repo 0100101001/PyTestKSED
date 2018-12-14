@@ -72,7 +72,7 @@ from Tests.tk11778 import KSEDCreatDocPorSoglas
 
 @pytest.mark.KSED_smoke_test
 
-def test_11778(web_browser):
+def test_13862(web_browser):
 
     """ Направление Поручения на согласование. """
 
