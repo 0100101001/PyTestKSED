@@ -156,6 +156,15 @@ class Locator(PageObject, KSEDLocators):
 
     status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 
+    #"Отправить отчет"
+    actionSendAllere = PageElement(xpath=KSEDLocators.actionSendAllere) # "Отправить отчет" действие
+    btnSend = PageElement(xpath=KSEDLocators.btnSend) # Кнопка "Отправить"
+    textAllur = PageElement(xpath=KSEDLocators.textAllur) # Текстовое поле "Текст отчета"
+    btnAddSvyz = PageElement(xpath=KSEDLocators.btnAddSvyz) # Кнопка добавления связи "..."
+    searchDoc = PageElement(xpath=KSEDLocators.searchDoc) # Строка поиска в форме подбора
+    oneListEl = PageElement(xpath=KSEDLocators.oneListEl) # Первый элемент в списке справочника
+    btnOK = PageElement(xpath=KSEDLocators.btnOK) # Кнопка "ОК" в форме подбора
+
     # (панель согласования)
     APPROVED_button = PageElement(xpath=KSEDLocators.APPROVED_button) # Кнопка "Согласовать"
     APPROVED_WITH_REMARK_button = PageElement(xpath=KSEDLocators.APPROVED_WITH_REMARK_button) # Кнопка "Согласовать с комментариями"

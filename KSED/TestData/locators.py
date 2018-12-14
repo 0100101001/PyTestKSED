@@ -173,8 +173,20 @@ class KSEDLocators:
 
     btnOKform = '//button[contains(@id, "form-submit-button")]' #xpath # Кнопка ОК на форме
 
+    #(Функциональное меню "Действия")
+    #Согласовать
     sendFor_approval = '//div[contains(text(), "Направить на согласование")]' #xpath # Действие "Направить на согласование"
     confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[1]' #xpath # Подтверждение согласования
+
+    #"Отправить отчет"
+    actionSendAllere = '//div[text() = "Отправить отчет"]' #xpath # "Отправить отчет" действие
+    btnSend = '//button[text() = "Отправить"]' #xpath # Кнопка "Отправить"
+    textAllur = '//textarea[contains(@name, "_execute_1ReportText")]' #xpath # Текстовое поле "Текст отчета"
+    btnAddSvyz = '//button[contains(@id, "tree-picker-button-button")]' #xpath # Кнопка добавления связи "..."
+    searchDoc = '//input[contains(@id, "picker-searchText")]' #xpath # Строка поиска в форме подбора
+    oneListEl = '(//span[@class = "addIcon"])[1]'  # xpath # Первый элемент в списке справочника
+    btnOK = '//button[contains(@id, "-ok-button")]' #xpath # Кнопка "ОК" в форме подбора
+
 
     status_Doc = '//span[contains(@id, "_status")]' #xpath # Статус документа во вкладке (Основные сведения)
 
@@ -185,6 +197,7 @@ class KSEDLocators:
     internal_approval = '//button[contains(@id, "internal_approval-button")]' #xpath # Кнопка "Внутреннее согласование"
     prop_bpm_comment = 'prop_bpm_comment' #name # Поле комментария
     apply_button_button = '//button[contains(@id, "apply-button")]' #xpath # Кнопка "ОК" при вынесении решения согласования
+
 
 
 

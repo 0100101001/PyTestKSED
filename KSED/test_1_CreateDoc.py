@@ -148,7 +148,6 @@ from Tests.tk11645 import KSEDCreatDocISH
 #
 #     saveLink = page.LinkDocWFile()
 
-#    getDoc = page.getDoc()
 #
 # @allure.feature('Создание Пакет входящей корреспонденции')
 #
