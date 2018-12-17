@@ -88,7 +88,7 @@ class KSEDLocators:
 
     mySearch = '//div[contains(text(), "Мои поисковые запросы")]' #xpath  # Мои поисковые запросы
     poiskzapr = '//span[text() = "Поисковые запросы"]' #xpath # Поисковые запросы
-
+    myPoiskZapr = '//td[contains(@id, "ygtvcontente")]/span[text() = "2"]' #xpath # Поисковые запросы
 
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = '(//div[contains(@id, "_default-body")][contains(@class, "datagrid")])[2]' #xpath # Область просмотра

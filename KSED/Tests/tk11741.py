@@ -74,15 +74,17 @@ class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
 
 
 
- #       time.sleep(1)
-        # Переход в раздел Мои поисковые запросы
-        page.mySearch.click()
+        time.sleep(0.5)
 
-        # развернуть узел + в Поисковых запросах (Локатор не нашел)
-#        time.sleep(1)
-        page.poiskzapr.click()
+        actions = ActionChains(self.w)
 
+        actions.move_to_element(page.mySearch).click().perform()
         time.sleep(1)
+
+        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform()
+
+
+
 
         # Перейти в строку созданного запроса
         page.myPoiskZapr.click()

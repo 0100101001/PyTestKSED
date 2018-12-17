@@ -63,7 +63,7 @@ class Locator(PageObject, KSEDLocators):
 
     mySearch = PageElement(xpath=KSEDLocators.mySearch) # Мои поисковые запросы
     poiskzapr = PageElement(xpath=KSEDLocators.poiskzapr) # Поисковые запросы
-
+    myPoiskZapr = PageElement(xpath=KSEDLocators.myPoiskZapr) # Поисковые запросы
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = PageElement(xpath=KSEDLocators.oblProsm) # Область просмотра
 
