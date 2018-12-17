@@ -29,7 +29,7 @@ class Locator(PageObject, KSEDLocators):
 
     notification = PageElement(id_=KSEDLocators.notification) # Уведомления
     notificationProtokol = PageElement(xpath=KSEDLocators.notificationProtokol) # Первое в списке уведомление о протоколе
-
+    notificationFirst = PageElement(xpath=KSEDLocators.notificationFirst)  # id  # Уведомление первое в списке
     # *******МЕНЮ ПОЛЬЗОВАТЕЛЯ*******
     user_menu = PageElement(id_=KSEDLocators.user_menu) # Меню пользователя
     USER_LOGOUT = PageElement(id_=KSEDLocators.USER_LOGOUT) # Выход из системы

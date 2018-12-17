@@ -51,10 +51,9 @@ class KSEDLocators:
     arm_arh = '//a[contains(@title, "Передача дел")]' #xpath  # АРМ Архивное дело
     verify = '//a[contains(@title, "Верификация")]' #xpath  # Верификация
     scanner = '//a[contains(@title, "Верификация")]' #xpath  # Работа со сканером ШК
-
     notification = 'NOTIFICATIONS_text' #id  # Уведомления
     notificationProtokol = '(//a[contains(text(), "Протокол:")])[1]' #xpath # Первое в списке уведомление о протоколе
-
+    notificationFirst = '(//span[@class = "detail"]/a)[1]' #id  # Уведомление первое в списке
     # *******МЕНЮ ПОЛЬЗОВАТЕЛЯ*******
     user_menu = 'HEADER_USER_MENU_POPUP_text' #id  # Меню пользователя
     USER_LOGOUT = 'HEADER_USER_MENU_LOGOUT_text' #id # Выход из системы
