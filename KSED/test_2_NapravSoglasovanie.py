@@ -20,6 +20,7 @@ from Tests.tk13799 import KSEDCreatDocPDSoglas
 from Tests.tk13756 import KSEDCreatDocPSoglas
 from Tests.tk13862 import KSEDCreatDocPorNSoglas
 from Tests.tk11706 import KSEDDocPDNapSoglas
+from Tests.experiment import KSEDLogin
 
 
 
@@ -88,26 +89,40 @@ from Tests.tk11706 import KSEDDocPDNapSoglas
 #
 #     NaprNaSogl = page.NapSoglasovanie()
 
-@allure.feature('Направление РД на согласование')
+# @allure.feature('Направление РД на согласование')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_11706(web_browser):
+#
+#     """ Направление РД на согласование. """
+#
+#     page = KSEDDocPDNapSoglas(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
+#
+#     getDoc = page.getDoc()
+#
+#     Attach = page.attachment()
+#
+#     addPunkt = page.addPunkt()
+#
+#     create_route = page.creation_of_the_approval_route()
+#
+#     adDrassilka = page.rassilka()
+#
+#  #   Attach = page.attachment()
+#
+#     NaprNaSogl = page.NapSoglasovanie()
 
-@pytest.mark.KSED_smoke_test
-
-def test_11706(web_browser):
-
-    """ Направление РД на согласование. """
-
-    page = KSEDDocPDNapSoglas(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', '12345')
-
-    getDoc = page.getDoc()
-
-    Attach = page.attachment()
-
-    addPunkt = page.addPunkt()
-
-    create_route = page.creation_of_the_approval_route()
-
- #   Attach = page.attachment()
-
-    NaprNaSogl = page.NapSoglasovanie()
+# @allure.feature('Направление Протокола на согласование')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_13756(web_browser):
+#
+#     """ Создание и Направление Протокола на согласование. """
+#
+#     page = KSEDLogin(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
