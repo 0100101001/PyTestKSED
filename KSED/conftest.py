@@ -50,8 +50,8 @@ def web_browser(request, selenium):
 
     browser = selenium
 
-    #browser.set_window_size(1400, 1000)
-    browser.maximize_window()
+    browser.set_window_size(1920, 1080)
+    #browser.maximize_window()
 
 
 

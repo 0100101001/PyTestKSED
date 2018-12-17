@@ -191,7 +191,7 @@ class Locator(PageObject, KSEDLocators):
     textPunktaRD = PageElement(name=KSEDLocators.textPunktaRD) # Текст пункта РД
     otvetstv_ispolnVpunktahRD = PageElement(xpath=KSEDLocators.otvetstv_ispolnVpunktahRD) # Ответственный исполнитель в пункте РД
     rassilka = PageElement(xpath=KSEDLocators.rassilka) # Вкладка "Рассылка"
-    btnVipolnit = PageElement(xpath=KSEDLocators.btnVipolnit) # Кнопка "Создать маршрут"
+    btnVipolnit = PageElement(xpath=KSEDLocators.btnVipolnit) # Кнопка "Выполнить..."
     punktBtnVipolnit = PageElement(xpath=KSEDLocators.punktBtnVipolnit) # Создать и заполнить
 
 

@@ -98,7 +98,7 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         time.sleep(0.5)
         # wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
-        page.fileUpload2.click()
+        page.fileUpload.click()
 
         time.sleep(0.5)
         # wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
@@ -188,7 +188,23 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
     # Добавление пункта рассылки
     def rassilka(self):
         #Локаторы подготовил, осталось сделать функцию и в файле запуска настроить
-        pass
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        self.w.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(0.5)
+        # Кликнем по вкладке "Рассылка"
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.rassilka)))
+        page.rassilka.click()
+
+        # Кликнем по кнопке "Выполнить..."
+        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnVipolnit)))
+        page.btnVipolnit.click()
+
+        # Выберем "Создать и заполнить указатель"
+        page.punktBtnVipolnit.click()
+        time.sleep(0.5)
 
     # Направление на согласование и проверка статуса документа
     def NapSoglasovanie(self, ):
@@ -202,10 +218,11 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
         page.sendFor_approval.click()
 
         wait_page_loaded(self.w)
-
+        time.sleep(0.5)
         # Проверим статус документа
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
         page.osnSvedeniya.click()
 
+        time.sleep(0.5)
         assert "На согласовании" in self.status_Doc.text
 
