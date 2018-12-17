@@ -72,29 +72,27 @@ class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
 
         assert "АРМ" in self.w.title
 
-
-
         time.sleep(0.5)
 
+        # Перейти в строку созданного запроса
         actions = ActionChains(self.w)
 
         actions.move_to_element(page.mySearch).click().perform()
-        time.sleep(1)
 
-        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform()
-
-
-
-
-        # Перейти в строку созданного запроса
-        page.myPoiskZapr.click()
-
-#        wait.until(EC.title_is(self.w.title))
+        # wait.until(EC.title_is(self.w.title))
         wait_page_loaded(self.w)
 
-        # Переход в первый документ в списке
-        page.oneDocInList.click()
 
-        # Проверка, что документ открылся
+        page.ControlZapr.click() # Переход в управление поисковыми запросами
+        page.listChange.click() # Переход в выпадающий список
+        time.sleep(0.5)
+        page.listChangeSZ.click() # Выбор служебной записки в выпадающем списке
+        time.sleep(0.5)
+        page.butSave.click() # Кнопка сохранить
+        time.sleep(0.5)
+        page.nameZap.click()  # Кнопка сохранить
+        time.sleep(0.5)
+        print('ToDel')
+        time.sleep(0.5)
 
-        assert "Документ" in self.w.title
+        assert page.oblProsm.is_displayed() # Проверка, что список отображается

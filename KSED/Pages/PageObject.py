@@ -64,9 +64,10 @@ class Locator(PageObject, KSEDLocators):
     mySearch = PageElement(xpath=KSEDLocators.mySearch) # Мои поисковые запросы
     poiskzapr = PageElement(xpath=KSEDLocators.poiskzapr) # Поисковые запросы
     myPoiskZapr = PageElement(xpath=KSEDLocators.myPoiskZapr) # Поисковые запросы
+    ControlZapr = PageElement(xpath=KSEDLocators.ControlZapr) # Упарвление поисковыми запросами
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = PageElement(xpath=KSEDLocators.oblProsm) # Область просмотра
-
+    oneDocInList = PageElement(xpath=KSEDLocators.oneDocInList) # Первый документ в списке
 
     # ОТЧЕТЫ
     section_allur = PageElement(xpath=KSEDLocators.section_allur) # Раздел "Отчеты"
@@ -251,9 +252,11 @@ class Locator(PageObject, KSEDLocators):
 
     #Формы отчетов
 
-
-
-
+    #Мои поисковые запросы
+    listChange = PageElement(xpath=KSEDLocators.listChange)  # Выпадающий список
+    listChangeSZ = PageElement(xpath=KSEDLocators.listChangeSZ)  # Выпадающий список - служебная записка
+    butSave = PageElement(xpath=KSEDLocators.butSave) #Кнопка сохранить
+    nameZap = PageElement(xpath=KSEDLocators.nameZap) #Наименование запроса
 
 
 

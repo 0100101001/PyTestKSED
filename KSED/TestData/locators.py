@@ -88,12 +88,13 @@ class KSEDLocators:
     mySearch = '//div[contains(text(), "Мои поисковые запросы")]' #xpath  # Мои поисковые запросы
     poiskzapr = '//span[text() = "Поисковые запросы"]' #xpath # Поисковые запросы
     myPoiskZapr = '//td[contains(@id, "ygtvcontente")]/span[text() = "2"]' #xpath # Поисковые запросы
+    ControlZapr = '//span[text() = "Управление поисковыми запросами"]' #xpath # Управление поисковыми запросами
+
 
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = '(//div[contains(@id, "_default-body")][contains(@class, "datagrid")])[2]' #xpath # Область просмотра
     full_text_search = '(//input[contains(@id, "_default-full-text-search")])[1]' #xpath # Поисковая строка
-
-    #oneDocInList = rFile()
+    oneDocInList = '//div[@class = "yui-dt-liner"]/a)[1]' #xpath # Первый документ в списке
 
 
 
@@ -280,8 +281,9 @@ class KSEDLocators:
     #(форма создания документа)
     osnovPodpis = 'prop_lecm-outgoing_signing-basis' #name # Основание подписания
     korrespondentISH = '//input[contains(@id, "contractor-assoc-autocomplete")]' #xpath # Корреспондент
-
-
-
-
-    clickNull = '//div[contains(@id, "_default-form-container")]' # КЛИК ВНЕ АТРИБУТОВ
+    clickNull = '//div[contains(@id, "_default-form-container")]'  # КЛИК ВНЕ АТРИБУТОВ
+    # Мои поисковые Запросы
+    listChange = '//select[contains(@id, "default_searchQuery-selectType-entry")]' #Выпадающий список
+    listChangeSZ = '//option[text() = "Служебная записка"]' #Выпадающий список - служебная записка
+    butSave = '//div[contains(@class, "query-button-grey")][3]' #Кнопка сохранить
+    nameZap = '//div[contains(@id, "createDetails_prop_lecm-search-queries_name")]' #Наименование запроса

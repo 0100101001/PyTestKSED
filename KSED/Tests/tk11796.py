@@ -79,8 +79,9 @@ class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
 
 #        wait.until(EC.title_is(self.w.title))
         wait_page_loaded(self.w)
-        # Проверка, что список отображается
 
-       page.notificationFirst.click()
+        # Проверка, что документ открылся
 
-        assert page.oblProsm.is_displayed()
+        page.notificationFirst.click()
+
+        assert "Документ" in self.w.title

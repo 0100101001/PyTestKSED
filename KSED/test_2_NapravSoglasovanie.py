@@ -20,7 +20,6 @@ from Tests.tk13799 import KSEDCreatDocPDSoglas
 from Tests.tk13756 import KSEDCreatDocPSoglas
 from Tests.tk13862 import KSEDCreatDocPorNSoglas
 from Tests.tk11706 import KSEDDocPDNapSoglas
-from Tests.experiment import KSEDLogin
 
 
 
