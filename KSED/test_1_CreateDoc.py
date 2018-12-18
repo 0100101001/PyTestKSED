@@ -20,7 +20,7 @@ from Tests.tk11639 import KSEDLogin
 from Tests.tk11669 import KSEDCreatDocP
 from Tests.tk11674 import KSEDCreatDocRD
 from Tests.tk11679 import KSEDCreatDocReestr
-from Tests.tk11691 import KSEDCreatDocSZ
+#from Tests.SZ.tk11691 import KSEDCreatDocSZ
 from Tests.tk12957 import KSEDCreatDocREZ
 from Tests.tk11664 import KSEDCreatDocPD
 from Tests.tk11655 import KSEDCreatDocPor
