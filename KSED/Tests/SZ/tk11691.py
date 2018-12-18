@@ -132,3 +132,11 @@ class KSEDCreatDocSZ(Locator, dataTest, KSEDLocators):
 
         assert "Документ" in self.w.title
 
+    # Сохраним ссылку на документ в файл
+    def LinkDocWFile(self):
+
+        url = self.w.current_url
+        my_file = open("D:\PyTestKSED\KSED\Tests\SZ/tempSZ.txt", "w")
+        my_file.write(str(url))
+        my_file.close()
+        time.sleep(2)

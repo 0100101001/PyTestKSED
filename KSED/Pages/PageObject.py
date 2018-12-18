@@ -1,5 +1,5 @@
 from page_objects import PageObject, PageElement
-from TestData.locators import KSEDLocators
+from KSED.TestData.locators import KSEDLocators
 
 
 
