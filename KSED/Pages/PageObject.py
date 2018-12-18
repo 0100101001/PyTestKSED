@@ -255,10 +255,12 @@ class Locator(PageObject, KSEDLocators):
     #Мои поисковые запросы
     listChange = PageElement(xpath=KSEDLocators.listChange)  # Выпадающий список
     listChangeSZ = PageElement(xpath=KSEDLocators.listChangeSZ)  # Выпадающий список - служебная записка
+    listChangeRD = PageElement(xpath=KSEDLocators.listChangeRD)  # Выпадающий список - РД
     butSave = PageElement(xpath=KSEDLocators.butSave) #Кнопка сохранить
     nameZap = PageElement(xpath=KSEDLocators.nameZap) #Наименование запроса
     zaprosToDel = PageElement(xpath=KSEDLocators.zaprosToDel)#созданный запрос
     butDel = PageElement(xpath=KSEDLocators.butDel) #Кнопка удалить
+    butRed = PageElement(xpath=KSEDLocators.butRed)  # Кнопка редактировать
     butDelAc = PageElement(xpath=KSEDLocators.butDelAc)  # Кнопка удалить подтверждение
 
 

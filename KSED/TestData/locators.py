@@ -285,8 +285,10 @@ class KSEDLocators:
     # Мои поисковые Запросы
     listChange = '//select[contains(@id, "default_searchQuery-selectType-entry")]' #Выпадающий список
     listChangeSZ = '//option[text() = "Служебная записка"]' #Выпадающий список - служебная записка
+    listChangeRD = '//option[text() = "Распорядительный документ"]'  # Выпадающий список - РД
     butSave = '//div[contains(@class, "query-button-grey")][3]' #Кнопка сохранить
     nameZap = '//input[contains(@id, "createDetails_prop_lecm-search-queries_name")]' #Наименование запроса
     zaprosToDel = '//span[text() = "ToDel"]'#созданный запрос
     butDel = '//span[contains(@class, "yui-button yui-push-button")]//button[text() = "Удалить поисковый запрос"]' #Кнопка удалить
+    butRed = '//span[contains(@class, "yui-button yui-push-button")]//button[text() = "Редактировать поисковый запрос"]' #Кнопка редактировать
     butDelAc = '//span[contains(@class, "first-child")]//button[text() = "Удалить"]' #Кнопка удалить подтверждение
