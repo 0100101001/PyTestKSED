@@ -38,7 +38,7 @@ def test_11691(web_browser):
 
     LinkDocWFile = page.LinkDocWFile()
 
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 @allure.feature('Направление СЗ на согласование')
 
 @pytest.mark.KSED_smoke_test

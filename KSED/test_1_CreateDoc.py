@@ -16,17 +16,18 @@
 import pytest
 import allure
 
-from Tests.tk11639 import KSEDLogin
-from Tests.tk11669 import KSEDCreatDocP
-from Tests.tk11674 import KSEDCreatDocRD
-from Tests.tk11679 import KSEDCreatDocReestr
+from KSED.Tests.tk11639 import KSEDLogin
+from KSED.Tests.tk11669 import KSEDCreatDocP
+from KSED.Tests.tk11674 import KSEDCreatDocRD
+from KSED.Tests.tk11679 import KSEDCreatDocReestr
 #from Tests.SZ.tk11691 import KSEDCreatDocSZ
-from Tests.tk12957 import KSEDCreatDocREZ
-from Tests.tk11664 import KSEDCreatDocPD
-from Tests.tk11655 import KSEDCreatDocPor
-from Tests.tk11652 import KSEDCreatDocPVH
-from Tests.tk11644 import KSEDCreatDocVH
-from Tests.tk11645 import KSEDCreatDocISH
+from KSED.Tests.tk12957 import KSEDCreatDocREZ
+from KSED.Tests.tk11664 import KSEDCreatDocPD
+from KSED.Tests.tk11655 import KSEDCreatDocPor
+from KSED.Tests.tk11652 import KSEDCreatDocPVH
+from KSED.Tests.tk11644 import KSEDCreatDocVH
+from KSED.Tests.tk11645 import KSEDCreatDocISH
+from KSED.Tests.tk11705 import KSEDCreatDocPa
 
 
 
@@ -193,3 +194,16 @@ from Tests.tk11645 import KSEDCreatDocISH
 #     LogIn_page = page.LogIN('StroganovSN', '12345')
 #
 #     Creat_doc  = page.Creat()
+
+
+@allure.feature('Создание Исходящий документ')
+
+@pytest.mark.KSED_smoke_test
+
+def test_11645(web_browser):
+
+    """ Создание Исходящий документ. """
+
+    page = KSEDCreatDocPa(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
