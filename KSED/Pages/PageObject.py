@@ -258,7 +258,8 @@ class Locator(PageObject, KSEDLocators):
     butSave = PageElement(xpath=KSEDLocators.butSave) #Кнопка сохранить
     nameZap = PageElement(xpath=KSEDLocators.nameZap) #Наименование запроса
     zaprosToDel = PageElement(xpath=KSEDLocators.zaprosToDel)#созданный запрос
-
+    butDel = PageElement(xpath=KSEDLocators.butDel) #Кнопка удалить
+    butDelAc = PageElement(xpath=KSEDLocators.butDelAc)  # Кнопка удалить подтверждение
 
 
 

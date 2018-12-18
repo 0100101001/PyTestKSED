@@ -288,3 +288,5 @@ class KSEDLocators:
     butSave = '//div[contains(@class, "query-button-grey")][3]' #Кнопка сохранить
     nameZap = '//input[contains(@id, "createDetails_prop_lecm-search-queries_name")]' #Наименование запроса
     zaprosToDel = '//span[text() = "ToDel"]'#созданный запрос
+    butDel = '//span[contains(@class, "yui-button yui-push-button")]//button[text() = "Удалить поисковый запрос"]' #Кнопка удалить
+    butDelAc = '//span[contains(@class, "first-child")]//button[text() = "Удалить"]' #Кнопка удалить подтверждение
