@@ -74,14 +74,10 @@ class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
 
         time.sleep(0.5)
 
-        # Перейти в строку созданного запроса
         actions = ActionChains(self.w)
-
-        actions.move_to_element(page.mySearch).click().perform()
-
-        # wait.until(EC.title_is(self.w.title))
-        wait_page_loaded(self.w)
-
+        actions.move_to_element(page.mySearch).click().perform()  # Переход в управление моими запросами
+        time.sleep(1)
+        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform()
 
         page.ControlZapr.click() # Переход в управление поисковыми запросами
         page.listChange.click() # Переход в выпадающий список
@@ -92,9 +88,5 @@ class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
         time.sleep(0.5)
         page.nameZap.send_keys('ToDel' + Keys.RETURN) # Сохранить с наименованием
         time.sleep(0.5)
-        actions = ActionChains(self.w)
-        actions.move_to_element(page.mySearch).click().perform()
-        time.sleep(0.5)
-        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform() # развернуть список запросов
-        time.sleep(0.5)
-        assert page.zaprosToDel.is_displayed() # Проверка, что есть сохраненный элемент
+
+        assert page.oblProsm.is_displayed() # Проверка, что список отображается

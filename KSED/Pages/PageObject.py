@@ -257,7 +257,7 @@ class Locator(PageObject, KSEDLocators):
     listChangeSZ = PageElement(xpath=KSEDLocators.listChangeSZ)  # Выпадающий список - служебная записка
     butSave = PageElement(xpath=KSEDLocators.butSave) #Кнопка сохранить
     nameZap = PageElement(xpath=KSEDLocators.nameZap) #Наименование запроса
-
+    zaprosToDel = PageElement(xpath=KSEDLocators.zaprosToDel)#созданный запрос
 
 
 

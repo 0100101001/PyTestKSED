@@ -286,4 +286,5 @@ class KSEDLocators:
     listChange = '//select[contains(@id, "default_searchQuery-selectType-entry")]' #Выпадающий список
     listChangeSZ = '//option[text() = "Служебная записка"]' #Выпадающий список - служебная записка
     butSave = '//div[contains(@class, "query-button-grey")][3]' #Кнопка сохранить
-    nameZap = '//div[contains(@id, "createDetails_prop_lecm-search-queries_name")]' #Наименование запроса
+    nameZap = '//input[contains(@id, "createDetails_prop_lecm-search-queries_name")]' #Наименование запроса
+    zaprosToDel = '//span[text() = "ToDel"]'#созданный запрос
