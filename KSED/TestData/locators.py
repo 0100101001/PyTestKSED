@@ -1,7 +1,7 @@
 # Извлечение номера документа из файла
 def rFile():
 
-    my_file = open("TestData\linkDoc.txt", "r")
+    my_file = open("D:\PyTestKSED\KSED\TestData\linkDoc.txt", "r")
     my_string = my_file.read()
     my_string.strip()
     return my_string
@@ -9,7 +9,7 @@ def rFile():
 
 def rFileRD():
 
-    my_file = open("TestData\linkDocRD.txt", "r")
+    my_file = open("D:\PyTestKSED\KSED\TestData\linkDocRD.txt", "r")
     my_string = my_file.read()
     my_string.strip()
     return my_string

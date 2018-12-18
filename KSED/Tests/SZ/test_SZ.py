@@ -16,7 +16,7 @@ import pytest
 import allure
 
 from KSED.Tests.SZ.tk11691 import KSEDCreatDocSZ
-#from Tests.SZ.tk12913 import KSEDprintSZ
+from KSED.Tests.SZ.tk11704 import KSEDnaprSZSoglas
 
 
 
@@ -25,6 +25,7 @@ from KSED.Tests.SZ.tk11691 import KSEDCreatDocSZ
 
 @pytest.mark.KSED_smoke_test
 
+@pytest.fixture(scope="session")
 def test_11691(web_browser):
 
     """ Создание Служебной записки. """
@@ -34,3 +35,26 @@ def test_11691(web_browser):
     LogIn_page = page.LogIN('StroganovSN', '12345')
 
     Creat_doc  = page.Creat()
+
+    LinkDocWFile = page.LinkDocWFile()
+
+#@pytest.fixture(scope="session")
+@allure.feature('Направление СЗ на согласование')
+
+@pytest.mark.KSED_smoke_test
+
+def test_13862(web_browser):
+
+    """ Направление СЗ на согласование. """
+
+    page = KSEDnaprSZSoglas(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    Attach = page.attachment()
+
+    NaprNaSogl = page.NapSoglasovanie()
