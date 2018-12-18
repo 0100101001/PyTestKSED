@@ -43,7 +43,7 @@ def wait_page_loaded(driver):
         time.sleep(0.1)
 
 
-class KSEDCreateZap(Locator, dataTest, KSEDLocators):
+class KSEDredZap(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -74,27 +74,24 @@ class KSEDCreateZap(Locator, dataTest, KSEDLocators):
 
         time.sleep(0.5)
 
-        # Перейти в строку созданного запроса
         actions = ActionChains(self.w)
-
-        actions.move_to_element(page.mySearch).click().perform()
-
-        # wait.until(EC.title_is(self.w.title))
-        wait_page_loaded(self.w)
-
-
-        page.ControlZapr.click() # Переход в управление поисковыми запросами
-        page.listChange.click() # Переход в выпадающий список
+        actions.move_to_element(page.mySearch).click().perform()  # Переход в управление моими запросами
+        time.sleep(1)
+        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform() # развернуть на "+"
+        page.zaprosToDel.click() # выбрать созданный по предусловию запрос
+        time.sleep(1)
+        page.butRed.click()
+        time.sleep(1)
+        page.listChange.click()  # Переход в выпадающий список
         time.sleep(0.5)
-        page.listChangeSZ.click() # Выбор служебной записки в выпадающем списке
+        page.listChangeRD.click()  # Выбор служебной записки в выпадающем списке
+        time.sleep(2)
+        page.butSave.click()  # Кнопка сохранить
         time.sleep(0.5)
-        page.butSave.click() # Кнопка сохранить
-        time.sleep(0.5)
-        page.nameZap.send_keys('ToDel' + Keys.RETURN) # Сохранить с наименованием
-        time.sleep(0.5)
+        page.nameZap.send_keys(Keys.RETURN)  # Сохранить с наименованием
         actions = ActionChains(self.w)
-        actions.move_to_element(page.mySearch).click().perform()
-        time.sleep(0.5)
-        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform() # развернуть список запросов
-        time.sleep(0.5)
-        assert page.zaprosToDel.is_displayed() # Проверка, что есть сохраненный элемент
+        actions.move_to_element(page.mySearch).click().perform()  # Переход в управление моими запросами
+        time.sleep(1)
+        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform()  # развернуть на "+"
+        time.sleep(1)
+        assert page.zaprosToDel.is_displayed() # Проверка, что отображается

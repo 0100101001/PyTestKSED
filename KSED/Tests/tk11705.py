@@ -43,7 +43,7 @@ def wait_page_loaded(driver):
         time.sleep(0.1)
 
 
-class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
+class KSEDdelZap(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -56,10 +56,10 @@ class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
 
 
     def LogIN(self, username, password):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
+        wait = WebDriverWait(self.w, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
         page = Locator(self.w)
 
         page.username_text = username
@@ -79,13 +79,16 @@ class KSEDCreatDocPa(Locator, dataTest, KSEDLocators):
         time.sleep(1)
         actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform() # развернуть на "+"
         page.zaprosToDel.click() # выбрать созданный по предусловию запрос
+        time.sleep(1)
         page.butDel.click()
-        time.sleep(3)
-        # page.butDelAc.click()
-        # time.sleep(1)
-        # actions = ActionChains(self.w)
-        # actions.move_to_element(page.mySearch).click().perform()  # Переход в управление моими запросами
-        # time.sleep(1)
-        # actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform()  # развернуть на "+"
-        # time.sleep(2)
-        # assert page.oblProsm.is_not_displayed() # Проверка, что не отображается
+        time.sleep(1)
+        page.butDelAc.click()
+        time.sleep(1)
+        actions = ActionChains(self.w)
+        actions.move_to_element(page.mySearch).click().perform()  # Переход в управление моими запросами
+        time.sleep(1)
+        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform()  # развернуть на "+"
+        time.sleep(1)
+        assert wait.until(EC.invisibility_of_element_located((By.XPATH, KSEDLocators.zaprosToDel)))
+
+
