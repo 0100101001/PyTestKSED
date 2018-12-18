@@ -27,7 +27,7 @@ from KSED.Tests.tk11655 import KSEDCreatDocPor
 from KSED.Tests.tk11652 import KSEDCreatDocPVH
 from KSED.Tests.tk11644 import KSEDCreatDocVH
 from KSED.Tests.tk11645 import KSEDCreatDocISH
-from KSED.Tests.tk11705 import KSEDCreatDocPa
+from KSED.Tests.tk11705 import KSEDdelZap
 
 
 
@@ -196,14 +196,14 @@ from KSED.Tests.tk11705 import KSEDCreatDocPa
 #     Creat_doc  = page.Creat()
 
 
-@allure.feature('Создание Исходящий документ')
-
-@pytest.mark.KSED_smoke_test
-
-def test_11645(web_browser):
-
-    """ Создание Исходящий документ. """
-
-    page = KSEDCreatDocPa(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+# @allure.feature('Создание Исходящий документ')
+#
+# @pytest.mark.KSED_smoke_test
+#
+# def test_11645(web_browser):
+#
+#     """ Создание Исходящий документ. """
+#
+#     page = KSEDdelZap(web_browser)
+#
+#     LogIn_page = page.LogIN('StroganovSN', '12345')
