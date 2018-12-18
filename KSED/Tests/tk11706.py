@@ -225,4 +225,3 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
 
         time.sleep(0.5)
         assert "На согласовании" in self.status_Doc.text
-
