@@ -15,8 +15,8 @@
 import pytest
 import allure
 
-from Tests.SZ.tk11691 import KSEDCreatDocSZ
-from Tests.SZ.tk12913 import KSEDprintSZ
+from KSED.Tests.SZ.tk11691 import KSEDCreatDocSZ
+#from Tests.SZ.tk12913 import KSEDprintSZ
 
 
 
