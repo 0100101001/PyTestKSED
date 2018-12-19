@@ -58,6 +58,23 @@ class KSEDLocators:
     user_menu = 'HEADER_USER_MENU_POPUP_text' #id  # Меню пользователя
     USER_LOGOUT = 'HEADER_USER_MENU_LOGOUT_text' #id # Выход из системы
 
+    my_profile = '//a[text() = "Мой профиль"]'  # xpath # Пункт меню "Мой профиль"
+    fieldlabel = '//div[@class = "fieldlabel"]' #xpath # Должность в области краткой информации
+    btnEdit_profile = '//button[contains(@id, "button-edit-button")]' #xpath # Кнопка "Изменить профиль"
+    inputPosition = '//input[contains(@id, "-input-jobtitle")]' #xpath # Поле ввода должности
+
+    logic_ESM = '//a[text() = "Логика ECM. Мой профиль"]'  # xpath # Пункт меню "Логика ECM. Мой профиль"
+    autoAnswerText = 'prop_lecm-absence_auto-answer-text' #name # Текст автоответа (Меня нет в офисе)
+    btnCancelAbsence = '//button[contains(@id, "cancelButton-button")]' #xpath # Кнопка "Отменить отсутствие"
+    btnYes = '//button[text() = "Да"]' #xpath # Кнопка "Да" (отменить отсутствие)
+
+
+    edit_password = '//a[text() = "Изменить пароль"]' #xpath # Пункт меню "Изменить пароль"
+    inputOldPassword = '//input[contains(@id, "oldpassword")]' #xpath # Введите старый пароль
+    inputNewPassword1 = '//input[contains(@id, "newpassword1")]'  # xpath # Введите старый пароль
+    inputNewPassword2 = '//input[contains(@id, "newpassword2")]'  # xpath # Введите старый пароль
+    btnOKchange = '//button[contains(@id, "_default-bu")][text() = "ОК"]' #xpath # Кнопка "Изменить пароль"
+
     # *******ЛЕВАЯ ЧАСТЬ СТРАНИЦЫ (Кнопка "Создать" и разделы)*******
     newDoc_button = '//button[contains(@id, "newDocumentButton-button")]' #xpath  # "Создать"
 

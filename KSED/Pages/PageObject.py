@@ -34,6 +34,22 @@ class Locator(PageObject, KSEDLocators):
     user_menu = PageElement(id_=KSEDLocators.user_menu) # Меню пользователя
     USER_LOGOUT = PageElement(id_=KSEDLocators.USER_LOGOUT) # Выход из системы
 
+    my_profile = PageElement(xpath=KSEDLocators.my_profile) # Пункт меню "Мой профиль"
+    fieldlabel = PageElement(xpath=KSEDLocators.fieldlabel) # Должность в области краткой информации
+    btnEdit_profile = PageElement(xpath=KSEDLocators.btnEdit_profile) # Кнопка "Изменить профиль"
+    inputPosition = PageElement(xpath=KSEDLocators.inputPosition) # Поле ввода должности
+
+    logic_ESM = PageElement(xpath=KSEDLocators.logic_ESM) # Пункт меню "Логика ECM. Мой профиль"
+    autoAnswerText = PageElement(name=KSEDLocators.autoAnswerText) # Текст автоответа (Меня нет в офисе)
+    btnCancelAbsence = PageElement(xpath=KSEDLocators.btnCancelAbsence) # Кнопка "Отменить отсутствие"
+    btnYes = PageElement(xpath=KSEDLocators.btnYes) # Кнопка "Да" (отменить отсутствие)
+
+    edit_password = PageElement(xpath=KSEDLocators.edit_password) # Пункт меню "Изменить пароль"
+    inputOldPassword = PageElement(xpath=KSEDLocators.inputOldPassword) # Введите старый пароль
+    inputNewPassword1 = PageElement(xpath=KSEDLocators.inputNewPassword1) # Введите старый пароль
+    inputNewPassword2 = PageElement(xpath=KSEDLocators.inputNewPassword2) # Введите старый пароль
+    btnOKchange = PageElement(xpath=KSEDLocators.btnOKchange) # Кнопка "Изменить пароль"
+
     # *******ЛЕВАЯ ЧАСТЬ СТРАНИЦЫ (Кнопка "Создать" и разделы)*******
     newDoc_button = PageElement(xpath=KSEDLocators.newDoc_button) # "Создать"
 

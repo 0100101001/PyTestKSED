@@ -82,13 +82,13 @@ def test_12913(web_browser):
     #is_element_present = page.is_element_present()
 
 #@pytest.fixture(scope="session")
-@allure.feature('Печать вложений документа')
+@allure.feature('Печать в разделе "Печатные формы"')
 
 @pytest.mark.KSED_smoke_test
 
-def test_12913(web_browser):
+def test_12912(web_browser):
 
-    """ Печать вложений документа. """
+    """ Печать в разделе "Печатные формы". """
 
     page = KSEDPrintForm(web_browser)
 
