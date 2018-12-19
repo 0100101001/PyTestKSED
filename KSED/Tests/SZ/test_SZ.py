@@ -17,7 +17,8 @@ import allure
 
 from KSED.Tests.SZ.tk11691 import KSEDCreatDocSZ
 from KSED.Tests.SZ.tk11704 import KSEDnaprSZSoglas
-
+from KSED.Tests.SZ.tk12913 import KSEDPrintAttach
+from KSED.Tests.SZ.tk12912 import KSEDPrintForm
 
 
 
@@ -38,12 +39,13 @@ def test_11691(web_browser):
 
     LinkDocWFile = page.LinkDocWFile()
 
+
 @pytest.fixture(scope="session")
 @allure.feature('Направление СЗ на согласование')
 
 @pytest.mark.KSED_smoke_test
 
-def test_13862(web_browser):
+def test_11704(web_browser):
 
     """ Направление СЗ на согласование. """
 
@@ -58,3 +60,42 @@ def test_13862(web_browser):
     Attach = page.attachment()
 
     NaprNaSogl = page.NapSoglasovanie()
+
+
+@pytest.fixture(scope="session")
+@allure.feature('Печать вложений документа')
+
+@pytest.mark.KSED_smoke_test
+
+def test_12913(web_browser):
+
+    """ Печать вложений документа. """
+
+    page = KSEDPrintAttach(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    getDoc = page.getDoc()
+
+    printAttach = page.printAttach()
+
+    #is_element_present = page.is_element_present()
+
+#@pytest.fixture(scope="session")
+@allure.feature('Печать вложений документа')
+
+@pytest.mark.KSED_smoke_test
+
+def test_12913(web_browser):
+
+    """ Печать вложений документа. """
+
+    page = KSEDPrintForm(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    getDoc = page.getDoc()
+
+    printForm = page.printForm()
+
+    #is_element_present = page.is_element_present()

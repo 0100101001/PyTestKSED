@@ -157,11 +157,16 @@ class KSEDLocators:
     attachments = '//span[contains(@id, "action-expand")][contains(@class, "attachments-expand")]' #xpath # Переход во вкладку "Вложения"
     vlozheniya = '//h2[contains(@id, "heading")][contains(text(), "Вложения")]'  # xpath # Вложения (раскрытие раздела)
     osnSvedeniya = '//h2[contains(@id, "heading")][contains(text(), "Основные сведения")]' #xpath # Основные сведения (раскрытие раздела)
+    printForm = '//h2[contains(@id, "heading")][contains(text(), "Печатные формы")]' #xpath # Печатные формы (раскрытие раздела)
+    printBarCode = '//a[contains(text(), "Штрих-код документа")]' #xpath #Печатная форма штрих кода документа
+    btnPrintInPrintForm = 'print' #id # Кнопка печати в окне печатной формы
     mode = '//button[contains(@id, "default-cntrl-split-panel-button-button")]' #xpath
     fileUpload = '(//button[contains(@id, "fileUpload-button-button")])[2]' #xpath # Загрузить файл
     fileUpload2 = '//button[contains(@id, "fileUpload-button-button")]'  # xpath # Загрузить файл в поручении
     files = '//input[@type="file"][@name="files[]"]' #xpath # Выберите файлы
     show = '//a[contains(@id, "action-show-main")]' #xpath # Показать общую карточка
+    show_list = '//a[@class = "preview-show-list"]' #xpath # Показать ввиде списка
+    btnPrint = '//button[contains(@id, "print_from_preview")]' #xpath # Кнопка печати в форме предварительного просмотра вложения
 
     soglasovanieWkladka = '//em[contains(text(), "Согласование")]'  # xpath # Вкладка "Согласование"
     createRuleBtn = '//button[contains(@id, "create-approval-list-button-button")]'  # xpath # Кнопка "Создать маршрут"

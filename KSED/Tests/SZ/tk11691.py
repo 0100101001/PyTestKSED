@@ -139,4 +139,4 @@ class KSEDCreatDocSZ(Locator, dataTest, KSEDLocators):
         my_file = open("D:\PyTestKSED\KSED\Tests\SZ/tempSZ.txt", "w")
         my_file.write(str(url))
         my_file.close()
-        time.sleep(2)
+        # time.sleep(2)

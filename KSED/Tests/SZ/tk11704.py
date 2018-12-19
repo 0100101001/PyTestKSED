@@ -97,11 +97,12 @@ class KSEDnaprSZSoglas(Locator, dataTest, KSEDLocators):
         time.sleep(0.5)
         page.attachments.click()
 
-        #        time.sleep(0.5)
+        time.sleep(0.5)
+        page.show_list.click()
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         time.sleep(0.5)
         #wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
-        page.fileUpload2.click()
+        page.fileUpload.click()
 
         time.sleep(0.5)
         #wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
@@ -168,8 +169,10 @@ class KSEDnaprSZSoglas(Locator, dataTest, KSEDLocators):
 
         time.sleep(1.5)
         # Заполним "Вид этапа"
-        page.tipeEtap.send_keys("Согласование" + Keys.ENTER)
+        page.tipeEtap.send_keys("Согласование"+ Keys.ENTER)
         time.sleep(0.5)
+        page.tipeEtap.send_keys(Keys.ENTER)
+        time.sleep(1)
 
         # Заполним "Согласующие"
         page.soglasuychie.send_keys("Яцкин" + Keys.ENTER)

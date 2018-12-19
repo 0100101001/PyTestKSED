@@ -128,11 +128,17 @@ class Locator(PageObject, KSEDLocators):
     attachments = PageElement(xpath=KSEDLocators.attachments) # # Переход во вкладку "Вложения"
     vlozheniya = PageElement(xpath=KSEDLocators.vlozheniya) # Вложения (раскрытие раздела)
     osnSvedeniya = PageElement(xpath=KSEDLocators.osnSvedeniya) # Основные сведения (раскрытие раздела)
+    printForm = PageElement(xpath=KSEDLocators.printForm)# Печатные формы (раскрытие раздела)
+    printBarCode = PageElement(xpath=KSEDLocators.printBarCode) #Печатная форма штрих кода документа
+    btnPrintInPrintForm = PageElement(id_=KSEDLocators.btnPrintInPrintForm)# Кнопка печати в окне печатной формы
+
     mode = PageElement(xpath=KSEDLocators.mode) # Переключение в двупанельный вид
     fileUpload = PageElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
     fileUpload2 = PageElement(xpath=KSEDLocators.fileUpload2)  # Загрузить файл в поручении
     files = PageElement(xpath=KSEDLocators.files) # Выберите файлы
     show = PageElement(xpath=KSEDLocators.show) # Показать общую карточка
+    show_list = PageElement(xpath=KSEDLocators.show_list)# Показать ввиде списка
+    btnPrint = PageElement(xpath=KSEDLocators.btnPrint) # Кнопка печати в форме предварительного просмотра вложения
 
     soglasovanieWkladka = PageElement(xpath=KSEDLocators.soglasovanieWkladka) # Вкладка "Согласование"
     createRuleBtn = PageElement(xpath=KSEDLocators.createRuleBtn) # Кнопка "Создать маршрут"
