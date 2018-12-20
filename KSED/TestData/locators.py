@@ -214,6 +214,8 @@ class KSEDLocators:
     #(Функциональное меню "Действия")
     #Согласовать
     sendFor_approval = '//div[contains(text(), "Направить на согласование")]' #xpath # Действие "Направить на согласование"
+    sendFor_execution = '//div[contains(text(), "Направить на исполнение")]'  # xpath # Действие "Направить на исполнение"
+    btnOKnaprNaIspoln = '//button[text() = "ОК"]' #xpath # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
     confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[1]' #xpath # Подтверждение согласования
 
     #"Отправить отчет"
@@ -235,6 +237,8 @@ class KSEDLocators:
     internal_approval = '//button[contains(@id, "internal_approval-button")]' #xpath # Кнопка "Внутреннее согласование"
     prop_bpm_comment = 'prop_bpm_comment' #name # Поле комментария
     apply_button_button = '//button[contains(@id, "apply-button")]' #xpath # Кнопка "ОК" при вынесении решения согласования
+
+    SIGNED_button = '//button[contains(@id, "SIGNED-button")]' #xpath # Кнопка "Подписать"
 
 
 
@@ -281,7 +285,9 @@ class KSEDLocators:
     # ПРОИЗВОЛЬНЫЙ ДОКУМЕНТ
     #(форма создания документа)
     prorabotka = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[1]'#xpath # Проработка
+    chBprorab = '(//input[contains(@class, "formsCheckBox")])[1]' #xpath # чекбокс проработка
     normokontrol = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[2]'#xpath # Нормоконтроль
+    chBnorm = '(//input[contains(@class, "formsCheckBox")])[2]' #xpath # чекбокс Проработка
     soglasovanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[3]'#xpath # Согласование
     podpisanie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[4]'#xpath # Подписание
     utverzhdenie = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[5]'#xpath # Утверждение

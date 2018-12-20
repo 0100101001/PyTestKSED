@@ -16,6 +16,8 @@ import allure
 from KSED.Tests.tk11664 import KSEDCreatDocPD
 from KSED.Tests.tk13799 import KSEDCreatDocPDSoglas
 from KSED.Tests.tk11955 import KSEDCreatDocPDSoglas_sendDorab
+from KSED.Tests.tk14079 import KSEDPDSoglas
+from KSED.Tests.tk11957 import KSEDPDPodpisanie_Otklon
 
 
 @allure.feature('Создание Произвольного документа')
@@ -31,6 +33,7 @@ def test_11664(web_browser):
 
     Creat_doc  = page.Creat()
 
+    saveLink = page.LinkDocWFile()
 
 @allure.feature('Направление Произвольного документа на согласование')
 @pytest.mark.KSED_smoke_test
@@ -43,7 +46,7 @@ def test_13799(web_browser):
 
     LogIn_page = page.LogIN('StroganovSN', '12345')
 
-    Creat_doc  = page.Creat()
+    getDoc = page.getDoc()
 
     Attach = page.attachment()
 
@@ -62,20 +65,42 @@ def test_11955(web_browser):
 
     LogIn_page = page.LogIN('StroganovSN', '12345') # Авторизуемся
 
-    Creat_doc  = page.Creat() # Создадим документ
-
-    Attach = page.attachment() # Добавим вложение
-
-#    addPoruch = page.addPoruchenie() # Добавим пункт поручение
-
-    NaprNaSogl = page.NapSoglasovanie() # Направим на согласование
-
-    Logout = page.USER_LOGOUTs() # Выйдем из системы
-
-    LogIn_page = page.LogIN('YatskinRS', '12345') # Авторизуемся согласующим созданного документа
+    getDoc = page.getDoc()
 
     #notification = page.notificationOpen() # Откроем уведомления и перейдем в документ
 
     REJECTED = page.REJECTED() # Отклоним и вернем документ на доработку
 
+    NaprNaSogl = page.NapSoglasovanie()  # Направим на согласование
 
+
+@allure.feature('Согласование произвольного документа.')
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_14079(web_browser):
+
+    """ Согласование произвольного документа """
+
+    page = KSEDPDSoglas(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345') # Авторизуемся
+
+    getDoc = page.getDoc()
+
+    Soglasovanie = page.Soglasovanie()
+
+
+@allure.feature('Отклонение подписания и возврат ПД на доработку.')
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_14079(web_browser):
+
+    """ Отклонение подписания и возврат ПД на доработку """
+
+    page = KSEDPDPodpisanie_Otklon(web_browser)
+
+    LogIn_page = page.LogIN('tst_gid', '12345') # Авторизуемся
+
+    getDoc = page.getDoc()
+
+    Podpisanie_Otklon = page.Podpisanie_Otklon()

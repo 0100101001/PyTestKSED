@@ -18,6 +18,7 @@ from KSED.Tests.tk13862 import KSEDCreatDocPorNSoglas
 from KSED.Tests.tk11778 import KSEDCreatDocPorSoglas
 from KSED.Tests.tk11943 import KSEDCreatDocPorDorab
 from KSED.Tests.tk12936 import KSEDDocPorSendAllure
+from KSED.Tests.tk12935 import KSEDCreatDocPorNIspoln
 
 
 @allure.feature('Создание Поручения')
@@ -103,3 +104,23 @@ def test_12936(web_browser):
     getDoc = page.getDoc()
 
     sendAllure = page.sendAllure()
+
+
+@allure.feature('Направление Поручения на исполнение')
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_12935(web_browser):
+
+    """ Направление Поручения на исполнение. """
+
+    page = KSEDCreatDocPorNIspoln(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    Creat_doc = page.Creat()
+
+    create_route = page.creation_of_the_approval_route()
+
+    Attach = page.attachment()
+
+    NapIspolnenie = page.NapIspolnenie()

@@ -105,13 +105,16 @@ class KSEDCreatDocPD(Locator, dataTest, KSEDLocators):
         # Вид документа
         page.doc_typeInp.send_keys(u'Договор'+Keys.RETURN)
 
+        time.sleep(1)
         # Проработка
         self.w.execute_script("arguments[0].scrollIntoView();", page.prorabotka)
-        page.prorabotka.send_keys(u'Строганов'+Keys.RETURN)
+        #page.prorabotka.send_keys(u'Строганов'+Keys.RETURN)
+        page.chBprorab.click()
         time.sleep(0.5)
         # Нормоконтроль
         self.w.execute_script("arguments[0].scrollIntoView();", page.normokontrol)
-        page.normokontrol.send_keys(u'Строганов' + Keys.RETURN)
+        #page.normokontrol.send_keys(u'Строганов' + Keys.RETURN)
+        page.chBnorm.click()
 
         # Согласование
         self.w.execute_script("arguments[0].scrollIntoView();", page.soglasovanie)
@@ -147,3 +150,10 @@ class KSEDCreatDocPD(Locator, dataTest, KSEDLocators):
 
         assert "Документ" in self.w.title
 
+    # Сохраним ссылку на документ в файл
+    def LinkDocWFile(self):
+
+        url = self.w.current_url
+        my_file = open("Tests/linkPD.txt", "w")
+        my_file.write(str(url))
+        my_file.close()

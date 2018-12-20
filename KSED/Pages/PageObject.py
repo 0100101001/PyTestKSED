@@ -175,6 +175,8 @@ class Locator(PageObject, KSEDLocators):
     btnOKform = PageElement(xpath=KSEDLocators.btnOKform) # Кнопка ОК на форме
 
     sendFor_approval = PageElement(xpath=KSEDLocators.sendFor_approval) # Действие "Направить на согласование"
+    sendFor_execution = PageElement(xpath=KSEDLocators.sendFor_execution) # Действие "Направить на исполнение"
+    btnOKnaprNaIspoln = PageElement(xpath=KSEDLocators.btnOKnaprNaIspoln) # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
     confirm = PageElement(xpath=KSEDLocators.confirm) # Подтверждение согласования
 
     status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
@@ -195,6 +197,8 @@ class Locator(PageObject, KSEDLocators):
     internal_approval = PageElement(xpath=KSEDLocators.internal_approval) # Кнопка "Внутреннее согласование"
     prop_bpm_comment = PageElement(name=KSEDLocators.prop_bpm_comment) # Поле комментария
     apply_button_button = PageElement(xpath=KSEDLocators.apply_button_button) # Кнопка "ОК" при вынесении решения согласования
+
+    SIGNED_button = PageElement(xpath=KSEDLocators.SIGNED_button) # Кнопка "Подписать"
 
     # # ПРОТОКОЛ
     # #(форма создания документа)
@@ -244,7 +248,9 @@ class Locator(PageObject, KSEDLocators):
     # ПРОИЗВОЛЬНЫЙ ДОКУМЕНТ
     #(форма создания документа)
     prorabotka = PageElement(xpath=KSEDLocators.prorabotka) # Проработка
+    chBprorab = PageElement(xpath=KSEDLocators.chBprorab) # чекбокс проработка
     normokontrol = PageElement(xpath=KSEDLocators.normokontrol) # Нормоконтроль
+    chBnorm = PageElement(xpath=KSEDLocators.chBnorm) # чекбокс Проработка
     soglasovanie = PageElement(xpath=KSEDLocators.soglasovanie) # Согласование
     podpisanie = PageElement(xpath=KSEDLocators.podpisanie) # Подписание
     utverzhdenie = PageElement(xpath=KSEDLocators.utverzhdenie) # Утверждение

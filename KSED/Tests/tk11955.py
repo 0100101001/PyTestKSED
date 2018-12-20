@@ -70,7 +70,21 @@ class KSEDCreatDocPDSoglas_sendDorab(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 
-        assert "АРМ" in self.w.title
+    #    assert "АРМ" in self.w.title
+
+
+    # Открытие документа из прошлого ТК
+    def getDoc(self):
+
+        my_file = open("Tests/linkPD.txt", "r")
+        my_string = my_file.read()
+        my_string.strip()
+        self.w.get(my_string)
+        my_file.close()
+
+        #self.w.get(KSEDLocators.LinkDocRD)
+        wait_page_loaded(self.w)
+
 
     # Создание документа (открытие формы создания и заполнение атрибутов)
     def Creat(self, ):
@@ -234,3 +248,6 @@ class KSEDCreatDocPDSoglas_sendDorab(Locator, dataTest, KSEDLocators):
         page.osnSvedeniya.click()
 
         assert "На доработке" in self.status_Doc.text
+
+
+
