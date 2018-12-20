@@ -144,6 +144,16 @@ class KSEDCreatDocRD(Locator, dataTest, KSEDLocators):
     def LinkDocWFile(self):
 
         url = self.w.current_url
-        my_file = open("TestData\linkDocRD.txt", "w")
+        my_file = open("Tests/linkDocRD.txt", "w")
         my_file.write(str(url))
         my_file.close()
+
+
+        # my_file = open("D:\PyTestKSED\KSED\Tests\SZ/tempSZ.txt", "r")
+        # my_string = my_file.read()
+        # my_string.strip()
+        # self.w.get(my_string)
+        # my_file.close()
+        #
+        # #self.w.get(KSEDLocators.LinkDoc)
+        # wait_page_loaded(self.w)

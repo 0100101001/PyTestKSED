@@ -76,8 +76,13 @@ class KSEDCreatDocPorSoglas(Locator, dataTest, KSEDLocators):
 
     # Открытие документа из прошлого ТК
     def getDoc(self):
+        my_file = open("Tests/linkDocPoruchenie.txt", "r")
+        my_string = my_file.read()
+        my_string.strip()
+        self.w.get(my_string)
+        my_file.close()
 
-        self.w.get(KSEDLocators.LinkDoc)
+        #self.w.get(KSEDLocators.LinkDocRD)
         wait_page_loaded(self.w)
 
     def Soglasovanie(self, ):

@@ -135,7 +135,7 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
     def LinkDocWFile(self):
 
         url = self.w.current_url
-        my_file = open("TestData\linkDoc.txt", "w")
+        my_file = open("Tests/linkDocPoruchenie.txt", "w")
         my_file.write(str(url))
         my_file.close()
 

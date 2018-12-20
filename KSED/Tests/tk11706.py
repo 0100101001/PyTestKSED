@@ -77,7 +77,13 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
     # Открытие документа из прошлого ТК
     def getDoc(self):
 
-        self.w.get(KSEDLocators.LinkDocRD)
+        my_file = open("Tests/linkDocRD.txt", "r")
+        my_string = my_file.read()
+        my_string.strip()
+        self.w.get(my_string)
+        my_file.close()
+
+        #self.w.get(KSEDLocators.LinkDocRD)
         wait_page_loaded(self.w)
 
     # Добавление вложения

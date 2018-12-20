@@ -77,7 +77,12 @@ class KSEDDocPorSendAllure(Locator, dataTest, KSEDLocators):
     # Открытие документа из прошлого ТК
     def getDoc(self):
 
-        self.w.get(KSEDLocators.LinkDoc)
+        my_file = open("Tests/linkDocPoruchenie.txt", "r")
+        my_string = my_file.read()
+        my_string.strip()
+        self.w.get(my_string)
+        my_file.close()
+
         wait_page_loaded(self.w)
 
     # Отправка отчета

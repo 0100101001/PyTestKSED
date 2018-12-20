@@ -103,7 +103,7 @@ class KSEDCreatDocReestr(Locator, dataTest, KSEDLocators):
         # Вид реестра
         page.vid_reestra.click()
         page.vid_reestraPP.click()
-#        time.sleep(5)
+        time.sleep(0.5)
         # Получатель
         page.poluchatel.send_keys("Сибинтек"+Keys.RETURN)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.poluchatel)))

@@ -101,6 +101,24 @@ class KSEDCreatDocPorDorab(Locator, dataTest, KSEDLocators):
 
         assert "На доработке проекта" in self.status_Doc.text
 
+
+    # Направление на согласование и проверка статуса документа
+    def NapSoglasovanie(self, ):
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        time.sleep(1)
+        page.sendFor_approval.click()
+
+        wait_page_loaded(self.w)
+
+        # Проверим статус документа
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
+        page.osnSvedeniya.click()
+
+        assert "На согласовании" in self.status_Doc.text
+
     # # Сохраним ссылку на документ в файл
     # def LinkDocWFile(self):
     #

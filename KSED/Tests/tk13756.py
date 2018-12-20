@@ -108,7 +108,7 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         # Дата совещания
         dd = datetime.date.today().strftime('%d%m%Y')
         page.date.send_keys(dd)
- #       time.sleep(0.5)
+        time.sleep(0.5)
         # Категория
         page.category.send_keys(u'Оперативное'+Keys.RETURN)
 
