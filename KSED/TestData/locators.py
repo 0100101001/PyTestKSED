@@ -112,7 +112,11 @@ class KSEDLocators:
     oblProsm = '(//div[contains(@id, "_default-body")][contains(@class, "datagrid")])[2]' #xpath # Область просмотра
     full_text_search = '(//input[contains(@id, "_default-full-text-search")])[1]' #xpath # Поисковая строка
     oneDocInList = '//div[@class = "yui-dt-liner"]/a)[1]' #xpath # Первый документ в списке
-
+    subordinate = '//span[@class = "expand-table-icon"]' #xpath # "+" раскрытие подчиненные документы
+    oneSubordInList = '(//a[contains(@href, "document?nodeRef=workspace")]' \
+                      '[not(contains(@href, "/d"))])[1]' #xpath # Первая ссылка на подчиненный документ
+    ActionTab = '//span[contains(@class, "group-actions-counter")]' #xpath # Кнопка "Действия с выбранными"
+    chBinOnl = '//input[contains(@id, "_default-select-all-records")]'#'//input[@name = "fileChecked"][3]'
 
 
     # ОТЧЕТЫ
@@ -216,7 +220,7 @@ class KSEDLocators:
     sendFor_approval = '//div[contains(text(), "Направить на согласование")]' #xpath # Действие "Направить на согласование"
     sendFor_execution = '//div[contains(text(), "Направить на исполнение")]'  # xpath # Действие "Направить на исполнение"
     btnOKnaprNaIspoln = '//button[text() = "ОК"]' #xpath # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
-    confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[1]' #xpath # Подтверждение согласования
+    confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[2]' #xpath # Подтверждение согласования
 
     #"Отправить отчет"
     actionSendAllere = '//div[text() = "Отправить отчет"]' #xpath # "Отправить отчет" действие

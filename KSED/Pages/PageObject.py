@@ -1,4 +1,4 @@
-from page_objects import PageObject, PageElement
+from page_objects import PageObject, PageElement, MultiPageElement
 from KSED.TestData.locators import KSEDLocators
 
 
@@ -84,6 +84,11 @@ class Locator(PageObject, KSEDLocators):
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = PageElement(xpath=KSEDLocators.oblProsm) # Область просмотра
     oneDocInList = PageElement(xpath=KSEDLocators.oneDocInList) # Первый документ в списке
+    subordinate = MultiPageElement(xpath=KSEDLocators.subordinate) # "+" раскрытие подчиненные документы
+    oneSubordInList = PageElement(xpath=KSEDLocators.oneSubordInList) # Первая ссылка на подчиненный документ
+    ActionTab = PageElement(xpath=KSEDLocators.ActionTab) # Кнопка "Действия с выбранными"
+    chBinOnl = PageElement(xpath=KSEDLocators.chBinOnl)
+
 
     # ОТЧЕТЫ
     section_allur = PageElement(xpath=KSEDLocators.section_allur) # Раздел "Отчеты"
