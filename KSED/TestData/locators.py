@@ -129,9 +129,13 @@ class KSEDLocators:
     node_ispDisp = '//span[contains(text(), "Отчеты по исполнительской дисциплине")]' #xpath
 
     logs_incDoc = '//a[contains(text(), "Журнал регистрации входящих документов")]' #xpath
+    incomingRegJournal = '//a[contains(@onclick, "incoming-reg-journal")]' #xpath # Отчет "Журнал регистрации входящих документов"
     logs_outDoc = '//a[contains(text(), "Журнал регистрации исходящих документов")]' #xpath
+    outgoingRegistration = '//a[contains(@onclick, "outgoing-registration")]'  # xpath # Отчет "Журнал регистрации исходящих документов"
     logs_raspDoc = '//a[contains(text(), "Журнал регистрации Распорядительных документов")]' #xpath
+    ordRegJournal = '//a[contains(@onclick, "ord-reg-journal")]'  # xpath # Отчет "Журнал регистрации Распорядительных документов"
     logs_sluDoc = '//a[contains(text(), "Журнал Регистрации служебных записок")]' #xpath
+    internalRegJournal = '//a[contains(@onclick, "internal-reg-journal")]'  # xpath # Отчет "Журнал регистрации служебных записок"
 
     stat_specDoc = '//a[contains(text(), "Сводка по видам документов")]' #xpath
     edsBykindStat = '//a[contains(@onclick, "eds-by-kind-stat")]'  # xpath # Отчет "Сводка по видам документов"

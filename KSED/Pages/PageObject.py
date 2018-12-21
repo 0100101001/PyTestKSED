@@ -100,9 +100,13 @@ class Locator(PageObject, KSEDLocators):
     node_ispDisp = PageElement(xpath=KSEDLocators.node_ispDisp) #
 
     logs_incDoc = PageElement(xpath=KSEDLocators.logs_incDoc)
+    incomingRegJournal = PageElement(xpath=KSEDLocators.incomingRegJournal) # Отчет "Журнал регистрации входящих документов"
     logs_outDoc = PageElement(xpath=KSEDLocators.logs_outDoc)
+    outgoingRegistration = PageElement(xpath=KSEDLocators.outgoingRegistration) # Отчет "Журнал регистрации исходящих документов"
     logs_raspDoc = PageElement(xpath=KSEDLocators.logs_raspDoc)
+    ordRegJournal = PageElement(xpath=KSEDLocators.ordRegJournal) # Отчет "Журнал регистрации Распорядительных документов"
     logs_sluDoc = PageElement(xpath=KSEDLocators.logs_sluDoc)
+    internalRegJournal = PageElement(xpath=KSEDLocators.internalRegJournal) # Отчет "Журнал регистрации служебных записок"
 
     stat_specDoc = PageElement(xpath=KSEDLocators.stat_specDoc)
     stat_temDoc = PageElement(xpath=KSEDLocators.stat_temDoc)
