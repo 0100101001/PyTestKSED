@@ -73,7 +73,7 @@ def test_12012_2(web_browser):
 
     getDoc = page.StatAllureTemDocO()
 
+  #  closeWindow = page.closeWindow()
 
-
-
+  #  getDoc = page.StatAllureTemDocO()
 

@@ -120,3 +120,17 @@ class KSEDStatAllureTemDocO(Locator, dataTest,KSEDLocators):
         assert (len(self.w.window_handles) == 2)
 #        d = len(page.subordinate)
 #        print(str(d))
+#         windows = self.w.window_handles
+#         self.w.switch_to.window(windows[0])
+#         self.w.close()
+#         time.sleep(4)
+#         page.edsBySubjectStatO.click()
+#         time.sleep(2)
+
+    def closeWindow(self):
+        current = self.w.current_window_handle
+        #self.driverr.find_element_by_link_text("Registration").click()
+        new = [window for window in self.w.window_handles if window != current][0]
+        self.w.switch_to.window(new)
+
+        self.w.close()
