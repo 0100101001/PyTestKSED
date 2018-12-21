@@ -136,7 +136,9 @@ class KSEDLocators:
     stat_specDoc = '//a[contains(text(), "Сводка по видам документов")]' #xpath
     edsBykindStat = '//a[contains(@onclick, "eds-by-kind-stat")]'  # xpath # Отчет "Сводка по видам документов"
     stat_temDoc = '//a[contains(text(), "Сводка по тематикам документов")]' #xpath
+    edsBySubjectStat = '(//a[contains(@onclick, "eds-by-subject-stat")])[1]' #xpath # Отчет "Сводка по тематикам документов"
     stat_temDocO = '//a[contains(text(), "Сводка по тематикам документов (объедин.)")]' #xpath
+    edsBySubjectStatO = '(//a[contains(@onclick, "eds-by-subject-stat")])[2]'  # xpath # Отчет "Сводка по тематикам документов(объед)"
     stat_tipDoc = '//a[contains(text(), "Сводка по типам документов")]' #xpath
     edByTypeStat = '//a[contains(@onclick, "eds-by-type-stat")]' #xpath # Отчет "Сводка по типам документов"
 

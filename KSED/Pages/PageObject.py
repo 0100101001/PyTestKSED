@@ -106,7 +106,9 @@ class Locator(PageObject, KSEDLocators):
 
     stat_specDoc = PageElement(xpath=KSEDLocators.stat_specDoc)
     stat_temDoc = PageElement(xpath=KSEDLocators.stat_temDoc)
+    edsBySubjectStat = PageElement(xpath=KSEDLocators.edsBySubjectStat) # Отчет "Сводка по тематикам документов"
     stat_temDocO = PageElement(xpath=KSEDLocators.stat_temDocO)
+    edsBySubjectStatO = PageElement(xpath=KSEDLocators.edsBySubjectStatO) # Отчет "Сводка по тематикам документов(объед)"
     stat_tipDoc = PageElement(xpath=KSEDLocators.stat_tipDoc)
     edByTypeStat = PageElement(xpath=KSEDLocators.edByTypeStat) # Отчет "Сводка по типам документов"
 
