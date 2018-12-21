@@ -63,7 +63,7 @@ class KSEDexpZap(Locator, dataTest, KSEDLocators):
         page = Locator(self.w)
 
         page.username_text = username
-        print(Locator.username_text)
+        #print(Locator.username_text)
         page.password_text = password
 
         page.LogIn_button.click()

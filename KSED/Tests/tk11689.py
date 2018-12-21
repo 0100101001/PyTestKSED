@@ -129,7 +129,7 @@ class KSEDsubordinate_doc(Locator, dataTest,KSEDLocators):
 
         self.w.execute_script("arguments[0].scrollIntoView();", page.oneSubordInList)
         page.oneSubordInList.click()
-
+    
 
         wait_page_loaded(self.w)
 

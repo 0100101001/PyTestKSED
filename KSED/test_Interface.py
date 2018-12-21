@@ -15,9 +15,10 @@ import allure
 from KSED.Tests.tk11690 import KSEDsubordinate_doc
 
 
+
 @allure.feature('Просмотр связанных документов в области просмотра разделов (Навигатор)')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11690(web_browser):
 
     """ Просмотр связанных документов в области просмотра разделов (Навигатор) """
@@ -27,7 +28,6 @@ def test_11690(web_browser):
     LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
 
     getDoc = page.subordinate_doc()
-
 
 
 
