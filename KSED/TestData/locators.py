@@ -310,6 +310,7 @@ class KSEDLocators:
     osnovPodpis = 'prop_lecm-outgoing_signing-basis' #name # Основание подписания
     korrespondentISH = '//input[contains(@id, "contractor-assoc-autocomplete")]' #xpath # Корреспондент
     clickNull = '//div[contains(@id, "_default-form-container")]'  # КЛИК ВНЕ АТРИБУТОВ
+
     # Мои поисковые Запросы
     listChange = '//select[contains(@id, "default_searchQuery-selectType-entry")]' #Выпадающий список
     listChangeSZ = '//option[text() = "Служебная записка"]' #Выпадающий список - служебная записка
@@ -320,3 +321,7 @@ class KSEDLocators:
     butDel = '//span[contains(@class, "yui-button yui-push-button")]//button[text() = "Удалить поисковый запрос"]' #Кнопка удалить
     butRed = '//span[contains(@class, "yui-button yui-push-button")]//button[text() = "Редактировать поисковый запрос"]' #Кнопка редактировать
     butDelAc = '//span[contains(@class, "first-child")]//button[text() = "Удалить"]' #Кнопка удалить подтверждение
+    checkBoxFirst = '(//input[@name = "fileChecked"])[1]' #Первый чекбокс в списке
+    butAct = '(//button[text() = "Действия с выбранными"])[2]'#'//span[contains(@class, "first-child")]//button[text() = "Действия с выбранными"]' #Кнопка действия с выбором '//span[@class = "group-actions-counter"]'
+    butFavorite = '//a [text() = "Добавить в избранное"]' #Кнопка добавить в избранное
+    butOK = '//button[text() = "Оk"]'#'//button[text() = "Ок"]' #Кнопка OK добавить в избранное
