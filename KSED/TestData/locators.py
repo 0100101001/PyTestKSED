@@ -214,7 +214,6 @@ class KSEDLocators:
     btnVipolnit = '(//button[contains(@id, "create-mailing-list-button-button")])[1]'  # xpath # Кнопка "Создать маршрут"
     punktBtnVipolnit = '//a[text() = "Создать и заполнить указатель"]' #xpath # Создать и заполнить
     otvetstv_ispolnVpunktahRD = '//input[contains(@id, "executor-assoc-cntrl-autocomplete-input")]' #xpath # Ответственный исполнитель в пункте РД
-
     #(Функциональное меню "Действия")
     #Согласовать
     sendFor_approval = '//div[contains(text(), "Направить на согласование")]' #xpath # Действие "Направить на согласование"
