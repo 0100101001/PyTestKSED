@@ -82,14 +82,16 @@ class KSEDexpZap(Locator, dataTest, KSEDLocators):
         time.sleep(1)
         page.checkBoxFirst.click()  #Первый чекбокс в списке
         time.sleep(3)
-        page.butAct.click()  #Кнопка действия с выбором
+        page.butExp.click()  #Кнопка действия с выбором
         time.sleep(1)
-        page.butFavorite.click()  #Кнопка добавить в избранное
+        page.butSelExp.click()  # Кнопка действия с выбором
         time.sleep(1)
-        page.butOK.click()  # Кнопка действия с выбором
-        time.sleep(1)
-        page.butOK.click()  # Кнопка действия с выбором
-        time.sleep(1)
-        assert page.oblProsm.is_displayed()  # Проверка, что отображается рабочая область
+        # page.butFavorite.click()  #Кнопка добавить в избранное
+        # time.sleep(1)
+        # page.butOK.click()  # Кнопка действия с выбором
+        # time.sleep(1)
+        # page.butOK.click()  # Кнопка действия с выбором
+        # time.sleep(1)
+        # assert page.oblProsm.is_displayed()  # Проверка, что отображается рабочая область
 
 
