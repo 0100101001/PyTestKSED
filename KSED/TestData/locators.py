@@ -158,7 +158,7 @@ class KSEDLocators:
     #(форма создания документа)
     title = 'prop_lecm-document_title'  # name  # Заголовок
 
-    category_doc = '//input[contains(@id, "-category-assoc-cntrl-autocomplete-input")]'  # xpath  # Категория документа
+    category_doc = '//input[cункontains(@id, "-category-assoc-cntrl-autocomplete-input")]'  # xpath  # Категория документа
 
     doc_type = '//button[contains(@id, "type-assoc-cntrl-tree-picker-button-button")]' #xpath # Вид документа(кнопка выбора)
     doc_typeInp = '//input[contains(@id, "type-assoc-cntrl-autocomplete-input")]'      #xpath # Вид документа(поле ввода)
@@ -314,6 +314,7 @@ class KSEDLocators:
     osnovPodpis = 'prop_lecm-outgoing_signing-basis' #name # Основание подписания
     korrespondentISH = '//input[contains(@id, "contractor-assoc-autocomplete")]' #xpath # Корреспондент
     clickNull = '//div[contains(@id, "_default-form-container")]'  # КЛИК ВНЕ АТРИБУТОВ
+
     # Мои поисковые Запросы
     listChange = '//select[contains(@id, "default_searchQuery-selectType-entry")]' #Выпадающий список
     listChangeSZ = '//option[text() = "Служебная записка"]' #Выпадающий список - служебная записка
@@ -324,3 +325,9 @@ class KSEDLocators:
     butDel = '//span[contains(@class, "yui-button yui-push-button")]//button[text() = "Удалить поисковый запрос"]' #Кнопка удалить
     butRed = '//span[contains(@class, "yui-button yui-push-button")]//button[text() = "Редактировать поисковый запрос"]' #Кнопка редактировать
     butDelAc = '//span[contains(@class, "first-child")]//button[text() = "Удалить"]' #Кнопка удалить подтверждение
+    checkBoxFirst = '(//input[@name = "fileChecked"])[1]' #Первый чекбокс в списке
+    butAct = '(//button[text() = "Действия с выбранными"])[2]' #Кнопка действия с выбором
+    butExp ='(//button[text() = "Экспорт"])[2]' #Кнопка экспорта
+    butFavorite = '//a [text() = "Добавить в избранное"]' #Кнопка добавить в избранное
+    butOK = '//button[text() = "Ок"]' #Кнопка OK добавить в избранное
+    butSelExp = '(//a[text() = "Выгрузить выбранные"])' #Кнопка экспорта выбранного
