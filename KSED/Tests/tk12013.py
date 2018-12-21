@@ -51,7 +51,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDViewTheDocumentCard(Locator, dataTest,KSEDLocators):
+class KSEDStatAllureVidDic(Locator, dataTest,KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -93,7 +93,7 @@ class KSEDViewTheDocumentCard(Locator, dataTest,KSEDLocators):
         # my_file.close()
         #t = page.username_text.locator
 
-    def ViewTheDocumentCard(self):
+    def StatAllureVidDic(self):
         wait = WebDriverWait(self.w, 1, poll_frequency=1,
                              ignored_exceptions=[NoSuchElementException,
                                                  ElementNotVisibleException,
@@ -101,20 +101,22 @@ class KSEDViewTheDocumentCard(Locator, dataTest,KSEDLocators):
         actions = ActionChains(self.w)
         page = Locator(self.w)
 
-        self.w.execute_script("arguments[0].scrollIntoView();", page.navigation)
-        page.navigation.click()
+        #self.w.execute_script("arguments[0].scrollIntoView();", page.navigation)
+        # Раскрываем раздел "Отчеты"
+        page.section_allur.click()
 
         time.sleep(0.5)
-        actions.move_to_element(page.navigation).move_by_offset(0, 10).click().perform()
+        #actions.move_to_element(page.navigation).move_by_offset(0, 10).click().perform()
+        # Кликаем по "Статические отчеты"
+        page.node_Statis.click()
+        time.sleep(0.5)
+        # Открываем отчет
+        page.edsBykindStat.click()
+        time.sleep(2)
 
-#        d = len(page.subordinate)
-#        print(str(d))
+        page.btnOKform.click()
 
         time.sleep(1)
-
-        page.oneDocInList.click()
-    
-
-        wait_page_loaded(self.w)
-
-        assert "Документ" in self.w.title
+        assert (len(self.w.window_handles) == 2)
+#        d = len(page.subordinate)
+#        print(str(d))

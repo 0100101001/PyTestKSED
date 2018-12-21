@@ -93,7 +93,10 @@ class Locator(PageObject, KSEDLocators):
     # ОТЧЕТЫ
     section_allur = PageElement(xpath=KSEDLocators.section_allur) # Раздел "Отчеты"
     node_Logs = PageElement(xpath=KSEDLocators.node_Logs)  # "Журналы"
+
     node_Statis = PageElement(xpath=KSEDLocators.node_Statis) # "Статистические отчеты"
+    edsBykindStat = PageElement(xpath=KSEDLocators.edsBykindStat) # Отчет "Сводка по видам документов"
+
     node_ispDisp = PageElement(xpath=KSEDLocators.node_ispDisp) #
 
     logs_incDoc = PageElement(xpath=KSEDLocators.logs_incDoc)

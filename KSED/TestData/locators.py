@@ -111,7 +111,7 @@ class KSEDLocators:
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = '(//div[contains(@id, "_default-body")][contains(@class, "datagrid")])[2]' #xpath # Область просмотра
     full_text_search = '(//input[contains(@id, "_default-full-text-search")])[1]' #xpath # Поисковая строка
-    oneDocInList = '//div[@class = "yui-dt-liner"]/a)[1]' #xpath # Первый документ в списке
+    oneDocInList = '(//a[contains(@href, "document?nodeRef=workspace")])[1]' #xpath # Первый документ в списке
     subordinate = '//span[@class = "expand-table-icon"]' #xpath # "+" раскрытие подчиненные документы
     oneSubordInList = '(//a[contains(@href, "document?nodeRef=workspace")]' \
                       '[not(contains(@href, "/d"))])[1]' #xpath # Первая ссылка на подчиненный документ
@@ -122,7 +122,10 @@ class KSEDLocators:
     # ОТЧЕТЫ
     section_allur = '//div[contains(@id, "ac-head")][contains(text(), "Отчеты")]' #xpath  # Раздел "Отчеты"
     node_Logs = '//span[contains(text(), "Журналы")]'#xpath                               # "Журналы"
+
     node_Statis = '//span[contains(@class, "ygtvlabel")][contains(text(), "Статистические")]'#xpath  # "Статистические отчеты"
+    edsBykindStat = '//a[contains(@onclick, "eds-by-kind-stat")]' #xpath # Отчет "Сводка по видам документов"
+
     node_ispDisp = '//span[contains(text(), "Отчеты по исполнительской дисциплине")]' #xpath
 
     logs_incDoc = '//a[contains(text(), "Журнал регистрации входящих документов")]' #xpath

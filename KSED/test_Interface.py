@@ -13,7 +13,7 @@ import pytest
 import allure
 
 from KSED.Tests.tk11690 import KSEDsubordinate_doc
-
+from KSED.Tests.tk11689 import KSEDViewTheDocumentCard
 
 
 @allure.feature('Просмотр связанных документов в области просмотра разделов (Навигатор)')
@@ -31,7 +31,18 @@ def test_11690(web_browser):
 
 
 
+@allure.feature('Переход в карточку документа из области просмотра разделов (Навигатор)')
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_11689(web_browser):
 
+    """ Переход в карточку документа из области просмотра разделов (Навигатор) """
+
+    page = KSEDViewTheDocumentCard(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+
+    ViewTheDocumentCard = page.ViewTheDocumentCard()
 
 
 
