@@ -51,7 +51,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDStatAllureTipDoc(Locator, dataTest,KSEDLocators):
+class KSEDStatAllureVidDic(Locator, dataTest,KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -93,7 +93,7 @@ class KSEDStatAllureTipDoc(Locator, dataTest,KSEDLocators):
         # my_file.close()
         #t = page.username_text.locator
 
-    def StatAllureTipDoc(self):
+    def StatAllureVidDic(self):
         wait = WebDriverWait(self.w, 1, poll_frequency=1,
                              ignored_exceptions=[NoSuchElementException,
                                                  ElementNotVisibleException,
@@ -111,7 +111,7 @@ class KSEDStatAllureTipDoc(Locator, dataTest,KSEDLocators):
         page.node_Statis.click()
         time.sleep(0.5)
         # Открываем отчет
-        page.edByTypeStat.click()
+        page.edsBykindStat.click()
         time.sleep(2)
 
         page.btnOKform.click()

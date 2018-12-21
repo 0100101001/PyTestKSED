@@ -108,6 +108,7 @@ class Locator(PageObject, KSEDLocators):
     stat_temDoc = PageElement(xpath=KSEDLocators.stat_temDoc)
     stat_temDocO = PageElement(xpath=KSEDLocators.stat_temDocO)
     stat_tipDoc = PageElement(xpath=KSEDLocators.stat_tipDoc)
+    edByTypeStat = PageElement(xpath=KSEDLocators.edByTypeStat) # Отчет "Сводка по типам документов"
 
     allu_ispIncDoc = PageElement(xpath=KSEDLocators.allu_ispIncDoc)
     allu_raspDoc = PageElement(xpath=KSEDLocators.allu_raspDoc)

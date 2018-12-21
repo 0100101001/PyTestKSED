@@ -12,13 +12,14 @@
 import pytest
 import allure
 
-from KSED.Tests.tk12013 import KSEDStatAllureVidDic
+from KSED.Tests.tk12011 import KSEDStatAllureVidDic
+from KSED.Tests.tk12013 import KSEDStatAllureTipDoc
 
 
 @allure.feature('Статический отчет "Сводка по видам документов')
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
-def test_12013(web_browser):
+def test_12011(web_browser):
 
     """ Статический отчет "Сводка по видам документов """
 
@@ -27,6 +28,21 @@ def test_12013(web_browser):
     LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
 
     getDoc = page.StatAllureVidDic()
+
+
+
+@allure.feature('Статический отчет "Сводка по типам документов')
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_12013(web_browser):
+
+    """ Статический отчет "Сводка по типам документов """
+
+    page = KSEDStatAllureTipDoc(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+
+    getDoc = page.StatAllureTipDoc()
 
 
 

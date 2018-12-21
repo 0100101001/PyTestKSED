@@ -134,9 +134,11 @@ class KSEDLocators:
     logs_sluDoc = '//a[contains(text(), "Журнал Регистрации служебных записок")]' #xpath
 
     stat_specDoc = '//a[contains(text(), "Сводка по видам документов")]' #xpath
+    edsBykindStat = '//a[contains(@onclick, "eds-by-kind-stat")]'  # xpath # Отчет "Сводка по видам документов"
     stat_temDoc = '//a[contains(text(), "Сводка по тематикам документов")]' #xpath
     stat_temDocO = '//a[contains(text(), "Сводка по тематикам документов (объедин.)")]' #xpath
     stat_tipDoc = '//a[contains(text(), "Сводка по типам документов")]' #xpath
+    edByTypeStat = '//a[contains(@onclick, "eds-by-type-stat")]' #xpath # Отчет "Сводка по типам документов"
 
     allu_ispIncDoc = '//a[contains(text(), "Исполнение входящих документов")]' #xpath
     allu_raspDoc = '//a[contains(text(), "Исполнение распорядительного документа")]' #xpath
