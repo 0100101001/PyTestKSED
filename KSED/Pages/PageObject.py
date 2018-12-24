@@ -193,6 +193,7 @@ class Locator(PageObject, KSEDLocators):
     sendFor_execution = PageElement(xpath=KSEDLocators.sendFor_execution) # Действие "Направить на исполнение"
     btnOKnaprNaIspoln = PageElement(xpath=KSEDLocators.btnOKnaprNaIspoln) # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
     confirm = PageElement(xpath=KSEDLocators.confirm) # Подтверждение согласования
+    confirm2 = PageElement(xpath=KSEDLocators.confirm2)  # Подтверждение согласования
 
     status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 

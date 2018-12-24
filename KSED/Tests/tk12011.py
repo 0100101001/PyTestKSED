@@ -86,37 +86,15 @@ class KSEDStatAllureVidDic(Locator, dataTest,KSEDLocators):
 
         assert "АРМ" in self.w.title
 
-       # r = page.username_text.locator
-        #r = "123456"
-        # my_file = open("temp.txt", "w")
-        # my_file.write(str(r))
-        # my_file.close()
-        #t = page.username_text.locator
-
-    def StatAllureVidDic(self):
-        wait = WebDriverWait(self.w, 1, poll_frequency=1,
-                             ignored_exceptions=[NoSuchElementException,
-                                                 ElementNotVisibleException,
-                                                 ElementNotSelectableException])
+        time.sleep(0.5)
         actions = ActionChains(self.w)
-        page = Locator(self.w)
-
-        #self.w.execute_script("arguments[0].scrollIntoView();", page.navigation)
-        # Раскрываем раздел "Отчеты"
-        page.section_allur.click()
-
+        actions.move_to_element(page.section_allur).click().perform()  # Перейти в строку отчеты
         time.sleep(0.5)
-        #actions.move_to_element(page.navigation).move_by_offset(0, 10).click().perform()
-        # Кликаем по "Статические отчеты"
-        page.node_Statis.click()
-        time.sleep(0.5)
-        # Открываем отчет
-        page.edsBykindStat.click()
-        time.sleep(2)
-
-        page.btnOKform.click()
-
+        page.node_Statis.click()  # Перейти статистические отчеты
         time.sleep(1)
-        assert (len(self.w.window_handles) == 2)
-#        d = len(page.subordinate)
-#        print(str(d))
+        page.stat_tipDoc.click()  # Переход в сводку по типам документов
+        time.sleep(1)
+        page.confirm2.click()  # Перейти отчеты с истекшим сроком
+        time.sleep(5)
+        w = len(self.driver.window_handles)
+        self.assertTrue(w == 2) # Проверка, что открытось 2 окно
