@@ -151,7 +151,7 @@ class KSEDLocators:
     allu_sluDoc = '//a[contains(text(), "Исполнение служебных записок")]' #xpath
     allu_ispDis = '//a[contains(text(), "Исполнительская дисциплина по авторам")]' #xpath
     allu_ispDispA = '//a[contains(text(), "Исполнительская дисциплина по исполнителям")]' #xpath
-    allu_NispDI = '//a[contains(text(), "Неисполнительные поручения с истекшим сроком")]' #xpath
+    allu_NispDI = '(//a[contains(text(), "Неисполненные поручения с истекшим сроком")])[1]' #xpath
     allu_NispDIrg = '//a[contains(text(), "Неисполнительные поручения с истекшим сроком РГ")]' #xpath
     allu_istS = '//a[contains(text(), "Поручения с истекающим сроком")]' #xpath
     allu_narS = '//a[contains(text(), "Поручения, исполненные с нарушением срока")]' #xpath
