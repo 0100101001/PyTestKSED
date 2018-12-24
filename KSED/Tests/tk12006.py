@@ -79,10 +79,11 @@ class KSEDallur(Locator, dataTest, KSEDLocators):
         page.node_ispDisp.click()  # Перейти отчеты по исп дисциплине
         time.sleep(1)
         page.allu_narS.click()  # Перейти отчеты с истекшим сроком
-        time.sleep(3)
+        time.sleep(1)
         page.confirm.click()  # Перейти отчеты с истекшим сроком
-        time.sleep(0.5)
-
+        time.sleep(5)
+        w = len(self.driver.window_handles)
+        self.assertTrue(w == 2) # Проверка, что открытось 2 окно
 
 
 
