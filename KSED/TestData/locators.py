@@ -232,6 +232,7 @@ class KSEDLocators:
     btnOKnaprNaIspoln = '//button[text() = "ОК"]' #xpath # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
     confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[2]' #xpath # Подтверждение согласования
     confirm2 = '(//button[contains(@id, "-button")][text() = "ОК"])'  # xpath # Подтверждение согласования
+    confirm_3 = '(//button[contains(@id, "-button")][text() = "ОК"])[4]'  # xpath # Подтверждение согласования
 
     #"Отправить отчет"
     actionSendAllere = '//div[text() = "Отправить отчет"]' #xpath # "Отправить отчет" действие
