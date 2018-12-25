@@ -81,10 +81,8 @@ class KSEDallurIsp(Locator, dataTest, KSEDLocators):
         page.allu_ispDis.click()  # Перейти отчеты по авторам
         time.sleep(1)
         page.confirm.click()  # Перейти отчеты с истекшим сроком
-        time.sleep(5)
-        w = len(self.driver.window_handles)
-        self.assertTrue(w == 2) # Проверка, что открытось 2 окно
-
+        time.sleep(0.5)
+        assert len(self.w.window_handles) == 2  # Проверка, что открытось 2 окно
 
 
 

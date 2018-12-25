@@ -81,10 +81,8 @@ class KSEDallurDeadLine(Locator, dataTest, KSEDLocators):
         page.allu_NispDI.click()  # Перейти отчеты с истекшим сроком
         time.sleep(1)
         page.confirm.click()  # Перейти отчеты с истекшим сроком
-        time.sleep(5)
-        w = len(self.driver.window_handles)
-        self.assertTrue(w == 2) # Проверка, что открытось 2 окно
-
+        time.sleep(0.5)
+        assert len(self.w.window_handles) == 2  # Проверка, что открытось 2 окно
 
 
         #assert page.zaprosToDel.is_displayed() # Проверка, что есть сохраненный элемент

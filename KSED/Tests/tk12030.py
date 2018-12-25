@@ -81,10 +81,8 @@ class KSEDallurResolution(Locator, dataTest, KSEDLocators):
         page.allu_SostIspR.click()  # Перейти в раздел состояние исполнеия резолюций
         time.sleep(1)
         page.confirm_3.click()  # Кнопка ОК
-        time.sleep(5)
-        w = len(self.driver.window_handles)
-        self.assertTrue(w == 2) # Проверка, что открытось 2 окно
-
+        time.sleep(0.5)
+        assert len(self.w.window_handles) == 2  # Проверка, что открытось 2 окно
 
 
 
