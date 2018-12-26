@@ -112,12 +112,16 @@ class KSEDLocators:
     oblProsm = '(//div[contains(@id, "_default-body")][contains(@class, "datagrid")])[2]' #xpath # Область просмотра
     full_text_search = '(//input[contains(@id, "_default-full-text-search")])[1]' #xpath # Поисковая строка
     oneDocInList = '(//a[contains(@href, "document?nodeRef=workspace")])[1]' #xpath # Первый документ в списке
+    nineDocInList = '(//a[contains(@href, "document?nodeRef=workspace")])[9]'  # xpath # Девятый документ в списке
     subordinate = '//span[@class = "expand-table-icon"]' #xpath # "+" раскрытие подчиненные документы
     oneSubordInList = '(//a[contains(@href, "document?nodeRef=workspace")]' \
                       '[not(contains(@href, "/d"))])[1]' #xpath # Первая ссылка на подчиненный документ
     ActionTab = '//span[contains(@class, "group-actions-counter")]' #xpath # Кнопка "Действия с выбранными"
     chBinOnl = '//input[contains(@id, "_default-select-all-records")]'#'//input[@name = "fileChecked"][3]'
 
+    # Моя работа
+    WorkImmid ='//span[text() = "Срочные"]'#xpath #  раздел срочные
+    connectedDoc = '(//h2[contains(@id, "alf-")])[6]' #xpath #  связанные документы
 
     # ОТЧЕТЫ
     section_allur = '//div[contains(@id, "ac-head")][contains(text(), "Отчеты")]' #xpath  # Раздел "Отчеты"
@@ -159,7 +163,7 @@ class KSEDLocators:
     allu_prodPodr = '//a[contains(text(), "Продуктивность по Подразделениям")]' #xpath
     allu_ReesContr = '//a[contains(text(), "Реестр для закрытия неактуальных контрольных поручений")]' #xpath
     allu_ReesContrN = '//a[contains(text(), "Реестр неисполнительных контрольных поручений")]' #xpath
-    allu_ReesContrF = '//a[contains(text(), "Реестр фактических исполнительных контрольных поручений")]' #xpath
+    allu_ReesContrF = '//a[contains(text(), "Реестр фактически исполненных контрольных поручений")]' #xpath
     allu_SostIspR = '//a[contains(text(), "Состояние исполнения резолюций")]' #xpath
 
 

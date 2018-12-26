@@ -43,7 +43,7 @@ def wait_page_loaded(driver):
         time.sleep(0.1)
 
 
-class KSEDallurResolution(Locator, dataTest, KSEDLocators):
+class KSEDopenDoc(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -63,7 +63,7 @@ class KSEDallurResolution(Locator, dataTest, KSEDLocators):
         page = Locator(self.w)
 
         page.username_text = username
-        print(Locator.username_text)
+        #print(Locator.username_text)
         page.password_text = password
 
         page.LogIn_button.click()
@@ -73,16 +73,13 @@ class KSEDallurResolution(Locator, dataTest, KSEDLocators):
         assert "АРМ" in self.w.title
 
         time.sleep(0.5)
+
         actions = ActionChains(self.w)
-        actions.move_to_element(page.section_allur).click().perform()  # Перейти в строку отчеты
-        time.sleep(0.5)
-        page.node_ispDisp.click()  # Перейти отчеты по исп дисциплине
+        actions.move_to_element(page.myWork).click().perform()  # Переход в управление моими запросами
         time.sleep(1)
-        page.allu_SostIspR.click()  # Перейти в раздел состояние исполнеия резолюций
-        time.sleep(2)
-        page.confirm_3.click()  # Кнопка ОК
-        time.sleep(0.5)
-        assert len(self.w.window_handles) == 2  # Проверка, что открытось 2 окно
-
-
+        page.WorkImmid.click() # выбрать в моей работе срочные
+        time.sleep(1)
+        page.oneDocInList.click() #Первый документ в списке
+        time.sleep(1)
+        assert "Документ" in self.w.title # Проверка, что документ открылся
 

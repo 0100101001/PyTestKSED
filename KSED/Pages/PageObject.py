@@ -84,11 +84,15 @@ class Locator(PageObject, KSEDLocators):
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = PageElement(xpath=KSEDLocators.oblProsm) # Область просмотра
     oneDocInList = PageElement(xpath=KSEDLocators.oneDocInList) # Первый документ в списке
+    nineDocInList = PageElement(xpath=KSEDLocators.nineDocInList) # Девятый документ в списке
     subordinate = MultiPageElement(xpath=KSEDLocators.subordinate) # "+" раскрытие подчиненные документы
     oneSubordInList = PageElement(xpath=KSEDLocators.oneSubordInList) # Первая ссылка на подчиненный документ
     ActionTab = PageElement(xpath=KSEDLocators.ActionTab) # Кнопка "Действия с выбранными"
     chBinOnl = PageElement(xpath=KSEDLocators.chBinOnl)
 
+    # Моя работа
+    WorkImmid = PageElement(xpath=KSEDLocators.WorkImmid)  # xpath  # Моя работа - срочные
+    connectedDoc = PageElement(xpath=KSEDLocators.connectedDoc) # xpath #  связанные документы
 
     # ОТЧЕТЫ
     section_allur = PageElement(xpath=KSEDLocators.section_allur) # Раздел "Отчеты"
@@ -194,6 +198,7 @@ class Locator(PageObject, KSEDLocators):
     btnOKnaprNaIspoln = PageElement(xpath=KSEDLocators.btnOKnaprNaIspoln) # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
     confirm = PageElement(xpath=KSEDLocators.confirm) # Подтверждение согласования
     confirm2 = PageElement(xpath=KSEDLocators.confirm2)  # Подтверждение согласования
+    confirm_3 = PageElement(xpath=KSEDLocators.confirm_3)  # Подтверждение согласования
 
     status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 
