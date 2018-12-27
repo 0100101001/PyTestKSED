@@ -84,5 +84,5 @@ class KSEDexpDoc(Locator, dataTest, KSEDLocators):
         page.butExp_2.click()  # Кнопка действия с выбором
         time.sleep(1)
         page.butSelExp.click()  # Кнопка действия с выбором
-        
+
 
