@@ -312,7 +312,9 @@ class Locator(PageObject, KSEDLocators):
     butRed = PageElement(xpath=KSEDLocators.butRed)  # Кнопка редактировать
     butDelAc = PageElement(xpath=KSEDLocators.butDelAc)  # Кнопка удалить подтверждение
     butAct = PageElement(xpath=KSEDLocators.butAct) # Кнопка "Действия с выбранными"
+    butAct_2 = PageElement(xpath=KSEDLocators.butAct_2)  # Кнопка "Действия с выбранными"
     butExp = PageElement(xpath=KSEDLocators.butExp)  # Кнопка экспорта
+    butExp_2 = PageElement(xpath=KSEDLocators.butExp_2)  # Кнопка экспорта
     checkBoxFirst = PageElement(xpath=KSEDLocators.checkBoxFirst)  # Первый чекбокс в списке
     butFavorite = PageElement(xpath=KSEDLocators.butFavorite)  # Кнопка добавить в избранное
     butOK = PageElement(xpath=KSEDLocators.butOK) #Кнопка OK добавить в избранное

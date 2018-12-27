@@ -43,7 +43,7 @@ def wait_page_loaded(driver):
         time.sleep(0.1)
 
 
-class KSEDexpZap(Locator, dataTest, KSEDLocators):
+class KSEDexpDoc(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):
@@ -63,7 +63,7 @@ class KSEDexpZap(Locator, dataTest, KSEDLocators):
         page = Locator(self.w)
 
         page.username_text = username
-        print(Locator.username_text)
+        #print(Locator.username_text)
         page.password_text = password
 
         page.LogIn_button.click()
@@ -75,17 +75,14 @@ class KSEDexpZap(Locator, dataTest, KSEDLocators):
         time.sleep(0.5)
 
         actions = ActionChains(self.w)
-        actions.move_to_element(page.mySearch).click().perform()  # Переход в управление моими запросами
+        actions.move_to_element(page.myWork).click().perform()  # Переход в управление моими запросами
+        time.sleep(0.5)
+        page.WorkImmid.click() # выбрать в моей работе срочные
+        time.sleep(0.5)
+        page.checkBoxFirst.click() #Девятый документ в списке
         time.sleep(1)
-        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform() # развернуть на "+"
-        page.zaprosToDel.click() # выбрать созданный по предусловию запрос
-        time.sleep(1)
-        page.checkBoxFirst.click()  #Первый чекбокс в списке
-        time.sleep(3)
-        page.butExp.click()  #Кнопка действия с выбором
+        page.butExp_2.click()  # Кнопка действия с выбором
         time.sleep(1)
         page.butSelExp.click()  # Кнопка действия с выбором
-        time.sleep(1)
-
-
+        
 

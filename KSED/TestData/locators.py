@@ -343,7 +343,9 @@ class KSEDLocators:
     butDelAc = '//span[contains(@class, "first-child")]//button[text() = "Удалить"]' #Кнопка удалить подтверждение
     checkBoxFirst = '(//input[@name = "fileChecked"])[1]' #Первый чекбокс в списке
     butAct = '(//button[text() = "Действия с выбранными"])[2]' #Кнопка действия с выбором
+    butAct_2 = '(//button[text() = "Действия с выбранными"])'  # Кнопка действия с выбором
     butExp ='(//button[text() = "Экспорт"])[2]' #Кнопка экспорта
+    butExp_2 = '(//button[text() = "Экспорт"])'  # Кнопка экспорта
     butFavorite = '//a [text() = "Добавить в избранное"]' #Кнопка добавить в избранное
     butOK = '//button[text() = "Ок"]' #Кнопка OK добавить в избранное
     butSelExp = '(//a[text() = "Выгрузить выбранные"])' #Кнопка экспорта выбранного
