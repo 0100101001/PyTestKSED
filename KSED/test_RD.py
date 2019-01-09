@@ -14,7 +14,7 @@ import allure
 
 from KSED.Tests.tk11674 import KSEDCreatDocRD
 from KSED.Tests.tk11706 import KSEDDocPDNapSoglas
-
+from KSED.Tests.tk12915 import KSEDRDSoglas_sendDorab
 
 
 @allure.feature('Создание РД')
@@ -61,3 +61,21 @@ def test_11706(web_browser):
  #   Attach = page.attachment()
 
     NaprNaSogl = page.NapSoglasovanie()
+
+
+@allure.feature('Возврат РД на доработку с согласования')
+
+@pytest.mark.KSED_smoke_test
+
+@pytest.fixture(scope="session")
+def test_12915(web_browser):
+
+    """ Возврат РД на доработку с согласования. """
+
+    page = KSEDRDSoglas_sendDorab(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    getDoc = page.getDoc()
+
+    REJECTED = page.REJECTED()

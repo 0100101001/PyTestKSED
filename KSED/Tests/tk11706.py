@@ -136,7 +136,7 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
         time.sleep(0.5)
         self.w.execute_script("arguments[0].scrollIntoView();", page.otvetstv_ispolnVpunktahRD)
         #WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.otvetstv_ispolnVpunktahRD)))
-        page.otvetstv_ispolnVpunktahRD.send_keys("Яцкин" + Keys.RETURN)
+        page.otvetstv_ispolnVpunktahRD.send_keys("Строганов" + Keys.RETURN)
 
         time.sleep(1)
         # Нажмем на кнопку "Сохранить и закрыть"
@@ -182,7 +182,7 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
         time.sleep(0.5)
 
         # Заполним "Согласующие"
-        page.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
+        page.soglasuychie.send_keys("Строганов" + Keys.ENTER)
 
         # Нажмем кнопку "ОК" на форме
         time.sleep(0.5)
