@@ -17,12 +17,11 @@ from KSED.Tests.tk11706 import KSEDDocPDNapSoglas
 from KSED.Tests.tk12915 import KSEDRDSoglas_sendDorab
 from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 from KSED.Tests.tk12907 import KSEDRD_DorabPodpis
+from KSED.Tests.tk12934 import KSEDRD_Podpis
 
 
 @allure.feature('Создание РД')
-
 @pytest.mark.KSED_smoke_test
-
 @pytest.fixture(scope="session")
 def test_11674(web_browser):
 
@@ -38,9 +37,7 @@ def test_11674(web_browser):
 
 
 @allure.feature('Направление РД на согласование')
-
 @pytest.mark.KSED_smoke_test
-
 @pytest.fixture(scope="session")
 def test_11706(web_browser):
 
@@ -66,9 +63,7 @@ def test_11706(web_browser):
 
 
 @allure.feature('Возврат РД на доработку с согласования')
-
 @pytest.mark.KSED_smoke_test
-
 @pytest.fixture(scope="session")
 def test_12915(web_browser):
 
@@ -85,9 +80,7 @@ def test_12915(web_browser):
 
 
 @allure.feature('Направление РД на подписание')
-
 @pytest.mark.KSED_smoke_test
-
 @pytest.fixture(scope="session")
 def test_12929(web_browser):
 
@@ -103,9 +96,7 @@ def test_12929(web_browser):
 
 
 @allure.feature('Возврат РД на доработку с подписания')
-
 @pytest.mark.KSED_smoke_test
-
 @pytest.fixture(scope="session")
 def test_12907(web_browser):
 
@@ -120,3 +111,19 @@ def test_12907(web_browser):
     Podpisanie_Otklon = page.Podpisanie_Otklon()
 
     REJECTED = page.NapPodpis()
+
+
+@allure.feature('Подписание РД')
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_12934(web_browser):
+
+    """ Подписание РД. """
+
+    page = KSEDRD_Podpis(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    getDoc = page.getDoc()
+
+    Podpis = page.Podpis()
