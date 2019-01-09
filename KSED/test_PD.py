@@ -93,7 +93,7 @@ def test_14079(web_browser):
 @allure.feature('Отклонение подписания и возврат ПД на доработку.')
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
-def test_14079(web_browser):
+def test_11957(web_browser):
 
     """ Отклонение подписания и возврат ПД на доработку """
 
