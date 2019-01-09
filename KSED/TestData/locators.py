@@ -203,6 +203,7 @@ class KSEDLocators:
     show = '//a[contains(@id, "action-show-main")]' #xpath # Показать общую карточка
     show_list = '//a[@class = "preview-show-list"]' #xpath # Показать ввиде списка
     btnPrint = '//button[contains(@id, "print_from_preview")]' #xpath # Кнопка печати в форме предварительного просмотра вложения
+    btnOKpodpis = '(//button[text() = "ОК"])[1]' #xpath # Кнопка ОК подтверждение подписания
 
     soglasovanieWkladka = '//em[contains(text(), "Согласование")]'  # xpath # Вкладка "Согласование"
     createRuleBtn = '//button[contains(@id, "create-approval-list-button-button")]'  # xpath # Кнопка "Создать маршрут"
@@ -232,6 +233,7 @@ class KSEDLocators:
     #(Функциональное меню "Действия")
     #Согласовать
     sendFor_approval = '//div[contains(text(), "Направить на согласование")]' #xpath # Действие "Направить на согласование"
+    sendFor_podpis = '//div[contains(text(), "Направить на подписание")]'  # xpath # Действие "Направить на подписание"
     sendFor_execution = '//div[contains(text(), "Направить на исполнение")]'  # xpath # Действие "Направить на исполнение"
     btnOKnaprNaIspoln = '//button[text() = "ОК"]' #xpath # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
     confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[2]' #xpath # Подтверждение согласования

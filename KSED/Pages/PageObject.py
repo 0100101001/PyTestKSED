@@ -166,6 +166,7 @@ class Locator(PageObject, KSEDLocators):
     printForm = PageElement(xpath=KSEDLocators.printForm)# Печатные формы (раскрытие раздела)
     printBarCode = PageElement(xpath=KSEDLocators.printBarCode) #Печатная форма штрих кода документа
     btnPrintInPrintForm = PageElement(id_=KSEDLocators.btnPrintInPrintForm)# Кнопка печати в окне печатной формы
+    btnOKpodpis = PageElement(xpath=KSEDLocators.btnOKpodpis) # Кнопка ОК подтверждение подписания
 
     mode = PageElement(xpath=KSEDLocators.mode) # Переключение в двупанельный вид
     fileUpload = PageElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
@@ -194,6 +195,7 @@ class Locator(PageObject, KSEDLocators):
     btnOKform = PageElement(xpath=KSEDLocators.btnOKform) # Кнопка ОК на форме
 
     sendFor_approval = PageElement(xpath=KSEDLocators.sendFor_approval) # Действие "Направить на согласование"
+    sendFor_podpis = PageElement(xpath=KSEDLocators.sendFor_podpis) # Действие "Направить на подписание"
     sendFor_execution = PageElement(xpath=KSEDLocators.sendFor_execution) # Действие "Направить на исполнение"
     btnOKnaprNaIspoln = PageElement(xpath=KSEDLocators.btnOKnaprNaIspoln) # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
     confirm = PageElement(xpath=KSEDLocators.confirm) # Подтверждение согласования

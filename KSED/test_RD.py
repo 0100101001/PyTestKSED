@@ -15,6 +15,7 @@ import allure
 from KSED.Tests.tk11674 import KSEDCreatDocRD
 from KSED.Tests.tk11706 import KSEDDocPDNapSoglas
 from KSED.Tests.tk12915 import KSEDRDSoglas_sendDorab
+from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 
 
 @allure.feature('Создание РД')
@@ -79,3 +80,22 @@ def test_12915(web_browser):
     getDoc = page.getDoc()
 
     REJECTED = page.REJECTED()
+
+
+
+@allure.feature('Направление РД на подписание')
+
+@pytest.mark.KSED_smoke_test
+
+#@pytest.fixture(scope="session")
+def test_12929(web_browser):
+
+    """ Направление РД на подписание. """
+
+    page = KSEDRD_sendPodpis(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')
+
+    getDoc = page.getDoc()
+
+    REJECTED = page.NapPodpis()
