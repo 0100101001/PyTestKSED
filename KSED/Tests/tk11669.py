@@ -26,9 +26,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
 
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
+from KSED.Pages.PageObject import Locator
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
 
 
 
@@ -128,12 +128,12 @@ class KSEDCreatDocP(Locator, dataTest, KSEDLocators):
         page.Secretary.send_keys(u'Главный'+Keys.RETURN)
 
         # Присутствовали
-        page.person_present.send_keys(u'Яцкин'+Keys.RETURN)
+        page.person_present.send_keys(u'Строганов'+Keys.RETURN)
 
         # Категория документа
         page.category_doc.send_keys(u'Открытый'+Keys.RETURN)
 
-#        time.sleep(0.5)
+        time.sleep(0.5)
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))

@@ -111,12 +111,12 @@ class KSEDRD_DorabPodpis(Locator, dataTest, KSEDLocators):
         page = Locator(self.w)
 
         wait = WebDriverWait(self.w, 10)
-        time.sleep(1)
+        time.sleep(2)
         self.w.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
-        time.sleep(0.5)
+        time.sleep(1)
 
         page.sendFor_podpis.click()
-        time.sleep(1)
+        time.sleep(0.5)
         page.btnOKpodpis.click()
 
         wait_page_loaded(self.w)

@@ -104,7 +104,7 @@ class KSEDCreatDocP_sendDorab(Locator, dataTest, KSEDLocators):
  #       time.sleep(0.5)
         # Категория
         page.category.send_keys(u'Оперативное'+Keys.RETURN)
-
+        time.sleep(0.5)
         # Председатель
         page.Chairman.send_keys(u'Строганов'+Keys.RETURN)
 
@@ -175,7 +175,7 @@ class KSEDCreatDocP_sendDorab(Locator, dataTest, KSEDLocators):
         page.srokIspoln.send_keys(dd)
 
         page.btnOKform.click()
-
+        time.sleep(1)
     # Направление на согласование и проверка статуса документа
     def NapSoglasovanie(self, ):
         page = Locator(self.w)
@@ -241,7 +241,7 @@ class KSEDCreatDocP_sendDorab(Locator, dataTest, KSEDLocators):
         # Проверим статус документа
         WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
         page.osnSvedeniya.click()
-
+        time.sleep(1)
         assert "На доработке" in self.status_Doc.text
 
 

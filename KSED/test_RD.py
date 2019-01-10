@@ -21,8 +21,8 @@ from KSED.Tests.tk12934 import KSEDRD_Podpis
 
 
 @allure.feature('Создание РД')
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+@pytest.mark.KSED_smoke_test_prior
+#@pytest.fixture(scope="session")
 def test_11674(web_browser):
 
     """ Создание Распорядительного документа. """
@@ -38,7 +38,7 @@ def test_11674(web_browser):
 
 @allure.feature('Направление РД на согласование')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11706(web_browser):
 
     """ Направление РД на согласование. """
@@ -64,7 +64,7 @@ def test_11706(web_browser):
 
 @allure.feature('Возврат РД на доработку с согласования')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12915(web_browser):
 
     """ Возврат РД на доработку с согласования. """
@@ -81,7 +81,7 @@ def test_12915(web_browser):
 
 @allure.feature('Направление РД на подписание')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12929(web_browser):
 
     """ Направление РД на подписание. """
@@ -97,7 +97,7 @@ def test_12929(web_browser):
 
 @allure.feature('Возврат РД на доработку с подписания')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12907(web_browser):
 
     """ Возврат РД на доработку с подписания. """
@@ -115,7 +115,7 @@ def test_12907(web_browser):
 
 @allure.feature('Подписание РД')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12934(web_browser):
 
     """ Подписание РД. """

@@ -183,7 +183,7 @@ class KSEDCreatDocPorNSoglas(Locator, dataTest, KSEDLocators):
     # Направление на согласование и проверка статуса документа
     def NapSoglasovanie(self, ):
         page = Locator(self.w)
-
+        time.sleep(2)
         wait = WebDriverWait(self.w, 10)
 
         time.sleep(1)

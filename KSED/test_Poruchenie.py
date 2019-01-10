@@ -22,8 +22,8 @@ from KSED.Tests.tk12935 import KSEDCreatDocPorNIspoln
 
 
 @allure.feature('Создание Поручения')
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+@pytest.mark.KSED_smoke_test_prior
+#@pytest.fixture(scope="session")
 def test_11655(web_browser):
 
     """ Создание Поручения. """
@@ -39,7 +39,7 @@ def test_11655(web_browser):
 
 @allure.feature('Направление Поручения на согласование')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_13862(web_browser):
 
     """ Направление Поручения на согласование. """
@@ -59,7 +59,7 @@ def test_13862(web_browser):
 
 @allure.feature('Возврат поручения на доработку при согласовании.')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11943(web_browser):
 
     """ Возврат поручения на доработку при согласовании. """
@@ -72,11 +72,17 @@ def test_11943(web_browser):
 
     REJECTED = page.REJECTED() # Отклоним и вернем документ на доработку
 
+    Logout = page.USER_LOGOUTs()  # Выйдем из системы
+
+    LogIn_page = page.LogIN('StroganovSN', '12345')  # Авторизуемся инициатором
+
+    getDoc = page.getDoc() # Откроем документ
+
     NaprNaSogl = page.NapSoglasovanie() # Снова направим на согласование для последовательного выполнения следующего ТК
 
 @allure.feature('Cогласование поручения')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11778(web_browser):
 
     """ Cогласование поручения. """
@@ -92,7 +98,7 @@ def test_11778(web_browser):
 
 @allure.feature('Отправка отчета в поручении после согласования')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12936(web_browser):
 
     """ Отправка отчета в поручении после согласования. """
@@ -108,7 +114,7 @@ def test_12936(web_browser):
 
 @allure.feature('Направление Поручения на исполнение')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12935(web_browser):
 
     """ Направление Поручения на исполнение. """

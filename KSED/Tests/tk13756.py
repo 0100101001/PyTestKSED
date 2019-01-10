@@ -187,7 +187,7 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         page.srokIspoln.send_keys(dd)
 
         page.btnOKform.click()
-
+        time.sleep(1)
     # Направление на согласование и проверка статуса документа
     def NapSoglasovanie(self, ):
         page = Locator(self.w)

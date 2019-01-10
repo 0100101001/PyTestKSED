@@ -26,9 +26,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
 
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
+from KSED.Pages.PageObject import Locator
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
 
 
 
@@ -96,7 +96,7 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
 
         assert "Страница создания документа" in self.w.title
 
- #       time.sleep(1)
+        time.sleep(1)
         # Атрибуты документа
 
         # Тип поручения

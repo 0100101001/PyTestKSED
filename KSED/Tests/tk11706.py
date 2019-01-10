@@ -224,7 +224,7 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
         page.sendFor_approval.click()
 
         wait_page_loaded(self.w)
-        time.sleep(0.5)
+        time.sleep(1)
         # Проверим статус документа
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
         page.osnSvedeniya.click()

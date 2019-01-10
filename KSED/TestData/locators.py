@@ -236,7 +236,7 @@ class KSEDLocators:
     sendFor_podpis = '//div[contains(text(), "Направить на подписание")]'  # xpath # Действие "Направить на подписание"
     sendFor_execution = '//div[contains(text(), "Направить на исполнение")]'  # xpath # Действие "Направить на исполнение"
     btnOKnaprNaIspoln = '//button[text() = "ОК"]' #xpath # Кнопка "ОК" на форме подтверждения действия "Направить на исполнение"
-    confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[2]' #xpath # Подтверждение согласования
+    confirm = '(//button[contains(@id, "-button")][text() = "ОК"])[1]' #xpath # Подтверждение согласования
     confirm2 = '(//button[contains(@id, "-button")][text() = "ОК"])'  # xpath # Подтверждение согласования
     confirm_3 = '(//button[contains(@id, "-button")][text() = "ОК"])[4]'  # xpath # Подтверждение согласования
 

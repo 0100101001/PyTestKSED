@@ -73,11 +73,16 @@ class KSEDCreatDocPorDorab(Locator, dataTest, KSEDLocators):
 
         assert "АРМ" in self.w.title
 
+        # Открытие документа из прошлого ТК
 
-    # Открытие документа из прошлого ТК
     def getDoc(self):
+        my_file = open("Tests/linkDocPoruchenie.txt", "r")
+        my_string = my_file.read()
+        my_string.strip()
+        self.w.get(my_string)
+        my_file.close()
 
-        self.w.get(KSEDLocators.LinkDoc)
+        # self.w.get(KSEDLocators.LinkDocRD)
         wait_page_loaded(self.w)
 
     # Отклонить согласование и вернуть на доработку
@@ -94,7 +99,7 @@ class KSEDCreatDocPorDorab(Locator, dataTest, KSEDLocators):
         page.apply_button_button.click()
 
         wait_page_loaded(self.w)
-
+        time.sleep(1)
         # Проверим статус документа
         WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
         page.osnSvedeniya.click()
@@ -127,3 +132,17 @@ class KSEDCreatDocPorDorab(Locator, dataTest, KSEDLocators):
     #     my_file.write(str(url))
     #     my_file.close()
 
+    # Выйдем из системы
+    def USER_LOGOUTs(self,):
+
+        page = Locator(self.w)
+
+        wait = WebDriverWait(self.w, 10)
+
+        page.user_menu.click()
+
+        page.USER_LOGOUT.click()
+
+        wait_page_loaded(self.w)
+
+        assert "Войти" in self.w.title
