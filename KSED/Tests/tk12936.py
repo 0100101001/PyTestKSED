@@ -117,7 +117,7 @@ class KSEDDocPorSendAllure(Locator, dataTest, KSEDLocators):
         page.btnSend.click()
 
         wait_page_loaded(self.w)
-
+        time.sleep(2)
         # Проверим статус документа
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
         page.osnSvedeniya.click()

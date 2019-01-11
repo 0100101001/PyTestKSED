@@ -71,7 +71,7 @@ class KSEDCreatDocPorDorab(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 
-        assert "АРМ" in self.w.title
+        assert "АРМ" in self.w.title or "Документ" in self.w.title
 
         # Открытие документа из прошлого ТК
 
@@ -113,7 +113,7 @@ class KSEDCreatDocPorDorab(Locator, dataTest, KSEDLocators):
 
         wait = WebDriverWait(self.w, 10)
 
-        time.sleep(1)
+        time.sleep(2)
         page.sendFor_approval.click()
 
         wait_page_loaded(self.w)

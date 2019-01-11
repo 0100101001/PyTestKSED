@@ -89,6 +89,7 @@ class KSEDCreatDocPorSoglas(Locator, dataTest, KSEDLocators):
         page = Locator(self.w)
 
         wait = WebDriverWait(self.w, 10)
+        time.sleep(2)
 
         WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.APPROVED_button)))
         page.APPROVED_button.click()

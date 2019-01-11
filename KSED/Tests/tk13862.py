@@ -169,13 +169,14 @@ class KSEDCreatDocPorNSoglas(Locator, dataTest, KSEDLocators):
         time.sleep(1.5)
         # Заполним "Вид этапа"
         page.tipeEtap.send_keys("Согласование" + Keys.RETURN)
-        time.sleep(0.5)
+        time.sleep(1)
 
         # Заполним "Согласующие"
         page.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
 
         # Нажмем кнопку "ОК" на форме
-        time.sleep(0.5)
+        time.sleep(1)
+        page.btnOKformSogl.click()
         page.btnOKformSogl.click()
 
         wait_page_loaded(self.w)
@@ -183,15 +184,15 @@ class KSEDCreatDocPorNSoglas(Locator, dataTest, KSEDLocators):
     # Направление на согласование и проверка статуса документа
     def NapSoglasovanie(self, ):
         page = Locator(self.w)
-        time.sleep(2)
         wait = WebDriverWait(self.w, 10)
 
-        time.sleep(1)
+        time.sleep(2)
         page.sendFor_approval.click()
 
         wait_page_loaded(self.w)
 
         # Проверим статус документа
+        time.sleep(3)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
         page.osnSvedeniya.click()
 

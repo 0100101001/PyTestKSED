@@ -96,13 +96,13 @@ class KSEDCreatDocPorNIspoln(Locator, dataTest, KSEDLocators):
 
         assert "Страница создания документа" in self.w.title
 
- #       time.sleep(1)
+        time.sleep(1)
         # Атрибуты документа
 
         # Тип поручения
         self.w.execute_script("arguments[0].scrollIntoView();", page.tipPoruch)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.tipPoruch)))
-        page.tipPoruch.send_keys(u'Для информации' + Keys.RETURN)
+        page.tipPoruch.send_keys(u'Для информации' + Keys.ENTER)
 
         time.sleep(0.5)
         # Категория документа
@@ -231,7 +231,7 @@ class KSEDCreatDocPorNIspoln(Locator, dataTest, KSEDLocators):
 
         wait = WebDriverWait(self.w, 10)
 
-        time.sleep(1)
+        time.sleep(2)
         page.sendFor_execution.click()
         time.sleep(1)
         page.btnOKnaprNaIspoln.click()

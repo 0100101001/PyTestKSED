@@ -92,6 +92,7 @@ class KSEDRDSoglas_sendDorab(Locator, dataTest, KSEDLocators):
 
         wait = WebDriverWait(self.w, 10)
 
+        time.sleep(1)
         WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.REJECTED_button)))
         page.REJECTED_button.click()
 

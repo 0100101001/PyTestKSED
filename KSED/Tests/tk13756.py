@@ -124,7 +124,7 @@ class KSEDCreatDocPSoglas(Locator, dataTest, KSEDLocators):
         # Категория документа
         page.category_doc.send_keys(u'Открытый'+Keys.RETURN)
 
-#        time.sleep(0.5)
+        time.sleep(0.5)
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))

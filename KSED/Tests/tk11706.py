@@ -185,8 +185,10 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
         page.soglasuychie.send_keys("Строганов" + Keys.ENTER)
 
         # Нажмем кнопку "ОК" на форме
-        time.sleep(0.5)
+        time.sleep(1)
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnOKformSogl)
+        page.btnOKformSogl.click()
+        #time.sleep(5)
         page.btnOKformSogl.click()
 
         wait_page_loaded(self.w)
@@ -199,7 +201,7 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
         wait = WebDriverWait(self.w, 10)
 
         self.w.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
-        time.sleep(0.5)
+        time.sleep(1)
         # Кликнем по вкладке "Рассылка"
         WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.rassilka)))
         page.rassilka.click()

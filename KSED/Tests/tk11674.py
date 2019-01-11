@@ -96,7 +96,7 @@ class KSEDCreatDocRD(Locator, dataTest, KSEDLocators):
 
         assert "Страница создания документа" in self.w.title
 
- #       time.sleep(1)
+        time.sleep(1)
         # Атрибуты документа
 
         # Заголовок
