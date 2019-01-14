@@ -16,6 +16,7 @@ from KSED.Tests.tk12011 import KSEDStatAllureVidDic
 from KSED.Tests.tk12013 import KSEDStatAllureTipDoc
 from KSED.Tests.tk12012_1 import KSEDStatAllureTemDoc
 from KSED.Tests.tk12012_2 import KSEDStatAllureTemDocO
+from KSED.Tests.tk12030 import KSEDallurResolution
 
 
 @allure.feature('Статический отчет "Сводка по видам документов')
@@ -72,6 +73,23 @@ def test_12012_2(web_browser):
     LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
 
     getDoc = page.StatAllureTemDocO()
+
+  #  closeWindow = page.closeWindow()
+
+  #  getDoc = page.StatAllureTemDocO()
+
+@allure.feature('Статический отчет "Сводка по тематикам документов (Объедин.)')
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_12030(web_browser):
+
+    """  """
+
+    page = KSEDallurResolution(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+
+ #   getDoc = page.StatAllureTemDocO()
 
   #  closeWindow = page.closeWindow()
 
