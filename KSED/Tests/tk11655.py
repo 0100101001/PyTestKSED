@@ -29,6 +29,7 @@ from selenium.webdriver.common.keys import Keys
 from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
+from KSED.pages import MPages
 
 
 
@@ -67,7 +68,8 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
         #                      ignored_exceptions=[NoSuchElementException,
         #                                          ElementNotVisibleException,
         #                                          ElementNotSelectableException])
-        page = Locator(self.w)
+        #page = Locator(self.w)
+        page = MPages(self.w, self.w.current_url)
 
         page.username_text = username
         print(Locator.username_text)
@@ -86,7 +88,8 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
         #                                          ElementNotVisibleException,
         #                                          ElementNotSelectableException])
 
-        page = Locator(self.w)
+        #page = Locator(self.w)
+        page = MPages(self.w, self.w.current_url)
 
         wait = WebDriverWait(self.w, 10)
 
@@ -96,23 +99,24 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
 
         assert "Страница создания документа" in self.w.title
 
-        time.sleep(1)
+        time.sleep(3)
         # Атрибуты документа
-
+        page.wait_page_loaded()
         # Тип поручения
-        self.w.execute_script("arguments[0].scrollIntoView();", page.tipPoruch)
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.tipPoruch)))
-        page.tipPoruch.send_keys(u'Для информации' + Keys.RETURN)
+        #self.w.execute_script("arguments[0].scrollIntoView();", page.tipPoruch)
+        page.tipPoruch = 'Для информации\n'
 
-        time.sleep(0.5)
+        time.sleep(5)
         # Категория документа
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.category_doc)))
         page.category_doc.send_keys(u'Открытый' + Keys.RETURN)
 
         # Ответственный исполнитель
         self.w.execute_script("arguments[0].scrollIntoView();", page.otvetstv_ispoln)
         page.otvetstv_ispoln.send_keys(u'Строганов' + Keys.RETURN)
 
-        time.sleep(0.5)
+       # time.sleep(0.5)
 
         # Кнопка "Создать"
         self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
@@ -123,7 +127,7 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 #        self.w.set_page_load_timeout(30)
-        time.sleep(2)
+#        time.sleep(2)
 
 #
 #        wait.until(EC.title_is(self.w.title))
