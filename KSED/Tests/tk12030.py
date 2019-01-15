@@ -28,6 +28,7 @@ from selenium.webdriver.common.keys import Keys
 from Pages.PageObject import Locator
 from TestData.data import dataTest
 from TestData.locators import KSEDLocators
+from KSED.pages import MPages
 
 def wait_page_loaded(driver):
 
@@ -67,6 +68,7 @@ class KSEDallurResolution(Locator, dataTest, KSEDLocators):
         page.password_text = password
 
         page.LogIn_button.click()
+        page2 = MPages(self.w, self.w.current_url)
 
         wait_page_loaded(self.w)
 
@@ -76,10 +78,15 @@ class KSEDallurResolution(Locator, dataTest, KSEDLocators):
         actions = ActionChains(self.w)
         actions.move_to_element(page.section_allur).click().perform()  # Перейти в строку отчеты
 #        time.sleep(0.5) # без этого ожидания не работает
-        WebDriverWait(self.w, 5).until(EC.presence_of_element_located((By.XPATH, KSEDLocators.node_ispDisp)))
-        page.node_ispDisp.click()  # Перейти отчеты по исп дисциплине
+#        WebDriverWait(self.w, 5).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.node_ispDisp)))
+#        page.node_ispDisp.click()  # Перейти отчеты по исп дисциплине
+
+        page2.melements.click()
+
         #        time.sleep(1)
-        page.allu_SostIspR.click()  # Перейти в раздел состояние исполнеия резолюций
+        page2.wait_page_loaded()
+        page2.m2elements.click()
+#        page.allu_SostIspR.click()  # Перейти в раздел состояние исполнеия резолюций
 #        time.sleep(2)
         page.confirm_3.click()  # Кнопка ОК
         time.sleep(0.5)
