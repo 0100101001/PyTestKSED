@@ -78,7 +78,7 @@ class KSEDallurResolution(Locator, dataTest, KSEDLocators):
         actions = ActionChains(self.w)
         actions.move_to_element(page.section_allur).click().perform()  # Перейти в строку отчеты
 #        time.sleep(0.5) # без этого ожидания не работает
-#        WebDriverWait(self.w, 5).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.node_ispDisp)))
+        WebDriverWait(self.w, 5).until(EC.visibility_of_element_located((By.XPATH, KSEDLocators.node_ispDisp)))
 #        page.node_ispDisp.click()  # Перейти отчеты по исп дисциплине
 
         page2.melements.click()
@@ -88,6 +88,7 @@ class KSEDallurResolution(Locator, dataTest, KSEDLocators):
         page2.m2elements.click()
 #        page.allu_SostIspR.click()  # Перейти в раздел состояние исполнеия резолюций
 #        time.sleep(2)
+        WebDriverWait(self.w, 5).until(EC.visibility_of_element_located((By.XPATH, KSEDLocators.confirm_3)))
         page.confirm_3.click()  # Кнопка ОК
         time.sleep(0.5)
         assert len(self.w.window_handles) == 2  # Проверка, что открытось 2 окно

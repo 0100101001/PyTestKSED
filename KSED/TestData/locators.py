@@ -130,7 +130,7 @@ class KSEDLocators:
     node_Statis = '//span[contains(@class, "ygtvlabel")][contains(text(), "Статистические")]'#xpath  # "Статистические отчеты"
     edsBykindStat = '//a[contains(@onclick, "eds-by-kind-stat")]' #xpath # Отчет "Сводка по видам документов"
 
-    node_ispDisp = '//span[contains(text(), "Отчеты по исполнительской дисциплине")]' #xpath
+    node_ispDisp = '//div[contains(@class, "shown")]//span[contains(text(), "Отчеты по исполнительской дисциплине")]'#'//span[contains(text(), "Отчеты по исполнительской дисциплине")]' #xpath
 
     logs_incDoc = '//a[contains(text(), "Журнал регистрации входящих документов")]' #xpath
     incomingRegJournal = '//a[contains(@onclick, "incoming-reg-journal")]' #xpath # Отчет "Журнал регистрации входящих документов"
