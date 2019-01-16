@@ -244,7 +244,7 @@ class MPages(WebPage):
     oblProsm = WebElement(xpath=KSEDLocators.oblProsm) # Область просмотра
     oneDocInList = WebElement(xpath=KSEDLocators.oneDocInList) # Первый документ в списке
     nineDocInList = WebElement(xpath=KSEDLocators.nineDocInList) # Девятый документ в списке
- ###################   subordinate = MultiWebElement(xpath=KSEDLocators.subordinate) # "+" раскрытие подчиненные документы
+    subordinate = ManyWebElements(xpath=KSEDLocators.subordinate) # "+" раскрытие подчиненные документы
     oneSubordInList = WebElement(xpath=KSEDLocators.oneSubordInList) # Первая ссылка на подчиненный документ
     ActionTab = WebElement(xpath=KSEDLocators.ActionTab) # Кнопка "Действия с выбранными"
     chBinOnl = WebElement(xpath=KSEDLocators.chBinOnl)

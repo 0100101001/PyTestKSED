@@ -68,8 +68,8 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
         #                      ignored_exceptions=[NoSuchElementException,
         #                                          ElementNotVisibleException,
         #                                          ElementNotSelectableException])
-        page = Locator(self.w)
-        #**page = MPages(self.w, self.w.current_url)
+        #**page = Locator(self.w)
+        page = MPages(self.w, self.w.current_url)
 
         page.username_text = username
         print(Locator.username_text)
@@ -88,8 +88,8 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
         #                                          ElementNotVisibleException,
         #                                          ElementNotSelectableException])
 
-        page = Locator(self.w)
-        #page = MPages(self.w, self.w.current_url)
+        #**page = Locator(self.w)
+        page = MPages(self.w, self.w.current_url)
 
         wait = WebDriverWait(self.w, 10)
 
@@ -97,40 +97,44 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
 
         page.poruchenie.click()
 
-        #**page.wait_page_loaded()
-        wait_page_loaded(self.w)
+        page.wait_page_loaded()
+        #**wait_page_loaded(self.w)
         assert "Страница создания документа" in self.w.title
 
         time.sleep(3)
         # Атрибуты документа
-        wait_page_loaded(self.w)
+        page.wait_page_loaded()
+        #**wait_page_loaded(self.w)
         #**page.wait_page_loaded()
         # Тип поручения
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.tipPoruch)))
-        self.w.execute_script("arguments[0].scrollIntoView();", page.tipPoruch)
-        page.tipPoruch.send_keys(u'Для информации' + Keys.RETURN)
-        #page.tipPoruch.send_keys(Keys.RETURN)
+        #**self.w.execute_script("arguments[0].scrollIntoView();", page.tipPoruch)
+        page.tipPoruch.scroll_to_element()
+        page.tipPoruch.send_keys(u'Для информации' + Keys.ENTER)
         time.sleep(2)
+        #page.tipPoruch.send_keys(Keys.RETURN)
+
         # Категория документа
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.category_doc)))
         page.category_doc.send_keys(u'Открытый' + Keys.RETURN)
 
         # Ответственный исполнитель
-        self.w.execute_script("arguments[0].scrollIntoView();", page.otvetstv_ispoln)
-        #**page.otvetstv_ispoln.scroll_to_element()
+        #**self.w.execute_script("arguments[0].scrollIntoView();", page.otvetstv_ispoln)
+        page.otvetstv_ispoln.scroll_to_element()
         page.otvetstv_ispoln.send_keys(u'Строганов' + Keys.RETURN)
 
-        time.sleep(1)
+        #**time.sleep(1)
 
         # Кнопка "Создать"
-        self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
-        #**page.btnCreateDoc.scroll_to_element()
+        #**self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
+        page.btnCreateDoc.scroll_to_element()
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))
         page.btnCreateDoc.click()
 
 #        wait.until(EC.number_of_windows_to_be(2))
 
-        wait_page_loaded(self.w)
+        #**wait_page_loaded(self.w)
+        page.wait_page_loaded()
 #        self.w.set_page_load_timeout(30)
         time.sleep(4)
 
