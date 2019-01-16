@@ -111,7 +111,8 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
         #**self.w.execute_script("arguments[0].scrollIntoView();", page.tipPoruch)
         page.tipPoruch.scroll_to_element()
         page.tipPoruch.send_keys(u'Для информации' + Keys.ENTER)
-        time.sleep(2)
+        page.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]') #ожидание завершения колеса загрузки(очень важная строка!!!)
+        #time.sleep(2)
         #page.tipPoruch.send_keys(Keys.RETURN)
 
         # Категория документа
@@ -132,11 +133,11 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
         page.btnCreateDoc.click()
 
 #        wait.until(EC.number_of_windows_to_be(2))
-
+        page.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
         #**wait_page_loaded(self.w)
         page.wait_page_loaded()
 #        self.w.set_page_load_timeout(30)
-        time.sleep(4)
+        #time.sleep(4)
 
 #
 #        wait.until(EC.title_is(self.w.title))
