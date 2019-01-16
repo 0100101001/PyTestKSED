@@ -143,7 +143,7 @@ class KSEDCreatDocPD(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 #        self.w.set_page_load_timeout(30)
-        time.sleep(2)
+        time.sleep(3)
 
 #
 #        wait.until(EC.title_is(self.w.title))

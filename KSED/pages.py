@@ -135,7 +135,7 @@ class WebPage(object):
                 page_loaded = new_source == source
                 source = new_source
 
-            # Wait when spinner of page loading will disappear:
+            # Wait when some element will disappear:
             if page_loaded and wait_for_xpath_to_disappear:
                 bad_element = None
 

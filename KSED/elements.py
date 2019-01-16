@@ -87,6 +87,7 @@ class WebElement(object):
         except:
             print(colored('Element not visible!', 'red'))
 
+        """  # TODO: remove this code if it works fine.
         if element:
             js = 'return (arguments[0].offsetHeight === 0 && arguments[0].offsetWidth === 0);'
             visibility = self._web_driver.execute_script(js, element)
@@ -98,8 +99,15 @@ class WebElement(object):
                 iteration += 1
 
                 visibility = self._web_driver.execute_script(js, element)
+        """
 
         return element
+
+    def send_keys(self, keys):
+        """ Send keys to the element. """
+
+        element = self.find()
+        element.send_keys(keys)
 
     def get_text(self):
         """ Get text of the element. """
@@ -137,8 +145,26 @@ class WebElement(object):
 
         element = self.wait_to_be_clickable()
 
-        action = ActionChains(self._web_driver)
-        action.move_to_element_with_offset(element, x_offset, y_offset).click(on_element=element).perform()
+        if element:
+            action = ActionChains(self._web_driver)
+            action.move_to_element_with_offset(element, x_offset, y_offset).\
+                pause(hold_seconds).click(on_element=element).perform()
+        else:
+            msg = 'Element with locator {0} not found'
+            raise AttributeError(msg.format(self._locator))
+
+    def right_mouse_click(self, x_offset=0, y_offset=0, hold_seconds=0):
+        """ Click right mouse button on the element. """
+
+        element = self.wait_to_be_clickable()
+
+        if element:
+            action = ActionChains(self._web_driver)
+            action.move_to_element_with_offset(element, x_offset, y_offset). \
+                pause(hold_seconds).context_click(on_element=element).perform()
+        else:
+            msg = 'Element with locator {0} not found'
+            raise AttributeError(msg.format(self._locator))
 
     def highlight_and_make_screenshot(self, file_name='element.png'):
         """ Highlight element and make the screen-shot of all page. """
@@ -153,6 +179,14 @@ class WebElement(object):
 
         # Make screen-shot of the page:
         self._web_driver.save_screenshot(file_name)
+
+    def scroll_to_element(self):
+        """ Scroll page to the element. """
+
+        element = self.find()
+
+        # Scroll page to the element:
+        self._web_driver.execute_script("arguments[0].scrollIntoView();", element)
 
 
 class ManyWebElements(WebElement):

@@ -103,13 +103,13 @@ class KSEDDocPDNapSoglas(Locator, dataTest, KSEDLocators):
         #        time.sleep(0.5)
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
         time.sleep(0.5)
-        # wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
+        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
         page.fileUpload.click()
 
-        time.sleep(0.5)
-        # wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
+        time.sleep(3)
+        #wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.files)))
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
-        page.files.send_keys('C://test.txt')
+        page.files.send_keys('C:\\test.txt')
 
     # Добавление пункта
     def addPunkt(self, ):

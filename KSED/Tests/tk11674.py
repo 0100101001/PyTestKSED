@@ -136,7 +136,7 @@ class KSEDCreatDocRD(Locator, dataTest, KSEDLocators):
 
 #
 #        wait.until(EC.title_is(self.w.title))
-        time.sleep(2)
+        time.sleep(3)
         assert "Документ" in self.w.title
 
 

@@ -17,6 +17,12 @@ from KSED.Tests.tk12013 import KSEDStatAllureTipDoc
 from KSED.Tests.tk12012_1 import KSEDStatAllureTemDoc
 from KSED.Tests.tk12012_2 import KSEDStatAllureTemDocO
 from KSED.Tests.tk12030 import KSEDallurResolution
+from KSED.Tests.tk12006 import KSEDallur
+from KSED.Tests.tk12022 import KSEDallurInDoc
+from KSED.Tests.tk12025 import KSEDallurIsp
+from KSED.Tests.tk12026 import KSEDallurDeadLine
+from KSED.Tests.tk12027 import KSEDallurEffPodr
+from KSED.Tests.tk12029 import KSEDallurReestr
 
 
 @allure.feature('Статический отчет "Сводка по видам документов')
@@ -95,3 +101,70 @@ def test_12030(web_browser):
 
   #  getDoc = page.StatAllureTemDocO()
 
+#****Сергей
+@allure.feature('Проверка отчетов в узле "Журналы" раздела "Отчеты"')
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_12006(web_browser):
+
+    """  """
+
+    page = KSEDallur(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345')
+
+
+@allure.feature('Отчет "Исполнение входящих документов"')
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_12022(web_browser):
+
+    """  """
+
+    page = KSEDallurInDoc(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345')
+
+@allure.feature('Отчет "Исполнительская дисциплина по авторам"')
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_12025(web_browser):
+
+    """  """
+
+    page = KSEDallurIsp(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345')
+
+@allure.feature('Отчет "Неисполненные поручения с истекшим сроком"')
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_12026(web_browser):
+
+    """  """
+
+    page = KSEDallurDeadLine(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345')
+
+@allure.feature('Отчет "Продуктивность по исполнителям"')
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_12027(web_browser):
+
+    """  """
+
+    page = KSEDallurEffPodr(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345')
+
+@allure.feature('Отчет "Реестр для закрытия неактуальных контрольных поручений"')
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_12029(web_browser):
+
+    """  """
+
+    page = KSEDallurReestr(web_browser)
+
+    LogIn_page = page.LogIN('stroganovsn', '12345')
