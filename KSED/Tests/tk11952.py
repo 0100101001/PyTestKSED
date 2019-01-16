@@ -147,7 +147,7 @@ class KSEDCreatDocP_sendDorab(Locator, dataTest, KSEDLocators):
         #        time.sleep(0.5)
         WebDriverWait(self.w, 10).until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
 
-        page.files.send_keys('C://test.txt')
+        page.files.send_keys('C:\\test.txt')
 
     # Добавление пункта "Поручение"
     def addPoruchenie(self, ):

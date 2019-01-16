@@ -107,7 +107,7 @@ class KSEDnaprSZSoglas(Locator, dataTest, KSEDLocators):
         time.sleep(0.5)
         #wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
         # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
-        page.files.send_keys('C://test.txt')
+        page.files.send_keys('C:\\test.txt')
 
     # # Добавление пункта "Поручение"
     # def addPoruchenie(self, ):
