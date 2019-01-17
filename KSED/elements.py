@@ -7,6 +7,7 @@ from termcolor import colored
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
 
 
 class WebElement(object):
@@ -105,14 +106,17 @@ class WebElement(object):
 
         return element
 
-    def send_keys(self, keys):
+    def send_keys(self, keys, wait=2):
         """ Send keys to the element. """
+
+        keys = keys.replace('\n', '\ue007')
 
         element = self.find()
 
         if element:
             element.clear()
             element.send_keys(keys)
+            time.sleep(wait)
         else:
             msg = 'Element with locator {0} not found'
             raise AttributeError(msg.format(self._locator))

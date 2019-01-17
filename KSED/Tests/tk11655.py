@@ -4,23 +4,11 @@
 
 
 
-import time, datetime
-
-
-
-from selenium.webdriver import ActionChains
-
-from page_objects import PageObject
-
-from page_objects import PageElement
-
-from page_objects import MultiPageElement
+import time
 
 from selenium.webdriver.common.by import By
 
 from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.common.exceptions import *
 
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -64,10 +52,7 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
 
     # Авторизация
     def LogIN(self, username, password):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
+
         #**page = Locator(self.w)
         page = MPages(self.w, self.w.current_url)
 
@@ -83,10 +68,6 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
 
     # Создание документа (открытие формы создания и заполнение атрибутов)
     def Creat(self,):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
 
         #**page = Locator(self.w)
         page = MPages(self.w, self.w.current_url)
@@ -99,48 +80,37 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
 
         page.wait_page_loaded()
         #**wait_page_loaded(self.w)
+
         assert "Страница создания документа" in self.w.title
 
-        time.sleep(3)
         # Атрибуты документа
         page.wait_page_loaded()
         #**wait_page_loaded(self.w)
-        #**page.wait_page_loaded()
+
         # Тип поручения
         wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.tipPoruch)))
-        #**self.w.execute_script("arguments[0].scrollIntoView();", page.tipPoruch)
+
+        page.tipPoruch.wait_until_not_visible()
         page.tipPoruch.scroll_to_element()
         page.tipPoruch.send_keys(u'Для информации' + Keys.ENTER)
-        page.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]') #ожидание завершения колеса загрузки(очень важная строка!!!)
-        #time.sleep(2)
-        #page.tipPoruch.send_keys(Keys.RETURN)
 
         # Категория документа
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.category_doc)))
+        page.category_doc.wait_until_not_visible()
         page.category_doc.send_keys(u'Открытый' + Keys.RETURN)
 
         # Ответственный исполнитель
-        #**self.w.execute_script("arguments[0].scrollIntoView();", page.otvetstv_ispoln)
         page.otvetstv_ispoln.scroll_to_element()
         page.otvetstv_ispoln.send_keys(u'Строганов' + Keys.RETURN)
 
-        #**time.sleep(1)
-
         # Кнопка "Создать"
-        #**self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
         page.btnCreateDoc.scroll_to_element()
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))
+        page.btnCreateDoc.wait_to_be_clickable()
         page.btnCreateDoc.click()
 
-#        wait.until(EC.number_of_windows_to_be(2))
         page.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
         #**wait_page_loaded(self.w)
         page.wait_page_loaded()
-#        self.w.set_page_load_timeout(30)
-        #time.sleep(4)
 
-#
-#        wait.until(EC.title_is(self.w.title))
 
         assert "Документ" in self.w.title
 
@@ -153,6 +123,3 @@ class KSEDCreatDocPor(Locator, dataTest, KSEDLocators):
         my_file.write(str(url))
         my_file.close()
 
-    # def getDoc(self):
-    #
-    #     self.w.get(KSEDLocators.LinkDoc)
