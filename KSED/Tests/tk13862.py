@@ -4,25 +4,15 @@
 
 
 
-import time, datetime
-
-
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.ui import WebDriverWait
+import time
 
 from selenium.webdriver.common.action_chains import ActionChains
-
-from selenium.common.exceptions import *
-
-from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.common.keys import Keys
 
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
 
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
+from KSED.pages import MPages
 
 
 
@@ -44,34 +34,25 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocPorNSoglas(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocPorNSoglas(MPages, dataTest, KSEDLocators):
 
 
-    def __init__(self, web_driver, uri=''):
+    def __init__(self, web_driver, uri=dataTest.baseURL):
 
         super().__init__(web_driver, uri)
 
-        self.get(dataTest.baseURL)
-
-        wait_page_loaded(self.w)
-
     # Авторизация
     def LogIN(self, username, password):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
-        page = Locator(self.w)
 
-        page.username_text = username
-        print(Locator.username_text)
-        page.password_text = password
+        self.username_text = username
+        self.password_text = password
 
-        page.LogIn_button.click()
+        self.LogIn_button.click()
 
-        wait_page_loaded(self.w)
+        self.wait_page_loaded()
+        #wait_page_loaded(self._web_driver)
 
-        assert "АРМ" in self.w.title
+        assert "АРМ" in self._web_driver.title
 
 
     # Открытие документа из прошлого ТК
@@ -80,129 +61,84 @@ class KSEDCreatDocPorNSoglas(Locator, dataTest, KSEDLocators):
         my_file = open("Tests/linkDocPoruchenie.txt", "r")
         my_string = my_file.read()
         my_string.strip()
-        self.w.get(my_string)
+        self._web_driver.get(my_string)
         my_file.close()
 
-        #self.w.get(KSEDLocators.LinkDocRD)
-        wait_page_loaded(self.w)
+        self.wait_page_loaded()
 
     # Добавление вложения
     def attachment(self,):
-        page = Locator(self.w)
 
-        wait = WebDriverWait(self.w, 10)
+        actions = ActionChains(self._web_driver)
+        self.vlozheniya.wait_until_not_visible()
+        actions.move_to_element(self.vlozheniya).perform()
 
-        actions = ActionChains(self.w)
-        actions.move_to_element(page.vlozheniya).perform()
-        time.sleep(0.5)
-        page.attachments.click()
+        self.attachments.wait_to_be_clickable()
+        self.attachments.click()
 
-        #        time.sleep(0.5)
-        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
-        time.sleep(0.5)
-        #wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
-        page.fileUpload2.click()
+        self.fileUpload2.wait_to_be_clickable()
+        self.fileUpload2.click()
 
-        time.sleep(0.5)
-        #wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
-        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
-        page.files.send_keys('C:\\test.txt')
-
-    # # Добавление пункта "Поручение"
-    # def addPoruchenie(self, ):
-    #     page = Locator(self.w)
-    #
-    #     wait = WebDriverWait(self.w, 10)
-    #
-    #     time.sleep(1)
-    #     page.show.click()
-    #
-    #     WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punkti)))
-    #     page.punkti.click()
-    #
-    #     WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punktiBtn)))
-    #     page.punktiBtn.click()
-    #
-    #     page.punktPoruch.click()
-    #
-    #     page.textPoruch.send_keys("Произвольный текст")
-    #
-    #     page.tipPoruch.send_keys("Поручение по пункту РД" + Keys.RETURN)
-    #
-    #     page.otvetstv_ispolnVpunktah.send_keys("Главный" + Keys.RETURN)
-    #
-    #     dd = datetime.date.today().strftime('%d%m%Y')
-    #     page.srokIspoln.send_keys(dd)
-    #
-    #     page.btnOKform.click()
+        self.files.wait_to_be_clickable()
+        self.files.send_keys('C:\\test.txt')
 
     # Создание маршрута согласования
     def creation_of_the_approval_route(self):
 
-        page = Locator(self.w)
-
-        wait = WebDriverWait(self.w, 10)
-
-        time.sleep(1)
+       # time.sleep(1)
         # "Показать общую карточку" клик
-        page.show.click()
+        self.show.wait_to_be_clickable()
+        self.show.click()
 
         # "Согласование" вкладка
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.soglasovanieWkladka)))
-        page.soglasovanieWkladka.click()
+        self.soglasovanieWkladka.wait_to_be_clickable()
+        self.soglasovanieWkladka.click()
 
         # "Создать маршрут" клик по кнопке
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.createRuleBtn)))
-        page.createRuleBtn.click()
+        self.createRuleBtn.wait_to_be_clickable()
+        self.createRuleBtn.click()
 
         # Выберем "Индивидуальный маршрут"
-        page.createRuleIndivid.click()
+        self.createRuleIndivid.wait_to_be_clickable()
+        self.createRuleIndivid.click()
 
         # Появилась форма "Редактирование маршрута" нажмем "ОК"
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnOKform)))
-        page.btnOKform.click()
+        self.btnOKform.wait_to_be_clickable()
+        self.btnOKform.click()
 
         # Нажмем кнопку "Добавить этап"
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.addEtap)))
-        page.addEtap.click()
+        self.addEtap.wait_to_be_clickable()
+        self.addEtap.click()
 
-        time.sleep(1.5)
+        #time.sleep(1.5)
         # Заполним "Вид этапа"
-        page.tipeEtap.send_keys("Согласование" + Keys.RETURN)
-        time.sleep(1)
+        self.tipeEtap.wait_to_be_clickable()
+        self.tipeEtap.send_keys("Согласование" + Keys.RETURN)
+        #time.sleep(1)
 
         # Заполним "Согласующие"
-        page.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
-
+        self.soglasuychie.wait_to_be_clickable()
+        self.soglasuychie.send_keys("Яцкин" + Keys.ENTER)
+        #time.sleep(3)
         # Нажмем кнопку "ОК" на форме
-        time.sleep(1)
-        page.btnOKformSogl.click()
-        page.btnOKformSogl.click()
-
-        wait_page_loaded(self.w)
+        #time.sleep(1)
+        self.btnOKformSogl.scroll_to_element()
+        self.btnOKformSogl.wait_to_be_clickable()
+        self.btnOKformSogl.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+        #self.wait_page_loaded()
 
     # Направление на согласование и проверка статуса документа
     def NapSoglasovanie(self, ):
-        page = Locator(self.w)
-        wait = WebDriverWait(self.w, 10)
 
-        time.sleep(2)
-        page.sendFor_approval.click()
+        self.sendFor_approval.wait_to_be_clickable()
+        self.sendFor_approval.click()
 
-        wait_page_loaded(self.w)
+        self.wait_page_loaded()
 
         # Проверим статус документа
-        time.sleep(3)
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
-        page.osnSvedeniya.click()
+        self.osnSvedeniya.wait_to_be_clickable()
+        self.osnSvedeniya.click()
+        self.status_Doc.wait_until_not_visible()
 
         assert "На согласовании" in self.status_Doc.text
-
-    # # Сохраним ссылку на документ в файл
-    # def LinkDocWFile(self):
-    #
-    #     url = self.w.current_url
-    #     my_file = open("TestData\linkDoc.txt", "w")
-    #     my_file.write(str(url))
-    #     my_file.close()
-

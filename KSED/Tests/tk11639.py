@@ -27,7 +27,7 @@ from selenium.webdriver.common.keys import Keys
 
 from Pages.PageObject import Locator
 from TestData.data import dataTest
-
+from KSED.pages import MPages
 
 
 

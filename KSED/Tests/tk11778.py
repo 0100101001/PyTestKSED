@@ -4,25 +4,11 @@
 
 
 
-import time, datetime
+import time
 
-
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.webdriver.common.action_chains import ActionChains
-
-from selenium.common.exceptions import *
-
-from selenium.webdriver.support import expected_conditions as EC
-
-from selenium.webdriver.common.keys import Keys
-
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
-
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
+from KSED.pages import MPages
 
 
 
@@ -44,34 +30,25 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocPorSoglas(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocPorSoglas(MPages, dataTest, KSEDLocators):
 
 
-    def __init__(self, web_driver, uri=''):
+    def __init__(self, web_driver, uri=dataTest.baseURL):
 
         super().__init__(web_driver, uri)
 
-        self.get(dataTest.baseURL)
-
-        wait_page_loaded(self.w)
-
     # Авторизация
     def LogIN(self, username, password):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
-        page = Locator(self.w)
 
-        page.username_text = username
-        print(Locator.username_text)
-        page.password_text = password
+        self.username_text = username
+        self.password_text = password
 
-        page.LogIn_button.click()
+        self.LogIn_button.click()
 
-        wait_page_loaded(self.w)
+        self.wait_page_loaded()
+        #wait_page_loaded(self._web_driver)
 
-        assert "АРМ" in self.w.title
+        assert "АРМ" in self._web_driver.title or "Документ" in self._web_driver.title
 
 
     # Открытие документа из прошлого ТК
@@ -79,38 +56,29 @@ class KSEDCreatDocPorSoglas(Locator, dataTest, KSEDLocators):
         my_file = open("Tests/linkDocPoruchenie.txt", "r")
         my_string = my_file.read()
         my_string.strip()
-        self.w.get(my_string)
+        self._web_driver.get(my_string)
         my_file.close()
 
-        #self.w.get(KSEDLocators.LinkDocRD)
-        wait_page_loaded(self.w)
+        self.wait_page_loaded()
 
     def Soglasovanie(self, ):
-        page = Locator(self.w)
 
-        wait = WebDriverWait(self.w, 10)
-        time.sleep(2)
+        self.APPROVED_button.wait_to_be_clickable()
+        self.APPROVED_button.click()
 
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.APPROVED_button)))
-        page.APPROVED_button.click()
+        self.prop_bpm_comment.wait_until_not_visible()
+        self.prop_bpm_comment.send_keys('я так хотю')
 
-        page.prop_bpm_comment.send_keys('я так хотю')
+        self.apply_button_button.click()
 
-        page.apply_button_button.click()
-
-        wait_page_loaded(self.w)
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+        self.wait_page_loaded()
 
         # Проверим статус документа
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
-        page.osnSvedeniya.click()
+        self.osnSvedeniya.wait_to_be_clickable()
+        self.osnSvedeniya.click()
 
+        self.status_Doc.wait_until_not_visible()
         assert "На исполнении" in self.status_Doc.text
 
-    # # Сохраним ссылку на документ в файл
-    # def LinkDocWFile(self):
-    #
-    #     url = self.w.current_url
-    #     my_file = open("TestData\linkDoc.txt", "w")
-    #     my_file.write(str(url))
-    #     my_file.close()
 

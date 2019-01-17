@@ -10,26 +10,11 @@ import time, datetime
 
 from selenium.webdriver import ActionChains
 
-from page_objects import PageObject
-
-from page_objects import PageElement
-
-from page_objects import MultiPageElement
-
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.common.exceptions import *
-
-from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.common.keys import Keys
 
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
-
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
+from KSED.pages import MPages
 
 
 
@@ -50,196 +35,140 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocPorNIspoln(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocPorNIspoln(MPages, dataTest, KSEDLocators):
 
 
-    def __init__(self, web_driver, uri=''):
+    def __init__(self, web_driver, uri=dataTest.baseURL):
 
         super().__init__(web_driver, uri)
 
-        self.get(dataTest.baseURL)
-
-        wait_page_loaded(self.w)
 
     # Авторизация
+
     def LogIN(self, username, password):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
-        page = Locator(self.w)
+        self.username_text = username
+        self.password_text = password
 
-        page.username_text = username
-        print(Locator.username_text)
-        page.password_text = password
+        self.LogIn_button.click()
 
-        page.LogIn_button.click()
+        self.wait_page_loaded()
+        #wait_page_loaded(self._web_driver)
 
-        wait_page_loaded(self.w)
-
-        assert "АРМ" in self.w.title
+        assert "АРМ" in self._web_driver.title
 
     # Создание документа (открытие формы создания и заполнение атрибутов)
     def Creat(self,):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
 
-        page = Locator(self.w)
+        self.newDoc_button.wait_to_be_clickable()
+        self.newDoc_button.click()
 
-        wait = WebDriverWait(self.w, 10)
+        self.poruchenie.wait_to_be_clickable()
+        self.poruchenie.click()
 
-        page.newDoc_button.click()
-
-        page.poruchenie.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+        self.wait_page_loaded()
         assert "Страница создания документа" in self.w.title
 
-        time.sleep(1)
         # Атрибуты документа
 
         # Тип поручения
-        self.w.execute_script("arguments[0].scrollIntoView();", page.tipPoruch)
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.tipPoruch)))
-        page.tipPoruch.send_keys(u'Для информации' + Keys.ENTER)
+        self.tipPoruch.scroll_to_element()
+        self.tipPoruch.wait_until_not_visible()
+        self.tipPoruch.send_keys(u'Для информации' + Keys.ENTER)
 
-        time.sleep(0.5)
         # Категория документа
-        page.category_doc.send_keys(u'Открытый' + Keys.RETURN)
+        self.category_doc.wait_until_not_visible()
+        self.category_doc.send_keys(u'Открытый' + Keys.RETURN)
 
         # Ответственный исполнитель
-        self.w.execute_script("arguments[0].scrollIntoView();", page.otvetstv_ispoln)
-        page.otvetstv_ispoln.send_keys(u'Строганов' + Keys.RETURN)
-
-        time.sleep(0.5)
+        self.otvetstv_ispoln.scroll_to_element()
+        self.otvetstv_ispoln.wait_until_not_visible()
+        self.otvetstv_ispoln.send_keys(u'Строганов' + Keys.RETURN)
 
         # Кнопка "Создать"
-        self.w.execute_script("arguments[0].scrollIntoView();", page.btnCreateDoc)
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnCreateDoc)))
-        page.btnCreateDoc.click()
+        self.btnCreateDoc.scroll_to_element()
+        self.btnCreateDoc.wait_to_be_clickable()
+        self.btnCreateDoc.click()
 
-#        wait.until(EC.number_of_windows_to_be(2))
 
-        wait_page_loaded(self.w)
-#        self.w.set_page_load_timeout(30)
-        time.sleep(2)
-
-#
-#        wait.until(EC.title_is(self.w.title))
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+        self.wait_page_loaded()
         assert "Документ" in self.w.title
 
         # Добавление вложения
 
     def attachment(self, ):
-        page = Locator(self.w)
 
-        wait = WebDriverWait(self.w, 10)
+        actions = ActionChains(self._web_driver)
+        actions.move_to_element(self.vlozheniya).perform()
 
-        actions = ActionChains(self.w)
-        actions.move_to_element(page.vlozheniya).perform()
-        time.sleep(1)
-        page.attachments.click()
+        self.attachments.wait_to_be_clickable()
+        self.attachments.click()
 
-        #        time.sleep(0.5)
-        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
-        time.sleep(0.5)
-        # wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.fileUpload)))
-        page.fileUpload2.click()
+        self.fileUpload2.wait_to_be_clickable()
+        self.fileUpload2.click()
 
-        time.sleep(0.5)
-        # wait.until(EC.presence_of_element_located((By.XPATH, KSEDLocators.files)))
-        # wait.until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@id, "default-dialog")]')))
-        page.files.send_keys('C:\\test.txt')
+        self.files.wait_to_be_clickable()
+        self.files.send_keys('C:\\test.txt')
 
-        # # Добавление пункта "Поручение"
-        # def addPoruchenie(self, ):
-        #     page = Locator(self.w)
-        #
-        #     wait = WebDriverWait(self.w, 10)
-        #
-        #     time.sleep(1)
-        #     page.show.click()
-        #
-        #     WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punkti)))
-        #     page.punkti.click()
-        #
-        #     WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.punktiBtn)))
-        #     page.punktiBtn.click()
-        #
-        #     page.punktPoruch.click()
-        #
-        #     page.textPoruch.send_keys("Произвольный текст")
-        #
-        #     page.tipPoruch.send_keys("Поручение по пункту РД" + Keys.RETURN)
-        #
-        #     page.otvetstv_ispolnVpunktah.send_keys("Главный" + Keys.RETURN)
-        #
-        #     dd = datetime.date.today().strftime('%d%m%Y')
-        #     page.srokIspoln.send_keys(dd)
-        #
-        #     page.btnOKform.click()
-
-        # Создание маршрута согласования
-
+    # Создание маршрута согласования
     def creation_of_the_approval_route(self):
-        page = Locator(self.w)
 
-        wait = WebDriverWait(self.w, 10)
-
-        time.sleep(1)
         # "Показать общую карточку" клик
-        page.show.click()
+        self.show.wait_until_not_visible()
+        self.show.wait_to_be_clickable()
+        self.show.click()
 
         # "Согласование" вкладка
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.soglasovanieWkladka)))
-        page.soglasovanieWkladka.click()
+        self.soglasovanieWkladka.wait_to_be_clickable()
+        self.soglasovanieWkladka.click()
 
         # "Создать маршрут" клик по кнопке
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.createRuleBtn)))
-        page.createRuleBtn.click()
+        self.createRuleBtn.wait_to_be_clickable()
+        self.createRuleBtn.click()
 
         # Выберем "Индивидуальный маршрут"
-        page.createRuleIndivid.click()
+        self.createRuleIndivid.wait_to_be_clickable()
+        self.createRuleIndivid.click()
 
         # Появилась форма "Редактирование маршрута" нажмем "ОК"
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnOKform)))
-        page.btnOKform.click()
+        self.btnOKform.wait_to_be_clickable()
+        self.btnOKform.click()
 
         # Нажмем кнопку "Добавить этап"
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.addEtap)))
-        page.addEtap.click()
+        self.addEtap.wait_to_be_clickable()
+        self.addEtap.click()
 
-        time.sleep(1.5)
         # Заполним "Вид этапа"
-        page.tipeEtap.send_keys("Согласование" + Keys.RETURN)
-        time.sleep(0.5)
+        self.tipeEtap.wait_until_not_visible()
+        self.tipeEtap.send_keys("Согласование" + Keys.RETURN)
 
         # Заполним "Согласующие"
-        page.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
+        self.soglasuychie.wait_until_not_visible()
+        self.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
 
         # Нажмем кнопку "ОК" на форме
-        time.sleep(0.5)
-        page.btnOKformSogl.click()
+        self.btnOKformSogl.wait_to_be_clickable()
+        self.btnOKformSogl.click()
 
-        wait_page_loaded(self.w)
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+        self.wait_page_loaded()
 
     # Направление на исполнение
     def NapIspolnenie(self, ):
-        page = Locator(self.w)
 
-        wait = WebDriverWait(self.w, 10)
+        self.sendFor_execution.wait_to_be_clickable()
+        self.sendFor_execution.click()
 
-        time.sleep(2)
-        page.sendFor_execution.click()
-        time.sleep(1)
-        page.btnOKnaprNaIspoln.click()
+        self.btnOKnaprNaIspoln.wait_to_be_clickable()
+        self.btnOKnaprNaIspoln.click()
 
-        wait_page_loaded(self.w)
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+        self.wait_page_loaded()
 
         # Проверим статус документа
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
-        page.osnSvedeniya.click()
+        self.osnSvedeniya.wait_to_be_clickable()
+        self.osnSvedeniya.click()
 
+        self.status_Doc.wait_until_not_visible()
         assert "На исполнении" in self.status_Doc.text

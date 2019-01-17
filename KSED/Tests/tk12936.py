@@ -4,25 +4,13 @@
 
 
 
-import time, datetime
-
-
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.webdriver.common.action_chains import ActionChains
-
-from selenium.common.exceptions import *
-
-from selenium.webdriver.support import expected_conditions as EC
+import time
 
 from selenium.webdriver.common.keys import Keys
 
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
-
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
+from KSED.pages import MPages
 
 
 
@@ -44,91 +32,68 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDDocPorSendAllure(Locator, dataTest, KSEDLocators):
+class KSEDDocPorSendAllure(MPages, dataTest, KSEDLocators):
 
 
-    def __init__(self, web_driver, uri=''):
+    def __init__(self, web_driver, uri=dataTest.baseURL):
 
         super().__init__(web_driver, uri)
 
-        self.get(dataTest.baseURL)
+        # Авторизация
 
-        wait_page_loaded(self.w)
-
-    # Авторизация
     def LogIN(self, username, password):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
-        page = Locator(self.w)
+        self.username_text = username
+        self.password_text = password
 
-        page.username_text = username
-        print(Locator.username_text)
-        page.password_text = password
+        self.LogIn_button.click()
 
-        page.LogIn_button.click()
+        self.wait_page_loaded()
+        #wait_page_loaded(self._web_driver)
 
-        wait_page_loaded(self.w)
-
-        assert "АРМ" in self.w.title
+        assert "АРМ" in self._web_driver.title or "Документ" in self._web_driver.title
 
 
     # Открытие документа из прошлого ТК
     def getDoc(self):
-
         my_file = open("Tests/linkDocPoruchenie.txt", "r")
         my_string = my_file.read()
         my_string.strip()
-        self.w.get(my_string)
+        self._web_driver.get(my_string)
         my_file.close()
 
-        wait_page_loaded(self.w)
+        self.wait_page_loaded()
 
     # Отправка отчета
     def sendAllure(self, ):
 
-        page = Locator(self.w)
-
-        wait = WebDriverWait(self.w, 10)
-
         # Кликнем по действию "Отправить отчет" в функциональном меню "Действия"
-        time.sleep(1)
-        page.actionSendAllere.click()
+        self.actionSendAllere.wait_to_be_clickable()
+        self.actionSendAllere.click()
 
         # Заполним поле "Текст отчета"
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.textAllur)))
-        page.textAllur.click()
+        self.textAllur.wait_to_be_clickable()
+        self.textAllur.click()
 
         # Добавим связь с документом
-        page.btnAddSvyz.click()
+        self.btnAddSvyz.click()
 
-        time.sleep(0.5)
-        page.searchDoc.send_keys("У" + Keys.RETURN)
+        self.searchDoc.send_keys("У" + Keys.RETURN)
 
-        time.sleep(1)
+        self.oneListEl.wait_until_not_visible()
+        self.oneListEl.click()
 
-        page.oneListEl.click()
-
-        page.btnOK.click()
+        self.btnOK.click()
 
         # Нажмем кнопку "Отправить"
-        WebDriverWait(self.w, 10).until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.btnSend)))
-        page.btnSend.click()
+        self.btnSend.wait_to_be_clickable()
+        self.btnSend.click()
 
-        wait_page_loaded(self.w)
-        time.sleep(2)
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+        self.wait_page_loaded()
+
         # Проверим статус документа
-        wait.until(EC.element_to_be_clickable((By.XPATH, KSEDLocators.osnSvedeniya)))
-        page.osnSvedeniya.click()
+        self.osnSvedeniya.wait_to_be_clickable()
+        self.osnSvedeniya.click()
 
+        self.status_Doc.wait_until_not_visible()
         assert "Исполнено" in self.status_Doc.text
-
-    # # Сохраним ссылку на документ в файл
-    # def LinkDocWFile(self):
-    #
-    #     url = self.w.current_url
-    #     my_file = open("TestData\linkDoc.txt", "w")
-    #     my_file.write(str(url))
-    #     my_file.close()
-

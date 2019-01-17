@@ -57,20 +57,44 @@ class WebPage(object):
 
     def scroll_down(self, offset=0):
         """ Scroll the page down. """
-        raise NotImplemented
+
+        if offset:
+            self._web_driver.execute_script('window.scrollTo(0, {0});'.format(offset))
+        else:
+            self._web_driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
 
     def scroll_up(self, offset=0):
         """ Scroll the page up. """
-        raise NotImplemented
+
+        if offset:
+            self._web_driver.execute_script('window.scrollTo(0, -{0});'.format(offset))
+        else:
+            self._web_driver.execute_script('window.scrollTo(0, -document.body.scrollHeight);')
 
     def switch_to_iframe(self, iframe):
         """ Switch to iframe by it's name. """
 
         self._web_driver.switch_to.frame(iframe)
 
-    def switch_out_frame(self):
+    def switch_out_iframe(self):
         """ Cancel iframe focus. """
         self._web_driver.switch_to.default_content()
+
+    def get_current_url(self):
+        """ Returns current browser URL. """
+
+        return self._web_driver.current_url
+
+    def get_page_source(self):
+        """ Returns current page body. """
+
+        source = ''
+        try:
+            source = self._web_driver.page_source
+        except:
+            print(colored('Con not get page source', 'red'))
+
+        return source
 
     def check_js_errors(self, ignore_list=None):
         """ This function checks JS errors on the page. """
@@ -91,7 +115,8 @@ class WebPage(object):
     def wait_page_loaded(self, timeout=60, check_js_complete=True,
                          check_page_changes=True, check_images=False,
                          wait_for_element=None,
-                         wait_for_xpath_to_disappear=''):
+                         wait_for_xpath_to_disappear='',
+                         long_sleep=2):
         """ This function waits until the page will be completely loaded.
             We use many different ways to detect is page loaded or not:
 
@@ -103,8 +128,13 @@ class WebPage(object):
         """
 
         page_loaded = False
+        double_check = False
         k = 0
 
+        if long_sleep:
+            time.sleep(long_sleep)
+
+        # Get source code of the page to track changes in HTML:
         source = ''
         try:
             source = self._web_driver.page_source
@@ -157,6 +187,11 @@ class WebPage(object):
                     pass  # Ignore timeout errors
 
             assert k < timeout, 'The page loaded more than {0} seconds!'.format(timeout)
+
+            # Check two times that page completely loaded:
+            if page_loaded and not double_check:
+                page_loaded = False
+                double_check = True
 
         # Go up:
         self._web_driver.execute_script('window.scrollTo(document.body.scrollHeight, 0);')
