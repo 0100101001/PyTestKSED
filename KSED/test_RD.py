@@ -29,7 +29,7 @@ def test_11674(web_browser):
 
     page = KSEDCreatDocRD(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 
@@ -45,7 +45,7 @@ def test_11706(web_browser):
 
     page = KSEDDocPDNapSoglas(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -71,7 +71,7 @@ def test_12915(web_browser):
 
     page = KSEDRDSoglas_sendDorab(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -88,7 +88,7 @@ def test_12929(web_browser):
 
     page = KSEDRD_sendPodpis(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -104,7 +104,7 @@ def test_12907(web_browser):
 
     page = KSEDRD_DorabPodpis(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -122,7 +122,7 @@ def test_12934(web_browser):
 
     page = KSEDRD_Podpis(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 

@@ -28,6 +28,6 @@ def test_11652(web_browser):
 
     page = KSEDCreatDocPVH(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()

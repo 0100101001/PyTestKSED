@@ -34,7 +34,7 @@ def test_12011(web_browser):
 
     page = KSEDStatAllureVidDic(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     getDoc = page.StatAllureVidDic()
 
@@ -48,7 +48,7 @@ def test_12013(web_browser):
 
     page = KSEDStatAllureTipDoc(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     getDoc = page.StatAllureTipDoc()
 
@@ -62,7 +62,7 @@ def test_12012_1(web_browser):
 
     page = KSEDStatAllureTemDoc(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     getDoc = page.StatAllureTemDoc()
 
@@ -76,7 +76,7 @@ def test_12012_2(web_browser):
 
     page = KSEDStatAllureTemDocO(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     getDoc = page.StatAllureTemDocO()
 
@@ -93,7 +93,7 @@ def test_12030(web_browser):
 
     page = KSEDallurResolution(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
  #   getDoc = page.StatAllureTemDocO()
 
@@ -111,7 +111,7 @@ def test_12006(web_browser):
 
     page = KSEDallur(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 
 @allure.feature('Отчет "Исполнение входящих документов"')
@@ -123,7 +123,7 @@ def test_12022(web_browser):
 
     page = KSEDallurInDoc(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @allure.feature('Отчет "Исполнительская дисциплина по авторам"')
 @pytest.mark.KSED_smoke_test
@@ -134,7 +134,7 @@ def test_12025(web_browser):
 
     page = KSEDallurIsp(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @allure.feature('Отчет "Неисполненные поручения с истекшим сроком"')
 @pytest.mark.KSED_smoke_test
@@ -145,7 +145,7 @@ def test_12026(web_browser):
 
     page = KSEDallurDeadLine(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @allure.feature('Отчет "Продуктивность по исполнителям"')
 @pytest.mark.KSED_smoke_test
@@ -156,7 +156,7 @@ def test_12027(web_browser):
 
     page = KSEDallurEffPodr(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @allure.feature('Отчет "Реестр для закрытия неактуальных контрольных поручений"')
 @pytest.mark.KSED_smoke_test
@@ -167,4 +167,4 @@ def test_12029(web_browser):
 
     page = KSEDallurReestr(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')

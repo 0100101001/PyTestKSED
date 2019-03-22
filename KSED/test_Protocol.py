@@ -28,7 +28,7 @@ def test_11669(web_browser):
 
     page = KSEDCreatDocP(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 
@@ -42,7 +42,7 @@ def test_13756(web_browser):
 
     page = KSEDCreatDocPSoglas(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 
@@ -62,7 +62,7 @@ def test_11952(web_browser):
 
     page = KSEDCreatDocP_sendDorab(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     Creat_doc  = page.Creat() # Создадим документ
 

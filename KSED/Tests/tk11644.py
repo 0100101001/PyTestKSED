@@ -36,6 +36,8 @@ from KSED.pages import MPages
 
 def wait_page_loaded(driver):
 
+    "Изменения мои"
+
     time.sleep(2)
 
     page_loaded = False

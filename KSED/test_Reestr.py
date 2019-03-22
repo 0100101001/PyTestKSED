@@ -25,7 +25,7 @@ def test_11679(web_browser):
 
     page = KSEDCreatDocReestr(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
     # При каждом прогоне теста необходимо обновлять тестовые данные:

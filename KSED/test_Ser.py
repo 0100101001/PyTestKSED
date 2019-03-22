@@ -36,7 +36,7 @@
 # #
 # #     page = KSEDCreateZap(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 #
 #
 # # def test_12022(web_browser):
@@ -44,7 +44,7 @@
 # #     """ Check authorization. """
 # #
 # #     page = KSEDallurInDoc(web_browser)
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 #
 #
 # # def test_12029(web_browser):
@@ -52,7 +52,7 @@
 # #     """ Check authorization. """
 # #
 # #     page = KSEDallurReestr(web_browser)
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 #
 #
 # # def test_11639(web_browser):
@@ -60,7 +60,7 @@
 # #     """ Check authorization. """
 # #
 # #     page = KSEDLogin(web_browser)
-# #     LogIn_page = page.LogIN('stroganovsn', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 #
 #
 # # def test_12030(web_browser):
@@ -68,18 +68,18 @@
 # #     """ Check authorization. """
 # #
 # #     page = KSEDallurResolution(web_browser)
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #
 # # def test_12011(web_browser):
 # #
 # #     page = KSEDStatAllureVidDic(web_browser)
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #
 # # def test_12006(web_browser):
 # #     page = KSEDallur(web_browser)
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 #
 # #
 # # def test_11702(web_browser):
@@ -87,7 +87,7 @@
 # #
 # #     page = KSEDredZap(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # # def test_11705(web_browser):
 # #
@@ -95,7 +95,7 @@
 # #
 # #     page = KSEDdelZap(web_browser)
 #
-#     # LogIn_page = page.LogIN('StroganovSN', '12345')
+#     # LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # # @allure.feature('Создание Протокола')
 # #
@@ -107,7 +107,7 @@
 # #
 # #     page = KSEDCreatDocP(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -121,7 +121,7 @@
 # #
 # #     page = KSEDCreatDocRD(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -135,7 +135,7 @@
 # #
 # #     page = KSEDCreatDocReestr(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -149,7 +149,7 @@
 # #
 # #     page = KSEDCreatDocSZ(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -163,7 +163,7 @@
 # #
 # #     page = KSEDCreatDocREZ(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -177,7 +177,7 @@
 # #
 # #     page = KSEDCreatDocPD(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -191,7 +191,7 @@
 # #
 # #     page = KSEDCreatDocPor(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -205,7 +205,7 @@
 # #
 # #     page = KSEDCreatDocPVH(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -219,7 +219,7 @@
 # #
 # #     page = KSEDCreatDocVH(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()
 # #
@@ -233,6 +233,6 @@
 # #
 # #     page = KSEDCreatDocISH(web_browser)
 # #
-# #     LogIn_page = page.LogIN('StroganovSN', '12345')
+# #     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 # #
 # #     Creat_doc  = page.Creat()

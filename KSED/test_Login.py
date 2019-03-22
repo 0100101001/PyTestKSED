@@ -27,7 +27,7 @@ def test_11639(web_browser):
 
     page = KSEDLogin(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 
 

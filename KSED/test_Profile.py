@@ -36,7 +36,7 @@ def test_11775(web_browser):
 
     page = KSEDuser_LOGOUT(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     logout = page.USER_LOGOUTs()
 
@@ -51,14 +51,14 @@ def test_11774(web_browser):
 
     page = Edit_Password(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     edit_password = page.edit_password('12345', '12345') # введем старый пароль и новый пароль
 
     # Проверим изменился ли пароль (выйдем из системы и авторизуемся с новым паролем)
     logout = page.USER_LOGOUTs()
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @allure.feature('Страница профиля пользователя')
 
@@ -71,7 +71,7 @@ def test_11772(web_browser):
 
     page = KSEDmyprofile(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getMyprofile = page.getMyprofile()
 
@@ -87,7 +87,7 @@ def test_11773(web_browser):
 
     page = KSEDlogicESM(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getMyprofile = page.getLogicESM()
 
@@ -103,7 +103,7 @@ def test_11728(web_browser):
 
     page = Edit_Profile(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getMyprofile = page.edit_profile()
 
@@ -119,7 +119,7 @@ def test_11773(web_browser):
 
     page = KSEDAbsence(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getMyprofile = page.getLogicESM()
 

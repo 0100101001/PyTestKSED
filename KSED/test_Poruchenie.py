@@ -30,7 +30,7 @@ def test_11655(web_browser):
 
     page = KSEDCreatDocPor(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 
@@ -46,7 +46,7 @@ def test_13862(web_browser):
 
     page = KSEDCreatDocPorNSoglas(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -74,7 +74,7 @@ def test_11943(web_browser):
 
     Logout = page.USER_LOGOUTs()  # Выйдем из системы
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')  # Авторизуемся инициатором
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')  # Авторизуемся инициатором
 
     getDoc = page.getDoc() # Откроем документ
 
@@ -105,7 +105,7 @@ def test_12936(web_browser):
 
     page = KSEDDocPorSendAllure(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -121,7 +121,7 @@ def test_12935(web_browser):
 
     page = KSEDCreatDocPorNIspoln(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc = page.Creat()
 

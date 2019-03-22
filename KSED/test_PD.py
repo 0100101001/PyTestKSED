@@ -29,7 +29,7 @@ def test_11664(web_browser):
 
     page = KSEDCreatDocPD(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 
@@ -44,7 +44,7 @@ def test_13799(web_browser):
 
     page = KSEDCreatDocPDSoglas(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -63,7 +63,7 @@ def test_11955(web_browser):
 
     page = KSEDCreatDocPDSoglas_sendDorab(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     getDoc = page.getDoc()
 
@@ -83,7 +83,7 @@ def test_14079(web_browser):
 
     page = KSEDPDSoglas(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     getDoc = page.getDoc()
 

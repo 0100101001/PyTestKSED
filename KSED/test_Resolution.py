@@ -26,7 +26,7 @@ def test_12957(web_browser):
 
     page = KSEDCreatDocREZ(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 

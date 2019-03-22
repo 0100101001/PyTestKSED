@@ -33,7 +33,7 @@ def test_11691(web_browser):
 
     page = KSEDCreatDocSZ(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 
@@ -51,7 +51,7 @@ def test_11704(web_browser):
 
     page = KSEDnaprSZSoglas(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -73,7 +73,7 @@ def test_12913(web_browser):
 
     page = KSEDPrintAttach(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
@@ -92,7 +92,7 @@ def test_12912(web_browser):
 
     page = KSEDPrintForm(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 

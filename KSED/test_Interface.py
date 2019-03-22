@@ -25,7 +25,7 @@ def test_11690(web_browser):
 
     page = KSEDsubordinate_doc(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     getDoc = page.subordinate_doc()
 
@@ -40,7 +40,7 @@ def test_11689(web_browser):
 
     page = KSEDViewTheDocumentCard(web_browser)
 
-    LogIn_page = page.LogIN('stroganovsn', '12345') # Авторизуемся
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
     ViewTheDocumentCard = page.ViewTheDocumentCard()
 

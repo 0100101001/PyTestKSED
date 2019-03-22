@@ -23,7 +23,7 @@ from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 
 @allure.feature('Создание Исходящий документ')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 
 
 def test_11645(web_browser):
@@ -32,13 +32,13 @@ def test_11645(web_browser):
 
     page = KSEDCreatDocISH(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 
 @allure.feature('Создание Исходящий документ')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 
 
 def test_11644(web_browser):
@@ -47,13 +47,13 @@ def test_11644(web_browser):
 
     page = KSEDCreatDocVH(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc = page.Creat()
 
 @allure.feature('Создание Исходящий документ')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 
 def test_11679(web_browser):
 
@@ -61,13 +61,13 @@ def test_11679(web_browser):
 
     page = KSEDCreatDocReestr(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc = page.Creat()
 
 @allure.feature('Создание Исходящий документ')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 
 def test_11691(web_browser):
 
@@ -75,13 +75,13 @@ def test_11691(web_browser):
 
     page = KSEDCreatDocSZ(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc = page.Creat()
 
 @allure.feature('Создание Исходящий документ')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 
 
 
@@ -91,7 +91,7 @@ def test_12929(web_browser):
 
     page = KSEDRD_sendPodpis(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', '12345')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
