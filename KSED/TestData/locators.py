@@ -303,7 +303,7 @@ class KSEDLocators:
     # СЛУЖЕБНАЯ ЗАПИСКА
     #(форма создания документа)
     adresati = '//input[contains(@id, "internal_recipients-assoc-autocomplete")]'#xpath # Адресаты
-
+    podpisanti = '// input[contains( @ id, "aspects_signerEmployeeAssoc-cntrl-autocomplete")]' #xpath # подписантф
     # ПРОИЗВОЛЬНЫЙ ДОКУМЕНТ
     #(форма создания документа)
     prorabotka = '(//input[contains(@id, "_status-employee-assoc-cntrl-autocomplete-input")])[1]'#xpath # Проработка

@@ -29,7 +29,7 @@ from KSED.Tests.tk11727 import KSEDAbsence
 
 @pytest.mark.KSED_smoke_test
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11775(web_browser):
 
     """ Выход из системы. """
@@ -44,7 +44,7 @@ def test_11775(web_browser):
 
 @pytest.mark.KSED_smoke_test
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11774(web_browser):
 
     """ Изменение пароля пользователя. """
@@ -64,7 +64,7 @@ def test_11774(web_browser):
 
 @pytest.mark.KSED_smoke_test
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11772(web_browser):
 
     """ Страница профиля пользователя. """
@@ -80,7 +80,7 @@ def test_11772(web_browser):
 
 @pytest.mark.KSED_smoke_test
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11773(web_browser):
 
     """ Страница Логика ECM.Мой профиль. """
@@ -96,7 +96,7 @@ def test_11773(web_browser):
 
 @pytest.mark.KSED_smoke_test
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11728(web_browser):
 
     """ Изменение профиля """
@@ -112,7 +112,7 @@ def test_11728(web_browser):
 
 @pytest.mark.KSED_smoke_test
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11773(web_browser):
 
     """ Включить отсутствие: "Меня нет в офисе". """

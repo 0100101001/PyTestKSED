@@ -108,7 +108,9 @@ class KSEDCreatDocSZ(Locator, dataTest, KSEDLocators):
 
         # Категория документа
         page.category_doc.send_keys(u'Открытый'+Keys.RETURN)
-
+        time.sleep(2)
+        # Подписанты
+        page.podpisanti.send_keys(u'Герасимов'+Keys.RETURN)
 
         # Адресаты
         page.adresati.send_keys(u'Строганов'+Keys.RETURN)

@@ -51,7 +51,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocVH(Locator, dataTest, KSEDLocators):
+class KSEDCreatDocVH(Locator, dataTest, KSEDLocators, MPages):
 
 
     def __init__(self, web_driver, uri=''):
@@ -102,8 +102,8 @@ class KSEDCreatDocVH(Locator, dataTest, KSEDLocators):
 
         # Адресат
         self.w.execute_script("arguments[0].scrollIntoView();", page.adresat)
-
-        page.adresat.send_keys(u'Строганов' + Keys.RETURN)
+        self.adresat.wait_to_be_clickable()
+        self.adresat.send_keys(u'Строганов' + Keys.RETURN)
         page.adresat.send_keys(Keys.RETURN)
 
         # Корреспондент
@@ -128,7 +128,7 @@ class KSEDCreatDocVH(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 #        self.w.set_page_load_timeout(30)
-        time.sleep(2)
+        time.sleep(20)
 
 #
 #        wait.until(EC.title_is(self.w.title))

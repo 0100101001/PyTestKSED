@@ -22,7 +22,7 @@ from KSED.Tests.tk12934 import KSEDRD_Podpis
 
 @allure.feature('Создание РД')
 @pytest.mark.KSED_smoke_test_prior
-#@pytest.fixture(scope="session")
+##@pytest.fixture(scope="session")
 def test_11674(web_browser):
 
     """ Создание Распорядительного документа. """
@@ -38,7 +38,7 @@ def test_11674(web_browser):
 
 @allure.feature('Направление РД на согласование')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+##@pytest.fixture(scope="session")
 def test_11706(web_browser):
 
     """ Направление РД на согласование. """

@@ -18,7 +18,7 @@ from KSED.Tests.tk11679 import KSEDCreatDocReestr
 
 @allure.feature('Создание Реестра')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11679(web_browser):
 
     """ Создание реестра. """

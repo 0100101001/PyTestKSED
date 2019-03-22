@@ -267,6 +267,7 @@ class Locator(PageObject, KSEDLocators):
     # СЛУЖЕБНАЯ ЗАПИСКА
     #(форма создания документа)
     adresati = PageElement(xpath=KSEDLocators.adresati) # Адресаты
+    podpisanti = PageElement(xpath=KSEDLocators.podpisanti) # Подписанты
 
     # ПРОИЗВОЛЬНЫЙ ДОКУМЕНТ
     #(форма создания документа)

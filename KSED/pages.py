@@ -461,6 +461,7 @@ class MPages(WebPage):
     # СЛУЖЕБНАЯ ЗАПИСКА
     #(форма создания документа)
     adresati = WebElement(xpath=KSEDLocators.adresati) # Адресаты
+    podpisanti = WebElement(xpath=KSEDLocators.podpisanti) # Подписанты
 
     # ПРОИЗВОЛЬНЫЙ ДОКУМЕНТ
     #(форма создания документа)

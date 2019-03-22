@@ -27,7 +27,7 @@ from KSED.Tests.tk12029 import KSEDallurReestr
 
 @allure.feature('Статический отчет "Сводка по видам документов')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12011(web_browser):
 
     """ Статический отчет "Сводка по видам документов """
@@ -41,7 +41,7 @@ def test_12011(web_browser):
 
 @allure.feature('Статический отчет "Сводка по типам документов')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12013(web_browser):
 
     """ Статический отчет "Сводка по типам документов """
@@ -55,7 +55,7 @@ def test_12013(web_browser):
 
 @allure.feature('Статический отчет "Сводка по тематикам документов')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12012_1(web_browser):
 
     """ Статический отчет "Сводка по тематикам документов """
@@ -69,7 +69,7 @@ def test_12012_1(web_browser):
 
 @allure.feature('Статический отчет "Сводка по тематикам документов (Объедин.)')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_12012_2(web_browser):
 
     """ Статический отчет "Сводка по тематикам документов(Объедин.) """
