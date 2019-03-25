@@ -77,7 +77,7 @@ class KSEDallurResolution(Locator, dataTest, KSEDLocators):
         #time.sleep(0.5)
         actions = ActionChains(self.w)
         actions.move_to_element(page.section_allur).click().perform()  # Перейти в строку отчеты
-#        time.sleep(0.5) # без этого ожидания не работает
+        time.sleep(0.5) # без этого ожидания не работает
         WebDriverWait(self.w, 5).until(EC.visibility_of_element_located((By.XPATH, KSEDLocators.node_ispDisp)))
         page.node_ispDisp.click()  # Перейти отчеты по исп дисциплине
 

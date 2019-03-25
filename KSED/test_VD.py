@@ -18,7 +18,7 @@ from KSED.Tests.tk11644 import KSEDCreatDocVH
 
 @allure.feature('Создание Входящий документ')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11644(web_browser):
 
     """ Создание Входящий документ. """

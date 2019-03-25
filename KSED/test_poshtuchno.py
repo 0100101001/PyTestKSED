@@ -96,3 +96,18 @@ def test_12929(web_browser):
     getDoc = page.getDoc()
 
     NaprNaSogl = page.NapPodpis()
+
+@allure.feature('Создание Исходящий документ')
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+
+
+def test_11644(web_browser):
+
+    """ Создание Исходящий документ. """
+
+    page = KSEDCreatDocVH(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()

@@ -43,7 +43,7 @@ def wait_page_loaded(driver):
         time.sleep(0.1)
 
 
-class KSEDexpZap(Locator, dataTest, KSEDLocators):
+class KSEDexp_Zap(Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=''):

@@ -105,12 +105,14 @@ class KSEDCreatDocVH(MPages, dataTest, KSEDLocators):
         self.adresat.scroll_to_element()
         self.adresat.wait_to_be_clickable()
         self.adresat.send_keys(u'Строганов' + Keys.RETURN)
-        self.adresat.send_keys(Keys.RETURN)
+
 
         # Корреспондент
-        self.korrespondent.send_keys(u'Сибинтек' + Keys.RETURN)
+        self.korrespondent.wait_to_be_clickable()
+        self.korrespondent.send_keys(u'Логика' + Keys.RETURN)
 
         # Категория документа
+        self.category_doc.wait_to_be_clickable()
         self.category_doc.send_keys(u'Открытый' + Keys.RETURN)
 
         # Исходящий номер

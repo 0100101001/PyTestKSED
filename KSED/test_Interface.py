@@ -18,7 +18,7 @@ from KSED.Tests.tk11689 import KSEDViewTheDocumentCard
 
 @allure.feature('Просмотр связанных документов в области просмотра разделов (Навигатор)')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11690(web_browser):
 
     """ Просмотр связанных документов в области просмотра разделов (Навигатор) """
@@ -33,7 +33,7 @@ def test_11690(web_browser):
 
 @allure.feature('Переход в карточку документа из области просмотра разделов (Навигатор)')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11689(web_browser):
 
     """ Переход в карточку документа из области просмотра разделов (Навигатор) """

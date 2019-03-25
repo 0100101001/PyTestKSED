@@ -80,7 +80,7 @@ class KSEDallurReestr(Locator, dataTest, KSEDLocators):
         time.sleep(1)
         page.allu_ReesContrF.click()  # Перейти отчеты по авторам
         time.sleep(1)
-        page.confirm.click()  # сформировать отчет
+        page.confirm_4.click()  # сформировать отчет
         time.sleep(0.5)
         assert len(self.w.window_handles) == 2 # Проверка, что открытось 2 окно
 

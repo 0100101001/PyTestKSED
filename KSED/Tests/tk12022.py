@@ -80,7 +80,7 @@ class KSEDallurInDoc(Locator, dataTest, KSEDLocators):
         time.sleep(1)
         page.allu_ispIncDoc.click()  # Перейти исполнение по вх документам
         time.sleep(1)
-        page.confirm.click()  # Кнопка ОК
+        page.confirm_4.click()  # Кнопка ОК
         time.sleep(0.5)
         assert len(self.w.window_handles) == 2  # Проверка, что открытось 2 окно
 

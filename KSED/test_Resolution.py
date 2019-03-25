@@ -19,7 +19,7 @@ from KSED.Tests.tk12957 import KSEDCreatDocREZ
 
 @allure.feature('Создание Резолюции')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12957(web_browser):
 
     """ Создание Резолюции. """

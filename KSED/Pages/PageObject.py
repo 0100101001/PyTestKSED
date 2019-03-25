@@ -201,6 +201,7 @@ class Locator(PageObject, KSEDLocators):
     confirm = PageElement(xpath=KSEDLocators.confirm) # Подтверждение согласования
     confirm2 = PageElement(xpath=KSEDLocators.confirm2)  # Подтверждение согласования
     confirm_3 = PageElement(xpath=KSEDLocators.confirm_3)  # Подтверждение согласования
+    confirm_4 = PageElement(xpath=KSEDLocators.confirm_4)  # Подтверждение согласования
 
     status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 
