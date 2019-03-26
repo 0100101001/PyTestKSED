@@ -68,21 +68,26 @@ class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
 
     # Добавление вложения
     def attachment(self,):
-        page = Locator(self.w)
-
-        actions = ActionChains(self.w)
-        actions.move_to_element(page.vlozheniya).perform()
-        time.sleep(0.5)
-        page.attachments.click()
+        # page = Locator(self.w)
+        #
+        # actions = ActionChains(self.w)
+        # actions.move_to_element(page.vlozheniya).perform()
+        # time.sleep(0.5)
+        # page.attachments.click()
 
         # actions = ActionChains(self.w)
         # self.vlozheniya.wait_until_not_visible()
         # actions.move_to_element(self.vlozheniya).perform()
-        # self.attachments.wait_to_be_clickable()
-        # self.attachments.click()
+
+        self.vlozheniya.move_to_element()
+        self.attachments.wait_to_be_clickable()
+        self.attachments.click()
 
         self.fileUpload2.wait_to_be_clickable()
         self.fileUpload2.click()
+
+        # self.fileUpload3.wait_to_be_clickable()
+        # self.fileUpload3.click()
 
         self.files.wait_to_be_clickable()
         self.files.send_keys('D:\\test.txt')
@@ -115,17 +120,17 @@ class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
         self.addEtap.wait_to_be_clickable()
         self.addEtap.click()
 
-        #time.sleep(1.5)
+
         # Заполним "Вид этапа"
         self.tipeEtap.wait_to_be_clickable()
-        self.tipeEtap.send_keys("Согласование" + Keys.RETURN)
+        self.tipeEtap.send_keys("Согласование поручения (доступна передача задачи)"+Keys.RETURN)
         self.tipeEtap.send_keys(Keys.RETURN)
-
-        #time.sleep(1)
 
         # Заполним "Согласующие"
         self.soglasuychie.wait_to_be_clickable()
         self.soglasuychie.send_keys("Яцкин" + Keys.ENTER)
+
+
         #time.sleep(3)
         # Нажмем кнопку "ОК" на форме
         #time.sleep(1)
@@ -140,12 +145,11 @@ class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
 
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
-
-        self.wait_page_loaded()
-
+        #self.wait_page_loaded()
+        time.sleep(4)
         # Проверим статус документа
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.click()
         self.status_Doc.wait_until_not_visible()
 
-        assert "На согласовании" in self.status_Doc.text
+        assert "На согласовании" in self.status_Doc.get_text()

@@ -23,7 +23,7 @@ from KSED.Tests.tk12935 import KSEDCreatDocPorNIspoln
 
 @allure.feature('Создание Поручения')
 @pytest.mark.KSED_smoke_test_prior
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11655(web_browser):
 
     """ Создание Поручения. """
@@ -82,7 +82,7 @@ def test_11943(web_browser):
 
 @allure.feature('Cогласование поручения')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11778(web_browser):
 
     """ Cогласование поручения. """

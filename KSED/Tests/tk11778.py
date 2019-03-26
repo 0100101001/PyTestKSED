@@ -66,19 +66,23 @@ class KSEDCreatDocPorSoglas(MPages, dataTest, KSEDLocators):
         self.APPROVED_button.wait_to_be_clickable()
         self.APPROVED_button.click()
 
-        self.prop_bpm_comment.wait_until_not_visible()
-        self.prop_bpm_comment.send_keys('я так хотю')
+        # self.prop_bpm_comment.wait_until_not_visible()
+        # self.prop_bpm_comment.send_keys('я так хотю')
 
-        self.apply_button_button.click()
+        self.apply_button_button2.click()
 
         self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
         self.wait_page_loaded()
 
-        # Проверим статус документа
-        self.osnSvedeniya.wait_to_be_clickable()
-        self.osnSvedeniya.click()
+       # открыть согласование вкладку
+
+        self.soglasovanieWkladka2.wait_to_be_clickable()
+        self.soglasovanieWkladka2.click()
+        # выпадающий список согласований
+        self.dropBtn.wait_to_be_clickable()
+        self.dropBtn.click()
 
         self.status_Doc.wait_until_not_visible()
-        assert "На исполнении" in self.status_Doc.text
+        assert "Согласовано" in self.resultSogl.get_text()
 
 

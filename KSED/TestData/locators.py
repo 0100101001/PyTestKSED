@@ -199,13 +199,16 @@ class KSEDLocators:
     mode = '//button[contains(@id, "default-cntrl-split-panel-button-button")]' #xpath
     fileUpload = '(//button[contains(@id, "fileUpload-button-button")])[2]' #xpath # Загрузить файл
     fileUpload2 = '//button[contains(@id, "fileUpload-button-button")]'  # xpath # Загрузить файл в поручении
+    fileUpload3 = '//button[contains(@class, "file-selection-button")]' #xpath # Выбрать файл
     files = '//input[@type="file"][@name="files[]"]' #xpath # Выберите файлы
     show = '//a[contains(@id, "action-show-main")]' #xpath # Показать общую карточка
     show_list = '//a[@class = "preview-show-list"]' #xpath # Показать ввиде списка
     btnPrint = '//button[contains(@id, "print_from_preview")]' #xpath # Кнопка печати в форме предварительного просмотра вложения
-    btnOKpodpis = '(//button[text() = "ОК"])[1]' #xpath # Кнопка ОК подтверждение подписания
-
+    btnOKpodpis = '(//button[text() = "ОК"])[1]' #xpath # Кнопка ОК подтверждение подписания (//em[text() = "Согласование"])[2]
+    dropBtn = '(//span[contains(@class, "expand-table-icon")])[2]' #xpath # Кнопка открыть выпадающий список /
+    resultSogl = '//td[contains(@class, "StageItemStatus")]'  # xpath # результат соглаоования
     soglasovanieWkladka = '//em[contains(text(), "Согласование")]'  # xpath # Вкладка "Согласование"
+    soglasovanieWkladka2 = '(// em[text() = "Согласование"])[2]'  # xpath # Вкладка "Согласование"
     createRuleBtn = '//button[contains(@id, "create-approval-list-button-button")]'  # xpath # Кнопка "Создать маршрут"
     createRuleIndivid = '//a[text() = "Индивидуальный маршрут"]' #xpath # "Индивидуальный маршрут"
     addEtap = '//button[contains(@id, "cntrl-add-stage-button")]' #xpath # Кнопка "Добавить этап"
@@ -260,7 +263,7 @@ class KSEDLocators:
     internal_approval = '//button[contains(@id, "internal_approval-button")]' #xpath # Кнопка "Внутреннее согласование"
     prop_bpm_comment = 'prop_bpm_comment' #name # Поле комментария
     apply_button_button = '//button[contains(@id, "apply-button")]' #xpath # Кнопка "ОК" при вынесении решения согласования
-
+    apply_button_button2 = '//span[@class = "button-group"]//button[contains(@id, "-button") and text() = "ОК"]' #xpath # Кнопка "ОК" при вынесении решения согласования
     SIGNED_button = '//button[contains(@id, "SIGNED-button")]' #xpath # Кнопка "Подписать"
 
 

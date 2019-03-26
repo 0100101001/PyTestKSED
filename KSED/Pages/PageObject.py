@@ -171,12 +171,16 @@ class Locator(PageObject, KSEDLocators):
     mode = PageElement(xpath=KSEDLocators.mode) # Переключение в двупанельный вид
     fileUpload = PageElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
     fileUpload2 = PageElement(xpath=KSEDLocators.fileUpload2)  # Загрузить файл в поручении
+    fileUpload3 = PageElement(xpath=KSEDLocators.fileUpload3)  # Загрузить файл в поручении
     files = PageElement(xpath=KSEDLocators.files) # Выберите файлы
     show = PageElement(xpath=KSEDLocators.show) # Показать общую карточка
     show_list = PageElement(xpath=KSEDLocators.show_list)# Показать ввиде списка
+    dropBtn = PageElement(xpath=KSEDLocators.dropBtn)  # Кнопка выпадающего списка
+    resultSogl = PageElement(xpath=KSEDLocators.resultSogl)  # результат согласования
     btnPrint = PageElement(xpath=KSEDLocators.btnPrint) # Кнопка печати в форме предварительного просмотра вложения
 
     soglasovanieWkladka = PageElement(xpath=KSEDLocators.soglasovanieWkladka) # Вкладка "Согласование"
+    soglasovanieWkladka2 = PageElement(xpath=KSEDLocators.soglasovanieWkladka2)  # Вкладка "Согласование"
     createRuleBtn = PageElement(xpath=KSEDLocators.createRuleBtn) # Кнопка "Создать маршрут"
     createRuleIndivid = PageElement(xpath=KSEDLocators.createRuleIndivid) # "Индивидуальный маршрут"
     addEtap = PageElement(xpath=KSEDLocators.addEtap) # Кнопка "Добавить этап"
@@ -221,7 +225,7 @@ class Locator(PageObject, KSEDLocators):
     internal_approval = PageElement(xpath=KSEDLocators.internal_approval) # Кнопка "Внутреннее согласование"
     prop_bpm_comment = PageElement(name=KSEDLocators.prop_bpm_comment) # Поле комментария
     apply_button_button = PageElement(xpath=KSEDLocators.apply_button_button) # Кнопка "ОК" при вынесении решения согласования
-
+    apply_button_button2 = PageElement(xpath=KSEDLocators.apply_button_button2)  # Кнопка "ОК" при вынесении решения согласования
     SIGNED_button = PageElement(xpath=KSEDLocators.SIGNED_button) # Кнопка "Подписать"
 
     # # ПРОТОКОЛ

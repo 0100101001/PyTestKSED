@@ -367,12 +367,16 @@ class MPages(WebPage):
     mode = WebElement(xpath=KSEDLocators.mode) # Переключение в двупанельный вид
     fileUpload = WebElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
     fileUpload2 = WebElement(xpath=KSEDLocators.fileUpload2)  # Загрузить файл в поручении
+    fileUpload3 = WebElement(xpath=KSEDLocators.fileUpload3)  # Загрузить файл в поручении
     files = WebElement(xpath=KSEDLocators.files) # Выберите файлы
     show = WebElement(xpath=KSEDLocators.show) # Показать общую карточка
+    dropBtn = WebElement(xpath=KSEDLocators.dropBtn) # Кнопка выпадающего списка
+    resultSogl = WebElement(xpath=KSEDLocators.resultSogl) # Результат согласования
     show_list = WebElement(xpath=KSEDLocators.show_list)# Показать ввиде списка
     btnPrint = WebElement(xpath=KSEDLocators.btnPrint) # Кнопка печати в форме предварительного просмотра вложения
 
     soglasovanieWkladka = WebElement(xpath=KSEDLocators.soglasovanieWkladka) # Вкладка "Согласование"
+    soglasovanieWkladka2 = WebElement(xpath=KSEDLocators.soglasovanieWkladka2)  # Вкладка "Согласование"
     createRuleBtn = WebElement(xpath=KSEDLocators.createRuleBtn) # Кнопка "Создать маршрут"
     createRuleIndivid = WebElement(xpath=KSEDLocators.createRuleIndivid) # "Индивидуальный маршрут"
     addEtap = WebElement(xpath=KSEDLocators.addEtap) # Кнопка "Добавить этап"
@@ -416,7 +420,7 @@ class MPages(WebPage):
     internal_approval = WebElement(xpath=KSEDLocators.internal_approval) # Кнопка "Внутреннее согласование"
     prop_bpm_comment = WebElement(name=KSEDLocators.prop_bpm_comment) # Поле комментария
     apply_button_button = WebElement(xpath=KSEDLocators.apply_button_button) # Кнопка "ОК" при вынесении решения согласования
-
+    apply_button_button2 = WebElement(xpath=KSEDLocators.apply_button_button2)  # Кнопка "ОК" при вынесении решения согласования
     SIGNED_button = WebElement(xpath=KSEDLocators.SIGNED_button) # Кнопка "Подписать"
 
     # # ПРОТОКОЛ

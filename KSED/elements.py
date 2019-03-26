@@ -54,6 +54,18 @@ class WebElement(object):
 
         return element
 
+    def move_to_element(self, ):
+        """ Wait and move the element. """
+
+        element = self.wait_to_be_clickable()
+
+        if element:
+            action = ActionChains(self._web_driver)
+            action.move_to_element(element).perform()
+        else:
+            msg = 'Element with locator {0} not found'
+            raise AttributeError(msg.format(self._locator))
+
     def is_clickable(self):
         """ Check is element ready for click or not. """
 
