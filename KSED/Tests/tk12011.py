@@ -94,6 +94,6 @@ class KSEDStatAllureVidDic(Locator, dataTest,KSEDLocators):
         time.sleep(1)
         page.stat_tipDoc.click()  # Переход в сводку по типам документов
         time.sleep(1)
-        page.confirm2.click()  # Перейти отчеты с истекшим сроком
+        page.confirm_4.click()  # Перейти отчеты с истекшим сроком
         time.sleep(0.5)
         assert len(self.w.window_handles) == 2 # Проверка, что открытось 2 окно

@@ -36,7 +36,7 @@ def test_12011(web_browser):
 
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!') # Авторизуемся
 
-    getDoc = page.StatAllureVidDic()
+    #getDoc = page.StatAllureVidDoc()
 
 
 @allure.feature('Статический отчет "Сводка по типам документов')

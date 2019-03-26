@@ -23,7 +23,7 @@ from KSED.Tests.tk12935 import KSEDCreatDocPorNIspoln
 
 @allure.feature('Создание Поручения')
 @pytest.mark.KSED_smoke_test_prior
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11655(web_browser):
 
     """ Создание Поручения. """
@@ -39,7 +39,7 @@ def test_11655(web_browser):
 
 @allure.feature('Направление Поручения на согласование')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_13862(web_browser):
 
     """ Направление Поручения на согласование. """
@@ -66,7 +66,7 @@ def test_11943(web_browser):
 
     page = KSEDCreatDocPorDorab(web_browser)
 
-    LogIn_page = page.LogIN('YatskinRS', '12345') # Авторизуемся согласующим созданного документа
+    LogIn_page = page.LogIN('YatskinRS', 'Changeme!') # Авторизуемся согласующим созданного документа
 
     getDoc = page.getDoc()
 
@@ -89,7 +89,7 @@ def test_11778(web_browser):
 
     page = KSEDCreatDocPorSoglas(web_browser)
 
-    LogIn_page = page.LogIN('YatskinRS', '12345')
+    LogIn_page = page.LogIN('YatskinRS', 'Changeme!')
 
     getDoc = page.getDoc()
 

@@ -9,7 +9,7 @@ import time
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
-
+from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
 from KSED.pages import MPages
@@ -34,7 +34,7 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDCreatDocPorNSoglas(MPages, dataTest, KSEDLocators):
+class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
 
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
@@ -68,19 +68,24 @@ class KSEDCreatDocPorNSoglas(MPages, dataTest, KSEDLocators):
 
     # Добавление вложения
     def attachment(self,):
+        page = Locator(self.w)
 
-        actions = ActionChains(self._web_driver)
-        self.vlozheniya.wait_until_not_visible()
-        actions.move_to_element(self.vlozheniya).perform()
+        actions = ActionChains(self.w)
+        actions.move_to_element(page.vlozheniya).perform()
+        time.sleep(0.5)
+        page.attachments.click()
 
-        self.attachments.wait_to_be_clickable()
-        self.attachments.click()
+        # actions = ActionChains(self.w)
+        # self.vlozheniya.wait_until_not_visible()
+        # actions.move_to_element(self.vlozheniya).perform()
+        # self.attachments.wait_to_be_clickable()
+        # self.attachments.click()
 
         self.fileUpload2.wait_to_be_clickable()
         self.fileUpload2.click()
 
         self.files.wait_to_be_clickable()
-        self.files.send_keys('C:\\test.txt')
+        self.files.send_keys('D:\\test.txt')
 
     # Создание маршрута согласования
     def creation_of_the_approval_route(self):
@@ -114,6 +119,8 @@ class KSEDCreatDocPorNSoglas(MPages, dataTest, KSEDLocators):
         # Заполним "Вид этапа"
         self.tipeEtap.wait_to_be_clickable()
         self.tipeEtap.send_keys("Согласование" + Keys.RETURN)
+        self.tipeEtap.send_keys(Keys.RETURN)
+
         #time.sleep(1)
 
         # Заполним "Согласующие"
@@ -129,7 +136,7 @@ class KSEDCreatDocPorNSoglas(MPages, dataTest, KSEDLocators):
         #self.wait_page_loaded()
 
     # Направление на согласование и проверка статуса документа
-    def NapSoglasovanie(self, ):
+    def NapSoglasovanie(self):
 
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()

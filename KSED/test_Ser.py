@@ -109,7 +109,8 @@ def test_12011(web_browser):
     page = KSEDStatAllureVidDic(web_browser)
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
-
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
 def test_12006(web_browser):
     page = KSEDallur(web_browser)
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')

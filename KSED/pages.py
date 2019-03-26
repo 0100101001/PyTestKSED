@@ -15,6 +15,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 #from utils import KNOWN_JS_ISSUES
+from termcolor import colored
+
 from KSED.TestData.locators import KSEDLocators
 
 

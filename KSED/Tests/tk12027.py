@@ -80,7 +80,7 @@ class KSEDallurEffPodr(Locator, dataTest, KSEDLocators):
         time.sleep(1)
         page.allu_prodPodr.click()  # Перейти продуктивность по подразделениям
         time.sleep(1)
-        page.confirm.click()  # Перейти отчеты с истекшим сроком
+        page.confirm_4.click()  # Перейти отчеты с истекшим сроком
         time.sleep(0.5)
         assert len(self.w.window_handles) == 2  # Проверка, что открытось 2 окно
 

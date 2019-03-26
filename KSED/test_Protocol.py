@@ -74,7 +74,7 @@ def test_11952(web_browser):
 
     Logout = page.USER_LOGOUTs() # Выйдем из системы
 
-    LogIn_page = page.LogIN('YatskinRS', '12345') # Авторизуемся согласующим созданного документа
+    LogIn_page = page.LogIN('YatskinRS', 'Changeme!') # Авторизуемся согласующим созданного документа
 
     notification = page.notificationOpen() # Откроем уведомления и перейдем в документ
 

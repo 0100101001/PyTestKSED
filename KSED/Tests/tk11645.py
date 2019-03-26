@@ -107,7 +107,8 @@ class KSEDCreatDocISH(Locator, dataTest, KSEDLocators):
         page.category_doc.send_keys(u'Открытый' + Keys.RETURN)
 
         # Корреспондент
-        page.korrespondentISH.send_keys(u'Сибинтек' + Keys.RETURN)
+        time.sleep(0.5)
+        page.korrespondentISH.send_keys(u'Логика' + Keys.RETURN)
 
         # Основание подписания
         self.w.execute_script("arguments[0].scrollIntoView();", page.osnovPodpis)
