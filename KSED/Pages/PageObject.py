@@ -187,7 +187,8 @@ class Locator(PageObject, KSEDLocators):
     tipeEtap = PageElement(xpath=KSEDLocators.tipeEtap) # "Вид этапа"
     soglasuychie = PageElement(xpath=KSEDLocators.soglasuychie) # "Согласующие"
     btnOKformSogl = PageElement(xpath=KSEDLocators.btnOKformSogl) # Кнопка "ОК" на форме добавления этапа согласования
-
+    btnTree = PageElement(xpath=KSEDLocators.btnTree) # Кнопка ...
+    btnSelection3 = PageElement(xpath=KSEDLocators.btnSelection3)  # 3 выбор
     punkti = PageElement(xpath=KSEDLocators.punkti) # Вкладка "Пункты"
     punktiBtn = PageElement(xpath=KSEDLocators.punktiBtn) # Кнопка "Пункты"
     punktPoruch = PageElement(xpath=KSEDLocators.punktPoruch) # Пункт/Поручение
@@ -206,6 +207,7 @@ class Locator(PageObject, KSEDLocators):
     confirm2 = PageElement(xpath=KSEDLocators.confirm2)  # Подтверждение согласования
     confirm_3 = PageElement(xpath=KSEDLocators.confirm_3)  # Подтверждение согласования
     confirm_4 = PageElement(xpath=KSEDLocators.confirm_4)  # Подтверждение согласования
+    confirm_5 = PageElement(xpath=KSEDLocators.confirm_5)  # Подтверждения выбора
 
     status_Doc = PageElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 

@@ -211,6 +211,8 @@ class WebElement(object):
         # Scroll page to the element:
         self._web_driver.execute_script("arguments[0].scrollIntoView();", element)
 
+    def CheckForTheSecondWindow(self):
+        return len(self._web_driver.window_handles)
 
 class ManyWebElements(WebElement):
 
@@ -291,3 +293,4 @@ class ManyWebElements(WebElement):
 
         # Make screen-shot of the page:
         self._web_driver.save_screenshot(file_name)
+

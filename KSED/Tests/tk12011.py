@@ -28,10 +28,7 @@ from selenium.webdriver.common.keys import Keys
 from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
-
-
-
-
+from KSED.pages import MPages
 
 
 def wait_page_loaded(driver):
@@ -51,49 +48,48 @@ def wait_page_loaded(driver):
 
 
 
-class KSEDStatAllureVidDic(Locator, dataTest,KSEDLocators):
+class KSEDStatAllureVidDic(MPages, Locator, dataTest,KSEDLocators):
 
 
-    def __init__(self, web_driver, uri=''):
+    def __init__(self, web_driver, uri = dataTest.baseURL):
 
         super().__init__(web_driver, uri)
 
-        self.get(dataTest.baseURL)
+        # self.get(dataTest.baseURL)
 
-        wait_page_loaded(self.w)
+        # wait_page_loaded(self.w)
 
     # Авторизация
     def LogIN(self, username, password):
-        # wait = WebDriverWait(self.w, 10, poll_frequency=1,
-        #                      ignored_exceptions=[NoSuchElementException,
-        #                                          ElementNotVisibleException,
-        #                                          ElementNotSelectableException])
-        page = Locator(self.w)
 
-        page.username_text = username
-        print(Locator.username_text)
-        page.password_text = password
+        self.username_text = username
+        self.password_text = password
 
-        page.LogIn_button.click()
-        #page.wait(2)
+        self.LogIn_button.click()
 
+        self.wait_page_loaded()
+        #wait_page_loaded(self._web_driver)
+
+        assert "АРМ" in self._web_driver.title
 
         # Ожидание
         # select = Select(Locator.username_text)
         # select.select_by_visible_text("текст")
 
-        wait_page_loaded(self.w)
+        # self.wait_page_loaded()
+        #
+        # assert "АРМ" in self._web_driver.title
 
-        assert "АРМ" in self.w.title
 
-        time.sleep(0.5)
-        actions = ActionChains(self.w)
-        actions.move_to_element(page.section_allur).click().perform()  # Перейти в строку отчеты
-        time.sleep(0.5)
-        page.node_Statis.click()  # Перейти статистические отчеты
-        time.sleep(1)
-        page.stat_tipDoc.click()  # Переход в сводку по типам документов
-        time.sleep(1)
-        page.confirm_4.click()  # Перейти отчеты с истекшим сроком
-        time.sleep(0.5)
-        assert len(self.w.window_handles) == 2 # Проверка, что открытось 2 окно
+        # actions = ActionChains(self.w)
+
+        self.section_allur.move_to_element()  # Перейти в строку отчеты
+        self.section_allur.click()
+        self.stat_tipDoc.wait_until_not_visible()
+        self.node_Statis.click()  # Перейти статистические отчеты
+        self.stat_tipDoc.wait_until_not_visible()
+        self.stat_tipDoc.click()  # Переход в сводку по типам документов
+        self.confirm_4.wait_to_be_clickable()
+        self.confirm_4.click()  # Перейти отчеты с истекшим сроком
+
+        assert len(self._web_driver.window_handles) == 2 # Проверка, что открытось 2 окно

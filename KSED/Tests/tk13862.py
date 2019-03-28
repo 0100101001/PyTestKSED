@@ -122,13 +122,23 @@ class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
 
 
         # Заполним "Вид этапа"
-        self.tipeEtap.wait_to_be_clickable()
-        self.tipeEtap.send_keys("Согласование поручения (доступна передача задачи)"+Keys.RETURN)
-        self.tipeEtap.send_keys(Keys.RETURN)
+        # self.tipeEtap.wait_until_not_visible()
+        # self.tipeEtap.send_keys("Согласование" + Keys.RETURN)
+        # self.tipeEtap.send_keys(Keys.RETURN)
+
+        self.btnTree.wait_to_be_clickable()
+        self.btnTree.click() # нажать на кнопку ...
+
+        self.btnSelection3.wait_to_be_clickable()
+        self.btnSelection3.click() # кнопка + третий выбор
+
+        self.confirm_5.wait_to_be_clickable()
+        self.confirm_5.click()  # кнопка + третий выбор
 
         # Заполним "Согласующие"
-        self.soglasuychie.wait_to_be_clickable()
-        self.soglasuychie.send_keys("Яцкин" + Keys.ENTER)
+        self.soglasuychie.wait_until_not_visible()
+        self.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
+
 
 
         #time.sleep(3)
@@ -150,6 +160,19 @@ class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
         # Проверим статус документа
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.click()
-        self.status_Doc.wait_until_not_visible()
+
 
         assert "На согласовании" in self.status_Doc.get_text()
+
+    def USER_LOGOUTs(self, ):
+        # page = Locator(self.w)
+
+        # wait = WebDriverWait(self.w, 10)
+
+        self.user_menu.click()
+
+        self.USER_LOGOUT.click()
+
+        wait_page_loaded(self._web_driver)
+
+        assert "Войти" in self._web_driver.title

@@ -227,9 +227,8 @@ class MPages(WebPage):
     notificationProtokol = WebElement(xpath=KSEDLocators.notificationProtokol) # Первое в списке уведомление о протоколе
     notificationFirst = WebElement(xpath=KSEDLocators.notificationFirst)  # id  # Уведомление первое в списке
     # *******МЕНЮ ПОЛЬЗОВАТЕЛЯ*******
-    user_menu = WebElement(id_=KSEDLocators.user_menu) # Меню пользователя
-    USER_LOGOUT = WebElement(id_=KSEDLocators.USER_LOGOUT) # Выход из системы
-
+    user_menu = WebElement(xpath=KSEDLocators.user_menu)  # Меню пользователя
+    USER_LOGOUT = WebElement(xpath=KSEDLocators.USER_LOGOUT)  # Выход из системы
     my_profile = WebElement(xpath=KSEDLocators.my_profile) # Пункт меню "Мой профиль"
     fieldlabel = WebElement(xpath=KSEDLocators.fieldlabel) # Должность в области краткой информации
     btnEdit_profile = WebElement(xpath=KSEDLocators.btnEdit_profile) # Кнопка "Изменить профиль"
@@ -401,6 +400,10 @@ class MPages(WebPage):
     confirm = WebElement(xpath=KSEDLocators.confirm) # Подтверждение согласования
     confirm2 = WebElement(xpath=KSEDLocators.confirm2)  # Подтверждение согласования
     confirm_3 = WebElement(xpath=KSEDLocators.confirm_3)  # Подтверждение согласования
+    confirm_4 = WebElement(xpath=KSEDLocators.confirm_4)  # Подтверждение согласования
+    confirm_5 = WebElement(xpath=KSEDLocators.confirm_5)  # Подтверждения выбора
+    btnTree = WebElement(xpath=KSEDLocators.btnTree)  # Кнопка ...
+    btnSelection3 = WebElement(xpath=KSEDLocators.btnSelection3)  # Кнопка 3 выбора
 
     status_Doc = WebElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 

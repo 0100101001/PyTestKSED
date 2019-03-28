@@ -57,32 +57,11 @@ def test_13862(web_browser):
     NaprNaSogl = page.NapSoglasovanie()
 
 
-@allure.feature('Возврат поручения на доработку при согласовании.')
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
-def test_11943(web_browser):
 
-    """ Возврат поручения на доработку при согласовании. """
-
-    page = KSEDCreatDocPorDorab(web_browser)
-
-    LogIn_page = page.LogIN('YatskinRS', 'Changeme!') # Авторизуемся согласующим созданного документа
-
-    getDoc = page.getDoc()
-
-    REJECTED = page.REJECTED() # Отклоним и вернем документ на доработку
-
-    Logout = page.USER_LOGOUTs()  # Выйдем из системы
-
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')  # Авторизуемся инициатором
-
-    getDoc = page.getDoc() # Откроем документ
-
-    NaprNaSogl = page.NapSoglasovanie() # Снова направим на согласование для последовательного выполнения следующего ТК
 
 @allure.feature('Cогласование поручения')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11778(web_browser):
 
     """ Cогласование поручения. """
@@ -130,3 +109,55 @@ def test_12935(web_browser):
     Attach = page.attachment()
 
     NapIspolnenie = page.NapIspolnenie()
+
+
+
+@allure.feature('Возврат поручения на доработку при согласовании.')
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_11943(web_browser):
+    """ Возврат поручения на доработку при согласовании. """
+
+    #""" ШАГ 1. Создание Поручения """
+
+    page1 = KSEDCreatDocPor(web_browser)
+
+    LogIn_page = page1.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page1.Creat()
+
+    saveLink = page1.LinkDocWFile()
+
+    # """ ШАГ 2. Направление на согласование """
+
+    page2 = KSEDCreatDocPorNSoglas(web_browser)
+
+    #LogIn_page = page2.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    create_route = page2.creation_of_the_approval_route()
+
+    Attach = page2.attachment()
+
+    NaprNaSogl = page2.NapSoglasovanie()
+
+    Logout = page2.USER_LOGOUTs()  # Выйдем из системы
+
+    # """ ШАГ 3. Отклонение согласования """
+
+    page3 = KSEDCreatDocPorDorab(web_browser)
+
+    LogIn_page = page3.LogIN('YatskinRS', 'Changeme!')  # Авторизуемся согласующим созданного документа
+
+    getDoc = page3.getDoc()
+
+    REJECTED = page3.REJECTED()  # Отклоним и вернем документ на доработку
+
+    # Logout = page.USER_LOGOUTs()  # Выйдем из системы
+    #
+    # LogIn_page = page.LogIN('StroganovSN', 'Changeme!')  # Авторизуемся инициатором
+    #
+    # getDoc = page.getDoc()  # Откроем документ
+    #
+    # NaprNaSogl = page.NapSoglasovanie()  # Снова направим на согласование для последовательного выполнения следующего ТК

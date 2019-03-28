@@ -76,39 +76,48 @@ class KSEDCreatDocPorDorab(MPages, dataTest, KSEDLocators):
         self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
         self.wait_page_loaded()
 
-        # Проверим статус документа
-        self.osnSvedeniya.wait_to_be_clickable()
-        self.osnSvedeniya.click()
+        # # Проверим статус документа
+        # self.osnSvedeniya.wait_to_be_clickable()
+        # self.osnSvedeniya.click()
+        #
+        # self.status_Doc.wait_until_not_visible()
+        # assert "На доработке проекта" in self.status_Doc.text
+       # открыть согласование вкладку
+
+        self.soglasovanieWkladka2.wait_to_be_clickable()
+        self.soglasovanieWkladka2.click()
+        # выпадающий список согласований
+        self.dropBtn.wait_to_be_clickable()
+        self.dropBtn.click()
 
         self.status_Doc.wait_until_not_visible()
-        assert "На доработке проекта" in self.status_Doc.text
+        assert "Отклонено" in self.resultSogl.get_text()
 
-
-    # Направление на согласование и проверка статуса документа
-    def NapSoglasovanie(self, ):
-
-        self.sendFor_approval.wait_to_be_clickable()
-        self.sendFor_approval.click()
-
-        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
-        self.wait_page_loaded()
-
-        # Проверим статус документа
-        self.osnSvedeniya.wait_to_be_clickable()
-        self.osnSvedeniya.click()
-
-        self.status_Doc.wait_until_not_visible()
-        assert "На согласовании" in self.status_Doc.text
-
-    # Выйдем из системы
-    def USER_LOGOUTs(self,):
-
-        self.user_menu.wait_to_be_clickable()
-        self.user_menu.click()
-
-        self.USER_LOGOUT.wait_to_be_clickable()
-        self.USER_LOGOUT.click()
-
-        self.wait_page_loaded()
-
-        assert "Войти" in self.w.title
+    # # Направление на согласование и проверка статуса документа
+    # def NapSoglasovanie(self, ):
+    #
+    #     self.sendFor_approval.wait_to_be_clickable()
+    #     self.sendFor_approval.click()
+    #
+    #     self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+    #     self.wait_page_loaded()
+    #
+    #     # Проверим статус документа
+    #     self.osnSvedeniya.wait_to_be_clickable()
+    #     self.osnSvedeniya.click()
+    #
+    #     self.status_Doc.wait_until_not_visible()
+    #     assert "На согласовании" in self.status_Doc.text
+    #
+    # # Выйдем из системы
+    # def USER_LOGOUTs(self,):
+    #
+    #     self.user_menu.wait_to_be_clickable()
+    #     self.user_menu.click()
+    #
+    #     self.USER_LOGOUT.wait_to_be_clickable()
+    #     self.USER_LOGOUT.click()
+    #
+    #     self.wait_page_loaded()
+    #
+    #     assert "Войти" in self.w.title

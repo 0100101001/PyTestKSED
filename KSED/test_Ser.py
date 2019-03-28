@@ -77,43 +77,7 @@ def test_11705(web_browser):
 
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
-def test_12022(web_browser):
 
-    page = KSEDallurInDoc(web_browser)
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
-
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
-def test_12029(web_browser):
-
-    """ Check authorization. """
-
-    page = KSEDallurReestr(web_browser)
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
-
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
-def test_12030(web_browser):
-
-    """ Check authorization. """
-
-    page = KSEDallurResolution(web_browser)
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
-
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
-def test_12011(web_browser):
-
-    page = KSEDStatAllureVidDic(web_browser)
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
-
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
-def test_12006(web_browser):
-    page = KSEDallur(web_browser)
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 # # @pytest.mark.KSED_smoke_test
 # #

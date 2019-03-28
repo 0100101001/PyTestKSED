@@ -55,8 +55,8 @@ class KSEDLocators:
     notificationProtokol = '(//a[contains(text(), "Протокол:")])[1]' #xpath # Первое в списке уведомление о протоколе
     notificationFirst = '(//span[@class = "detail"]/a)[1]' #id  # Уведомление первое в списке
     # *******МЕНЮ ПОЛЬЗОВАТЕЛЯ*******
-    user_menu = 'HEADER_USER_MENU_POPUP_text' #id  # Меню пользователя
-    USER_LOGOUT = 'HEADER_USER_MENU_LOGOUT_text' #id # Выход из системы
+    user_menu = '//span[@id="HEADER_USER_MENU_POPUP_text"]' #xpath  # Меню пользователя
+    USER_LOGOUT = '//td[@id="HEADER_USER_MENU_LOGOUT_text"]' #xpath  # Выход из системы
 
     my_profile = '//a[text() = "Мой профиль"]'  # xpath # Пункт меню "Мой профиль"
     fieldlabel = '//div[@class = "fieldlabel"]' #xpath # Должность в области краткой информации
@@ -215,6 +215,8 @@ class KSEDLocators:
     tipeEtap = '//input[contains(@id, "type-cntrl-autocomplete-input")]' #xpath # "Вид этапа"
     soglasuychie = '//input[contains(@id, "approvers-autocomplete")]' #xpath # "Согласующие"
     btnOKformSogl = '//button[contains(@id, "form-submit-button")]' #xpath # Кнопка "ОК" на форме добавления этапа согласования
+    btnTree = '//span[contains(@class, "-push-button")][contains(@id, "type-cntrl-tree-picker-button")]' #xpath # Кнопка ...
+    btnSelection3 = '(//span[contains(@class, "addIcon")])[3]'  # xpath # Кнопка + третий выбор
 
 
     punkti = '//em[contains(text(), "Пункты")]' #xpath # Вкладка "Пункты"
@@ -243,6 +245,7 @@ class KSEDLocators:
     confirm2 = '(//button[contains(@id, "-button")][text() = "ОК"])'  # xpath # Подтверждение согласования
     confirm_3 = '(//button[contains(@id, "-button")][text() = "ОК"])[4]'  # xpath # Подтверждение согласования
     confirm_4 = '//button[contains(@id, "-reportForm-form-submit-button")]' # xpath # Подтверждение согласования
+    confirm_5 = '(//button[contains(@id, "-button")][text() = "ОК"])[2]'# xpath # Подтверждения выбора
 
     #"Отправить отчет"
     actionSendAllere = '//div[text() = "Отправить отчет"]' #xpath # "Отправить отчет" действие
