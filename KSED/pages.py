@@ -252,6 +252,7 @@ class MPages(WebPage):
     rd = WebElement(xpath=KSEDLocators.rd) # РД
     reestr = WebElement(xpath=KSEDLocators.reestr) # Реестр
     poruchenie = WebElement(xpath=KSEDLocators.poruchenie) # Поручение
+    cardSogl = WebElement(xpath=KSEDLocators.cardSogl)  # Карточка согласования
     resolution = WebElement(xpath=KSEDLocators.resolution) # Резолюция
     SZ = WebElement(xpath=KSEDLocators.SZ) # Служебная записка
     proizvDoc = WebElement(xpath=KSEDLocators.proizvDoc) # Произвольный документ
@@ -402,6 +403,7 @@ class MPages(WebPage):
     confirm_3 = WebElement(xpath=KSEDLocators.confirm_3)  # Подтверждение согласования
     confirm_4 = WebElement(xpath=KSEDLocators.confirm_4)  # Подтверждение согласования
     confirm_5 = WebElement(xpath=KSEDLocators.confirm_5)  # Подтверждения выбора
+    confirm_6 = WebElement(xpath=KSEDLocators.confirm_6)  # Подтверждения выбора
     btnTree = WebElement(xpath=KSEDLocators.btnTree)  # Кнопка ...
     btnSelection3 = WebElement(xpath=KSEDLocators.btnSelection3)  # Кнопка 3 выбора
 
@@ -525,3 +527,12 @@ class MPages(WebPage):
     butFavorite = WebElement(xpath=KSEDLocators.butFavorite)  # Кнопка добавить в избранное
     butOK = WebElement(xpath=KSEDLocators.butOK) #Кнопка OK добавить в избранное
     butSelExp = WebElement(xpath=KSEDLocators.butSelExp)  # Кнопка экспорта выбранного
+
+    # Карточка согласования
+
+    kurator = WebElement(xpath=KSEDLocators.kurator)  # куратов
+    viewSelecton = WebElement(xpath=KSEDLocators.viewSelecton)  # вид документа
+    rdSelecton = WebElement(xpath=KSEDLocators.rdSelecton)  # вид документа
+    btnSelection4 = WebElement(xpath=KSEDLocators.btnSelection4)  # 4 выбор
+    titleCS = WebElement(xpath=KSEDLocators.titleCS)  # заголовок
+    saveProject = WebElement(xpath=KSEDLocators.saveProject)  # сохранить проект

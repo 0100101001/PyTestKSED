@@ -39,7 +39,7 @@ def test_11655(web_browser):
 
 @allure.feature('Направление Поручения на согласование')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_13862(web_browser):
 
     """ Направление Поручения на согласование. """

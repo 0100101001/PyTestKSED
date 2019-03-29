@@ -82,6 +82,7 @@ class KSEDLocators:
     rd = '//a[contains(@class, "hassubmenu")][contains(text(), "Распорядительный документ")]' #xpath  # РД
     reestr = '//a[contains(text(), "Реестр")]' #xpath  # Реестр
     poruchenie = '//a[contains(text(), "Поручение")]' #xpath  # Поручение
+    cardSogl = '//a[contains(text(), "Карточка согласования")]'  # xpath  # Карточко согласования
     resolution = '//a[contains(@class, "hassubmenu")][contains(text(), "Резолюция")]' #xpath  # Резолюция
     SZ = '//a[contains(@class, "hassubmenu")][contains(text(), "Служебная записка")]' #xpath  # Служебная записка
     proizvDoc = '//a[contains(@class, "yuimenuitemlabel")][contains(text(), "Произвольный документ")]' # xpath Произвольный документ
@@ -246,6 +247,7 @@ class KSEDLocators:
     confirm_3 = '(//button[contains(@id, "-button")][text() = "ОК"])[4]'  # xpath # Подтверждение согласования
     confirm_4 = '//button[contains(@id, "-reportForm-form-submit-button")]' # xpath # Подтверждение согласования
     confirm_5 = '(//button[contains(@id, "-button")][text() = "ОК"])[2]'# xpath # Подтверждения выбора
+    confirm_6 = '(//button[contains(@id, "rn-document-approval_document-kind-assoc-cntrl-ok-button")])'  # xpath # Подтверждения выбора
 
     #"Отправить отчет"
     actionSendAllere = '//div[text() = "Отправить отчет"]' #xpath # "Отправить отчет" действие
@@ -254,7 +256,7 @@ class KSEDLocators:
     btnAddSvyz = '//button[contains(@id, "tree-picker-button-button")]' #xpath # Кнопка добавления связи "..."
     searchDoc = '//input[contains(@id, "picker-searchText")]' #xpath # Строка поиска в форме подбора
     oneListEl = '(//span[@class = "addIcon"])[1]'  # xpath # Первый элемент в списке справочника
-    btnOK = '//button[contains(@id, "-ok-button")]' #xpath # Кнопка "ОК" в форме подбора
+    btnOK = '//button[contains(@id, "-ok-button")]' #xpath # Кнопка "ОК" в форме подбораsaveProject
 
 
     status_Doc = '//span[contains(@id, "_status")]' #xpath # Статус документа во вкладке (Основные сведения)
@@ -358,3 +360,12 @@ class KSEDLocators:
     butFavorite = '//a [text() = "Добавить в избранное"]' #Кнопка добавить в избранное
     butOK = '//button[text() = "Ок"]' #Кнопка OK добавить в избранное
     butSelExp = '(//a[text() = "Выгрузить выбранные"])' #Кнопка экспорта выбранного
+
+    # Карточка согласования
+
+    kurator = '// input[contains( @ id, "document-approval_curators-assoc-cntrl-autocomplete-input")]'#xpath  # куратор
+    viewSelecton = '//span[contains(@class, "-push-button")][contains(@id, "document-approval_document-kind-assoc-cntrl-tree-picker")]'  # xpath  # вид документа
+    rdSelecton = '// span[text() = "РД"]'  # xpath  # выбор РД
+    btnSelection4 = '(//span[contains(@class, "addIcon")])[4]'  # xpath # Кнопка + четвертый выбор
+    titleCS = '//input[contains(@name, "prop_lecm-document_title")]'   # xpath  # заголовок
+    saveProject = '//button[text() = "Сохранить проект"]'   # xpath  # сохранить проект
