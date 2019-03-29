@@ -217,8 +217,9 @@ class KSEDLocators:
     soglasuychie = '//input[contains(@id, "approvers-autocomplete")]' #xpath # "Согласующие"
     btnOKformSogl = '//button[contains(@id, "form-submit-button")]' #xpath # Кнопка "ОК" на форме добавления этапа согласования
     btnTree = '//span[contains(@class, "-push-button")][contains(@id, "type-cntrl-tree-picker-button")]' #xpath # Кнопка ...
+    btnSelection_1 = '(//span[contains(@class, "addIcon")])[1]'  # xpath # Кнопка + первый выбор
     btnSelection3 = '(//span[contains(@class, "addIcon")])[3]'  # xpath # Кнопка + третий выбор
-
+    btnSelection_5 = '(//span[contains(@class, "addIcon")])[5]'  # xpath # Кнопка + 27 выбор
 
     punkti = '//em[contains(text(), "Пункты")]' #xpath # Вкладка "Пункты"
     punktiBtn = '//button[contains(@id, "create-point-button")]' #xpath # Кнопка "Пункты"
@@ -248,6 +249,8 @@ class KSEDLocators:
     confirm_4 = '//button[contains(@id, "-reportForm-form-submit-button")]' # xpath # Подтверждение согласования
     confirm_5 = '(//button[contains(@id, "-button")][text() = "ОК"])[2]'# xpath # Подтверждения выбора
     confirm_6 = '(//button[contains(@id, "rn-document-approval_document-kind-assoc-cntrl-ok-button")])'  # xpath # Подтверждения выбора
+    confirm_7 = '(//button[contains(@id, "document-approval_pvu-assoc-cntrl-ok-button")])'  # xpath # Подтверждения выбора
+    confirm_8 = '(//button[contains(@id, "document-approval_lnd-kind-assoc-cntrl-ok-button")])'  # xpath # Подтверждения выбора
 
     #"Отправить отчет"
     actionSendAllere = '//div[text() = "Отправить отчет"]' #xpath # "Отправить отчет" действие
@@ -365,7 +368,11 @@ class KSEDLocators:
 
     kurator = '// input[contains( @ id, "document-approval_curators-assoc-cntrl-autocomplete-input")]'#xpath  # куратор
     viewSelecton = '//span[contains(@class, "-push-button")][contains(@id, "document-approval_document-kind-assoc-cntrl-tree-picker")]'  # xpath  # вид документа
+    proUpLevel = '//button[contains(@id, "document-approval_pvu-assoc-cntrl-tree-picker-button-button")]'  # xpath  # процессы верхнего уровня
+    viewLndSelecton = '//button[contains(@id, "document-approval_lnd-kind-assoc-cntrl-tree-picker-button-button")]'  # xpath  # вид документа
     rdSelecton = '// span[text() = "РД"]'  # xpath  # выбор РД
+    lndSelecton = '// span[text() = "ЛНД"]'  # xpath  # выбор РД
+    levelFirst = '// span[text() = "1-й иерархический уровень"]'  # xpath  # выбор уровня
     btnSelection4 = '(//span[contains(@class, "addIcon")])[4]'  # xpath # Кнопка + четвертый выбор
     titleCS = '//input[contains(@name, "prop_lecm-document_title")]'   # xpath  # заголовок
     saveProject = '//button[text() = "Сохранить проект"]'   # xpath  # сохранить проект

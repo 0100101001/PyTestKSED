@@ -18,20 +18,32 @@ import allure
 
 
 
-from KSED.Tests.tk15720 import KSEDCreatDocCS
-
+from KSED.Tests.tk15720 import KSEDCreatDocCS_RD
+from KSED.Tests.tk15722 import KSEDCreatDocCS_LND
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15720(web_browser):
 
-    """ Создание КС """
+    """ Создание КС _ вид РД"""
 
-    page = KSEDCreatDocCS(web_browser)
+    page = KSEDCreatDocCS_RD(web_browser)
 
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     Creat_doc  = page.Creat()
 
     # saveLink = page.LinkDocWFile()
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_15722(web_browser):
+
+    """ Создание КС _ Вид ЛНД"""
+
+    page = KSEDCreatDocCS_LND(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc  = page.Creat()

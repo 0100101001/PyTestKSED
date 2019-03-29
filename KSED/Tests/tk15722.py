@@ -36,7 +36,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDCreatDocCS_RD(MPages, dataTest, KSEDLocators):
+class KSEDCreatDocCS_LND(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 
@@ -79,14 +79,14 @@ class KSEDCreatDocCS_RD(MPages, dataTest, KSEDLocators):
         self.viewSelecton.wait_to_be_clickable()
         self.viewSelecton.click()
 
-        # Выбор РД
-        self.viewSelecton.wait_until_not_visible()
-        self.rdSelecton.wait_to_be_clickable()
-        self.rdSelecton.click()
+        # Выбор ЛНД
+        self.lndSelecton.wait_until_not_visible()
+        self.lndSelecton.wait_to_be_clickable()
+        self.lndSelecton.click()
 
-        # Выбор раздела из РД
-        self.btnSelection4.wait_to_be_clickable()
-        self.btnSelection4.click()
+        # Выбор раздела из ЛНД
+        self.btnSelection3.wait_to_be_clickable()
+        self.btnSelection3.click()
 
         # кнопка подтвердить
         self.confirm_6.wait_to_be_clickable()
@@ -95,7 +95,38 @@ class KSEDCreatDocCS_RD(MPages, dataTest, KSEDLocators):
         # Подписант
         self.podpisanti.wait_until_not_visible()
         self.podpisanti.scroll_to_element()
-        self.podpisanti.send_keys(u'Яцкин' + Keys.ENTER)
+        self.podpisanti.send_keys(u'Иван' + Keys.ENTER)
+
+        # процессы верхнего уровня
+        self.proUpLevel.wait_until_not_visible()
+        self.proUpLevel.wait_to_be_clickable()
+        self.proUpLevel.click()
+
+        # Выбор процесса
+        self.btnSelection_5.wait_to_be_clickable()
+        self.btnSelection_5.click()
+
+        # кнопка подтвердить
+        self.confirm_7.wait_to_be_clickable()
+        self.confirm_7.click()
+
+        # вид ЛНД
+        self.viewLndSelecton.wait_until_not_visible()
+        self.viewLndSelecton.wait_to_be_clickable()
+        self.viewLndSelecton.click()
+
+        # Выбор уровня
+        self.levelFirst.wait_to_be_clickable()
+        self.levelFirst.click()
+
+        # Выбор процесса
+        self.btnSelection_1.wait_until_not_visible()
+        self.btnSelection_1.wait_to_be_clickable()
+        self.btnSelection_1.click()
+
+        # кнопка подтвердить
+        self.confirm_8.wait_to_be_clickable()
+        self.confirm_8.click()
 
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")

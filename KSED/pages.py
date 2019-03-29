@@ -404,9 +404,13 @@ class MPages(WebPage):
     confirm_4 = WebElement(xpath=KSEDLocators.confirm_4)  # Подтверждение согласования
     confirm_5 = WebElement(xpath=KSEDLocators.confirm_5)  # Подтверждения выбора
     confirm_6 = WebElement(xpath=KSEDLocators.confirm_6)  # Подтверждения выбора
+    confirm_7 = WebElement(xpath=KSEDLocators.confirm_7)  # Подтверждения выбора
+    confirm_8 = WebElement(xpath=KSEDLocators.confirm_8)  # Подтверждения выбора
+
     btnTree = WebElement(xpath=KSEDLocators.btnTree)  # Кнопка ...
     btnSelection3 = WebElement(xpath=KSEDLocators.btnSelection3)  # Кнопка 3 выбора
-
+    btnSelection_1 = WebElement(xpath=KSEDLocators.btnSelection_1)  # Кнопка 1 выбор
+    btnSelection_5 = WebElement(xpath=KSEDLocators.btnSelection_5)  # Кнопка 27 выбор
     status_Doc = WebElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 
     #"Отправить отчет"
@@ -532,7 +536,11 @@ class MPages(WebPage):
 
     kurator = WebElement(xpath=KSEDLocators.kurator)  # куратов
     viewSelecton = WebElement(xpath=KSEDLocators.viewSelecton)  # вид документа
+    viewLndSelecton = WebElement(xpath=KSEDLocators.viewLndSelecton)  # вид ЛНД
     rdSelecton = WebElement(xpath=KSEDLocators.rdSelecton)  # вид документа
+    lndSelecton = WebElement(xpath=KSEDLocators.lndSelecton)  # вид документа
     btnSelection4 = WebElement(xpath=KSEDLocators.btnSelection4)  # 4 выбор
     titleCS = WebElement(xpath=KSEDLocators.titleCS)  # заголовок
     saveProject = WebElement(xpath=KSEDLocators.saveProject)  # сохранить проект
+    proUpLevel = WebElement(xpath=KSEDLocators.proUpLevel)  # процесс
+    levelFirst = WebElement(xpath=KSEDLocators.levelFirst)  # 1 уровень
