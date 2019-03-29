@@ -371,7 +371,8 @@ class KSEDLocators:
     proUpLevel = '//button[contains(@id, "document-approval_pvu-assoc-cntrl-tree-picker-button-button")]'  # xpath  # процессы верхнего уровня
     viewLndSelecton = '//button[contains(@id, "document-approval_lnd-kind-assoc-cntrl-tree-picker-button-button")]'  # xpath  # вид документа
     rdSelecton = '// span[text() = "РД"]'  # xpath  # выбор РД
-    lndSelecton = '// span[text() = "ЛНД"]'  # xpath  # выбор РД
+    lndSelecton = '// span[text() = "ЛНД"]'  # xpath  # выбор ЛНД
+    etcSelecton = '// span[text() = "Прочие"]'  # xpath  # выбор Прочие
     levelFirst = '// span[text() = "1-й иерархический уровень"]'  # xpath  # выбор уровня
     btnSelection4 = '(//span[contains(@class, "addIcon")])[4]'  # xpath # Кнопка + четвертый выбор
     titleCS = '//input[contains(@name, "prop_lecm-document_title")]'   # xpath  # заголовок

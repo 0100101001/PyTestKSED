@@ -100,7 +100,7 @@ class KSEDCreatDocCS_RD(MPages, dataTest, KSEDLocators):
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
         self.titleCS.scroll_to_element()
-        self.titleCS.send_keys(u'Auto ' + dt)
+        self.titleCS.send_keys(u'Auto РД ' + dt)
 
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
@@ -109,13 +109,11 @@ class KSEDCreatDocCS_RD(MPages, dataTest, KSEDLocators):
         self.wait_page_loaded()
         assert "Документ" in self._web_driver.title
 
+    # Сохраним ссылку на документ в файл
+    def LinkDocWFile(self):
 
-    #
-    # # Сохраним ссылку на документ в файл
-    # def LinkDocWFile(self):
-    #
-    #     url = self._web_driver.current_url
-    #     my_file = open("Tests/linkDocPoruchenie.txt", "w")
-    #     my_file.write(str(url))
-    #     my_file.close()
+        url = self._web_driver.current_url
+        my_file = open("Tests/linkDocCS.txt", "w")
+        my_file.write(str(url))
+        my_file.close()
 

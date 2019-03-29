@@ -537,8 +537,9 @@ class MPages(WebPage):
     kurator = WebElement(xpath=KSEDLocators.kurator)  # куратов
     viewSelecton = WebElement(xpath=KSEDLocators.viewSelecton)  # вид документа
     viewLndSelecton = WebElement(xpath=KSEDLocators.viewLndSelecton)  # вид ЛНД
-    rdSelecton = WebElement(xpath=KSEDLocators.rdSelecton)  # вид документа
-    lndSelecton = WebElement(xpath=KSEDLocators.lndSelecton)  # вид документа
+    etcSelecton = WebElement(xpath=KSEDLocators.etcSelecton)  # вид документа Прочие
+    rdSelecton = WebElement(xpath=KSEDLocators.rdSelecton)  # вид документа РД
+    lndSelecton = WebElement(xpath=KSEDLocators.lndSelecton)  # вид документа ЛНД
     btnSelection4 = WebElement(xpath=KSEDLocators.btnSelection4)  # 4 выбор
     titleCS = WebElement(xpath=KSEDLocators.titleCS)  # заголовок
     saveProject = WebElement(xpath=KSEDLocators.saveProject)  # сохранить проект
