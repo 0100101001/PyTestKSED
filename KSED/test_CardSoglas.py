@@ -24,6 +24,7 @@ import allure
 from KSED.Tests.tk15720 import KSEDCreatDocCS_RD
 from KSED.Tests.tk15722 import KSEDCreatDocCS_LND
 from KSED.Tests.tk15723 import KSEDCreatDocCS_ETC
+from KSED.Tests.tk15745 import KSEDCreatWaySogl
 
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
@@ -37,7 +38,7 @@ def test_15720(web_browser):
 
     Creat_doc  = page.Creat()
 
-    # saveLink = page.LinkDocWFile()
+    saveLink = page.LinkDocWFile()
 
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
@@ -52,7 +53,7 @@ def test_15722(web_browser):
     Creat_doc  = page.Creat()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15723(web_browser):
 
     """ Создание КС _ вид Прочие"""
@@ -63,3 +64,25 @@ def test_15723(web_browser):
 
     Creat_doc  = page.Creat()
 
+    saveLink = page.LinkDocWFile()
+
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_15745(web_browser):
+
+    """ Создание нетипового маршрута """
+
+    page = KSEDCreatWaySogl(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    Attach = page.attachment()
+
+    NaprNaSogl = page.NapSoglasovanie()
+
+    # saveLink = page.LinkDocWFile()
