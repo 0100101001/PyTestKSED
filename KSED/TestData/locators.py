@@ -206,12 +206,14 @@ class KSEDLocators:
     show_list = '//a[@class = "preview-show-list"]' #xpath # Показать ввиде списка
     btnPrint = '//button[contains(@id, "print_from_preview")]' #xpath # Кнопка печати в форме предварительного просмотра вложения
     btnOKpodpis = '(//button[text() = "ОК"])[1]' #xpath # Кнопка ОК подтверждение подписания (//em[text() = "Согласование"])[2]
-    dropBtn = '(//span[contains(@class, "expand-table-icon")])[2]' #xpath # Кнопка открыть выпадающий список /
+    dropBtn = '(//span[contains(@class, "expand-table-icon")])[2]' #xpath # Кнопка открыть выпадающий список
+    dropBtn_2 = '(//span[contains(@class, "expand-table-icon")])[1]' #xpath # Кнопка открыть выпадающий список
     resultSogl = '//td[contains(@class, "StageItemStatus")]'  # xpath # результат соглаоования
     soglasovanieWkladka = '//em[contains(text(), "Согласование")]'  # xpath # Вкладка "Согласование"
     soglasovanieWkladka2 = '(// em[text() = "Согласование"])[2]'  # xpath # Вкладка "Согласование"
     createRuleBtn = '//button[contains(@id, "create-approval-list-button-button")]'  # xpath # Кнопка "Создать маршрут"
-    createRuleIndivid = '//a[text() = "Индивидуальный маршрут"]' #xpath # "Индивидуальный маршрут"
+    createRuleIndivid = '//a[text() = "Индивидуальный маршрут"]' #xpath # "Индивидуальный маршрут" (//a[text() = "Типовой"])[1]
+    createRuleTypical = '(//a[text() = "Типовой"])[1]' #xpath # "Типовой маршрут"
     addEtap = '//button[contains(@id, "cntrl-add-stage-button")]' #xpath # Кнопка "Добавить этап"
     tipeEtap = '//input[contains(@id, "type-cntrl-autocomplete-input")]' #xpath # "Вид этапа"
     soglasuychie = '//input[contains(@id, "approvers-autocomplete")]' #xpath # "Согласующие"
@@ -219,6 +221,7 @@ class KSEDLocators:
     btnTree = '//span[contains(@class, "-push-button")][contains(@id, "type-cntrl-tree-picker-button")]' #xpath # Кнопка ...
     btnSelection_1 = '(//span[contains(@class, "addIcon")])[1]'  # xpath # Кнопка + первый выбор
     btnSelection3 = '(//span[contains(@class, "addIcon")])[3]'  # xpath # Кнопка + третий выбор
+    btnSelection_3 = '(//i[contains(@class, "icon-plus")])[3]'  # xpath # Кнопка + третий выбор#
     btnSelection_5 = '(//span[contains(@class, "addIcon")])[5]'  # xpath # Кнопка + 27 выбор
 
     punkti = '//em[contains(text(), "Пункты")]' #xpath # Вкладка "Пункты"
@@ -238,6 +241,8 @@ class KSEDLocators:
     punktBtnVipolnit = '//a[text() = "Создать и заполнить указатель"]' #xpath # Создать и заполнить
     otvetstv_ispolnVpunktahRD = '//input[contains(@id, "executor-assoc-cntrl-autocomplete-input")]' #xpath # Ответственный исполнитель в пункте РД
     #(Функциональное меню "Действия")
+
+
     #Согласовать
     sendFor_approval = '//div[contains(text(), "Направить на согласование")]' #xpath # Действие "Направить на согласование"
     sendFor_podpis = '//div[contains(text(), "Направить на подписание")]'  # xpath # Действие "Направить на подписание"
@@ -262,7 +267,8 @@ class KSEDLocators:
     btnOK = '//button[contains(@id, "-ok-button")]' #xpath # Кнопка "ОК" в форме подбораsaveProject
 
 
-    status_Doc = '//span[contains(@id, "_status")]' #xpath # Статус документа во вкладке (Основные сведения)
+    status_Doc = '//span[contains(@id, "_status")]' #xpath # Статус документа во вкладке (Основные сведения) (//div[text() = "Не начат"])[1]
+    status_etap = '(//div[text() = "Не начат"])[1]'  # xpath # Статус документа во вкладке (Основные сведения)
 
     # (панель согласования)
     APPROVED_button = '//button[contains(@id, "APPROVED-button")]' #xpath # Кнопка "Согласовать"
@@ -273,6 +279,7 @@ class KSEDLocators:
     apply_button_button = '//button[contains(@id, "apply-button")]' #xpath # Кнопка "ОК" при вынесении решения согласования
     apply_button_button2 = '//span[@class = "button-group"]//button[contains(@id, "-button") and text() = "ОК"]' #xpath # Кнопка "ОК" при вынесении решения согласования
     SIGNED_button = '//button[contains(@id, "SIGNED-button")]' #xpath # Кнопка "Подписать"
+    navedenieSogl = '(//div[contains(text(), "Внутреннее согласование")])[1]' #xpath # наведение на этап согласования
 
 
 
@@ -377,3 +384,5 @@ class KSEDLocators:
     btnSelection4 = '(//span[contains(@class, "addIcon")])[4]'  # xpath # Кнопка + четвертый выбор
     titleCS = '//input[contains(@name, "prop_lecm-document_title")]'   # xpath  # заголовок
     saveProject = '//button[text() = "Сохранить проект"]'   # xpath  # сохранить проект
+    btnAddPerson = '(//a[contains(@title, "Добавить")])[1]'  # xpath  # добавить сотрудника
+    btnContinium = '//button[text() = "Продолжить"]'  # кнопка продолжить

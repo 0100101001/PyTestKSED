@@ -68,7 +68,7 @@ class KSEDCreatDocPorDorab(MPages, dataTest, KSEDLocators):
         self.REJECTED_button.click()
 
         self.prop_bpm_comment.wait_until_not_visible()
-        self.prop_bpm_comment.send_keys('я так хотю')
+        self.prop_bpm_comment.send_keys('Отклонено')
 
         self.apply_button_button.wait_to_be_clickable()
         self.apply_button_button.click()

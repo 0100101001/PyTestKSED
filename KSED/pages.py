@@ -371,6 +371,7 @@ class MPages(WebPage):
     files = WebElement(xpath=KSEDLocators.files) # Выберите файлы
     show = WebElement(xpath=KSEDLocators.show) # Показать общую карточка
     dropBtn = WebElement(xpath=KSEDLocators.dropBtn) # Кнопка выпадающего списка
+    dropBtn_2 = WebElement(xpath=KSEDLocators.dropBtn_2)  # Кнопка выпадающего списка
     resultSogl = WebElement(xpath=KSEDLocators.resultSogl) # Результат согласования
     show_list = WebElement(xpath=KSEDLocators.show_list)# Показать ввиде списка
     btnPrint = WebElement(xpath=KSEDLocators.btnPrint) # Кнопка печати в форме предварительного просмотра вложения
@@ -409,6 +410,7 @@ class MPages(WebPage):
 
     btnTree = WebElement(xpath=KSEDLocators.btnTree)  # Кнопка ...
     btnSelection3 = WebElement(xpath=KSEDLocators.btnSelection3)  # Кнопка 3 выбора
+    btnSelection_3 = WebElement(xpath=KSEDLocators.btnSelection_3)  # Кнопка 3 выбора
     btnSelection_1 = WebElement(xpath=KSEDLocators.btnSelection_1)  # Кнопка 1 выбор
     btnSelection_5 = WebElement(xpath=KSEDLocators.btnSelection_5)  # Кнопка 27 выбор
     status_Doc = WebElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
@@ -545,3 +547,7 @@ class MPages(WebPage):
     saveProject = WebElement(xpath=KSEDLocators.saveProject)  # сохранить проект
     proUpLevel = WebElement(xpath=KSEDLocators.proUpLevel)  # процесс
     levelFirst = WebElement(xpath=KSEDLocators.levelFirst)  # 1 уровень
+    navedenieSogl = WebElement(xpath=KSEDLocators.navedenieSogl)  # локатор для наведения на созданный этап согласования
+    btnAddPerson = WebElement(xpath=KSEDLocators.btnAddPerson)  # кнопка добавления сотрудника к этапу согласования
+    createRuleTypical = WebElement(xpath=KSEDLocators.createRuleTypical)  # кнопка типового маршрута
+    btnContinium = WebElement(xpath=KSEDLocators.btnContinium)  # кнопка продолжить

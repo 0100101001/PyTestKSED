@@ -25,6 +25,8 @@ from KSED.Tests.tk15720 import KSEDCreatDocCS_RD
 from KSED.Tests.tk15722 import KSEDCreatDocCS_LND
 from KSED.Tests.tk15723 import KSEDCreatDocCS_ETC
 from KSED.Tests.tk15745 import KSEDCreatWaySogl
+from KSED.Tests.tk15750 import KSEDCreatWaySogl_RD
+from KSED.Tests.tk15744 import KSEDaddPerson
 
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
@@ -39,6 +41,22 @@ def test_15720(web_browser):
     Creat_doc  = page.Creat()
 
     saveLink = page.LinkDocWFile()
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_15750(web_browser):
+
+    """ Создание нетипового маршрута """
+
+    page = KSEDCreatWaySogl_RD(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+
 
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
@@ -68,7 +86,7 @@ def test_15723(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15745(web_browser):
 
     """ Создание нетипового маршрута """
@@ -81,8 +99,30 @@ def test_15745(web_browser):
 
     create_route = page.creation_of_the_approval_route()
 
-    Attach = page.attachment()
+    # Attach = page.attachment()
 
-    NaprNaSogl = page.NapSoglasovanie()
+    # NaprNaSogl = page.NapSoglasovanie()
+
+    # saveLink = page.LinkDocWFile()
+
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_15744(web_browser):
+
+    """ Создание нетипового маршрута """
+
+    page = KSEDaddPerson(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    # create_route = page.creation_of_the_approval_route()
+    #
+    # Attach = page.attachment()
+    #
+    # NaprNaSogl = page.NapSoglasovanie()
 
     # saveLink = page.LinkDocWFile()

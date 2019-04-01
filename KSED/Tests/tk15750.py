@@ -36,7 +36,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDCreatWaySogl(MPages, dataTest, KSEDLocators):
+class KSEDCreatWaySogl_RD(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 
@@ -72,42 +72,34 @@ class KSEDCreatWaySogl(MPages, dataTest, KSEDLocators):
         self.createRuleBtn.wait_to_be_clickable()
         self.createRuleBtn.click()
 
-        # Выберем "Индивидуальный маршрут"
-        self.createRuleIndivid.wait_to_be_clickable()
-        self.createRuleIndivid.click()
+        # Выберем "Типовой маршрут"
+        self.createRuleTypical.wait_to_be_clickable()
+        self.createRuleTypical.click()
 
-        # Появилась форма "Редактирование маршрута" нажмем "ОК"
-        self.btnOKform.wait_to_be_clickable()
-        self.btnOKform.click()
+        # Кнопка "Продолжить"
+        self.btnContinium.wait_to_be_clickable()
+        self.btnContinium.click()
 
-        # Нажмем кнопку "Добавить этап"
-        self.addEtap.wait_to_be_clickable()
-        self.addEtap.click()
-
-        # Заполним "Вид этапа"
-
-        self.btnTree.wait_to_be_clickable()
-        self.btnTree.click()  # нажать на кнопку ...
-
-        self.btnSelection_1.wait_to_be_clickable()
-        self.btnSelection_1.click()  # кнопка + третий выбор
+        self.btnSelection_3.wait_to_be_clickable()
+        self.btnSelection_3.click()  # кнопка + третий выбор
 
         self.confirm_5.wait_to_be_clickable()
-        self.confirm_5.click()  # кнопка + третий выбор
+        self.confirm_5.click()  # кнопка подтвердить
 
 
+        # выпадающий список согласований
+        self.dropBtn_2.scroll_to_element()
+        self.dropBtn_2.wait_to_be_clickable()
+        self.dropBtn_2.click()
+        # Добавление сотрудника
+        self.btnAddPerson.wait_to_be_clickable()
+        self.btnAddPerson.click()
 
+        self.btnSelection_3.wait_to_be_clickable()
+        self.btnSelection_3.click()  # кнопка + третий выбор
 
-        # Заполним "Согласующие"
-        self.soglasuychie.wait_until_not_visible()
-        self.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
-
-        # Нажмем кнопку "ОК" на форме
-
-        self.btnOKformSogl.scroll_to_element()
-        self.btnOKformSogl.wait_to_be_clickable()
-        self.btnOKformSogl.click()
-        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id="confirm-edit-fields-form-container_mask"]')
+        self.confirm_5.wait_to_be_clickable()
+        self.confirm_5.click()  # кнопка подтвердить
 
         # выпадающий список согласований
         self.dropBtn_2.scroll_to_element()
