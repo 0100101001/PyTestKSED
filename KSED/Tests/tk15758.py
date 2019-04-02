@@ -36,7 +36,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
+class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 

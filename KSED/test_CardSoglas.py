@@ -72,22 +72,36 @@ def test_15750(web_browser):
     create_route = page.creation_of_the_approval_route()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_15755(web_browser):
 
     """ Направление на согласование """
 
+    # Шаг 1 создание документа
+    page = KSEDNaprSogl_RD(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
     page = KSEDNaprSogl_RD(web_browser)
 
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 направление на созгаласование
+
     attach = page.attachment()
 
     NapSoglasovanie = page.NapSoglasovanie()
-
-    saveLink = page.LinkDocWFile()
 
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
@@ -132,19 +146,16 @@ def test_15758(web_browser):
 
     create_route = page.creation_of_the_approval_route()
 
-    Logout = page.USER_LOGOUTs()  # Выход из системы
-
-    # Шаг 3 возврат с согласования
-
-    page = KSEDaddNewVersion(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
-
-    getDoc = page.getDoc()
+    # Шаг 3 направление на созгаласование
 
     attach = page.attachment()
 
-    # Шаг 4 загрузка новой версии файла
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    # Шаг 4 возврат с согласования
+
+
+    # Шаг 5 загрузка новой версии файла
 
 
 
