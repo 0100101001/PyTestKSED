@@ -33,7 +33,7 @@ from KSED.Tests.tk15765 import KSEDreject_RD
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15720(web_browser):
 
     """ Создание КС _ вид РД"""
@@ -47,11 +47,22 @@ def test_15720(web_browser):
     saveLink = page.LinkDocWFile()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15750(web_browser):
 
     """ Создание типового маршрута """
+    # Шаг 1 создание документа
+    page = KSEDCreatWaySogl_RD(web_browser)
 
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
     page = KSEDCreatWaySogl_RD(web_browser)
 
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
@@ -61,7 +72,7 @@ def test_15750(web_browser):
     create_route = page.creation_of_the_approval_route()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15755(web_browser):
 
     """ Направление на согласование """
@@ -79,7 +90,7 @@ def test_15755(web_browser):
     saveLink = page.LinkDocWFile()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15765(web_browser):
 
     """ Отклонение согласования """
@@ -99,7 +110,31 @@ def test_15765(web_browser):
 @pytest.fixture(scope="session")
 def test_15758(web_browser):
 
-    """ Направление на согласование """
+    """ Добавление новой версии """
+
+    # Шаг 1 создание документа
+    page = KSEDaddNewVersion(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
+    page = KSEDaddNewVersion(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 3 возврат с согласования
 
     page = KSEDaddNewVersion(web_browser)
 
@@ -109,12 +144,13 @@ def test_15758(web_browser):
 
     attach = page.attachment()
 
-    saveLink = page.LinkDocWFile()
+    # Шаг 4 загрузка новой версии файла
+
 
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15722(web_browser):
 
     """ Создание КС _ Вид ЛНД"""
@@ -126,7 +162,7 @@ def test_15722(web_browser):
     Creat_doc  = page.Creat()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15723(web_browser):
 
     """ Создание КС _ вид Прочие"""
@@ -141,7 +177,7 @@ def test_15723(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15745(web_browser):
 
     """ Создание нетипового маршрута """
@@ -161,7 +197,7 @@ def test_15745(web_browser):
     # saveLink = page.LinkDocWFile()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15744(web_browser):
 
     """ Добавление сотрудника в этап """
