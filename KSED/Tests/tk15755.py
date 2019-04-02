@@ -206,7 +206,7 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
 
-        time.sleep(4)
+        self.wait_page_loaded()
         # Проверим статус документа
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.click()

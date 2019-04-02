@@ -104,20 +104,49 @@ def test_15755(web_browser):
     NapSoglasovanie = page.NapSoglasovanie()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_15765(web_browser):
 
     """ Отклонение согласования """
-
+    # Шаг 1 создание документа
     page = KSEDreject_RD(web_browser)
 
-    LogIn_page = page.LogIN('YatskinRS', 'Changeme!')
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
+    page = KSEDreject_RD(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
     getDoc = page.getDoc()
 
-    reject = page.rejectDoc()
+    create_route = page.creation_of_the_approval_route()
 
-    saveLink = page.LinkDocWFile()
+    # Шаг 3 вложение и направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 4 отклонение созгаласования
+
+    page2 = KSEDreject_RD(web_browser)
+
+    LogIn_page = page2.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    reject = page2.rejectDoc()
+
+
 
 
 @pytest.mark.KSED_smoke_test
