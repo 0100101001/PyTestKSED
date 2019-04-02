@@ -412,6 +412,7 @@ class MPages(WebPage):
     btnSelection3 = WebElement(xpath=KSEDLocators.btnSelection3)  # Кнопка 3 выбора
     btnSelection_3 = WebElement(xpath=KSEDLocators.btnSelection_3)  # Кнопка 3 выбора
     btnSelection_1 = WebElement(xpath=KSEDLocators.btnSelection_1)  # Кнопка 1 выбор
+    btnSelection1 = WebElement(xpath=KSEDLocators.btnSelection1)  # Кнопка 1 выбор
     btnSelection_5 = WebElement(xpath=KSEDLocators.btnSelection_5)  # Кнопка 27 выбор
     status_Doc = WebElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
 
@@ -551,3 +552,6 @@ class MPages(WebPage):
     btnAddPerson = WebElement(xpath=KSEDLocators.btnAddPerson)  # кнопка добавления сотрудника к этапу согласования
     createRuleTypical = WebElement(xpath=KSEDLocators.createRuleTypical)  # кнопка типового маршрута
     btnContinium = WebElement(xpath=KSEDLocators.btnContinium)  # кнопка продолжить
+    reserchInput = WebElement(xpath=KSEDLocators.reserchInput)  # строка поиска
+    zamechSogl = WebElement(xpath=KSEDLocators.zamechSogl) # статус согласования
+    statusSogl = WebElement(xpath=KSEDLocators.statusSogl) # статус согласования

@@ -120,7 +120,7 @@ class KSEDCreatDocCS_LND(MPages, dataTest, KSEDLocators):
         self.levelFirst.click()
 
         # Выбор процесса
-        self.btnSelection_1.wait_until_not_visible()
+        time.sleep(1)
         self.btnSelection_1.wait_to_be_clickable()
         self.btnSelection_1.click()
 

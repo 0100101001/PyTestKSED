@@ -95,13 +95,17 @@ class KSEDCreatWaySogl_RD(MPages, dataTest, KSEDLocators):
         self.btnAddPerson.wait_to_be_clickable()
         self.btnAddPerson.click()
 
-        self.btnSelection_3.wait_to_be_clickable()
-        self.btnSelection_3.click()  # кнопка + третий выбор
+        self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
+
+
+        self.btnSelection1.wait_to_be_clickable()
+        self.btnSelection1.click()  # кнопка + третий выбор
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
 
         # выпадающий список согласований
+        time.sleep(2)
         self.dropBtn_2.scroll_to_element()
         self.dropBtn_2.wait_to_be_clickable()
         self.dropBtn_2.click()

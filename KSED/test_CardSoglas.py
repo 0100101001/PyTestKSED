@@ -27,9 +27,13 @@ from KSED.Tests.tk15723 import KSEDCreatDocCS_ETC
 from KSED.Tests.tk15745 import KSEDCreatWaySogl
 from KSED.Tests.tk15750 import KSEDCreatWaySogl_RD
 from KSED.Tests.tk15744 import KSEDaddPerson
+from KSED.Tests.tk15755 import KSEDNaprSogl_RD
+from KSED.Tests.tk15758 import KSEDaddNewVersion
+from KSED.Tests.tk15765 import KSEDreject_RD
+
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_15720(web_browser):
 
     """ Создание КС _ вид РД"""
@@ -46,7 +50,7 @@ def test_15720(web_browser):
 #@pytest.fixture(scope="session")
 def test_15750(web_browser):
 
-    """ Создание нетипового маршрута """
+    """ Создание типового маршрута """
 
     page = KSEDCreatWaySogl_RD(web_browser)
 
@@ -56,10 +60,61 @@ def test_15750(web_browser):
 
     create_route = page.creation_of_the_approval_route()
 
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_15755(web_browser):
+
+    """ Направление на согласование """
+
+    page = KSEDNaprSogl_RD(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    saveLink = page.LinkDocWFile()
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_15765(web_browser):
+
+    """ Отклонение согласования """
+
+    page = KSEDreject_RD(web_browser)
+
+    LogIn_page = page.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    reject = page.rejectDoc()
+
+    saveLink = page.LinkDocWFile()
 
 
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
+def test_15758(web_browser):
+
+    """ Направление на согласование """
+
+    page = KSEDaddNewVersion(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    attach = page.attachment()
+
+    saveLink = page.LinkDocWFile()
+
+
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
 def test_15722(web_browser):
 
     """ Создание КС _ Вид ЛНД"""
@@ -71,7 +126,7 @@ def test_15722(web_browser):
     Creat_doc  = page.Creat()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_15723(web_browser):
 
     """ Создание КС _ вид Прочие"""
@@ -86,7 +141,7 @@ def test_15723(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_15745(web_browser):
 
     """ Создание нетипового маршрута """
@@ -106,10 +161,10 @@ def test_15745(web_browser):
     # saveLink = page.LinkDocWFile()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_15744(web_browser):
 
-    """ Создание нетипового маршрута """
+    """ Добавление сотрудника в этап """
 
     page = KSEDaddPerson(web_browser)
 

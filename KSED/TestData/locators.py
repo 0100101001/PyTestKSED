@@ -220,6 +220,7 @@ class KSEDLocators:
     btnOKformSogl = '//button[contains(@id, "form-submit-button")]' #xpath # Кнопка "ОК" на форме добавления этапа согласования
     btnTree = '//span[contains(@class, "-push-button")][contains(@id, "type-cntrl-tree-picker-button")]' #xpath # Кнопка ...
     btnSelection_1 = '(//span[contains(@class, "addIcon")])[1]'  # xpath # Кнопка + первый выбор
+    btnSelection1 = '(//i[contains(@class, "icon-plus")])[1]'  # xpath # Кнопка + первый выбор
     btnSelection3 = '(//span[contains(@class, "addIcon")])[3]'  # xpath # Кнопка + третий выбор
     btnSelection_3 = '(//i[contains(@class, "icon-plus")])[3]'  # xpath # Кнопка + третий выбор#
     btnSelection_5 = '(//span[contains(@class, "addIcon")])[5]'  # xpath # Кнопка + 27 выбор
@@ -382,7 +383,10 @@ class KSEDLocators:
     etcSelecton = '// span[text() = "Прочие"]'  # xpath  # выбор Прочие
     levelFirst = '// span[text() = "1-й иерархический уровень"]'  # xpath  # выбор уровня
     btnSelection4 = '(//span[contains(@class, "addIcon")])[4]'  # xpath # Кнопка + четвертый выбор
+    btnContinium = '//button[text() = "Продолжить"]'  # кнопка продолжить
     titleCS = '//input[contains(@name, "prop_lecm-document_title")]'   # xpath  # заголовок
     saveProject = '//button[text() = "Сохранить проект"]'   # xpath  # сохранить проект
     btnAddPerson = '(//a[contains(@title, "Добавить")])[1]'  # xpath  # добавить сотрудника
-    btnContinium = '//button[text() = "Продолжить"]'  # кнопка продолжить
+    reserchInput = '//input[contains(@id, "employee-search-text")]'  # строка поиска
+    zamechSogl = '(//div[contains(@class, "annotation-comment")])' # комментарии
+    statusSogl = '//a[contains(@onclick, "ApprovalResult")]'  # комментарии
