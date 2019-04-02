@@ -36,7 +36,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDreject_RD(MPages, dataTest, KSEDLocators):
+class KSEDacceptSogl_RD(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 
@@ -171,14 +171,14 @@ class KSEDreject_RD(MPages, dataTest, KSEDLocators):
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-
+        self.wait_page_loaded()
         # выпадающий список согласований
         self.dropBtn_2.wait_to_be_clickable()
         self.dropBtn_2.scroll_to_element()
         self.dropBtn_2.click()
 
         self.status_Doc.wait_until_not_visible()
-        assert "Не начато" in self.resultSogl.get_text()
+        #assert "Не начато" in self.resultSogl.get_text()
 
     # Сохраним ссылку на документ в файл
     def LinkDocWFile(self):
@@ -215,15 +215,25 @@ class KSEDreject_RD(MPages, dataTest, KSEDLocators):
 
         assert "На согласовании" in self.status_Doc.get_text()
 
-    def rejectDoc(self):
-        self.REJECTED_button.wait_to_be_clickable()
-        self.REJECTED_button.click()
+    def acceptDoc(self):
+        self.APPROVED_button.wait_to_be_clickable()
+        self.APPROVED_button.click()
 
-        self.prop_bpm_comment.wait_until_not_visible()
-        self.prop_bpm_comment.send_keys('Доработать')
+        self.confirm.wait_until_not_visible()
+        self.confirm.click()
+        self.wait_page_loaded()
+        # self.apply_button_button.wait_to_be_clickable()
+        # self.apply_button_button.click()
 
-        self.apply_button_button.wait_to_be_clickable()
-        self.apply_button_button.click()
+        # "Согласование" вкладка
+        self.soglasovanieWkladka.wait_to_be_clickable()
+        self.soglasovanieWkladka.click()
+        self.wait_page_loaded()
+        # выпадающий список согласований
+
+        self.dropBtn_2.scroll_to_element()
+        self.dropBtn_2.wait_to_be_clickable()
+        self.dropBtn_2.click()
 
         self.wait_page_loaded()
-        assert "Отклонено" in self.statusSogl.get_text()
+        assert "Согласовано" in self.statusSogl.get_text()

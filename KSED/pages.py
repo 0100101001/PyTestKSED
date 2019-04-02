@@ -368,6 +368,7 @@ class MPages(WebPage):
     fileUpload = WebElement(xpath=KSEDLocators.fileUpload) # Загрузить файл
     fileUpload2 = WebElement(xpath=KSEDLocators.fileUpload2)  # Загрузить файл в поручении
     fileUpload3 = WebElement(xpath=KSEDLocators.fileUpload3)  # Загрузить файл в поручении
+    fileUpload4 = WebElement(xpath=KSEDLocators.fileUpload4)  # Загрузить файл в поручении
     files = WebElement(xpath=KSEDLocators.files) # Выберите файлы
     show = WebElement(xpath=KSEDLocators.show) # Показать общую карточка
     dropBtn = WebElement(xpath=KSEDLocators.dropBtn) # Кнопка выпадающего списка
@@ -411,6 +412,7 @@ class MPages(WebPage):
     btnTree = WebElement(xpath=KSEDLocators.btnTree)  # Кнопка ...
     btnSelection3 = WebElement(xpath=KSEDLocators.btnSelection3)  # Кнопка 3 выбора
     btnSelection_3 = WebElement(xpath=KSEDLocators.btnSelection_3)  # Кнопка 3 выбора
+    btnSelection_4 = WebElement(xpath=KSEDLocators.btnSelection_4)  # Кнопка 3 выбора
     btnSelection_1 = WebElement(xpath=KSEDLocators.btnSelection_1)  # Кнопка 1 выбор
     btnSelection1 = WebElement(xpath=KSEDLocators.btnSelection1)  # Кнопка 1 выбор
     btnSelection_5 = WebElement(xpath=KSEDLocators.btnSelection_5)  # Кнопка 27 выбор
@@ -555,3 +557,8 @@ class MPages(WebPage):
     reserchInput = WebElement(xpath=KSEDLocators.reserchInput)  # строка поиска
     zamechSogl = WebElement(xpath=KSEDLocators.zamechSogl) # статус согласования
     statusSogl = WebElement(xpath=KSEDLocators.statusSogl) # статус согласования
+    rejectSogl = WebElement(xpath=KSEDLocators.rejectSogl) # кнопка отозвать с согласования
+    reasonReject = WebElement(xpath=KSEDLocators.reasonReject) # причина отказа / отзыва
+    btnAction = WebElement(xpath=KSEDLocators.btnAction) # пкнопка действия
+    downLoadNewVersion = WebElement(xpath=KSEDLocators.downLoadNewVersion) # загрузить новую версию
+    bntVersion = WebElement(xpath=KSEDLocators.bntVersion) # кнопка версия

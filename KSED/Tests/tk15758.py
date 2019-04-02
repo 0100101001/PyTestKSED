@@ -206,9 +206,53 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
 
-        time.sleep(4)
+        self.wait_page_loaded()
         # Проверим статус документа
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.click()
 
         assert "На согласовании" in self.status_Doc.get_text()
+
+    # отозвать с согласования
+    def rejectYourself(self):
+
+        self.rejectSogl.wait_to_be_clickable()
+        self.rejectSogl.click()
+
+        self.wait_page_loaded()
+        # причина возврата
+        self.reasonReject.wait_until_not_visible()
+        self.reasonReject.send_keys('На доработку')
+
+        self.confirm2.wait_to_be_clickable()
+        self.confirm2.click()
+
+        self.wait_page_loaded()
+        # Проверим статус документа
+        self.osnSvedeniya.wait_to_be_clickable()
+        self.osnSvedeniya.click()
+
+        assert "На доработке" in self.status_Doc.get_text()
+
+    def attachment_docReady(self, ):
+
+        # self.vlozheniya.move_to_element()
+        self.btnAction.wait_to_be_clickable()
+        self.btnAction.click()
+
+        self.downLoadNewVersion.wait_to_be_clickable()
+        self.downLoadNewVersion.click()
+
+        self.files.wait_to_be_clickable()
+        self.files.send_keys('D:\\test.txt')
+
+        self.wait_page_loaded()
+        self.fileUpload4.wait_to_be_clickable()
+        self.fileUpload4.click()
+        self.wait_page_loaded()
+
+        try:
+            self.bntVersion.wait_to_be_clickable()
+        except:
+            assert False, 'Кнопка не появилась'
+

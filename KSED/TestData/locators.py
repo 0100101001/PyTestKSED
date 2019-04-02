@@ -1,35 +1,35 @@
 # Извлечение номера документа из файла
-def rFile():
-
-    my_file = open("D:\PyTestKSED\KSED\TestData\linkDoc.txt", "r")
-    my_string = my_file.read()
-    my_string.strip()
-    return my_string
-    my_file.close()
-
-def rFileRD():
-
-    my_file = open("D:\PyTestKSED\KSED\TestData\linkDocRD.txt", "r")
-    my_string = my_file.read()
-    my_string.strip()
-    return my_string
-    my_file.close()
+# def rFile():
 #
-#     my_file = open("tempDoc.txt")
+#     my_file = open("D:\PyTestKSED\KSED\TestData\linkDoc.txt", "r")
 #     my_string = my_file.read()
 #     my_string.strip()
-#
-#     locator = str("'//a[text() = ") + '"' + str(my_string) + '"]' + "'"
-#     return (locator)
-#
+#     return my_string
 #     my_file.close()
-
-
+#
+# def rFileRD():
+#
+#     my_file = open("D:\PyTestKSED\KSED\TestData\linkDocRD.txt", "r")
+#     my_string = my_file.read()
+#     my_string.strip()
+#     return my_string
+#     my_file.close()
+# #
+# #     my_file = open("tempDoc.txt")
+# #     my_string = my_file.read()
+# #     my_string.strip()
+# #
+# #     locator = str("'//a[text() = ") + '"' + str(my_string) + '"]' + "'"
+# #     return (locator)
+# #
+# #     my_file.close()
+#
+#
 class KSEDLocators:
-
-    # Ссылка на документ
-    LinkDoc = rFile()
-    LinkDocRD = rFileRD()
+#
+#     # Ссылка на документ
+#     LinkDoc = rFile()
+#     LinkDocRD = rFileRD()
 
 
     # Форма авторизации
@@ -201,6 +201,7 @@ class KSEDLocators:
     fileUpload = '(//button[contains(@id, "fileUpload-button-button")])[2]' #xpath # Загрузить файл
     fileUpload2 = '//button[contains(@id, "fileUpload-button-button")]'  # xpath # Загрузить файл в поручении
     fileUpload3 = '//button[contains(@class, "file-selection-button")]' #xpath # Выбрать файл
+    fileUpload4 = '(//button[contains(@id, "-upload-button-button")])[1]'#xpath # загузить файл
     files = '//input[@type="file"][@name="files[]"]' #xpath # Выберите файлы
     show = '//a[contains(@id, "action-show-main")]' #xpath # Показать общую карточка
     show_list = '//a[@class = "preview-show-list"]' #xpath # Показать ввиде списка
@@ -223,6 +224,7 @@ class KSEDLocators:
     btnSelection1 = '(//i[contains(@class, "icon-plus")])[1]'  # xpath # Кнопка + первый выбор
     btnSelection3 = '(//span[contains(@class, "addIcon")])[3]'  # xpath # Кнопка + третий выбор
     btnSelection_3 = '(//i[contains(@class, "icon-plus")])[3]'  # xpath # Кнопка + третий выбор#
+    btnSelection_4 = '(//span[contains(@class, "addIcon")])[4]' # xpath # Кнопка + 4 выбор
     btnSelection_5 = '(//span[contains(@class, "addIcon")])[5]'  # xpath # Кнопка + 27 выбор
 
     punkti = '//em[contains(text(), "Пункты")]' #xpath # Вкладка "Пункты"
@@ -390,3 +392,8 @@ class KSEDLocators:
     reserchInput = '//input[contains(@id, "employee-search-text")]'  # строка поиска
     zamechSogl = '(//div[contains(@class, "annotation-comment")])' # комментарии
     statusSogl = '//a[contains(@onclick, "ApprovalResult")]'  # комментарии
+    rejectSogl = '//div[contains(text(), "Отозвать с согласования")]' # кнопка отозвать с согласования
+    reasonReject = '//textarea[@title = "Причина"]'  # причина отказа / отзыва
+    btnAction = '//button[contains(@id, "-attachment-actions-button-button")]' # кнопка действие
+    downLoadNewVersion = '//a[text() = "Загрузить новую версию"]' # кнопка загрузить новую версию
+    bntVersion = '//button[text() = "Версии"]' # кнопка версия
