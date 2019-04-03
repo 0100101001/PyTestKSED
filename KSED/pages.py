@@ -550,6 +550,7 @@ class MPages(WebPage):
     saveProject = WebElement(xpath=KSEDLocators.saveProject)  # сохранить проект
     proUpLevel = WebElement(xpath=KSEDLocators.proUpLevel)  # процесс
     levelFirst = WebElement(xpath=KSEDLocators.levelFirst)  # 1 уровень
+    levelFirst_1 = WebElement(xpath=KSEDLocators.levelFirst_1)  # поле ввода 1 уровень
     navedenieSogl = WebElement(xpath=KSEDLocators.navedenieSogl)  # локатор для наведения на созданный этап согласования
     btnAddPerson = WebElement(xpath=KSEDLocators.btnAddPerson)  # кнопка добавления сотрудника к этапу согласования
     createRuleTypical = WebElement(xpath=KSEDLocators.createRuleTypical)  # кнопка типового маршрута

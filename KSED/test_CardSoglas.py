@@ -236,7 +236,7 @@ def test_15758(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_15722(web_browser):
 
     """ Создание КС _ Вид ЛНД"""
@@ -395,7 +395,7 @@ def test_15772(web_browser):
     rejectInnerSogl = page2.rejectInnerSogl()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15777(web_browser):
 
     """ Отзыв задачи внутренеего согласования """
@@ -441,7 +441,7 @@ def test_15777(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15779(web_browser):
 
     """ Отзыв задачи внутренеего согласования """

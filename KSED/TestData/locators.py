@@ -224,7 +224,7 @@ class KSEDLocators:
     btnSelection1 = '(//i[contains(@class, "icon-plus")])[1]'  # xpath # Кнопка + первый выбор
     btnSelection3 = '(//span[contains(@class, "addIcon")])[3]'  # xpath # Кнопка + третий выбор
     btnSelection_3 = '(//i[contains(@class, "icon-plus")])[3]'  # xpath # Кнопка + третий выбор#
-    btnSelection_4 = '(//span[contains(@class, "addIcon")])[4]' # xpath # Кнопка + 4 выбор
+    btnSelection_4 = '(//span[contains(@class, "addIcon")][contains(@id, "yui-gen")])[7]' # xpath # Кнопка + 4 выбор
     btnSelection_5 = '(//span[contains(@class, "addIcon")])[5]'  # xpath # Кнопка + 27 выбор
 
     punkti = '//em[contains(text(), "Пункты")]' #xpath # Вкладка "Пункты"
@@ -385,6 +385,7 @@ class KSEDLocators:
     lndSelecton = '// span[text() = "ЛНД"]'  # xpath  # выбор ЛНД
     etcSelecton = '// span[text() = "Прочие"]'  # xpath  # выбор Прочие
     levelFirst = '// span[text() = "1-й иерархический уровень"]'  # xpath  # выбор уровня
+    levelFirst_1 = '//input[contains(@id, "rn-document-approval_pvu-assoc-cntrl-autocomplete-input")]'  # xpath  # ввод в поле вернего уровня
     btnSelection4 = '(//span[contains(@class, "addIcon")])[4]'  # xpath # Кнопка + четвертый выбор
     btnContinium = '//button[text() = "Продолжить"]'  # кнопка продолжить
     titleCS = '//input[contains(@name, "prop_lecm-document_title")]'   # xpath  # заголовок

@@ -114,25 +114,31 @@ class KSEDCreatDocCS_LND(MPages, dataTest, KSEDLocators):
         self.confirm_7.click()
 
         # вид ЛНД
-        self.viewLndSelecton.wait_until_not_visible()
-        self.viewLndSelecton.wait_to_be_clickable()
-        self.viewLndSelecton.click()
 
-        # Выбор уровня
-        self.levelFirst.move_to_element()
-        self.levelFirst.wait_to_be_clickable()
-        self.levelFirst.click()
+        self.levelFirst_1.wait_until_not_visible()
+        self.levelFirst_1.scroll_to_element()
+        self.levelFirst_1.send_keys(u'Политика' + Keys.ENTER)
 
-        self.wait_page_loaded()
+        # self.viewLndSelecton.wait_until_not_visible()
+        # self.viewLndSelecton.wait_to_be_clickable()
+        # self.viewLndSelecton.click()
 
-        # Выбор процесса
-        self.btnSelection_4.move_to_element()
-        self.btnSelection_4.wait_to_be_clickable()
-        self.btnSelection_4.click()
+        # # Выбор уровня
 
-        # кнопка подтвердить
-        self.confirm_8.wait_to_be_clickable()
-        self.confirm_8.click()
+        # self.levelFirst.move_to_element()
+        # self.levelFirst.wait_to_be_clickable()
+        # self.levelFirst.click()
+
+        # self.wait_page_loaded()
+
+        # # Выбор процесса
+        # self.btnSelection_4.move_to_element()
+        # self.btnSelection_4.wait_to_be_clickable()
+        # self.btnSelection_4.click()
+
+        # # кнопка подтвердить
+        # self.confirm_8.wait_to_be_clickable()
+        # self.confirm_8.click()
 
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
