@@ -95,7 +95,8 @@ class KSEDCreatDocCS_LND(MPages, dataTest, KSEDLocators):
         # Подписант
         self.podpisanti.wait_until_not_visible()
         self.podpisanti.scroll_to_element()
-        self.podpisanti.send_keys(u'Иван' + Keys.ENTER)
+        self.podpisanti.send_keys(u'Иванов2' + Keys.ENTER)
+
 
         # процессы верхнего уровня
         self.proUpLevel.wait_until_not_visible()
@@ -116,13 +117,16 @@ class KSEDCreatDocCS_LND(MPages, dataTest, KSEDLocators):
         self.viewLndSelecton.click()
 
         # Выбор уровня
+        self.levelFirst.move_to_element()
         self.levelFirst.wait_to_be_clickable()
         self.levelFirst.click()
 
+        self.wait_page_loaded()
+
         # Выбор процесса
-        time.sleep(1)
-        self.btnSelection_1.wait_to_be_clickable()
-        self.btnSelection_1.click()
+        self.btnSelection_4.move_to_element()
+        self.btnSelection_4.wait_to_be_clickable()
+        self.btnSelection_4.click()
 
         # кнопка подтвердить
         self.confirm_8.wait_to_be_clickable()

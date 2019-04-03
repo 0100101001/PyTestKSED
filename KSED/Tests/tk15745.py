@@ -52,6 +52,55 @@ class KSEDCreatWaySogl(MPages, dataTest, KSEDLocators):
         self.wait_page_loaded()
 
         assert "АРМ" in self._web_driver.title
+    def Creat(self,):
+
+        wait = WebDriverWait(self._web_driver, 10)
+
+        self.newDoc_button.click()
+
+        self.cardSogl.click()
+
+        self.wait_page_loaded()
+
+        assert "Страница создания документа" in self._web_driver.title
+
+        # Атрибуты документа
+        self.wait_page_loaded()
+        # Куратор
+        self.kurator.wait_until_not_visible()
+        self.kurator.scroll_to_element()
+        self.kurator.send_keys(u'Яцкин' + Keys.ENTER)
+
+
+        # Вид документа
+        self.viewSelecton.wait_until_not_visible()
+        self.viewSelecton.wait_to_be_clickable()
+        self.viewSelecton.click()
+
+        #Выбор Прочее
+        self.etcSelecton.wait_until_not_visible()
+        self.etcSelecton.wait_to_be_clickable()
+        self.etcSelecton.click()
+
+        # Выбор раздела из Прочие
+        self.btnSelection3.wait_to_be_clickable()
+        self.btnSelection3.click()
+
+        # кнопка подтвердить
+        self.confirm_6.wait_to_be_clickable()
+        self.confirm_6.click()
+
+        # заголовок
+        dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
+        self.titleCS.scroll_to_element()
+        self.titleCS.send_keys(u'Auto Прочие ' + dt)
+
+        # кнопка сохранить проект
+        self.saveProject.wait_to_be_clickable()
+        self.saveProject.click()
+
+        self.wait_page_loaded()
+        assert "Документ" in self._web_driver.title
 
     #открытие документа
     def getDoc(self):

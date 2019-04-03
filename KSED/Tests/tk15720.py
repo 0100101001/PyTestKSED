@@ -95,7 +95,8 @@ class KSEDCreatDocCS_RD(MPages, dataTest, KSEDLocators):
         # Подписант
         self.podpisanti.wait_until_not_visible()
         self.podpisanti.scroll_to_element()
-        self.podpisanti.send_keys(u'Яцкин' + Keys.ENTER)
+        self.podpisanti.send_keys(u'Иванов2' + Keys.ENTER)
+
 
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
@@ -110,6 +111,7 @@ class KSEDCreatDocCS_RD(MPages, dataTest, KSEDLocators):
         assert "Документ" in self._web_driver.title
 
     # Сохраним ссылку на документ в файл
+
     def LinkDocWFile(self):
 
         url = self._web_driver.current_url

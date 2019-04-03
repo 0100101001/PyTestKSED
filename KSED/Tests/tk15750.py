@@ -94,7 +94,7 @@ class KSEDCreatWaySogl_RD(MPages, dataTest, KSEDLocators):
         # Подписант
         self.podpisanti.wait_until_not_visible()
         self.podpisanti.scroll_to_element()
-        self.podpisanti.send_keys(u'Яцкин' + Keys.ENTER)
+        self.podpisanti.send_keys(u'Иванов2' + Keys.ENTER)
 
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")

@@ -148,10 +148,10 @@ def test_15765(web_browser):
     reject = page2.rejectDoc()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15764(web_browser):
 
-    """ Отклонение согласования """
+    """ Основное согласование """
     # Шаг 1 создание документа
     page = KSEDacceptSogl_RD(web_browser)
 
@@ -257,11 +257,29 @@ def test_15723(web_browser):
 
     saveLink = page.LinkDocWFile()
 
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_15745(web_browser):
 
+    """ Создание нетипового маршрута """
+
+    page = KSEDCreatWaySogl(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Attach = page.attachment()
+
+    # NaprNaSogl = page.NapSoglasovanie()
+
+    # saveLink = page.LinkDocWFile()
 
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_15744(web_browser):
 
     """ Добавление сотрудника в этап """
@@ -270,7 +288,7 @@ def test_15744(web_browser):
 
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
-    getDoc = page.getDoc()
+    Creat_doc = page.Creat()
 
     create_route = page.creation_of_the_approval_route()
 
@@ -283,22 +301,3 @@ def test_15744(web_browser):
     # saveLink = page.LinkDocWFile()
 
 
-@pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
-def test_15745(web_browser):
-
-    """ Создание нетипового маршрута """
-
-    page = KSEDCreatWaySogl(web_browser)
-
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
-
-    getDoc = page.getDoc()
-
-    create_route = page.creation_of_the_approval_route()
-
-    # Attach = page.attachment()
-
-    # NaprNaSogl = page.NapSoglasovanie()
-
-    # saveLink = page.LinkDocWFile()
