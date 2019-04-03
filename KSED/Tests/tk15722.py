@@ -6,6 +6,7 @@
 
 import time, datetime
 
+import allure
 from selenium.webdriver.common.by import By
 
 from selenium.webdriver.support.ui import WebDriverWait
@@ -22,6 +23,7 @@ from KSED.pages import MPages, WebPage
 
 
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -43,7 +45,7 @@ class KSEDCreatDocCS_LND(MPages, dataTest, KSEDLocators):
         super().__init__(web_driver, uri)
 
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
 
         self.username_text = username
@@ -53,7 +55,7 @@ class KSEDCreatDocCS_LND(MPages, dataTest, KSEDLocators):
 
         assert "АРМ" in self._web_driver.title
 
-    # Создание документа (открытие формы создания и заполнение атрибутов)
+    @allure.step("Создание документа (открытие формы создания и заполнение атрибутов)")
     def Creat(self,):
 
         wait = WebDriverWait(self._web_driver, 10)

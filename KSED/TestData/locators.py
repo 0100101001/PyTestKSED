@@ -259,6 +259,7 @@ class KSEDLocators:
     confirm_6 = '(//button[contains(@id, "rn-document-approval_document-kind-assoc-cntrl-ok-button")])'  # xpath # Подтверждения выбора
     confirm_7 = '(//button[contains(@id, "document-approval_pvu-assoc-cntrl-ok-button")])'  # xpath # Подтверждения выбора
     confirm_8 = '(//button[contains(@id, "document-approval_lnd-kind-assoc-cntrl-ok-button")])'  # xpath # Подтверждения выбора
+    confirm_9 = '//button[contains(@id, "workflow-form-form-submit-button")][text() = "ОК"]' # xpath # Подтверждение согласования
 
     #"Отправить отчет"
     actionSendAllere = '//div[text() = "Отправить отчет"]' #xpath # "Отправить отчет" действие
@@ -397,3 +398,10 @@ class KSEDLocators:
     btnAction = '//button[contains(@id, "-attachment-actions-button-button")]' # кнопка действие
     downLoadNewVersion = '//a[text() = "Загрузить новую версию"]' # кнопка загрузить новую версию
     bntVersion = '//button[text() = "Версии"]' # кнопка версия
+    btnInApp = '//button[contains(@id, "start_internal_approval-button")]'# кнопка внутреннего согласования
+    btnInApp_2 ='//button[contains(@id, "_internal_approval")]'# кнопка внутреннего согласования
+    employeeForSogl = '//input[contains(@id, "employeeAssoc-cntrl-autocomplete-input")]' # поле сотрудники
+    btnRejectInnerSogl = '//div[@title = "Отозвать внутреннее согласование"]' # кнопка отозвать внутреннее согласование
+    statusInner = '//span[contains(@id, "-decision")]' # статус внутреннего согласования
+    navedTaskInnerSogl = '(//div[text() = "Выполняется"])[1]' # для наведения на задачу согласования внутреннего
+    btnRjctTaskInnerApp = '(//a[contains(@title, "Отозвать")])[1]' # кнопка отозвать задачу согласования внутреннего

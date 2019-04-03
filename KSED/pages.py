@@ -408,7 +408,7 @@ class MPages(WebPage):
     confirm_6 = WebElement(xpath=KSEDLocators.confirm_6)  # Подтверждения выбора
     confirm_7 = WebElement(xpath=KSEDLocators.confirm_7)  # Подтверждения выбора
     confirm_8 = WebElement(xpath=KSEDLocators.confirm_8)  # Подтверждения выбора
-
+    confirm_9 = WebElement(xpath=KSEDLocators.confirm_9)  # Подтверждения выбора
     btnTree = WebElement(xpath=KSEDLocators.btnTree)  # Кнопка ...
     btnSelection3 = WebElement(xpath=KSEDLocators.btnSelection3)  # Кнопка 3 выбора
     btnSelection_3 = WebElement(xpath=KSEDLocators.btnSelection_3)  # Кнопка 3 выбора
@@ -562,3 +562,10 @@ class MPages(WebPage):
     btnAction = WebElement(xpath=KSEDLocators.btnAction) # пкнопка действия
     downLoadNewVersion = WebElement(xpath=KSEDLocators.downLoadNewVersion) # загрузить новую версию
     bntVersion = WebElement(xpath=KSEDLocators.bntVersion) # кнопка версия
+    btnInApp = WebElement(xpath=KSEDLocators.btnInApp) # кнопка внутреннего согласования
+    btnInApp_2 = WebElement(xpath=KSEDLocators.btnInApp_2)  # кнопка внутреннего согласования
+    employeeForSogl = WebElement(xpath=KSEDLocators.employeeForSogl) # поле сотрудники
+    btnRejectInnerSogl = WebElement(xpath=KSEDLocators.btnRejectInnerSogl) # кнопка отзыва внутреннего согласования
+    statusInner = WebElement(xpath=KSEDLocators.statusInner)  # статус внутреннего согласования
+    navedTaskInnerSogl = WebElement(xpath=KSEDLocators.navedTaskInnerSogl) # для наведения на задачу согласования внутреннего
+    btnRjctTaskInnerApp = WebElement(xpath=KSEDLocators.btnRjctTaskInnerApp) # кнопка отозвать задачу согласования внутреннего

@@ -22,6 +22,7 @@ from KSED.pages import MPages, WebPage
 
 
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -43,7 +44,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         super().__init__(web_driver, uri)
 
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
 
         self.username_text = username

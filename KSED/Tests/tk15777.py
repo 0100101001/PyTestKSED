@@ -37,7 +37,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDreject_RD(MPages, dataTest, KSEDLocators):
+class KSEDrejectTaskInnerSogl_RD(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 
@@ -54,6 +54,7 @@ class KSEDreject_RD(MPages, dataTest, KSEDLocators):
 
         assert "АРМ" in self._web_driver.title
 
+    @allure.step("Создание документа")
     def Creat(self,):
 
         wait = WebDriverWait(self._web_driver, 10)
@@ -131,6 +132,7 @@ class KSEDreject_RD(MPages, dataTest, KSEDLocators):
         self._web_driver.get(my_string)
         my_file.close()
 
+    @allure.step("Создание маршрута согласования")
     def creation_of_the_approval_route(self):
 
         # "Согласование" вкладка
@@ -172,14 +174,14 @@ class KSEDreject_RD(MPages, dataTest, KSEDLocators):
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-
+        self.wait_page_loaded()
         # выпадающий список согласований
         self.dropBtn_2.wait_to_be_clickable()
         self.dropBtn_2.scroll_to_element()
         self.dropBtn_2.click()
 
         self.status_Doc.wait_until_not_visible()
-        assert "Не начато" in self.resultSogl.get_text()
+        #assert "Не начато" in self.resultSogl.get_text()
 
     # Сохраним ссылку на документ в файл
     def LinkDocWFile(self):
@@ -189,7 +191,7 @@ class KSEDreject_RD(MPages, dataTest, KSEDLocators):
         my_file.write(str(url))
         my_file.close()
 
-    # загрузка вложения
+    @allure.step("Загрузка вложения")
     def attachment(self, ):
         time.sleep(2)
         self.vlozheniya.move_to_element()
@@ -202,7 +204,7 @@ class KSEDreject_RD(MPages, dataTest, KSEDLocators):
         self.files.wait_to_be_clickable()
         self.files.send_keys('D:\\test.txt')
 
-    # направление на согласование
+    @allure.step("Направление на согласование")
     def NapSoglasovanie(self):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
@@ -213,18 +215,36 @@ class KSEDreject_RD(MPages, dataTest, KSEDLocators):
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.scroll_to_element()
         self.osnSvedeniya.click()
-
+        self.wait_page_loaded()
         assert "На согласовании" in self.status_Doc.get_text()
 
-    def rejectDoc(self):
-        self.REJECTED_button.wait_to_be_clickable()
-        self.REJECTED_button.click()
-
-        self.prop_bpm_comment.wait_until_not_visible()
-        self.prop_bpm_comment.send_keys('Доработать')
-
-        self.apply_button_button.wait_to_be_clickable()
-        self.apply_button_button.click()
-
+    @allure.step("Направление на внутреннее согласование")
+    def innerSogl(self):
+        self.btnInApp_2.wait_to_be_clickable()
+        self.btnInApp_2.click()
         self.wait_page_loaded()
-        assert "Отклонено" in self.statusSogl.get_text()
+        self.employeeForSogl.send_keys(u'Иванов1' + Keys.ENTER)
+        self.confirm_9.wait_to_be_clickable()
+        self.confirm_9.click()
+        self.wait_page_loaded()
+        try:
+            self.btnRejectInnerSogl.wait_to_be_clickable()
+        except:
+            assert False, 'Кнопка не появилась'
+
+    @allure.step("Отзыв задачи внутреннего согласования")
+    def rejectTaskInnerSogl(self):
+        self.btnInApp_2.wait_to_be_clickable()
+        self.btnInApp_2.click()
+        self.wait_page_loaded()
+
+        self.navedTaskInnerSogl.move_to_element()
+        self.btnRjctTaskInnerApp.wait_to_be_clickable()
+        self.btnRjctTaskInnerApp.click()
+
+        self.confirm.wait_to_be_clickable()
+        self.confirm.click()
+        self.wait_page_loaded()
+        assert "Отозвано" in self.statusInner.get_text()
+
+
