@@ -96,7 +96,7 @@ class KSEDAcceptInnerSogl_RD(MPages, dataTest, KSEDLocators):
         # Подписант
         self.podpisanti.wait_until_not_visible()
         self.podpisanti.scroll_to_element()
-        self.podpisanti.send_keys(u'Иванов2' + Keys.ENTER)
+        self.podpisanti.send_keys('Иванов2' + Keys.ENTER)
 
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
@@ -240,6 +240,6 @@ class KSEDAcceptInnerSogl_RD(MPages, dataTest, KSEDLocators):
         self.confirm.click()
         self.wait_page_loaded()
 
-        assert "Согласовано" in self.statusInner.get_text()
+        assert "Согласовано" in self.statusSogl.get_text()
 
 

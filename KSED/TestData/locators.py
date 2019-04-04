@@ -406,3 +406,9 @@ class KSEDLocators:
     statusInner = '//span[contains(@id, "-decision")]' # статус внутреннего согласования
     navedTaskInnerSogl = '(//div[text() = "Выполняется"])[1]' # для наведения на задачу согласования внутреннего
     btnRjctTaskInnerApp = '(//a[contains(@title, "Отозвать")])[1]' # кнопка отозвать задачу согласования внутреннего
+    btnAddAtt = '//button[contains(@id, "attachment-add-button")]' # кнопка добавить вложение
+    bntDocForRassmotr = '//a[text() = "Документы для рассмотрения"]' # кнопка добавить вложение для рассморения
+    elmDownloaded = '//a[@class = "text-cropped" and contains(string(), "Doc.docx")]' # добавленное вложение
+    btnAddComment = '//button[@title = "Замечание"]' # кнопка добавления замечаний
+    areaComment = '//textarea[contains(@id, "approval-annotation_comment")] '# замечания
+    checkComment = '(//div[@class ="rn-approval-annotations"]//div[@class = "annotation-comment"])[1]' # проверка комментариев

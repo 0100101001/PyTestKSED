@@ -54,6 +54,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
         assert "АРМ" in self._web_driver.title
 
+    @allure.step("Создание документа")
     def Creat(self,):
 
         wait = WebDriverWait(self._web_driver, 10)
@@ -131,6 +132,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         self._web_driver.get(my_string)
         my_file.close()
 
+    @allure.step("Содание маршрута согласования")
     def creation_of_the_approval_route(self):
 
         # "Согласование" вкладка
@@ -189,7 +191,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         my_file.write(str(url))
         my_file.close()
 
-    # загрузка вложения
+    @allure.step("Загрузка вложения")
     def attachment(self, ):
         time.sleep(2)
         self.vlozheniya.move_to_element()
@@ -202,7 +204,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         self.files.wait_to_be_clickable()
         self.files.send_keys('D:\\test.txt')
 
-    # направление на согласование
+    @allure.step("Направление на согласование")
     def NapSoglasovanie(self):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
@@ -214,7 +216,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
         assert "На согласовании" in self.status_Doc.get_text()
 
-    # отозвать с согласования
+    @allure.step("Отзыв согласования для добавления новой версии вложения")
     def rejectYourself(self):
 
         self.rejectSogl.wait_to_be_clickable()
@@ -235,6 +237,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
         assert "На доработке" in self.status_Doc.get_text()
 
+    @allure.step("Добавление новой версии вложения")
     def attachment_docReady(self, ):
 
         # self.vlozheniya.move_to_element()

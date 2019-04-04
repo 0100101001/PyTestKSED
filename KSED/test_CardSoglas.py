@@ -8,7 +8,8 @@
 # # How to run:
 #
 # #.... python -m pytest -v --driver Chrome --driver-path WebDriver\chromedriver --alluredir ./allure_report
-# #.... python -m pytest -v --driver Chrome --driver-path WebDriver\chromedriver --alluredir ./allure_report
+# #.... python -m pytest -v --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
+# #.... python -m pytest -v --driver IE --driver-path WebDriver\IEDriverServer --alluredir ./allure_report
 
 #IEDriver
 # #.... allure generate ./allure_report && allure open allure-report
@@ -29,6 +30,7 @@ from KSED.Tests.tk15750 import KSEDCreatWaySogl_RD
 from KSED.Tests.tk15744 import KSEDaddPerson
 from KSED.Tests.tk15755 import KSEDNaprSogl_RD
 from KSED.Tests.tk15758 import KSEDaddNewVersion
+from KSED.Tests.tk15759 import KSEDaddNewAtt
 from KSED.Tests.tk15765 import KSEDreject_RD
 from KSED.Tests.tk15764 import KSEDacceptSogl_RD
 from KSED.Tests.tk15767 import KSEDinnerSogl_RD
@@ -36,6 +38,7 @@ from KSED.Tests.tk15772 import KSEDrejectInnerSogl_RD
 from KSED.Tests.tk15777 import KSEDrejectTaskInnerSogl_RD
 from KSED.Tests.tk15779 import KSEDrepeatInnerSogl_RD
 from KSED.Tests.tk15780 import KSEDAcceptInnerSogl_RD
+from KSED.Tests.tk15781 import KSEDaddComment
 
 
 @pytest.mark.KSED_smoke_test
@@ -196,6 +199,7 @@ def test_15764(web_browser):
     accept = page2.acceptDoc()
 
 
+
 @pytest.mark.KSED_smoke_test
 @pytest.fixture(scope="session")
 def test_15758(web_browser):
@@ -211,14 +215,14 @@ def test_15758(web_browser):
 
     saveLink = page.LinkDocWFile()
 
-    Logout = page.USER_LOGOUTs()  # Выход из системы
+    #Logout = page.USER_LOGOUTs()  # Выход из системы
 
     # Шаг 2 создание маршрута
-    page = KSEDaddNewVersion(web_browser)
+    #page = KSEDaddNewVersion(web_browser)
 
-    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+    #LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
-    getDoc = page.getDoc()
+    #getDoc = page.getDoc()
 
     create_route = page.creation_of_the_approval_route()
 
@@ -234,10 +238,46 @@ def test_15758(web_browser):
     # Шаг 5 загрузка новой версии файла
     attach = page.attachment_docReady()
 
-
-
 @pytest.mark.KSED_smoke_test
 #@pytest.fixture(scope="session")
+def test_15759(web_browser):
+
+    """ Добавление новой версии """
+
+    # Шаг 1 создание документа
+    page = KSEDaddNewAtt(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    #Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
+    #page = KSEDaddNewAtt(web_browser)
+
+    #LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    #getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    # Шаг 4 возврат с согласования
+    reject = page.rejectYourself()
+
+    # Шаг 5 загрузка нового файла
+    attach = page.attachment_NewDoc()
+
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
 def test_15722(web_browser):
 
     """ Создание КС _ Вид ЛНД"""
@@ -530,10 +570,53 @@ def test_15780(web_browser):
 
     page3 = KSEDAcceptInnerSogl_RD(web_browser)
 
-    LogIn_page = page2.LogIN('test_user1', 'Changeme!')
+    LogIn_page = page2.LogIN('tst_user1', 'Changeme!')
 
     getDoc = page2.getDoc()
 
     innerSogl = page2.AcceptInnerSogl()
 
     Logout = page2.USER_LOGOUTs()  # Выход из системы
+
+@pytest.mark.KSED_smoke_test
+@pytest.fixture(scope="session")
+def test_15781(web_browser):
+
+    """ Основное согласование """
+    # Шаг 1 создание документа
+    page = KSEDaddComment(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    #Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
+    #page = KSEDacceptSogl_RD(web_browser)
+
+    #LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    #getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 вложение и направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 4 отклонение созгаласования
+
+    page2 = KSEDaddComment(web_browser)
+
+    LogIn_page = page2.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    addComment = page2.addComment()

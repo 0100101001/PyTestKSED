@@ -37,7 +37,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
+class KSEDaddComment(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 
@@ -174,14 +174,14 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-
+        self.wait_page_loaded()
         # выпадающий список согласований
         self.dropBtn_2.wait_to_be_clickable()
         self.dropBtn_2.scroll_to_element()
         self.dropBtn_2.click()
 
         self.status_Doc.wait_until_not_visible()
-        assert "Не начато" in self.resultSogl.get_text()
+        #assert "Не начато" in self.resultSogl.get_text()
 
     # Сохраним ссылку на документ в файл
     def LinkDocWFile(self):
@@ -208,10 +208,38 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
     def NapSoglasovanie(self):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
-
         self.wait_page_loaded()
+
         # Проверим статус документа
+
         self.osnSvedeniya.wait_to_be_clickable()
+        self.osnSvedeniya.scroll_to_element()
         self.osnSvedeniya.click()
 
         assert "На согласовании" in self.status_Doc.get_text()
+
+    @allure.step("Внесение замечаний")
+    def addComment(self):
+        self.btnAddComment.wait_to_be_clickable()
+        self.btnAddComment.click()
+        self.wait_page_loaded()
+        self.areaComment.send_keys('Есть замечания по документу' + Keys.ENTER)
+
+        self.confirm.wait_to_be_clickable()
+        self.confirm.click()
+        self.wait_page_loaded()
+        # self.apply_button_button.wait_to_be_clickable()
+        # self.apply_button_button.click()
+
+        # # "Согласование" вкладка
+        # self.soglasovanieWkladka.wait_to_be_clickable()
+        # self.soglasovanieWkladka.click()
+        # self.wait_page_loaded()
+        # # выпадающий список согласований
+        #
+        # self.dropBtn_2.scroll_to_element()
+        # self.dropBtn_2.wait_to_be_clickable()
+        # self.dropBtn_2.click()
+
+        # self.wait_page_loaded()
+        assert "Есть замечания по документу" in self.checkComment.get_text()

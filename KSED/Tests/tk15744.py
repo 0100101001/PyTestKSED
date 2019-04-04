@@ -54,7 +54,7 @@ class KSEDaddPerson(MPages, dataTest, KSEDLocators):
 
         assert "АРМ" in self._web_driver.title
 
-        # Создание документа (открытие формы создания и заполнение атрибутов)
+    @allure.step("Создание документа")
     def Creat(self, ):
         wait = WebDriverWait(self._web_driver, 10)
 
@@ -111,6 +111,7 @@ class KSEDaddPerson(MPages, dataTest, KSEDLocators):
         self._web_driver.get(my_string)
         my_file.close()
 
+    @allure.step("Добавление сотрудника в этап маршрута согасования")
     def creation_of_the_approval_route(self):
 
         # "Согласование" вкладка

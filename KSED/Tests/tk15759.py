@@ -37,7 +37,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
+class KSEDaddNewAtt(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 
@@ -156,7 +156,7 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-
+        self.wait_page_loaded()
 
         # выпадающий список согласований
         self.dropBtn_2.scroll_to_element()
@@ -175,12 +175,13 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
 
+
         # выпадающий список согласований
         self.dropBtn_2.wait_to_be_clickable()
         self.dropBtn_2.scroll_to_element()
         self.dropBtn_2.click()
 
-        self.status_Doc.wait_until_not_visible()
+        self.resultSogl.wait_to_be_clickable()
         assert "Не начато" in self.resultSogl.get_text()
 
     # Сохраним ссылку на документ в файл
@@ -193,7 +194,7 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
 
     @allure.step("Загрузка вложения")
     def attachment(self, ):
-        time.sleep(2)
+        self.wait_page_loaded()
         self.vlozheniya.move_to_element()
         self.attachments.wait_to_be_clickable()
         self.attachments.click()
@@ -204,7 +205,7 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
         self.files.wait_to_be_clickable()
         self.files.send_keys('D:\\test.txt')
 
-    @allure.step("Направление на согласование")
+    @allure.step("Направление на соглаоование")
     def NapSoglasovanie(self):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
@@ -215,3 +216,55 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
         self.osnSvedeniya.click()
 
         assert "На согласовании" in self.status_Doc.get_text()
+
+    @allure.step("Возврат документа для добавления файла")
+    def rejectYourself(self):
+
+        self.rejectSogl.wait_to_be_clickable()
+        self.rejectSogl.click()
+
+        self.wait_page_loaded()
+        # причина возврата
+        self.reasonReject.wait_until_not_visible()
+        self.reasonReject.send_keys('На доработку')
+
+        self.confirm2.wait_to_be_clickable()
+        self.confirm2.click()
+
+        self.wait_page_loaded()
+        # Проверим статус документа
+        self.osnSvedeniya.wait_to_be_clickable()
+        self.osnSvedeniya.click()
+
+        assert "На доработке" in self.status_Doc.get_text()
+
+    @allure.step("Добавление нового вложения")
+    def attachment_NewDoc(self, ):
+
+        # self.vlozheniya.move_to_element()
+        self.btnAddAtt.wait_to_be_clickable()
+        self.btnAddAtt.click()
+
+        self.bntDocForRassmotr.wait_to_be_clickable()
+        self.bntDocForRassmotr.click()
+
+        self.files.wait_to_be_clickable()
+        self.files.send_keys('D:\\Doc.docx')
+
+
+        # self.fileUpload3.wait_to_be_clickable()
+        # self.fileUpload3.click()
+        # self.wait_page_loaded()
+
+        # self._web_driver.current_url()
+        self.get(self._web_driver.current_url)
+        self.vlozheniya.move_to_element()
+        self.vlozheniya.wait_to_be_clickable()
+        self.vlozheniya.click()
+
+
+        try:
+            self.elmDownloaded.wait_to_be_clickable()
+        except:
+            assert False, 'Файл не добавлен'
+

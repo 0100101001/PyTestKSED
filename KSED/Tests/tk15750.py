@@ -54,6 +54,7 @@ class KSEDCreatWaySogl_RD(MPages, dataTest, KSEDLocators):
 
         assert "АРМ" in self._web_driver.title
 
+    @allure.step("Создание документа")
     def Creat(self,):
 
         wait = WebDriverWait(self._web_driver, 10)
@@ -131,6 +132,7 @@ class KSEDCreatWaySogl_RD(MPages, dataTest, KSEDLocators):
         self._web_driver.get(my_string)
         my_file.close()
 
+    @allure.step("Создание маршрута согласования")
     def creation_of_the_approval_route(self):
 
         # "Согласование" вкладка

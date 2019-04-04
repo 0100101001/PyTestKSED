@@ -570,3 +570,9 @@ class MPages(WebPage):
     statusInner = WebElement(xpath=KSEDLocators.statusInner)  # статус внутреннего согласования
     navedTaskInnerSogl = WebElement(xpath=KSEDLocators.navedTaskInnerSogl) # для наведения на задачу согласования внутреннего
     btnRjctTaskInnerApp = WebElement(xpath=KSEDLocators.btnRjctTaskInnerApp) # кнопка отозвать задачу согласования внутреннего
+    btnAddAtt = WebElement(xpath=KSEDLocators.btnAddAtt) # кнопка добавить вложение
+    bntDocForRassmotr = WebElement(xpath=KSEDLocators.bntDocForRassmotr)  # кнопка добавить вложение для рассморения
+    elmDownloaded = WebElement(xpath=KSEDLocators.elmDownloaded)  # добавленное вложение
+    btnAddComment = WebElement(xpath=KSEDLocators.btnAddComment)  # кнопка добавления замечаний
+    areaComment = WebElement(xpath=KSEDLocators.areaComment)  # замечания
+    checkComment = WebElement(xpath=KSEDLocators.checkComment)  # проверка комментариев
