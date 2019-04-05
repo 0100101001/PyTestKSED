@@ -277,6 +277,8 @@ class MPages(WebPage):
     poiskzapr = WebElement(xpath=KSEDLocators.poiskzapr) # Поисковые запросы
     myPoiskZapr = WebElement(xpath=KSEDLocators.myPoiskZapr) # Поисковые запросы
     ControlZapr = WebElement(xpath=KSEDLocators.ControlZapr) # Упарвление поисковыми запросами
+    btnPlus = WebElement(xpath=KSEDLocators.btnPlus)  # кнопка развернуть в моих запросах
+
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
     oblProsm = WebElement(xpath=KSEDLocators.oblProsm) # Область просмотра
     oneDocInList = WebElement(xpath=KSEDLocators.oneDocInList) # Первый документ в списке
@@ -417,7 +419,7 @@ class MPages(WebPage):
     btnSelection1 = WebElement(xpath=KSEDLocators.btnSelection1)  # Кнопка 1 выбор
     btnSelection_5 = WebElement(xpath=KSEDLocators.btnSelection_5)  # Кнопка 27 выбор
     status_Doc = WebElement(xpath=KSEDLocators.status_Doc) # Статус документа во вкладке (Основные сведения)
-
+    status_Doc_1 = WebElement(xpath=KSEDLocators.status_Doc_1)  # Статус документа во вкладке (Основные сведения)
     #"Отправить отчет"
     actionSendAllere = WebElement(xpath=KSEDLocators.actionSendAllere) # "Отправить отчет" действие
     btnSend = WebElement(xpath=KSEDLocators.btnSend) # Кнопка "Отправить"
@@ -576,3 +578,5 @@ class MPages(WebPage):
     btnAddComment = WebElement(xpath=KSEDLocators.btnAddComment)  # кнопка добавления замечаний
     areaComment = WebElement(xpath=KSEDLocators.areaComment)  # замечания
     checkComment = WebElement(xpath=KSEDLocators.checkComment)  # проверка комментариев
+    returnDecision = WebElement(xpath=KSEDLocators.returnDecision)  # кнопка отзыв решен
+    softDecision = WebElement(xpath=KSEDLocators.softDecision)  # кнопка смягчитьрешение

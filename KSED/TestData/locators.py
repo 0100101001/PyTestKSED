@@ -107,6 +107,7 @@ class KSEDLocators:
     poiskzapr = '//span[text() = "Поисковые запросы"]' #xpath # Поисковые запросы
     myPoiskZapr = '//td[contains(@id, "ygtvcontente")]/span[text() = "2"]' #xpath # Поисковые запросы
     ControlZapr = '//span[text() = "Управление поисковыми запросами"]' #xpath # Управление поисковыми запросами
+    btnPlus = '(//a[@class = "ygtvspacer"])[14]' #кнопка развернуть в моих запросах
 
 
     # ОБЛАСТЬ ПРОСМОТРА (КСЭД)
@@ -209,6 +210,7 @@ class KSEDLocators:
     btnOKpodpis = '(//button[text() = "ОК"])[1]' #xpath # Кнопка ОК подтверждение подписания (//em[text() = "Согласование"])[2]
     dropBtn = '(//span[contains(@class, "expand-table-icon")])[2]' #xpath # Кнопка открыть выпадающий список
     dropBtn_2 = '(//span[contains(@class, "expand-table-icon")])[1]' #xpath # Кнопка открыть выпадающий список
+    #dropBtn_2 = '(//a[contains(@title, "Раскрыть все этапы")])[1]' #xpath # Кнопка открыть выпадающий список
     resultSogl = '//td[contains(@class, "StageItemStatus")]'  # xpath # результат соглаоования
     soglasovanieWkladka = '//em[contains(text(), "Согласование")]'  # xpath # Вкладка "Согласование"
     soglasovanieWkladka2 = '(// em[text() = "Согласование"])[2]'  # xpath # Вкладка "Согласование"
@@ -272,6 +274,7 @@ class KSEDLocators:
 
 
     status_Doc = '//span[contains(@id, "_status")]' #xpath # Статус документа во вкладке (Основные сведения) (//div[text() = "Не начат"])[1]
+    status_Doc_1 = '(//span[contains(@id, "_status")])[1]' #xpath # Статус документа во вкладке  (Основные сведения)
     status_etap = '(//div[text() = "Не начат"])[1]'  # xpath # Статус документа во вкладке (Основные сведения)
 
     # (панель согласования)
@@ -412,3 +415,5 @@ class KSEDLocators:
     btnAddComment = '//button[@title = "Замечание"]' # кнопка добавления замечаний
     areaComment = '//textarea[contains(@id, "approval-annotation_comment")] '# замечания
     checkComment = '(//div[@class ="rn-approval-annotations"]//div[@class = "annotation-comment"])[1]' # проверка комментариев
+    returnDecision = '//div[contains(@title, "Отозвать решение")]' # кнопка отзыв решения
+    softDecision = '//div[contains(@title, "Смягчить решение")]' # кнопка смягчитьрешение
