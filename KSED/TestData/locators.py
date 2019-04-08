@@ -406,7 +406,8 @@ class KSEDLocators:
     btnInApp_2 ='//button[contains(@id, "_internal_approval")]'# кнопка внутреннего согласования
     employeeForSogl = '//input[contains(@id, "employeeAssoc-cntrl-autocomplete-input")]' # поле сотрудники
     btnRejectInnerSogl = '//div[@title = "Отозвать внутреннее согласование"]' # кнопка отозвать внутреннее согласование
-    statusInner = '//span[contains(@id, "-decision")]' # статус внутреннего согласования
+    statusInner = '(//div[contains(@class,"approver-item-status")])[2]' # статус внутреннего согласования
+    statusInner_2 = '(//div[contains(@class,"approver-item-status")])[1]'  # статус внутреннего согласования
     navedTaskInnerSogl = '(//div[text() = "Выполняется"])[1]' # для наведения на задачу согласования внутреннего
     btnRjctTaskInnerApp = '(//a[contains(@title, "Отозвать")])[1]' # кнопка отозвать задачу согласования внутреннего
     btnAddAtt = '//button[contains(@id, "attachment-add-button")]' # кнопка добавить вложение
@@ -417,3 +418,5 @@ class KSEDLocators:
     checkComment = '(//div[@class ="rn-approval-annotations"]//div[@class = "annotation-comment"])[1]' # проверка комментариев
     returnDecision = '//div[contains(@title, "Отозвать решение")]' # кнопка отзыв решения
     softDecision = '//div[contains(@title, "Смягчить решение")]' # кнопка смягчитьрешение
+    takeTasks = '//div[contains(@class, "widget-button-grey")][contains(text(), "Забрать задачу")]' # кнопка забрать задачу
+    backTasks = '//div[contains(@class, "widget-button-grey")][contains(text(), "Вернуть задачу")]' # кнопка вернуть задачу

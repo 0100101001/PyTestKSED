@@ -258,5 +258,5 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         try:
             self.bntVersion.wait_to_be_clickable()
         except:
-            assert False, 'Кнопка не появилась'
+            assert False, 'Кнопка версии не появилась'
 

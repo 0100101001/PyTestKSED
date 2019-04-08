@@ -216,7 +216,7 @@ class KSEDinnerSogl_RD(MPages, dataTest, KSEDLocators):
         self.osnSvedeniya.scroll_to_element()
         self.osnSvedeniya.click()
 
-        assert "На согласовании" in self.status_Doc.get_text()
+        assert "На согласовании" in self.status_Doc_1.get_text()
 
     @allure.step("Направление на внутреннее согласование")
     def innerSogl(self):

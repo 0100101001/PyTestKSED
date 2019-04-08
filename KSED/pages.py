@@ -570,6 +570,7 @@ class MPages(WebPage):
     employeeForSogl = WebElement(xpath=KSEDLocators.employeeForSogl) # поле сотрудники
     btnRejectInnerSogl = WebElement(xpath=KSEDLocators.btnRejectInnerSogl) # кнопка отзыва внутреннего согласования
     statusInner = WebElement(xpath=KSEDLocators.statusInner)  # статус внутреннего согласования
+    statusInner_2 = WebElement(xpath=KSEDLocators.statusInner_2)  # статус внутреннего согласования
     navedTaskInnerSogl = WebElement(xpath=KSEDLocators.navedTaskInnerSogl) # для наведения на задачу согласования внутреннего
     btnRjctTaskInnerApp = WebElement(xpath=KSEDLocators.btnRjctTaskInnerApp) # кнопка отозвать задачу согласования внутреннего
     btnAddAtt = WebElement(xpath=KSEDLocators.btnAddAtt) # кнопка добавить вложение
@@ -580,3 +581,5 @@ class MPages(WebPage):
     checkComment = WebElement(xpath=KSEDLocators.checkComment)  # проверка комментариев
     returnDecision = WebElement(xpath=KSEDLocators.returnDecision)  # кнопка отзыв решен
     softDecision = WebElement(xpath=KSEDLocators.softDecision)  # кнопка смягчитьрешение
+    takeTasks = WebElement(xpath=KSEDLocators.takeTasks)  # кнопка забрать задачу
+    backTasks = WebElement(xpath=KSEDLocators.backTasks)  # кнопка вернуть задачу

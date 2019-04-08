@@ -214,4 +214,4 @@ class KSEDNaprSogl_RD(MPages, dataTest, KSEDLocators):
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.click()
 
-        assert "На согласовании" in self.status_Doc.get_text()
+        assert "На согласовании" in self.status_Doc_1.get_text()

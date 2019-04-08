@@ -37,7 +37,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
+class KSEDtakeTask(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 
@@ -132,7 +132,7 @@ class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
         self._web_driver.get(my_string)
         my_file.close()
 
-    @allure.step("Создание нового маршрута согласования")
+    @allure.step("Создание маршрута согласования")
     def creation_of_the_approval_route(self):
 
         # "Согласование" вкладка
@@ -166,7 +166,7 @@ class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
         self.btnAddPerson.wait_to_be_clickable()
         self.btnAddPerson.click()
 
-        self.reserchInput.send_keys('Яцкин' + Keys.ENTER)
+        self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
 
 
         self.btnSelection1.wait_to_be_clickable()
@@ -174,14 +174,14 @@ class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-
+        self.wait_page_loaded()
         # выпадающий список согласований
         self.dropBtn_2.wait_to_be_clickable()
         self.dropBtn_2.scroll_to_element()
         self.dropBtn_2.click()
 
         self.status_Doc.wait_until_not_visible()
-        assert "Не начато" in self.resultSogl.get_text()
+        #assert "Не начато" in self.resultSogl.get_text()
 
     # Сохраним ссылку на документ в файл
     def LinkDocWFile(self):
@@ -215,36 +215,16 @@ class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.scroll_to_element()
         self.osnSvedeniya.click()
-        self.wait_page_loaded()
-        assert "На согласовании" in self.status_Doc_1.get_text()
 
-    @allure.step("Отклонение документа")
-    def rejectDoc(self):
-        self.REJECTED_button.wait_to_be_clickable()
-        self.REJECTED_button.click()
+        assert "На согласовании" in self.status_Doc.get_text()
 
-        self.prop_bpm_comment.wait_until_not_visible()
-        self.prop_bpm_comment.send_keys('Доработать')
-
-        self.apply_button_button.wait_to_be_clickable()
-        self.apply_button_button.click()
+    @allure.step("Забрать задачу согласования")
+    def takeTask_RD(self):
+        self.takeTasks.wait_to_be_clickable()
+        self.takeTasks.click()
 
         self.wait_page_loaded()
-        assert "Отклонено" in self.statusSogl.get_text()
-
-    @allure.step("Смягчение решения")
-    def softDecision_RD(self):
-        
-        self.softDecision.wait_to_be_clickable()
-        self.softDecision.click()
-
-        self.confirm2.wait_to_be_clickable()
-        self.confirm2.click()
-
-        self.wait_page_loaded()
-
-        self.osnSvedeniya.wait_to_be_clickable()
-        self.osnSvedeniya.scroll_to_element()
-        self.osnSvedeniya.click()
-        self.wait_page_loaded()
-        assert "Согласовано" in self.statusInner_2.get_text()
+        try:
+            self.backTasks.wait_to_be_clickable()
+        except:
+            assert False, 'Кнопка вернуть не появилась'
