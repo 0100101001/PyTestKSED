@@ -170,7 +170,7 @@ class KSEDrepeatInnerSogl_RD(MPages, dataTest, KSEDLocators):
 
 
         self.btnSelection1.wait_to_be_clickable()
-        self.btnSelection1.click()  # кнопка + третий выбор
+        self.btnSelection1.click()  # кнопка + 1 выбор
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
@@ -249,13 +249,20 @@ class KSEDrepeatInnerSogl_RD(MPages, dataTest, KSEDLocators):
 
     @allure.step("Повторное направление на внутреннее согласование")
     def repeatInnerSogl(self):
-        self.btnInApp.wait_to_be_clickable()
-        self.btnInApp.click()
+        self.get(self._web_driver.current_url)
+        self.btnInApp_2.wait_to_be_clickable()
+        self.btnInApp_2.click()
         self.wait_page_loaded()
-        # self.employeeForSogl.send_keys(u'Иванов1' + Keys.ENTER)
-        self.confirm_9.wait_to_be_clickable()
-        self.confirm_9.click()
+        self.btnAddPerson_2.wait_to_be_clickable() #для версии 4.4.9
+        self.btnAddPerson_2.click() #для версии 4.4.9
+        self.wait_page_loaded() #для версии 4.4.9
+        self.reserchInput.send_keys(u'Иванов1' + Keys.ENTER) #для версии 4.4.9
+        self.btnSelection1.wait_to_be_clickable()
+        self.btnSelection1.click()  # кнопка + 1 выбор
+        self.confirm_5.wait_to_be_clickable()
+        self.confirm_5.click()
         self.wait_page_loaded()
+        self.get(self._web_driver.current_url)
         try:
             self.btnRejectInnerSogl.wait_to_be_clickable()
         except:

@@ -314,7 +314,7 @@ def test_15745(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15744(web_browser):
 
     """ Добавление сотрудника в этап """
@@ -379,7 +379,7 @@ def test_15767(web_browser):
     innerSogl = page2.innerSogl()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15772(web_browser):
 
     """ Возврат с внутреннеего согласования """
@@ -426,7 +426,7 @@ def test_15772(web_browser):
     rejectInnerSogl = page2.rejectInnerSogl()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15777(web_browser):
 
     """ Отзыв задачи внутренеего согласования """
@@ -750,7 +750,7 @@ def test_15810(web_browser):
     returnDecision = page2.returnDecision_RD()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15812(web_browser):
 
     """ Отзыв решения """

@@ -394,6 +394,7 @@ class KSEDLocators:
     titleCS = '//input[contains(@name, "prop_lecm-document_title")]'   # xpath  # заголовок
     saveProject = '//button[text() = "Сохранить проект"]'   # xpath  # сохранить проект
     btnAddPerson = '(//a[contains(@title, "Добавить")])[1]'  # xpath  # добавить сотрудника
+    btnAddPerson_2 = '(//span[text() = "Добавить сотрудника"]//parent::a[contains(@id, "onActionAddEmployee")])[1]'
     reserchInput = '//input[contains(@id, "employee-search-text")]'  # строка поиска
     zamechSogl = '(//div[contains(@class, "annotation-comment")])' # комментарии
     statusSogl = '//a[contains(@onclick, "ApprovalResult")]'  # комментарии
@@ -404,6 +405,7 @@ class KSEDLocators:
     bntVersion = '//button[text() = "Версии"]' # кнопка версия
     btnInApp = '//button[contains(@id, "start_internal_approval-button")]'# кнопка внутреннего согласования
     btnInApp_2 ='//button[contains(@id, "_internal_approval")]'# кнопка внутреннего согласования
+
     employeeForSogl = '//input[contains(@id, "employeeAssoc-cntrl-autocomplete-input")]' # поле сотрудники
     btnRejectInnerSogl = '//div[@title = "Отозвать внутреннее согласование"]' # кнопка отозвать внутреннее согласование
     statusInner = '(//div[contains(@class,"approver-item-status")])[2]' # статус внутреннего согласования
