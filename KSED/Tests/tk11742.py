@@ -3,35 +3,16 @@
 # -*- encoding=utf8 -*-
 
 
-import time, datetime
+import time
+
+from KSED.Pages.PageObject import Locator
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
+
+from KSED.TestData.pages import MPages
 
 
-
-from selenium.webdriver import ActionChains
-
-from page_objects import PageObject
-
-from page_objects import PageElement
-
-from page_objects import MultiPageElement
-
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.common.exceptions import *
-
-from selenium.webdriver.support import expected_conditions as EC
-
-from selenium.webdriver.common.keys import Keys
-
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
-
-from KSED.pages import MPages
-
-
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -57,7 +38,7 @@ class KSEDexpZap(MPages, Locator, dataTest, KSEDLocators):
 
         # wait_page_loaded(self.w)
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
 
         self.username_text = username
@@ -70,11 +51,12 @@ class KSEDexpZap(MPages, Locator, dataTest, KSEDLocators):
 
         assert "АРМ" in self._web_driver.title
 
-        time.sleep(0.5)
-
-        self.section_allur.move_to_element()  # Перейти в строку отчеты
-        self.section_allur.click()
-        self.poiskzapr.move_to_element().move_by_offset(-70, 0).click().perform() # развернуть на "+"
+        self.wait_page_loaded()
+        self.mySearch.move_to_element() # Перейти в строку отчеты
+        self.mySearch.wait_to_be_clickable()
+        self.mySearch.click()
+        self.btnPlus.wait_to_be_clickable() # развернуть на "+"
+        self.btnPlus.click()
         self.zaprosToDel.wait_to_be_clickable()  # выбрать созданный по предусловию запрос
         self.zaprosToDel.click() # выбрать созданный по предусловию запрос
         self.checkBoxFirst.wait_to_be_clickable()  # выбрать созданный по предусловию запрос

@@ -6,21 +6,13 @@
 
 import time, datetime
 
-from selenium.webdriver.common.by import By
-
 from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
 
-from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
-from KSED.pages import MPages, WebPage
-
-
-
+from KSED.TestData.pages import MPages
 
 import allure
 def wait_page_loaded(driver):
@@ -132,9 +124,58 @@ class KSEDacceptSogl_RD(MPages, dataTest, KSEDLocators):
         self._web_driver.get(my_string)
         my_file.close()
 
+    # @allure.step("Создание маршрута согласования")
+    # def creation_of_the_approval_route(self):
+    #
+    #     # "Согласование" вкладка
+    #     self.soglasovanieWkladka.wait_to_be_clickable()
+    #     self.soglasovanieWkladka.click()
+    #
+    #     # "Создать маршрут" клик по кнопке
+    #     self.createRuleBtn.wait_to_be_clickable()
+    #     self.createRuleBtn.click()
+    #
+    #     # Выберем "Типовой маршрут"
+    #     self.createRuleTypical.wait_to_be_clickable()
+    #     self.createRuleTypical.click()
+    #
+    #     # Кнопка "Продолжить"
+    #     self.btnContinium.wait_to_be_clickable()
+    #     self.btnContinium.click()
+    #
+    #     self.btnSelection_3.wait_to_be_clickable()
+    #     self.btnSelection_3.click()  # кнопка + третий выбор
+    #
+    #     self.confirm_5.wait_to_be_clickable()
+    #     self.confirm_5.click()  # кнопка подтвердить
+    #
+    #
+    #     # выпадающий список согласований
+    #     self.dropBtn_2.scroll_to_element()
+    #     self.dropBtn_2.wait_to_be_clickable()
+    #     self.dropBtn_2.click()
+    #     # Добавление сотрудника
+    #     self.btnAddPerson.wait_to_be_clickable()
+    #     self.btnAddPerson.click()
+    #
+    #     self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
+    #
+    #
+    #     self.btnSelection1.wait_to_be_clickable()
+    #     self.btnSelection1.click()  # кнопка + третий выбор
+    #
+    #     self.confirm_5.wait_to_be_clickable()
+    #     self.confirm_5.click()  # кнопка подтвердить
+    #     self.wait_page_loaded()
+    #     # выпадающий список согласований
+    #     self.dropBtn_2.wait_to_be_clickable()
+    #     self.dropBtn_2.scroll_to_element()
+    #     self.dropBtn_2.click()
+    #
+    #     self.status_Doc.wait_until_not_visible()
+    #     assert "Не начато" in self.resultSogl.get_text()
     @allure.step("Создание маршрута согласования")
     def creation_of_the_approval_route(self):
-
         # "Согласование" вкладка
         self.soglasovanieWkladka.wait_to_be_clickable()
         self.soglasovanieWkladka.click()
@@ -156,7 +197,7 @@ class KSEDacceptSogl_RD(MPages, dataTest, KSEDLocators):
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-
+        self.wait_page_loaded()
 
         # выпадающий список согласований
         self.dropBtn_2.scroll_to_element()
@@ -168,21 +209,19 @@ class KSEDacceptSogl_RD(MPages, dataTest, KSEDLocators):
 
         self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
 
-
         self.btnSelection1.wait_to_be_clickable()
         self.btnSelection1.click()  # кнопка + третий выбор
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-        self.wait_page_loaded()
-        # выпадающий список согласований
-        self.dropBtn_2.wait_to_be_clickable()
-        self.dropBtn_2.scroll_to_element()
-        self.dropBtn_2.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+        # # выпадающий список согласований
+        # self.dropBtn_2.wait_to_be_clickable()
+        # self.dropBtn_2.scroll_to_element()
+        # self.dropBtn_2.click()
 
-        self.status_Doc.wait_until_not_visible()
-        #assert "Не начато" in self.resultSogl.get_text()
-
+        self.resultSogl.wait_to_be_clickable()
+        assert "Не начато" in self.resultSogl.get_text()
     # Сохраним ссылку на документ в файл
     def LinkDocWFile(self):
 
@@ -220,10 +259,11 @@ class KSEDacceptSogl_RD(MPages, dataTest, KSEDLocators):
 
     @allure.step("Согласование документа")
     def acceptDoc(self):
+        self.wait_page_loaded()
         self.APPROVED_button.wait_to_be_clickable()
         self.APPROVED_button.click()
 
-        self.confirm.wait_until_not_visible()
+        self.confirm.wait_to_be_clickable()
         self.confirm.click()
         self.wait_page_loaded()
         # self.apply_button_button.wait_to_be_clickable()

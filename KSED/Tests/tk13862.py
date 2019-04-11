@@ -6,17 +6,17 @@
 
 import time
 
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
-from KSED.pages import MPages
+from KSED.TestData.pages import MPages
 
 
 
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -41,7 +41,7 @@ class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
 
         super().__init__(web_driver, uri)
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
 
         self.username_text = username

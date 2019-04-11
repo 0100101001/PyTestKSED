@@ -10,11 +10,12 @@ from selenium.webdriver.common.keys import Keys
 
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
-from KSED.pages import MPages
+from KSED.TestData.pages import MPages
 
 
 
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -39,8 +40,8 @@ class KSEDDocPorSendAllure(MPages, dataTest, KSEDLocators):
 
         super().__init__(web_driver, uri)
 
-        # Авторизация
 
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
         self.username_text = username
         self.password_text = password

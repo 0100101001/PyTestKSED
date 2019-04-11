@@ -6,21 +6,13 @@
 
 import time, datetime
 
-from selenium.webdriver.common.by import By
-
 from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
 
-from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
-from KSED.pages import MPages, WebPage
-
-
-
+from KSED.TestData.pages import MPages
 
 import allure
 def wait_page_loaded(driver):
@@ -174,11 +166,11 @@ class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-
-        # выпадающий список согласований
-        self.dropBtn_2.wait_to_be_clickable()
-        self.dropBtn_2.scroll_to_element()
-        self.dropBtn_2.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+        # # выпадающий список согласований
+        # self.dropBtn_2.wait_to_be_clickable()
+        # self.dropBtn_2.scroll_to_element()
+        # self.dropBtn_2.click()
 
         self.status_Doc.wait_until_not_visible()
         assert "Не начато" in self.resultSogl.get_text()
@@ -208,22 +200,24 @@ class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
     def NapSoglasovanie(self):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
-        self.wait_page_loaded()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
 
         # Проверим статус документа
 
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.scroll_to_element()
         self.osnSvedeniya.click()
-        self.wait_page_loaded()
+
         assert "На согласовании" in self.status_Doc_1.get_text()
 
     @allure.step("Отклонение документа")
     def rejectDoc(self):
+        time.sleep(10)
+        self.get(self._web_driver.current_url)
         self.REJECTED_button.wait_to_be_clickable()
         self.REJECTED_button.click()
-
-        self.prop_bpm_comment.wait_until_not_visible()
+        self.wait_page_loaded()
+        self.prop_bpm_comment.wait_to_be_clickable()
         self.prop_bpm_comment.send_keys('Доработать')
 
         self.apply_button_button.wait_to_be_clickable()
@@ -234,17 +228,17 @@ class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
 
     @allure.step("Смягчение решения")
     def softDecision_RD(self):
-        
+        time.sleep(10)
+        self.get(self._web_driver.current_url)
         self.softDecision.wait_to_be_clickable()
         self.softDecision.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.confirm2.wait_to_be_clickable()
         self.confirm2.click()
-
-        self.wait_page_loaded()
-
-        self.osnSvedeniya.wait_to_be_clickable()
-        self.osnSvedeniya.scroll_to_element()
-        self.osnSvedeniya.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+        # self.wait_page_loaded()
+        # self.osnSvedeniya.wait_to_be_clickable()
+        # self.osnSvedeniya.scroll_to_element()
+        # self.osnSvedeniya.click()
         self.wait_page_loaded()
         assert "Согласовано" in self.statusInner_2.get_text()

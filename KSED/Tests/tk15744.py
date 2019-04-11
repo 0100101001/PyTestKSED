@@ -6,21 +6,13 @@
 
 import time, datetime
 
-from selenium.webdriver.common.by import By
-
 from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
 
-from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
-from KSED.pages import MPages, WebPage
-
-
-
+from KSED.TestData.pages import MPages
 
 import allure
 def wait_page_loaded(driver):

@@ -25,10 +25,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
 
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
+from KSED.Pages.PageObject import Locator
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -93,8 +94,8 @@ class KSEDCreateZap(Locator, dataTest, KSEDLocators):
         page.nameZap.send_keys('ToDel' + Keys.RETURN) # Сохранить с наименованием
         time.sleep(0.5)
         actions = ActionChains(self.w)
-        actions.move_to_element(page.mySearch).click().perform()
-        time.sleep(0.5)
-        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform() # развернуть список запросов
-        time.sleep(0.5)
+        actions.move_to_element(page.mySearch).click().perform()  # Переход в управление моими запросами
+        time.sleep(1)
+        actions.move_to_element(page.poiskzapr).move_by_offset(-70, 0).click().perform()  # развернуть на "+"
+        time.sleep(1)
         assert page.zaprosToDel.is_displayed() # Проверка, что есть сохраненный элемент

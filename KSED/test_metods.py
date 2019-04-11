@@ -12,3 +12,7 @@
 
 # обновить страницу
 # self.get(self._web_driver.current_url)
+
+
+# ожидание пока не пропадет "Загрузка"
+#self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')

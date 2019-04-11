@@ -26,6 +26,7 @@ from KSED.TestData.locators import KSEDLocators
 
 
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -54,7 +55,7 @@ class KSEDRDSoglas_sendDorab(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
         # wait = WebDriverWait(self.w, 10, poll_frequency=1,
         #                      ignored_exceptions=[NoSuchElementException,

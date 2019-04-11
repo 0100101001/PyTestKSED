@@ -4,17 +4,9 @@
 
 
 
-import time, datetime
-
-
+import time
 
 from selenium.webdriver import ActionChains
-
-from page_objects import PageObject
-
-from page_objects import PageElement
-
-from page_objects import MultiPageElement
 
 from selenium.webdriver.common.by import By
 
@@ -29,11 +21,12 @@ from selenium.webdriver.common.keys import Keys
 from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
-from KSED.pages import MPages
+from KSED.TestData.pages import MPages
 
 
 
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -62,7 +55,7 @@ class KSEDCreatDocReestr(Locator, dataTest, KSEDLocators, MPages):
         #
         # wait_page_loaded(self._web_driver)
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
         # wait = WebDriverWait(self.w, 10, poll_frequency=1,
         #                      ignored_exceptions=[NoSuchElementException,

@@ -3,32 +3,14 @@
 # -*- encoding=utf8 -*-
 
 
-import time, datetime
-
-
+import time
 
 from selenium.webdriver import ActionChains
 
-from page_objects import PageObject
+from KSED.Pages.PageObject import Locator
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
 
-from page_objects import PageElement
-
-from page_objects import MultiPageElement
-
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.ui import WebDriverWait
-
-from selenium.common.exceptions import *
-
-from selenium.webdriver.support import expected_conditions as EC
-
-from selenium.webdriver.common.keys import Keys
-
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
-from KSED.pages import MPages
 
 def wait_page_loaded(driver):
 

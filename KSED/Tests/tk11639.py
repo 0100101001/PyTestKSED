@@ -4,36 +4,12 @@
 
 
 
-import time, datetime
-
-
-from selenium.webdriver import ActionChains
-
-from page_objects import PageObject
-
-from page_objects import PageElement
-
-from page_objects import MultiPageElement
-
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.ui import Select, WebDriverWait
-
-from selenium.common.exceptions import *
-
-from selenium.webdriver.support import expected_conditions as EC
-
-from selenium.webdriver.common.keys import Keys
+import time
 
 from Pages.PageObject import Locator
 from TestData.data import dataTest
-from KSED.pages import MPages
 
-
-
-
-
-
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -62,7 +38,7 @@ class KSEDLogin(Locator, dataTest):
 
         wait_page_loaded(self.w)
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
         # wait = WebDriverWait(self.w, 10, poll_frequency=1,
         #                      ignored_exceptions=[NoSuchElementException,

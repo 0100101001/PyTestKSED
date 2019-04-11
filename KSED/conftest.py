@@ -16,7 +16,9 @@ import allure
 
 import uuid
 
-
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 
 
 
@@ -45,10 +47,22 @@ def pytest_runtest_makereport(item, call):
 @pytest.fixture
 
 def web_browser(request, selenium):
+    # options = Options()                                                         # запуск firefox в скрытом режиме
+    # options.add_argument('-headless')                                           # запуск firefox в скрытом режиме
+    # browser = webdriver.Firefox(executable_path='geckodriver', options=options) # запуск firefox в скрытом режиме
+
+    # options = Options()                                                           # запуск chrome в скрытом режиме
+    # options.add_argument('--headless')                                            # запуск chrome в скрытом режиме
+    # browser = webdriver.Chrome(chrome_options=options)                            # запуск chrome в скрытом режиме
+
+
+    browser = selenium                                                      # закомментировать для скрытого режима
+
+    # browser.set_window_size(1920, 1080)
+    browser.maximize_window()
 
 
 
-    browser = selenium
 
     browser.set_window_size(1920, 1080)
     #browser.maximize_window()

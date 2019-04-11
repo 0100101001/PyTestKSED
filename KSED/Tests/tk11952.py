@@ -17,14 +17,15 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
 
-from Pages.PageObject import Locator
-from TestData.data import dataTest
-from TestData.locators import KSEDLocators
+from KSED.Pages.PageObject import Locator
+from KSED.TestData.data import dataTest
+from KSED.TestData.locators import KSEDLocators
 
 
 
 
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -53,7 +54,7 @@ class KSEDCreatDocP_sendDorab(Locator, dataTest, KSEDLocators):
 
         wait_page_loaded(self.w)
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
 
         page = Locator(self.w)

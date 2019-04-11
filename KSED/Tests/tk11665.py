@@ -29,6 +29,7 @@ from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
 
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)

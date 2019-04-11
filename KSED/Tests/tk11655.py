@@ -14,14 +14,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.keys import Keys
 
-from KSED.Pages.PageObject import Locator
 from KSED.TestData.data import dataTest
 from KSED.TestData.locators import KSEDLocators
-from KSED.pages import MPages, WebPage
+from KSED.TestData.pages import MPages
 
-
-
-
+import allure
 def wait_page_loaded(driver):
 
     time.sleep(2)
@@ -47,7 +44,7 @@ class KSEDCreatDocPor(MPages, dataTest, KSEDLocators):
 
        # wait_page_loaded(self.w)
 
-    # Авторизация
+    @allure.step("Авторизация")
     def LogIN(self, username, password):
 
         #**page = Locator(self.w)
