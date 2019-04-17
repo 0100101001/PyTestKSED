@@ -98,7 +98,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
         self.saveProject.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.wait_page_loaded()
         assert "Документ" in self._web_driver.title
 
@@ -157,7 +157,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         # Добавление сотрудника
         self.btnAddPerson.wait_to_be_clickable()
         self.btnAddPerson.click()
-
+        self.wait_page_loaded()
         self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
 
         self.btnSelection1.wait_to_be_clickable()
@@ -194,11 +194,16 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
         self.files.wait_to_be_clickable()
         self.files.send_keys('D:\\test.txt')
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+
 
     @allure.step("Направление на согласование")
     def NapSoglasovanie(self):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+
+
 
         self.wait_page_loaded()
         # Проверим статус документа
@@ -212,7 +217,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
         self.rejectSogl.wait_to_be_clickable()
         self.rejectSogl.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.wait_page_loaded()
         # причина возврата
         self.reasonReject.wait_until_not_visible()
@@ -220,7 +225,7 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
         self.confirm2.wait_to_be_clickable()
         self.confirm2.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.wait_page_loaded()
         # Проверим статус документа
         self.osnSvedeniya.wait_to_be_clickable()
@@ -240,6 +245,8 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
         self.files.wait_to_be_clickable()
         self.files.send_keys('D:\\test.txt')
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+
 
         self.wait_page_loaded()
         self.fileUpload4.wait_to_be_clickable()

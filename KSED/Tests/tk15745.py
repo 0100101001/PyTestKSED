@@ -93,7 +93,7 @@ class KSEDCreatWaySogl(MPages, dataTest, KSEDLocators):
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
         self.saveProject.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.wait_page_loaded()
         assert "Документ" in self._web_driver.title
 
@@ -128,12 +128,12 @@ class KSEDCreatWaySogl(MPages, dataTest, KSEDLocators):
         # Нажмем кнопку "Добавить этап"
         self.addEtap.wait_to_be_clickable()
         self.addEtap.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         # Заполним "Вид этапа"
 
         self.btnTree.wait_to_be_clickable()
         self.btnTree.click()  # нажать на кнопку ...
-
+        self.wait_page_loaded()
         self.btnSelection_1.wait_to_be_clickable()
         self.btnSelection_1.click()  # кнопка + третий выбор
 
@@ -144,7 +144,7 @@ class KSEDCreatWaySogl(MPages, dataTest, KSEDLocators):
 
 
         # Заполним "Согласующие"
-        self.soglasuychie.wait_until_not_visible()
+        self.soglasuychie.wait_to_be_clickable()
         self.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
 
         # Нажмем кнопку "ОК" на форме

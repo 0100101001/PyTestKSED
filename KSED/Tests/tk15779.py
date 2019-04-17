@@ -98,7 +98,7 @@ class KSEDrepeatInnerSogl_RD(MPages, dataTest, KSEDLocators):
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
         self.saveProject.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.wait_page_loaded()
         assert "Документ" in self._web_driver.title
 
@@ -157,7 +157,7 @@ class KSEDrepeatInnerSogl_RD(MPages, dataTest, KSEDLocators):
     #     # Добавление сотрудника
     #     self.btnAddPerson.wait_to_be_clickable()
     #     self.btnAddPerson.click()
-    #
+        self.wait_page_loaded()  #
     #     self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
     #
     #
@@ -243,11 +243,16 @@ class KSEDrepeatInnerSogl_RD(MPages, dataTest, KSEDLocators):
 
         self.files.wait_to_be_clickable()
         self.files.send_keys('D:\\test.txt')
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+
 
     @allure.step("Направление на согласование")
     def NapSoglasovanie(self):
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+
+
         self.wait_page_loaded()
 
         # Проверим статус документа

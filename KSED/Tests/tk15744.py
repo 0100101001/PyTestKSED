@@ -43,7 +43,7 @@ class KSEDaddPerson(MPages, dataTest, KSEDLocators):
         self.password_text = password
         self.LogIn_button.click()
         self.wait_page_loaded()
-
+        time.sleep(1)
         assert "АРМ" in self._web_driver.title
 
     @allure.step("Создание документа")
@@ -91,7 +91,7 @@ class KSEDaddPerson(MPages, dataTest, KSEDLocators):
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
         self.saveProject.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.wait_page_loaded()
         assert "Документ" in self._web_driver.title
     #открытие документа
@@ -140,7 +140,7 @@ class KSEDaddPerson(MPages, dataTest, KSEDLocators):
         self.confirm_5.click()  # кнопка + третий выбор
 
         # Заполним "Согласующие"
-        self.soglasuychie.wait_until_not_visible()
+        self.soglasuychie.wait_to_be_clickable()
         self.soglasuychie.send_keys("Яцкин" + Keys.RETURN)
 
         # Нажмем кнопку "ОК" на форме
@@ -157,7 +157,7 @@ class KSEDaddPerson(MPages, dataTest, KSEDLocators):
         # Добавление сотрудника
         self.btnAddPerson.wait_to_be_clickable()
         self.btnAddPerson.click()
-
+        self.wait_page_loaded()
         self.btnSelection_3.wait_to_be_clickable()
         self.btnSelection_3.click()  # кнопка + третий выбор
 

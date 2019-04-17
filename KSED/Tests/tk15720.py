@@ -99,7 +99,7 @@ class KSEDCreatDocCS_RD(MPages, dataTest, KSEDLocators):
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
         self.saveProject.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.wait_page_loaded()
         assert "Документ" in self._web_driver.title
 

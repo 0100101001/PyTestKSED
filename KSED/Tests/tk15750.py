@@ -98,7 +98,7 @@ class KSEDCreatWaySogl_RD(MPages, dataTest, KSEDLocators):
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
         self.saveProject.click()
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.wait_page_loaded()
         assert "Документ" in self._web_driver.title
 
@@ -157,7 +157,7 @@ class KSEDCreatWaySogl_RD(MPages, dataTest, KSEDLocators):
     #     # Добавление сотрудника
     #     self.btnAddPerson.wait_to_be_clickable()
     #     self.btnAddPerson.click()
-    #     self.reserchInput.wait_to_be_clickable()
+        self.wait_page_loaded()  #     self.reserchInput.wait_to_be_clickable()
     #     self.reserchInput.send_keys('Яцкин' + Keys.ENTER)
     #
     #     self.btnSelection1.wait_to_be_clickable()
@@ -205,8 +205,8 @@ class KSEDCreatWaySogl_RD(MPages, dataTest, KSEDLocators):
         # Добавление сотрудника
         self.btnAddPerson.wait_to_be_clickable()
         self.btnAddPerson.click()
-
-        self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
+        self.wait_page_loaded()
+        self.reserchInput.send_keys('Яцкин' + Keys.ENTER)
 
         self.btnSelection1.wait_to_be_clickable()
         self.btnSelection1.click()  # кнопка + третий выбор
