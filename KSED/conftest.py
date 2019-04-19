@@ -55,6 +55,10 @@ def web_browser(request, selenium):
     # options.add_argument('--headless')                                            # запуск chrome в скрытом режиме
     # browser = webdriver.Chrome(chrome_options=options)                            # запуск chrome в скрытом режиме
 
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # browser = webdriver.Chrome(options=options)
+
 
     # browser = selenium                                                      # закомментировать для скрытого режима
 
