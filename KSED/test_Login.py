@@ -20,7 +20,7 @@ from KSED.Tests.tk11639 import KSEDLogin
 # @pytest.mark.parametrize('Ln', ['StroganovSN', 'tst_gid'])
 # @pytest.mark.parametrize('Ps', ['12345'])
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11639(web_browser):
 
     """ Проверка авторизации. """

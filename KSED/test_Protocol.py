@@ -21,7 +21,7 @@ from KSED.Tests.tk11952 import KSEDCreatDocP_sendDorab
 
 @allure.feature('Создание Протокола')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11669(web_browser):
 
     """ Создание протокола. """
@@ -35,7 +35,7 @@ def test_11669(web_browser):
 
 @allure.feature('Направление Протокола на согласование')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_13756(web_browser):
 
     """ Создание и Направление Протокола на согласование. """
@@ -55,7 +55,7 @@ def test_13756(web_browser):
 
 @allure.feature('Возврат протокола на доработку при согласовании.')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11952(web_browser):
 
     """ Возврат протокола на доработку при согласовании. """

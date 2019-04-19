@@ -32,7 +32,7 @@ from KSED.Tests.tk11705 import KSEDdelZap
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11677(web_browser):
 
     """  создание запроса """
@@ -42,7 +42,7 @@ def test_11677(web_browser):
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11702(web_browser):
     """  редактирование запроса """
 
@@ -51,7 +51,7 @@ def test_11702(web_browser):
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11742(web_browser):
     """  действия с выбранными документами в запросе """
 
@@ -60,7 +60,7 @@ def test_11742(web_browser):
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11744(web_browser):
     """  экспорт документов """
 
@@ -69,7 +69,7 @@ def test_11744(web_browser):
     LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_11705(web_browser):
     """  удаление запроса """
 

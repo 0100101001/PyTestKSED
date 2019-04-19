@@ -27,7 +27,7 @@ from KSED.Tests.tk12029 import KSEDallurReestr
 
 @allure.feature('Статический отчет "Сводка по видам документов')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12011(web_browser):
 
     """ Статический отчет "Сводка по видам документов """
@@ -41,7 +41,7 @@ def test_12011(web_browser):
 
 @allure.feature('Статический отчет "Сводка по типам документов')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12013(web_browser):
 
     """ Статический отчет "Сводка по типам документов """
@@ -55,7 +55,7 @@ def test_12013(web_browser):
 
 @allure.feature('Статический отчет "Сводка по тематикам документов')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12012_1(web_browser):
 
     """ Статический отчет "Сводка по тематикам документов """
@@ -69,7 +69,7 @@ def test_12012_1(web_browser):
 
 @allure.feature('Статический отчет "Сводка по тематикам документов (Объедин.)')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12012_2(web_browser):
 
     """ Статический отчет "Сводка по тематикам документов(Объедин.) """
@@ -86,7 +86,7 @@ def test_12012_2(web_browser):
 
 @allure.feature('Статический отчет "Сводка по тематикам документов (Объедин.)')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12030(web_browser):
 
     """  """
@@ -104,7 +104,7 @@ def test_12030(web_browser):
 #****Сергей
 @allure.feature('Проверка отчетов в узле "Журналы" раздела "Отчеты"')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12006(web_browser):
 
     """  """
@@ -116,7 +116,7 @@ def test_12006(web_browser):
 
 @allure.feature('Отчет "Исполнение входящих документов"')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12022(web_browser):
 
     """  """
@@ -127,7 +127,7 @@ def test_12022(web_browser):
 
 @allure.feature('Отчет "Исполнительская дисциплина по авторам"')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12025(web_browser):
 
     """  """
@@ -138,7 +138,7 @@ def test_12025(web_browser):
 
 @allure.feature('Отчет "Неисполненные поручения с истекшим сроком"')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12026(web_browser):
 
     """  """
@@ -149,7 +149,7 @@ def test_12026(web_browser):
 
 @allure.feature('Отчет "Продуктивность по исполнителям"')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12027(web_browser):
 
     """  """
@@ -160,7 +160,7 @@ def test_12027(web_browser):
 
 @allure.feature('Отчет "Реестр для закрытия неактуальных контрольных поручений"')
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_12029(web_browser):
 
     """  """

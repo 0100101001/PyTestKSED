@@ -23,7 +23,7 @@ from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 
 # @allure.feature('Создание Исходящий документ')
 # @pytest.mark.KSED_smoke_test
-# #@pytest.fixture(scope="session")
+# @pytest.fixture(scope="session")
 #
 #
 # def test_11645(web_browser):
@@ -38,7 +38,7 @@ from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 #
 # @allure.feature('Создание Исходящий документ')
 # @pytest.mark.KSED_smoke_test
-# #@pytest.fixture(scope="session")
+# @pytest.fixture(scope="session")
 #
 #
 # def test_11644(web_browser):
@@ -53,7 +53,7 @@ from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 #
 # @allure.feature('Создание Исходящий документ')
 # @pytest.mark.KSED_smoke_test
-# #@pytest.fixture(scope="session")
+# @pytest.fixture(scope="session")
 #
 # def test_11679(web_browser):
 #
@@ -67,7 +67,7 @@ from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 #
 # @allure.feature('Создание Исходящий документ')
 # @pytest.mark.KSED_smoke_test
-# #@pytest.fixture(scope="session")
+# @pytest.fixture(scope="session")
 #
 # def test_11691(web_browser):
 #
@@ -81,7 +81,7 @@ from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 #
 # @allure.feature('Создание Исходящий документ')
 # @pytest.mark.KSED_smoke_test
-# #@pytest.fixture(scope="session")
+# @pytest.fixture(scope="session")
 #
 #
 #
@@ -99,7 +99,7 @@ from KSED.Tests.tk12929 import KSEDRD_sendPodpis
 #
 # @allure.feature('Создание Исходящий документ')
 # @pytest.mark.KSED_smoke_test
-# #@pytest.fixture(scope="session")
+# @pytest.fixture(scope="session")
 #
 #
 # def test_11644(web_browser):

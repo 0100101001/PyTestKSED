@@ -61,7 +61,7 @@ def test_15720(web_browser):
 
     saveLink = page.LinkDocWFile()
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15722(web_browser):
 
     """ Создание КС _ Вид ЛНД"""
@@ -73,7 +73,7 @@ def test_15722(web_browser):
     Creat_doc  = page.Creat()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15723(web_browser):
 
     """ Создание КС _ вид Прочие"""
@@ -90,7 +90,7 @@ def test_15723(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15744(web_browser):
 
     """ Добавление сотрудника в этап """
@@ -112,7 +112,7 @@ def test_15744(web_browser):
     # saveLink = page.LinkDocWFile()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15745(web_browser):
 
     """ Создание нетипового маршрута """
@@ -131,7 +131,7 @@ def test_15745(web_browser):
 
     # saveLink = page.LinkDocWFile()
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15750(web_browser):
 
     """ Создание типового маршрута """
@@ -156,7 +156,7 @@ def test_15750(web_browser):
     create_route = page.creation_of_the_approval_route()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15755(web_browser):
 
     """ Направление на согласование """
@@ -185,7 +185,7 @@ def test_15755(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15758(web_browser):
 
     """ Добавление новой версии """
@@ -223,7 +223,7 @@ def test_15758(web_browser):
     attach = page.attachment_docReady()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15759(web_browser):
 
     """ Добавление новой версии """
@@ -261,7 +261,7 @@ def test_15759(web_browser):
     attach = page.attachment_NewDoc()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15764(web_browser):
 
     """ Основное согласование """
@@ -306,7 +306,7 @@ def test_15764(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15765(web_browser):
 
     """ Отклонение согласования """
@@ -344,7 +344,7 @@ def test_15765(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15767(web_browser):
 
     """ Внутреннее согласование """
@@ -387,7 +387,7 @@ def test_15767(web_browser):
     innerSogl = page2.innerSogl()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15772(web_browser):
 
     """ Возврат с внутреннеего согласования """
@@ -434,7 +434,7 @@ def test_15772(web_browser):
     rejectInnerSogl = page2.rejectInnerSogl()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15777(web_browser):
 
     """ Отзыв задачи внутренеего согласования """
@@ -480,7 +480,7 @@ def test_15777(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15779(web_browser):
 
     """ Повторная отправка на внутрненнее согласование """
@@ -520,7 +520,7 @@ def test_15779(web_browser):
     repeatInnerApp = page2.repeatInnerSogl()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15780(web_browser):
 
     """ Внутреннее согласование """
@@ -577,7 +577,7 @@ def test_15780(web_browser):
     Logout = page2.USER_LOGOUTs()  # Выход из системы
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15781(web_browser):
 
     """ Основное согласование """
@@ -620,7 +620,7 @@ def test_15781(web_browser):
     addComment = page2.addComment()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15806(web_browser):
 
     """ Основное согласование """
@@ -663,7 +663,7 @@ def test_15806(web_browser):
     take = page2.takeTask_RD()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15807(web_browser):
 
     """ Основное согласование """
@@ -711,7 +711,7 @@ def test_15807(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15810(web_browser):
 
     """ Отзыв решения """
@@ -758,7 +758,7 @@ def test_15810(web_browser):
     returnDecision = page2.returnDecision_RD()
 
 @pytest.mark.KSED_smoke_test
-#@pytest.fixture(scope="session")
+@pytest.fixture(scope="session")
 def test_15812(web_browser):
 
     """ Отзыв решения """
