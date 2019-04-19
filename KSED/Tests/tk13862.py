@@ -91,6 +91,8 @@ class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
 
         self.files.wait_to_be_clickable()
         self.files.send_keys('D:\\test.txt')
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+
 
     # Создание маршрута согласования
     def creation_of_the_approval_route(self):
@@ -155,6 +157,9 @@ class KSEDCreatDocPorNSoglas(MPages, Locator, dataTest, KSEDLocators):
 
         self.sendFor_approval.wait_to_be_clickable()
         self.sendFor_approval.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+
+
         #self.wait_page_loaded()
         time.sleep(4)
         # Проверим статус документа

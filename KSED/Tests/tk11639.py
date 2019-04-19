@@ -6,8 +6,8 @@
 
 import time
 
-from Pages.PageObject import Locator
-from TestData.data import dataTest
+from KSED.Pages.PageObject import Locator
+from KSED.TestData.data import dataTest
 
 import allure
 def wait_page_loaded(driver):
@@ -36,7 +36,7 @@ class KSEDLogin(Locator, dataTest):
 
         self.get(dataTest.baseURL)
 
-        wait_page_loaded(self.w)
+        # wait_page_loaded(self.w)
 
     @allure.step("Авторизация")
     def LogIN(self, username, password):
