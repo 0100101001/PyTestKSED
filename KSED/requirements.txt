@@ -1,11 +1,17 @@
 pytest
 
+allure-pytest
+
 selenium
 
-pytest-selenium
+termcolor
 
-allure-pytest
+requests
+
+page-object
 
 page-objects
 
-requests
+urllib3
+
+pytest-selenium

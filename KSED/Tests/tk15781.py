@@ -206,7 +206,7 @@ class KSEDaddComment(MPages, dataTest, KSEDLocators):
         # Добавление сотрудника
         self.btnAddPerson.wait_to_be_clickable()
         self.btnAddPerson.click()
-
+        self.wait_page_loaded()
         self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
 
         self.btnSelection1.wait_to_be_clickable()

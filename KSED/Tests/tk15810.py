@@ -124,7 +124,7 @@ class KSEDreturnDecision_RD(MPages, dataTest, KSEDLocators):
         self._web_driver.get(my_string)
         my_file.close()
 
-    @allure.step("Создание нового маршрута согласования")
+    @allure.step("Создание маршрута согласования")
     def creation_of_the_approval_route(self):
 
         # "Согласование" вкладка
@@ -148,7 +148,7 @@ class KSEDreturnDecision_RD(MPages, dataTest, KSEDLocators):
 
         self.confirm_5.wait_to_be_clickable()
         self.confirm_5.click()  # кнопка подтвердить
-
+        self.wait_page_loaded()
 
         # выпадающий список согласований
         self.dropBtn_2.scroll_to_element()
@@ -157,9 +157,8 @@ class KSEDreturnDecision_RD(MPages, dataTest, KSEDLocators):
         # Добавление сотрудника
         self.btnAddPerson.wait_to_be_clickable()
         self.btnAddPerson.click()
-
-        self.reserchInput.send_keys('Яцкин' + Keys.ENTER)
-
+        self.wait_page_loaded()
+        self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
 
         self.btnSelection1.wait_to_be_clickable()
         self.btnSelection1.click()  # кнопка + третий выбор
@@ -172,7 +171,7 @@ class KSEDreturnDecision_RD(MPages, dataTest, KSEDLocators):
         # self.dropBtn_2.scroll_to_element()
         # self.dropBtn_2.click()
 
-        self.status_Doc.wait_until_not_visible()
+        self.resultSogl.wait_to_be_clickable()
         assert "Не начато" in self.resultSogl.get_text()
 
     # Сохраним ссылку на документ в файл

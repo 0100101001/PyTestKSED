@@ -8,7 +8,9 @@
 # # How to run:
 #
 # #.... python -m pytest -v --driver Chrome --driver-path WebDriver\chromedriver --alluredir ./allure_report
+# #.... python -m pytest test_CardSoglas.py::test_15720 --driver Chrome --driver-path WebDriver\chromedriver --alluredir ./allure_report
 # #.... python -m pytest -v --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
+# #.... python -m pytest test_CardSoglas.py --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
 # #.... python -m pytest -v --driver IE --driver-path WebDriver\IEDriverServer --alluredir ./allure_report
 
 #IEDriver
