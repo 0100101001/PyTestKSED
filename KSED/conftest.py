@@ -62,13 +62,13 @@ def web_browser(request, selenium):
 
     browser = selenium                                                      # закомментировать для скрытого режима
 
-    # browser.set_window_size(1920, 1080)
-    browser.maximize_window()
-
-
-
-
     browser.set_window_size(1920, 1080)
+    # browser.maximize_window()
+
+
+
+
+    # browser.set_window_size(1920, 1080)
     #browser.maximize_window()
 
 
