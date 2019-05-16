@@ -21,7 +21,7 @@ from KSED.Tests.tk11652 import KSEDCreatDocPVH
 
 @allure.feature('Создание Пакет входящей корреспонденции')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11652(web_browser):
 
     """ Создание Пакет входящей корреспонденции. """

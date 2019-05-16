@@ -22,7 +22,7 @@ from KSED.Tests.tk11957 import KSEDPDPodpisanie_Otklon
 
 @allure.feature('Создание Произвольного документа')
 @pytest.mark.KSED_smoke_test_prior
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11664(web_browser):
 
     """ Создание Произвольного документа. """
@@ -37,7 +37,7 @@ def test_11664(web_browser):
 
 @allure.feature('Направление Произвольного документа на согласование')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_13799(web_browser):
 
     """ Создание и Направление Протокола на согласование. """
@@ -55,7 +55,7 @@ def test_13799(web_browser):
 
 @allure.feature('Возврат произвольного документа на доработку при согласовании.')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11955(web_browser):
 
     """ Возврат произвольного документа на доработку при согласовании.
@@ -76,7 +76,7 @@ def test_11955(web_browser):
 
 @allure.feature('Согласование произвольного документа.')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_14079(web_browser):
 
     """ Согласование произвольного документа """
@@ -92,7 +92,7 @@ def test_14079(web_browser):
 
 @allure.feature('Отклонение подписания и возврат ПД на доработку.')
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11957(web_browser):
 
     """ Отклонение подписания и возврат ПД на доработку """

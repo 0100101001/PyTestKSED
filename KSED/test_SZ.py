@@ -26,7 +26,7 @@ from KSED.Tests.tk12912 import KSEDPrintForm
 
 @pytest.mark.KSED_smoke_test
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_11691(web_browser):
 
     """ Создание Служебной записки. """
@@ -40,7 +40,7 @@ def test_11691(web_browser):
     LinkDocWFile = page.LinkDocWFile()
 
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 @allure.feature('Направление СЗ на согласование')
 
 @pytest.mark.KSED_smoke_test
@@ -62,7 +62,7 @@ def test_11704(web_browser):
     NaprNaSogl = page.NapSoglasovanie()
 
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 @allure.feature('Печать вложений документа')
 
 @pytest.mark.KSED_smoke_test
@@ -81,7 +81,7 @@ def test_12913(web_browser):
 
     #is_element_present = page.is_element_present()
 
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 @allure.feature('Печать в разделе "Печатные формы"')
 
 @pytest.mark.KSED_smoke_test

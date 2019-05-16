@@ -88,7 +88,7 @@ class KSEDCreatWaySogl(MPages, dataTest, KSEDLocators):
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
         self.titleCS.scroll_to_element()
-        self.titleCS.send_keys(u'Auto Прочие ' + dt)
+        self.titleCS.send_keys(u'Auto Прочие 15745' + dt)
 
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()

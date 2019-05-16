@@ -93,7 +93,7 @@ class KSEDrejectInnerSogl_RD(MPages, dataTest, KSEDLocators):
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
         self.titleCS.scroll_to_element()
-        self.titleCS.send_keys(u'Auto РД ' + dt)
+        self.titleCS.send_keys(u'Auto РД 15772' + dt)
 
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
@@ -268,7 +268,7 @@ class KSEDrejectInnerSogl_RD(MPages, dataTest, KSEDLocators):
         self.btnInApp.wait_to_be_clickable()
         self.btnInApp.click()
         self.wait_page_loaded()
-        self.employeeForSogl.send_keys(u'Иванов1' + Keys.ENTER)
+        self.employeeForSogl.send_keys(u'Иванов11' + Keys.ENTER)
         self.confirm_9.wait_to_be_clickable()
         self.confirm_9.click()
         self.wait_page_loaded()
@@ -276,6 +276,7 @@ class KSEDrejectInnerSogl_RD(MPages, dataTest, KSEDLocators):
             self.btnRejectInnerSogl.wait_to_be_clickable()
         except:
             assert False, 'Кнопка не появилась'
+
 
     @allure.step("Отзыв внутреннего согласования")
     def rejectInnerSogl(self):
