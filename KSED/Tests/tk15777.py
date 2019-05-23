@@ -93,7 +93,7 @@ class KSEDrejectTaskInnerSogl_RD(MPages, dataTest, KSEDLocators):
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
         self.titleCS.scroll_to_element()
-        self.titleCS.send_keys(u'Auto РД 15777' + dt)
+        self.titleCS.send_keys(u'Auto РД 15777 ' + dt)
 
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()

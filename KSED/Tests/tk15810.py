@@ -93,7 +93,7 @@ class KSEDreturnDecision_RD(MPages, dataTest, KSEDLocators):
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
         self.titleCS.scroll_to_element()
-        self.titleCS.send_keys(u'Auto РД ' + dt)
+        self.titleCS.send_keys(u'Auto РД 15810 ' + dt)
 
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
@@ -230,12 +230,12 @@ class KSEDreturnDecision_RD(MPages, dataTest, KSEDLocators):
 
     @allure.step("Отзыв решения")
     def returnDecision_RD(self):
-
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.returnDecision.wait_to_be_clickable()
         self.returnDecision.click()
-
-        self.apply_button_button2.wait_to_be_clickable()
-        self.apply_button_button2.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+        self.btnOKformSogl.wait_to_be_clickable()
+        self.btnOKformSogl.click()
 
         self.wait_page_loaded()
 
