@@ -29,7 +29,7 @@ def wait_page_loaded(driver):
 
         time.sleep(0.1)
 
-class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
+class KSEDsoftDisAfterAcceptWithRemarkInnerSogl_RD(MPages, dataTest, KSEDLocators):
 
     def __init__(self, web_driver, uri=dataTest.baseURL):
 
@@ -88,12 +88,12 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         # Подписант
         self.podpisanti.wait_until_not_visible()
         self.podpisanti.scroll_to_element()
-        self.podpisanti.send_keys(u'Иванов2' + Keys.ENTER)
+        self.podpisanti.send_keys('Иванов2' + Keys.ENTER)
 
         # заголовок
         dt = datetime.datetime.today().strftime("%m-%d-%H.%M.%S")
         self.titleCS.scroll_to_element()
-        self.titleCS.send_keys(u'Auto РД 15758 ' + dt)
+        self.titleCS.send_keys(u'Auto РД 18330 ' + dt)
 
         # кнопка сохранить проект
         self.saveProject.wait_to_be_clickable()
@@ -124,6 +124,56 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         self._web_driver.get(my_string)
         my_file.close()
 
+    # @allure.step("Создание маршрута согласования")
+    # def creation_of_the_approval_route(self):
+    #
+    #     # "Согласование" вкладка
+    #     self.soglasovanieWkladka.wait_to_be_clickable()
+    #     self.soglasovanieWkladka.click()
+    #
+    #     # "Создать маршрут" клик по кнопке
+    #     self.createRuleBtn.wait_to_be_clickable()
+    #     self.createRuleBtn.click()
+    #
+    #     # Выберем "Типовой маршрут"
+    #     self.createRuleTypical.wait_to_be_clickable()
+    #     self.createRuleTypical.click()
+    #
+    #     # Кнопка "Продолжить"
+    #     self.btnContinium.wait_to_be_clickable()
+    #     self.btnContinium.click()
+    #
+    #     self.btnSelection_3.wait_to_be_clickable()
+    #     self.btnSelection_3.click()  # кнопка + третий выбор
+    #
+    #     self.confirm_5.wait_to_be_clickable()
+    #     self.confirm_5.click()  # кнопка подтвердить
+    #
+    #
+    #     # выпадающий список согласований
+    #     self.dropBtn_2.scroll_to_element()
+    #     self.dropBtn_2.wait_to_be_clickable()
+    #     self.dropBtn_2.click()
+    #     # Добавление сотрудника
+    #     self.btnAddPerson.wait_to_be_clickable()
+    #     self.btnAddPerson.click()
+        self.wait_page_loaded()  #
+    #     self.reserchInput.send_keys(u'Яцкин' + Keys.ENTER)
+    #
+    #
+    #     self.btnSelection1.wait_to_be_clickable()
+    #     self.btnSelection1.click()  # кнопка + третий выбор
+    #
+    #     self.confirm_5.wait_to_be_clickable()
+    #     self.confirm_5.click()  # кнопка подтвердить
+    #     self.wait_page_loaded()
+    #     # выпадающий список согласований
+    #     self.dropBtn_2.wait_to_be_clickable()
+    #     self.dropBtn_2.scroll_to_element()
+    #     self.dropBtn_2.click()
+    #
+    #     self.status_Doc.wait_until_not_visible()
+    #     assert "Не начато" in self.resultSogl.get_text()
     @allure.step("Создание маршрута согласования")
     def creation_of_the_approval_route(self):
 
@@ -173,7 +223,6 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
 
         self.resultSogl.wait_to_be_clickable()
         assert "Не начато" in self.resultSogl.get_text()
-
     # Сохраним ссылку на документ в файл
     def LinkDocWFile(self):
 
@@ -204,57 +253,57 @@ class KSEDaddNewVersion(MPages, dataTest, KSEDLocators):
         self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
 
 
-
         self.wait_page_loaded()
+
         # Проверим статус документа
+
         self.osnSvedeniya.wait_to_be_clickable()
+        self.osnSvedeniya.scroll_to_element()
         self.osnSvedeniya.click()
 
         assert "На согласовании" in self.status_Doc.get_text()
 
-    @allure.step("Отзыв согласования для добавления новой версии вложения")
-    def rejectYourself(self):
-
-        self.rejectSogl.wait_to_be_clickable()
-        self.rejectSogl.click()
-        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+    @allure.step("Направление на внутреннее согласование")
+    def innerSogl(self):
+        self.btnInApp.wait_to_be_clickable()
+        self.btnInApp.click()
         self.wait_page_loaded()
-        # причина возврата
-        self.reasonReject.wait_until_not_visible()
-        self.reasonReject.send_keys('На доработку')
+        self.employeeForSogl.send_keys(u'Иванов11' + Keys.ENTER)
+        self.confirm_9.wait_to_be_clickable()
+        self.confirm_9.click()
+        self.wait_page_loaded()
+        try:
+            self.btnRejectInnerSogl.wait_to_be_clickable()
+        except:
+            assert False, 'Кнопка не появилась'
 
+    @allure.step("Принятие решения по внутреннему согласованию(Согласование c комментариями)")
+    def AcceptInnerSogl(self):
+        self.APPROVED_WITH_REMARK_button.wait_to_be_clickable()
+        self.APPROVED_WITH_REMARK_button.click()
+
+        self.prop_bpm_comment_sogl.wait_to_be_clickable()
+        self.prop_bpm_comment_sogl.send_keys('Согласовано с замечанием')
+
+        self.wait_page_loaded()
+        self.confirm.click()
+        self.wait_page_loaded()
+
+        assert "Согласовано" in self.statusSogl.get_text()
+
+    @allure.step("Смягчение решения")
+    def softDecision_RD(self):
+        time.sleep(10)
+        self.get(self._web_driver.current_url)
+        self.softDecision.wait_to_be_clickable()
+        self.softDecision.click()
+        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
         self.confirm2.wait_to_be_clickable()
         self.confirm2.click()
         self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
+        # self.wait_page_loaded()
+        # self.osnSvedeniya.wait_to_be_clickable()
+        # self.osnSvedeniya.scroll_to_element()
+        # self.osnSvedeniya.click()
         self.wait_page_loaded()
-        # Проверим статус документа
-        self.osnSvedeniya.wait_to_be_clickable()
-        self.osnSvedeniya.click()
-
-        assert "На доработке" in self.status_Doc_1.get_text()
-
-    @allure.step("Добавление новой версии вложения")
-    def attachment_docReady(self, ):
-
-        # self.vlozheniya.move_to_element()
-        self.btnAction.wait_to_be_clickable()
-        self.btnAction.click()
-
-        self.downLoadNewVersion.wait_to_be_clickable()
-        self.downLoadNewVersion.click()
-
-        self.files.wait_to_be_clickable()
-        self.files.send_keys('D:\\test.txt')
-        self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
-
-
-        self.wait_page_loaded()
-        self.fileUpload4.wait_to_be_clickable()
-        self.fileUpload4.click()
-        self.wait_page_loaded()
-
-        try:
-            self.bntVersion.wait_to_be_clickable()
-        except:
-            assert False, 'Кнопка версии не появилась'
-
+        assert "Согласовано" in self.statusInner_2.get_text()

@@ -435,6 +435,7 @@ class MPages(WebPage):
     REJECTED_button = WebElement(xpath=KSEDLocators.REJECTED_button) # Кнопка "Отклонить"
     internal_approval = WebElement(xpath=KSEDLocators.internal_approval) # Кнопка "Внутреннее согласование"
     prop_bpm_comment = WebElement(xpath=KSEDLocators.prop_bpm_comment) # Поле комментария
+    prop_bpm_comment_sogl = WebElement(xpath=KSEDLocators.prop_bpm_comment)  # Поле комментария
     apply_button_button = WebElement(xpath=KSEDLocators.apply_button_button) # Кнопка "ОК" при вынесении решения согласования
     apply_button_button2 = WebElement(xpath=KSEDLocators.apply_button_button2)  # Кнопка "ОК" при вынесении решения согласования
     SIGNED_button = WebElement(xpath=KSEDLocators.SIGNED_button) # Кнопка "Подписать"

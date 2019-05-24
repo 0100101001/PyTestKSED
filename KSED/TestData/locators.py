@@ -283,6 +283,7 @@ class KSEDLocators:
     REJECTED_button = '//button[contains(@id, "REJECTED-button")]' #xpath # Кнопка "Отклонить"
     internal_approval = '//button[contains(@id, "internal_approval-button")]' #xpath # Кнопка "Внутреннее согласование"
     prop_bpm_comment = '//textarea[contains(@class, "invalid")]' #name # Поле комментария prop_bpm_comment
+    prop_bpm_comment_sogl = '//textarea[contains(@id, "form_prop_bpm_comment")]' # Поле комментария
     apply_button_button = '//button[contains(@id, "apply-button")]' #xpath # Кнопка "ОК" при вынесении решения согласования
     apply_button_button2 = '//span[@class = "button-group"]//button[contains(@id, "-button") and text() = "ОК"]' #xpath # Кнопка "ОК" при вынесении решения согласования
     SIGNED_button = '//button[contains(@id, "SIGNED-button")]' #xpath # Кнопка "Подписать"
