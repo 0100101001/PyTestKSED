@@ -423,3 +423,5 @@ class KSEDLocators:
     softDecision = '//div[contains(@title, "Смягчить решение")]' # кнопка смягчитьрешение
     takeTasks = '//div[contains(@class, "widget-button-grey")][contains(text(), "Забрать задачу")]' # кнопка забрать задачу
     backTasks = '//div[contains(@class, "widget-button-grey")][contains(text(), "Вернуть задачу")]' # кнопка вернуть задачу
+    infoMassage = '(//div[@class = "bd"])[1]' # информационное сообщение
+    butDelComment = '//div[@title = "Удалить"]' # кнопка удаления комментариев

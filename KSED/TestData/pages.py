@@ -585,3 +585,5 @@ class MPages(WebPage):
     softDecision = WebElement(xpath=KSEDLocators.softDecision)  # кнопка смягчитьрешение
     takeTasks = WebElement(xpath=KSEDLocators.takeTasks)  # кнопка забрать задачу
     backTasks = WebElement(xpath=KSEDLocators.backTasks)  # кнопка вернуть задачу
+    infoMassage = WebElement(xpath=KSEDLocators.infoMassage)  # информационное сообщение
+    butDelComment = WebElement(xpath=KSEDLocators.butDelComment)  # кнопка удаления комментариев

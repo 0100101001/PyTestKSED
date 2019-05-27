@@ -82,11 +82,10 @@ def web_browser(request, selenium):
 
     # Do teardown (this code will be executed after each test):
 
+    # if request.node.rep_call.failed:
 
-
-    if request.node.rep_call.failed:
-
-        # Make the screen-shot if test failed:
+    if request.node.rep_call:
+        # Make the screen-shot always:
 
         try:
 

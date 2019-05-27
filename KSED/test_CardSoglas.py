@@ -13,6 +13,7 @@
 
 # #.... python -m pytest -v --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
 # #.... python -m pytest -v test_CardSoglas.py --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
+# #.... python -m pytest -v test_CardSoglas.py::test_18338 --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
 # #.... python -m pytest -v --driver IE --driver-path WebDriver\IEDriverServer --alluredir ./allure_report
 
 #IEDriver
@@ -43,15 +44,17 @@ from KSED.Tests.tk15777 import KSEDrejectTaskInnerSogl_RD
 from KSED.Tests.tk15779 import KSEDrepeatInnerSogl_RD
 from KSED.Tests.tk15780 import KSEDAcceptInnerSogl_RD
 from KSED.Tests.tk15781 import KSEDaddComment
-from KSED.Tests.tk15810 import KSEDreturnDecision_RD
-from KSED.Tests.tk15812 import KSEDsoftDecision_RD
 from KSED.Tests.tk15806 import KSEDtakeTask
 from KSED.Tests.tk15807 import KSEDbackTask
+from KSED.Tests.tk15810 import KSEDreturnDecision_RD
+from KSED.Tests.tk15812 import KSEDsoftDecision_RD
 from KSED.Tests.tk18300 import KSEDchangeAfterRejectInnerSogl_RD
 from KSED.Tests.tk18302 import KSEDsoftDesAfterRejectInnerSogl_RD
 from KSED.Tests.tk18327 import KSEDchangeAfterAcceptInnerSogl_RD
 from KSED.Tests.tk18329 import KSEDchangeAfterAcceptWithRemarkInnerSogl_RD
 from KSED.Tests.tk18330 import KSEDsoftDisAfterAcceptWithRemarkInnerSogl_RD
+from KSED.Tests.tk18332 import KSEDaddCommentInnerSogl_RD
+from KSED.Tests.tk18334 import KSEDInnerSoglAfterAddComment_RD
 from KSED.Tests.tk18336 import KSEDacceptSoglwithRemark_RD
 from KSED.Tests.tk18337 import KSEDrejectAfterAcceptSoglwithRemark_RD
 from KSED.Tests.tk18338 import KSEDsoftDisAfterAcceptSoglwithRemark_RD
@@ -533,7 +536,7 @@ def test_15779(web_browser):
 #@pytest.fixture(scope="session")
 def test_15780(web_browser):
 
-    """ Внутреннее согласование """
+    """ Внутреннее согласование - вынесение решения"""
     # Шаг 1 создание документа
     page = KSEDAcceptInnerSogl_RD(web_browser)
 
@@ -590,7 +593,7 @@ def test_15780(web_browser):
 #@pytest.fixture(scope="session")
 def test_15781(web_browser):
 
-    """ Основное согласование """
+    """ Основное согласование - внесение замечаний """
     # Шаг 1 создание документа
     page = KSEDaddComment(web_browser)
 
@@ -1101,6 +1104,124 @@ def test_18330(web_browser):
     innerSogl = page3.AcceptInnerSogl()
 
     innerSogl = page3.softDecision_RD()
+
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_18332(web_browser):
+
+    """ Внутреннее согласование - добавление комментариев"""
+    # Шаг 1 создание документа
+    page = KSEDaddCommentInnerSogl_RD(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    #Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
+    #page = KSEDinnerSogl_RD(web_browser)
+
+    #LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    #getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 вложение и направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 4 на правление на внутреннее согласование
+
+    page2 = KSEDaddCommentInnerSogl_RD(web_browser)
+
+    LogIn_page = page2.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    innerSogl = page2.innerSogl()
+
+    Logout = page2.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 5 согласование на внутреннее согласование
+
+    page3 = KSEDaddCommentInnerSogl_RD(web_browser)
+
+    LogIn_page = page2.LogIN('tst_user11', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    addComment = page2.addComment()
+
+
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_18334(web_browser):
+
+    """ Внутреннее согласование после удаления добавленого комментария"""
+    # Шаг 1 создание документа
+    page = KSEDInnerSoglAfterAddComment_RD(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    #Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
+    #page = KSEDinnerSogl_RD(web_browser)
+
+    #LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    #getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 вложение и направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 4 на правление на внутреннее согласование
+
+    page2 = KSEDInnerSoglAfterAddComment_RD(web_browser)
+
+    LogIn_page = page2.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    innerSogl = page2.innerSogl()
+
+    Logout = page2.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 5 согласование на внутреннее согласование
+
+    page3 = KSEDInnerSoglAfterAddComment_RD(web_browser)
+
+    LogIn_page = page2.LogIN('tst_user11', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    addComment = page2.addComment()
+
+    accept = page2.AcceptInnerSoglWithComment()
+
+    accept2 = page2.AcceptInnerSogl()
+
 
 @pytest.mark.KSED_smoke_test
 #@pytest.fixture(scope="session")
