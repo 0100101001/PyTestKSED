@@ -58,7 +58,10 @@ from KSED.Tests.tk18334 import KSEDInnerSoglAfterAddComment_RD
 from KSED.Tests.tk18336 import KSEDacceptSoglwithRemark_RD
 from KSED.Tests.tk18337 import KSEDrejectAfterAcceptSoglwithRemark_RD
 from KSED.Tests.tk18338 import KSEDsoftDisAfterAcceptSoglwithRemark_RD
-
+from KSED.Tests.tk18360 import KSEDreturnDisFromDelegatAfterReject_RD
+from KSED.Tests.tk18361 import KSEDreturnDisAfterTakeTask
+from KSED.Tests.tk18362 import KSEDsoftDisFromDelegatAfterReject_RD
+from KSED.Tests.tk18363 import KSEDsoftDisAfterTakeTask
 
 @pytest.mark.KSED_smoke_test
 #@pytest.fixture(scope="session")
@@ -1359,3 +1362,206 @@ def test_18338(web_browser):
     accept = page2.acceptDoc()
 
     softDis = page2.softDecision_RD()
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_18360(web_browser):
+
+    """  Отзыв решения делегата после отклонения согласования основного согласующего"""
+    # Шаг 1 создание документа
+    page = KSEDreturnDisFromDelegatAfterReject_RD(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    # Шаг 2 создание маршрута
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 вложение и направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 4 отклонение созгаласования
+
+    page2 = KSEDreturnDisFromDelegatAfterReject_RD(web_browser)
+
+    LogIn_page = page2.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    reject = page2.rejectDoc()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    page3 = KSEDreturnDisFromDelegatAfterReject_RD(web_browser)
+
+    LogIn_page = page3.LogIN('tst_user1', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    returnDis = page3.returnDecision_RD()
+
+@pytest.mark.KSED_smoke_test
+#@pytest.fixture(scope="session")
+def test_18361(web_browser):
+
+    """ Отзыв решения после согласования делегата"""
+    # Шаг 1 создание документа
+    page = KSEDreturnDisAfterTakeTask(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
+    page = KSEDreturnDisAfterTakeTask(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 вложение и направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 4 забрать задачу
+
+    page2 = KSEDreturnDisAfterTakeTask(web_browser)
+
+    LogIn_page = page2.LogIN('tst_user1', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    take = page2.takeTask_RD()
+
+    reject = page2.rejectDoc()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    page3 = KSEDreturnDisAfterTakeTask(web_browser)
+
+    LogIn_page = page3.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    returnDis = page3.returnDecision_RD()
+
+@pytest.mark.KSED_smoke_test
+# @pytest.fixture(scope="session")
+def test_18362(web_browser):
+    """  Отзыв решения делегата после отклонения согласования основного согласующего"""
+    # Шаг 1 создание документа
+    page = KSEDsoftDisFromDelegatAfterReject_RD(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    # Шаг 2 создание маршрута
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 вложение и направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 4 отклонение созгаласования
+
+    page2 = KSEDsoftDisFromDelegatAfterReject_RD(web_browser)
+
+    LogIn_page = page2.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    reject = page2.rejectDoc()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    page3 = KSEDsoftDisFromDelegatAfterReject_RD(web_browser)
+
+    LogIn_page = page3.LogIN('tst_user1', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    returnDis = page3.softDecision_RD()
+
+
+
+
+@pytest.mark.KSED_smoke_test
+# @pytest.fixture(scope="session")
+def test_18363(web_browser):
+    """ Смягчение решения после согласования делегата"""
+    # Шаг 1 создание документа
+    page = KSEDsoftDisAfterTakeTask(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    Creat_doc = page.Creat()
+
+    saveLink = page.LinkDocWFile()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 2 создание маршрута
+    page = KSEDsoftDisAfterTakeTask(web_browser)
+
+    LogIn_page = page.LogIN('StroganovSN', 'Changeme!')
+
+    getDoc = page.getDoc()
+
+    create_route = page.creation_of_the_approval_route()
+
+    # Шаг 3 вложение и направление на созгаласование
+
+    attach = page.attachment()
+
+    NapSoglasovanie = page.NapSoglasovanie()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    # Шаг 4 забрать задачу
+
+    page2 = KSEDsoftDisAfterTakeTask(web_browser)
+
+    LogIn_page = page2.LogIN('tst_user1', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    take = page2.takeTask_RD()
+
+    reject = page2.rejectDoc()
+
+    Logout = page.USER_LOGOUTs()  # Выход из системы
+
+    page3 = KSEDsoftDisAfterTakeTask(web_browser)
+
+    LogIn_page = page3.LogIN('YatskinRS', 'Changeme!')
+
+    getDoc = page2.getDoc()
+
+    returnDis = page3.softDecision_RD()
