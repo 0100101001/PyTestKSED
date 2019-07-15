@@ -269,6 +269,7 @@ class KSEDchangeAfterAcceptInnerSogl_RD(MPages, dataTest, KSEDLocators):
         self.btnInApp.click()
         self.wait_page_loaded()
         self.employeeForSogl.send_keys(u'Иванов11' + Keys.ENTER)
+        self.employeeForSogl.send_keys(u'Иванов13' + Keys.ENTER)
         self.confirm_9.wait_to_be_clickable()
         self.confirm_9.click()
         self.wait_page_loaded()
@@ -284,7 +285,8 @@ class KSEDchangeAfterAcceptInnerSogl_RD(MPages, dataTest, KSEDLocators):
         self.wait_page_loaded()
         self.confirm.click()
         self.wait_page_loaded()
-
+        time.sleep(70)
+        self.refresh()
         assert "Согласовано" in self.statusSogl.get_text()
 
     @allure.step("Отзыв решения")

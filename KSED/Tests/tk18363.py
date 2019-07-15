@@ -288,6 +288,8 @@ class KSEDsoftDisAfterTakeTask(MPages, dataTest, KSEDLocators):
         self.apply_button_button.click()
 
         self.wait_page_loaded()
+        time.sleep(70)
+        self.refresh()
         assert "Отклонено" in self.statusSogl.get_text()
 
     @allure.step("Смягчение решения")
@@ -305,4 +307,9 @@ class KSEDsoftDisAfterTakeTask(MPages, dataTest, KSEDLocators):
         # self.osnSvedeniya.scroll_to_element()
         # self.osnSvedeniya.click()
         self.wait_page_loaded()
-        assert "Согласовано" in self.statusInner_2.get_text()
+        time.sleep(70)
+        self.refresh()
+        if dataTest.baseURL == 'http://172.30.48.40:8080/share/page/arm?code=SED':
+            assert "Согласовано" in self.statusInner_3.get_text()
+        else:
+            assert "Согласовано" in self.statusInner_2.get_text()

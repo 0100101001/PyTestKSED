@@ -269,6 +269,7 @@ class KSEDsoftDisAfterAcceptWithRemarkInnerSogl_RD(MPages, dataTest, KSEDLocator
         self.btnInApp.click()
         self.wait_page_loaded()
         self.employeeForSogl.send_keys(u'Иванов11' + Keys.ENTER)
+        self.employeeForSogl.send_keys(u'Иванов13' + Keys.ENTER)
         self.confirm_9.wait_to_be_clickable()
         self.confirm_9.click()
         self.wait_page_loaded()
@@ -276,7 +277,7 @@ class KSEDsoftDisAfterAcceptWithRemarkInnerSogl_RD(MPages, dataTest, KSEDLocator
             self.btnRejectInnerSogl.wait_to_be_clickable()
         except:
             assert False, 'Кнопка не появилась'
-
+        time.sleep(25)
     @allure.step("Принятие решения по внутреннему согласованию(Согласование c комментариями)")
     def AcceptInnerSogl(self):
         self.APPROVED_WITH_REMARK_button.wait_to_be_clickable()
@@ -288,8 +289,9 @@ class KSEDsoftDisAfterAcceptWithRemarkInnerSogl_RD(MPages, dataTest, KSEDLocator
         self.wait_page_loaded()
         self.confirm.click()
         self.wait_page_loaded()
-
-        assert "Согласовано" in self.statusSogl.get_text()
+        time.sleep(70)
+        self.refresh()
+        assert "Согласовано с комментариями" in self.statusInner_3.get_text()
 
     @allure.step("Смягчение решения")
     def softDecision_RD(self):
@@ -306,4 +308,7 @@ class KSEDsoftDisAfterAcceptWithRemarkInnerSogl_RD(MPages, dataTest, KSEDLocator
         # self.osnSvedeniya.scroll_to_element()
         # self.osnSvedeniya.click()
         self.wait_page_loaded()
-        assert "Согласовано" in self.statusInner_2.get_text()
+        if dataTest.baseURL == 'http://172.30.48.40:8080/share/page/arm?code=SED':
+            assert "Согласовано" in self.statusInner_3.get_text()
+        else:
+            assert "Согласовано" in self.statusInner_2.get_text()

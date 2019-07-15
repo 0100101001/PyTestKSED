@@ -288,6 +288,8 @@ class KSEDreturnDisAfterTakeTask(MPages, dataTest, KSEDLocators):
         self.apply_button_button.click()
 
         self.wait_page_loaded()
+        time.sleep(70)
+        self.refresh()
         assert "Отклонено" in self.statusSogl.get_text()
 
     @allure.step("Отзыв решения")

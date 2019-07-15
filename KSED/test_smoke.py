@@ -12,7 +12,7 @@
 # #.... python -m pytest -v test_CardSoglas.py --driver Chrome --driver-path WebDriver\chromedriver --alluredir ./allure_report
 
 # #.... python -m pytest -v --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
-# #.... python -m pytest -v test_CardSoglas.py --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
+# #.... python -m pytest -v test_smoke.py --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
 # #.... python -m pytest -v test_CardSoglas.py::test_18338 --driver FireFox --driver-path WebDriver\geckodriver --alluredir ./allure_report
 # #.... python -m pytest -v --driver IE --driver-path WebDriver\IEDriverServer --alluredir ./allure_report
 
@@ -27,47 +27,47 @@ import allure
 
 
 
-from KSED.Tests.t681 import KSEDCreatDocCS_RD
-from KSED.Tests.t682 import KSEDCreatDocCS_LND
-from KSED.Tests.tk15723 import KSEDCreatDocCS_ETC
-from KSED.Tests.tk15745 import KSEDCreatWaySogl
-from KSED.Tests.tk15750 import KSEDCreatWaySogl_RD
-from KSED.Tests.tk15744 import KSEDaddPerson
-from KSED.Tests.tk15755 import KSEDNaprSogl_RD
-from KSED.Tests.tk15758 import KSEDaddNewVersion
-from KSED.Tests.tk15759 import KSEDaddNewAtt
-from KSED.Tests.tk15765 import KSEDreject_RD
-from KSED.Tests.tk15764 import KSEDacceptSogl_RD
-from KSED.Tests.tk15767 import KSEDinnerSogl_RD
-from KSED.Tests.tk15772 import KSEDrejectInnerSogl_RD
-from KSED.Tests.tk15777 import KSEDrejectTaskInnerSogl_RD
-from KSED.Tests.tk15779 import KSEDrepeatInnerSogl_RD
-from KSED.Tests.tk15780 import KSEDAcceptInnerSogl_RD
-from KSED.Tests.tk15781 import KSEDaddComment
-from KSED.Tests.tk15806 import KSEDtakeTask
-from KSED.Tests.tk15807 import KSEDbackTask
-from KSED.Tests.tk15810 import KSEDreturnDecision_RD
-from KSED.Tests.tk15812 import KSEDsoftDecision_RD
-from KSED.Tests.tk18300 import KSEDchangeAfterRejectInnerSogl_RD
-from KSED.Tests.tk18302 import KSEDsoftDesAfterRejectInnerSogl_RD
-from KSED.Tests.tk18327 import KSEDchangeAfterAcceptInnerSogl_RD
-from KSED.Tests.tk18329 import KSEDchangeAfterAcceptWithRemarkInnerSogl_RD
-from KSED.Tests.tk18330 import KSEDsoftDisAfterAcceptWithRemarkInnerSogl_RD
-from KSED.Tests.tk18332 import KSEDaddCommentInnerSogl_RD
-from KSED.Tests.tk18334 import KSEDInnerSoglAfterAddComment_RD
-from KSED.Tests.tk18336 import KSEDacceptSoglwithRemark_RD
-from KSED.Tests.tk18337 import KSEDrejectAfterAcceptSoglwithRemark_RD
-from KSED.Tests.tk18338 import KSEDsoftDisAfterAcceptSoglwithRemark_RD
-from KSED.Tests.tk18360 import KSEDreturnDisFromDelegatAfterReject_RD
-from KSED.Tests.tk18361 import KSEDreturnDisAfterTakeTask
-from KSED.Tests.tk18362 import KSEDsoftDisFromDelegatAfterReject_RD
-from KSED.Tests.tk18363 import KSEDsoftDisAfterTakeTask
+from KSED.Tests.T681 import KSEDCreatDocCS_RD
+from KSED.Tests.T682 import KSEDCreatDocCS_LND
+from KSED.Tests.T683 import KSEDCreatDocCS_ETC
+from KSED.Tests.T685 import KSEDCreatWaySogl
+from KSED.Tests.T686 import KSEDCreatWaySogl_RD
+from KSED.Tests.T684 import KSEDaddPerson
+from KSED.Tests.T687 import KSEDNaprSogl_RD
+from KSED.Tests.T688 import KSEDaddNewVersion
+from KSED.Tests.T689 import KSEDaddNewAtt
+from KSED.Tests.T691 import KSEDreject_RD
+from KSED.Tests.T690 import KSEDacceptSogl_RD
+from KSED.Tests.T692 import KSEDinnerSogl_RD
+from KSED.Tests.T693 import KSEDrejectInnerSogl_RD
+from KSED.Tests.T694 import KSEDrejectTaskInnerSogl_RD
+from KSED.Tests.T695 import KSEDrepeatInnerSogl_RD
+from KSED.Tests.T696 import KSEDAcceptInnerSogl_RD
+from KSED.Tests.T697 import KSEDaddComment
+from KSED.Tests.T700 import KSEDtakeTask
+from KSED.Tests.T701 import KSEDbackTask
+from KSED.Tests.T702 import KSEDreturnDecision_RD
+from KSED.Tests.T703 import KSEDsoftDecision_RD
+from KSED.Tests.T704 import KSEDchangeAfterRejectInnerSogl_RD
+from KSED.Tests.T705 import KSEDsoftDesAfterRejectInnerSogl_RD
+from KSED.Tests.T706 import KSEDchangeAfterAcceptInnerSogl_RD
+from KSED.Tests.T707 import KSEDchangeAfterAcceptWithRemarkInnerSogl_RD
+from KSED.Tests.T708 import KSEDsoftDisAfterAcceptWithRemarkInnerSogl_RD
+from KSED.Tests.T709 import KSEDaddCommentInnerSogl_RD
+from KSED.Tests.T710 import KSEDInnerSoglAfterAddComment_RD
+from KSED.Tests.T711 import KSEDacceptSoglwithRemark_RD
+from KSED.Tests.T712 import KSEDrejectAfterAcceptSoglwithRemark_RD
+from KSED.Tests.T713 import KSEDsoftDisAfterAcceptSoglwithRemark_RD
+from KSED.Tests.T714 import KSEDreturnDisFromDelegatAfterReject_RD
+from KSED.Tests.T715 import KSEDreturnDisAfterTakeTask
+from KSED.Tests.T716 import KSEDsoftDisFromDelegatAfterReject_RD
+from KSED.Tests.T717 import KSEDsoftDisAfterTakeTask
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_681(web_browser):
 
-    """ Создание КС _ вид РД"""
+    """ СОЗДАНИЕ КАРТОЧКИ СОГЛАСОВАНИЯ ВИДА «РД» """
 
     page = KSEDCreatDocCS_RD(web_browser)
 
@@ -80,7 +80,7 @@ def test_681(web_browser):
 #@pytest.fixture(scope="session")
 def test_682(web_browser):
 
-    """ Создание КС _ Вид ЛНД"""
+    """ СОЗДАНИЕ КАРТОЧКИ СОГЛАСОВАНИЯ ВИДА «ЛНД»"""
 
     page = KSEDCreatDocCS_LND(web_browser)
 
@@ -89,10 +89,10 @@ def test_682(web_browser):
     Creat_doc  = page.Creat()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_683(web_browser):
 
-    """ Создание КС _ вид Прочие"""
+    """ СОЗДАНИЕ КАРТОЧКИ СОГЛАСОВАНИЯ ВИДА «ПРОЧИЕ» """
 
     page = KSEDCreatDocCS_ETC(web_browser)
 
@@ -109,7 +109,7 @@ def test_683(web_browser):
 #@pytest.fixture(scope="session")
 def test_684(web_browser):
 
-    """ Добавление сотрудника в этап """
+    """ Добавление сотрудника в этап согласования """
 
     page = KSEDaddPerson(web_browser)
 
@@ -131,7 +131,7 @@ def test_684(web_browser):
 #@pytest.fixture(scope="session")
 def test_685(web_browser):
 
-    """ Создание нетипового маршрута """
+    """ ФОРМИРОВАНИЕ МАРШРУТА СОГЛАСОВАНИЯ (Индивидуальный маршрут) """
 
     page = KSEDCreatWaySogl(web_browser)
 
@@ -147,10 +147,10 @@ def test_685(web_browser):
 
     # saveLink = page.LinkDocWFile()
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_686(web_browser):
 
-    """ Создание типового маршрута """
+    """ ФОРМИРОВАНИЕ МАРШРУТА СОГЛАСОВАНИЯ (Типовой маршрут) """
     # Шаг 1 создание документа
     page = KSEDCreatWaySogl_RD(web_browser)
 
@@ -172,10 +172,10 @@ def test_686(web_browser):
     create_route = page.creation_of_the_approval_route()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_687(web_browser):
 
-    """ Направление на согласование """
+    """ НАПРАВЛЕНИЕ ДОКУМЕНТА НА СОГЛАСОВАНИЕ """
 
     # Шаг 1 создание документа
     page = KSEDNaprSogl_RD(web_browser)
@@ -204,7 +204,7 @@ def test_687(web_browser):
 #@pytest.fixture(scope="session")
 def test_688(web_browser):
 
-    """ Добавление новой версии """
+    """ ЗАГРУЗКА НОВОЙ ВЕРСИИ ВЛОЖЕНИЯ В СТАТУСЕ «НА СОГЛАСОВАНИИ» """
 
     # Шаг 1 создание документа
     page = KSEDaddNewVersion(web_browser)
@@ -242,7 +242,7 @@ def test_688(web_browser):
 #@pytest.fixture(scope="session")
 def test_689(web_browser):
 
-    """ Добавление новой версии """
+    """ ЗАГРУЗКА ВЛОЖЕНИЯ В СТАТУСЕ «НА СОГЛАСОВАНИИ» """
 
     # Шаг 1 создание документа
     page = KSEDaddNewAtt(web_browser)
@@ -277,10 +277,10 @@ def test_689(web_browser):
     attach = page.attachment_NewDoc()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_690(web_browser):
 
-    """ Основное согласование """
+    """ ОСНОВНОЕ СОГЛАСОВАНИЕ """
     # Шаг 1 создание документа
     page = KSEDacceptSogl_RD(web_browser)
 
@@ -322,10 +322,10 @@ def test_690(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_691(web_browser):
 
-    """ Отклонение согласования """
+    """ ООСНОВНОЕ СОГЛАСОВАНИЕ (Отклонение документа) """
     # Шаг 1 создание документа
     page = KSEDreject_RD(web_browser)
 
@@ -360,10 +360,10 @@ def test_691(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_692(web_browser):
 
-    """ Внутреннее согласование """
+    """ ВНУТРЕННЕЕ СОГЛАСОВАНИЕ """
     # Шаг 1 создание документа
     page = KSEDinnerSogl_RD(web_browser)
 
@@ -406,7 +406,7 @@ def test_692(web_browser):
 #@pytest.fixture(scope="session")
 def test_693(web_browser):
 
-    """ Возврат с внутреннеего согласования """
+    """ ВНУТРЕННЕЕ СОГЛАСОВАНИЕ (Отзыв с внутреннего согласования) """
     # Шаг 1 создание документа
     page = KSEDrejectInnerSogl_RD(web_browser)
 
@@ -453,7 +453,7 @@ def test_693(web_browser):
 #@pytest.fixture(scope="session")
 def test_694(web_browser):
 
-    """ Отзыв задачи внутренеего согласования """
+    """ ВНУТРЕННЕЕ СОГЛАСОВАНИЕ (Отзыв задачи внутреннего согласования у внутреннего согласующего) """
     # Шаг 1 создание документа
     page = KSEDrejectTaskInnerSogl_RD(web_browser)
 
@@ -499,7 +499,7 @@ def test_694(web_browser):
 #@pytest.fixture(scope="session")
 def test_695(web_browser):
 
-    """ Повторная отправка на внутрненнее согласование """
+    """ ВНУТРЕННЕЕ СОГЛАСОВАНИЕ (Повторная отправка на внутреннее согласование) """
     # Шаг 1 создание документа
     page = KSEDrepeatInnerSogl_RD(web_browser)
 
@@ -536,7 +536,7 @@ def test_695(web_browser):
     repeatInnerApp = page2.repeatInnerSogl()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_696(web_browser):
 
     """ Внутреннее согласование - вынесение решения"""
@@ -596,7 +596,7 @@ def test_696(web_browser):
 #@pytest.fixture(scope="session")
 def test_697(web_browser):
 
-    """ Основное согласование - внесение замечаний """
+    """  РАБОТА С ЗАМЕЧАНИЯМИ (Внесение замечаний к документу)  """
     # Шаг 1 создание документа
     page = KSEDaddComment(web_browser)
 
@@ -636,10 +636,10 @@ def test_697(web_browser):
     addComment = page2.addComment()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_700(web_browser):
 
-    """ Забрать задачу согласования"""
+    """ ВЫПОЛНЕНИЕ ДЕЙСТВИЯ «ЗАБРАТЬ ЗАДАЧУ «СОГЛАСОВАТЬ ДОКУМЕНТ»"""
     # Шаг 1 создание документа
     page = KSEDtakeTask(web_browser)
 
@@ -682,7 +682,7 @@ def test_700(web_browser):
 #@pytest.fixture(scope="session")
 def test_701(web_browser):
 
-    """ Возврат задачи согласования """
+    """ ВЫПОЛНЕНИЕ ДЕЙСТВИЯ «ВЕРНУТЬ ЗАДАЧУ «СОГЛАСОВАТЬ ДОКУМЕНТ» """
     # Шаг 1 создание документа
     page = KSEDbackTask(web_browser)
 
@@ -727,10 +727,10 @@ def test_701(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_702(web_browser):
 
-    """ Отзыв решения """
+    """ ОТЗЫВ РЕШЕНИЯ """
     # Шаг 1 создание документа
     page = KSEDreturnDecision_RD(web_browser)
 
@@ -774,10 +774,10 @@ def test_702(web_browser):
     returnDecision = page2.returnDecision_RD()
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_703(web_browser):
 
-    """ Смягчение решения """
+    """ СМЯГЧЕНИЕ РЕШЕНИЯ """
     # Шаг 1 создание документа
     page = KSEDsoftDecision_RD(web_browser)
 
@@ -824,7 +824,7 @@ def test_703(web_browser):
 #@pytest.fixture(scope="session")
 def test_704(web_browser):
 
-    """ Внутреннее согласование - отзыв решения после отклонения"""
+    """ ВНУТРЕННЕЕ СОГЛАСОВАНИЕ (Отклонение и последующий отзыв решения)"""
     # Шаг 1 создание документа
     page = KSEDchangeAfterRejectInnerSogl_RD(web_browser)
 
@@ -1110,7 +1110,7 @@ def test_708(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-@pytest.fixture(scope="session")
+#@pytest.fixture(scope="session")
 def test_709(web_browser):
 
     """ Внутреннее согласование - добавление комментариев"""
@@ -1465,7 +1465,7 @@ def test_715(web_browser):
     returnDis = page3.returnDecision_RD()
 
 @pytest.mark.KSED_smoke_test
-# @pytest.fixture(scope="session")
+# #@pytest.fixture(scope="session")
 def test_716(web_browser):
     """  Отзыв решения делегата после отклонения согласования основного согласующего"""
     # Шаг 1 создание документа
@@ -1505,7 +1505,7 @@ def test_716(web_browser):
 
     LogIn_page = page3.LogIN('tst_user1', 'Changeme!')
 
-    getDoc = page2.getDoc()
+    getDoc = page3.getDoc()
 
     returnDis = page3.softDecision_RD()
 
@@ -1513,9 +1513,9 @@ def test_716(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-# @pytest.fixture(scope="session")
+# #@pytest.fixture(scope="session")
 def test_717(web_browser):
-    """ Смягчение решения после согласования делегата"""
+    """ Смягчение решения после отклонения делегата"""
     # Шаг 1 создание документа
     page = KSEDsoftDisAfterTakeTask(web_browser)
 
@@ -1562,6 +1562,6 @@ def test_717(web_browser):
 
     LogIn_page = page3.LogIN('YatskinRS', 'Changeme!')
 
-    getDoc = page2.getDoc()
+    getDoc = page3.getDoc()
 
     returnDis = page3.softDecision_RD()

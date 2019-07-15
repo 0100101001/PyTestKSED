@@ -261,7 +261,7 @@ class KSEDacceptSogl_RD(MPages, dataTest, KSEDLocators):
         self.osnSvedeniya.click()
 
         assert "На согласовании" in self.status_Doc.get_text()
-
+        time.sleep(25)
     @allure.step("Согласование документа")
     def acceptDoc(self):
         self.wait_page_loaded()

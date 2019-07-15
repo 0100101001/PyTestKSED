@@ -360,6 +360,8 @@ class MPages(WebPage):
     # (карточка документа)
     attachments = WebElement(xpath=KSEDLocators.attachments) # # Переход во вкладку "Вложения"
     vlozheniya = WebElement(xpath=KSEDLocators.vlozheniya) # Вложения (раскрытие раздела)
+    remarks = WebElement(xpath=KSEDLocators.remarks) # замечания
+    remarksBtn = WebElement(xpath=KSEDLocators.remarksBtn) # замечания
     osnSvedeniya = WebElement(xpath=KSEDLocators.osnSvedeniya) # Основные сведения (раскрытие раздела)
     printForm = WebElement(xpath=KSEDLocators.printForm)# Печатные формы (раскрытие раздела)
     printBarCode = WebElement(xpath=KSEDLocators.printBarCode) #Печатная форма штрих кода документа
@@ -562,6 +564,7 @@ class MPages(WebPage):
     reserchInput = WebElement(xpath=KSEDLocators.reserchInput)  # строка поиска
     zamechSogl = WebElement(xpath=KSEDLocators.zamechSogl) # статус согласования
     statusSogl = WebElement(xpath=KSEDLocators.statusSogl) # статус согласования
+    statusSogl_2 = WebElement(xpath=KSEDLocators.statusSogl_2)  # cтатус согласования
     rejectSogl = WebElement(xpath=KSEDLocators.rejectSogl) # кнопка отозвать с согласования
     reasonReject = WebElement(xpath=KSEDLocators.reasonReject) # причина отказа / отзыва
     btnAction = WebElement(xpath=KSEDLocators.btnAction) # пкнопка действия
@@ -573,6 +576,8 @@ class MPages(WebPage):
     btnRejectInnerSogl = WebElement(xpath=KSEDLocators.btnRejectInnerSogl) # кнопка отзыва внутреннего согласования
     statusInner = WebElement(xpath=KSEDLocators.statusInner)  # статус внутреннего согласования
     statusInner_2 = WebElement(xpath=KSEDLocators.statusInner_2)  # статус внутреннего согласования
+    statusInner_3 = WebElement(xpath=KSEDLocators.statusInner_3)  # статус внутреннего согласования
+    statusInner_4 = WebElement(xpath=KSEDLocators.statusInner_4)  # статус внутреннего согласования
     navedTaskInnerSogl = WebElement(xpath=KSEDLocators.navedTaskInnerSogl) # для наведения на задачу согласования внутреннего
     btnRjctTaskInnerApp = WebElement(xpath=KSEDLocators.btnRjctTaskInnerApp) # кнопка отозвать задачу согласования внутреннего
     btnAddAtt = WebElement(xpath=KSEDLocators.btnAddAtt) # кнопка добавить вложение

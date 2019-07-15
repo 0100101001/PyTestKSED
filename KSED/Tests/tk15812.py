@@ -243,4 +243,8 @@ class KSEDsoftDecision_RD(MPages, dataTest, KSEDLocators):
         # self.osnSvedeniya.scroll_to_element()
         # self.osnSvedeniya.click()
         self.wait_page_loaded()
-        assert "Согласовано" in self.statusInner_2.get_text()
+
+        if dataTest.baseURL == 'http://172.30.48.40:8080/share/page/arm?code=SED':
+            assert "Согласовано" in self.statusInner_3.get_text()
+        else:
+            assert "Согласовано" in self.statusInner_2.get_text()

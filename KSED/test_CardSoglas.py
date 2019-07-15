@@ -27,8 +27,8 @@ import allure
 
 
 
-from KSED.Tests.t681 import KSEDCreatDocCS_RD
-from KSED.Tests.t682 import KSEDCreatDocCS_LND
+from KSED.Tests.tk15720 import KSEDCreatDocCS_RD
+from KSED.Tests.tk15722 import KSEDCreatDocCS_LND
 from KSED.Tests.tk15723 import KSEDCreatDocCS_ETC
 from KSED.Tests.tk15745 import KSEDCreatWaySogl
 from KSED.Tests.tk15750 import KSEDCreatWaySogl_RD
@@ -584,13 +584,13 @@ def test_15780(web_browser):
 
     page3 = KSEDAcceptInnerSogl_RD(web_browser)
 
-    LogIn_page = page2.LogIN('tst_user11', 'Changeme!')
+    LogIn_page = page3.LogIN('tst_user11', 'Changeme!')
 
-    getDoc = page2.getDoc()
+    getDoc = page3.getDoc()
 
-    innerSogl = page2.AcceptInnerSogl()
+    innerSogl = page3.AcceptInnerSogl()
 
-    Logout = page2.USER_LOGOUTs()  # Выход из системы
+
 
 @pytest.mark.KSED_smoke_test
 #@pytest.fixture(scope="session")
@@ -1465,7 +1465,7 @@ def test_18361(web_browser):
     returnDis = page3.returnDecision_RD()
 
 @pytest.mark.KSED_smoke_test
-# @pytest.fixture(scope="session")
+# #@pytest.fixture(scope="session")
 def test_18362(web_browser):
     """  Отзыв решения делегата после отклонения согласования основного согласующего"""
     # Шаг 1 создание документа
@@ -1513,7 +1513,7 @@ def test_18362(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-# @pytest.fixture(scope="session")
+# #@pytest.fixture(scope="session")
 def test_18363(web_browser):
     """ Смягчение решения после согласования делегата"""
     # Шаг 1 создание документа

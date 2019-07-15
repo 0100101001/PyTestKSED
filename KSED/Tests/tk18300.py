@@ -269,6 +269,7 @@ class KSEDchangeAfterRejectInnerSogl_RD(MPages, dataTest, KSEDLocators):
         self.btnInApp.click()
         self.wait_page_loaded()
         self.employeeForSogl.send_keys(u'Иванов11' + Keys.ENTER)
+        self.employeeForSogl.send_keys(u'Иванов13' + Keys.ENTER)
         self.confirm_9.wait_to_be_clickable()
         self.confirm_9.click()
         self.wait_page_loaded()
@@ -292,10 +293,14 @@ class KSEDchangeAfterRejectInnerSogl_RD(MPages, dataTest, KSEDLocators):
 
         self.wait_page_loaded(wait_for_xpath_to_disappear='//div[@id = "message"]//span[@class = "wait"]')
 
+        time.sleep(70)
+        self.refresh()
         try:
             self.returnDecision.wait_to_be_clickable()
         except:
             assert False, 'Кнопка не появилась'
+
+
 
     @allure.step("Отзыв решения")
     def returnDecision_RD(self):

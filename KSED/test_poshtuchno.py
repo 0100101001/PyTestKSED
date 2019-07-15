@@ -17,9 +17,9 @@ from KSED.Tests.tk11644 import KSEDCreatDocVH
 from KSED.Tests.tk11679 import KSEDCreatDocReestr
 from KSED.Tests.tk11691 import KSEDCreatDocSZ
 from KSED.Tests.tk12929 import KSEDRD_sendPodpis
-from KSED.Tests.tk18361 import KSEDreturnDisAfterTakeTask
-from KSED.Tests.tk18362 import KSEDsoftDisFromDelegatAfterReject_RD
-from KSED.Tests.tk18363 import KSEDsoftDisAfterTakeTask
+from KSED.Tests.T715 import KSEDreturnDisAfterTakeTask
+from KSED.Tests.T716 import KSEDsoftDisFromDelegatAfterReject_RD
+from KSED.Tests.T717 import KSEDsoftDisAfterTakeTask
 
 
 
@@ -172,7 +172,7 @@ def test_18361(web_browser):
     returnDis = page3.returnDecision_RD()
 
 @pytest.mark.KSED_smoke_test
-# @pytest.fixture(scope="session")
+# #@pytest.fixture(scope="session")
 def test_18362(web_browser):
     """  Отзыв решения делегата после отклонения согласования основного согласующего"""
     # Шаг 1 создание документа
@@ -220,7 +220,7 @@ def test_18362(web_browser):
 
 
 @pytest.mark.KSED_smoke_test
-# @pytest.fixture(scope="session")
+# #@pytest.fixture(scope="session")
 def test_18363(web_browser):
     """ Смягчение решения после согласования делегата"""
     # Шаг 1 создание документа

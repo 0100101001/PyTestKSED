@@ -259,7 +259,8 @@ class KSEDacceptSoglwithRemark_RD(MPages, dataTest, KSEDLocators):
         self.osnSvedeniya.wait_to_be_clickable()
         self.osnSvedeniya.scroll_to_element()
         self.osnSvedeniya.click()
-
+        time.sleep(70)
+        self.refresh()
         assert "На согласовании" in self.status_Doc.get_text()
 
     @allure.step("Принятие решения по внутреннему согласованию(Согласование c комментариями)")

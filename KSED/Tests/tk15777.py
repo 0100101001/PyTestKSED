@@ -265,6 +265,7 @@ class KSEDrejectTaskInnerSogl_RD(MPages, dataTest, KSEDLocators):
 
     @allure.step("Направление на внутреннее согласование")
     def innerSogl(self):
+        self.refresh()
         self.btnInApp.wait_to_be_clickable()
         self.btnInApp.click()
         self.wait_page_loaded()

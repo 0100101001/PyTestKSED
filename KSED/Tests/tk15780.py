@@ -276,6 +276,7 @@ class KSEDAcceptInnerSogl_RD(MPages, dataTest, KSEDLocators):
             self.btnRejectInnerSogl.wait_to_be_clickable()
         except:
             assert False, 'Кнопка не появилась'
+        time.sleep(25)
 
     @allure.step("Принятие решения по внутреннему согласованию(Согласование)")
     def AcceptInnerSogl(self):

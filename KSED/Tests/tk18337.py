@@ -275,7 +275,8 @@ class KSEDrejectAfterAcceptSoglwithRemark_RD(MPages, dataTest, KSEDLocators):
         self.wait_page_loaded()
         self.confirm_5.click()
         self.wait_page_loaded()
-
+        time.sleep(70)
+        self.refresh()
         assert "Согласовано" in self.statusSogl.get_text()
 
     @allure.step("Отзыв решения")

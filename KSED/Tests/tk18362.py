@@ -277,11 +277,12 @@ class KSEDsoftDisFromDelegatAfterReject_RD(MPages, dataTest, KSEDLocators):
         self.apply_button_button.click()
 
         self.wait_page_loaded()
+
         assert "Отклонено" in self.statusSogl.get_text()
 
     @allure.step("Смягчение решения")
     def softDecision_RD(self):
-        time.sleep(10)
+
         self.get(self._web_driver.current_url)
         self.softDecision.wait_to_be_clickable()
         self.softDecision.click()
@@ -294,4 +295,9 @@ class KSEDsoftDisFromDelegatAfterReject_RD(MPages, dataTest, KSEDLocators):
         # self.osnSvedeniya.scroll_to_element()
         # self.osnSvedeniya.click()
         self.wait_page_loaded()
-        assert "Согласовано" in self.statusInner_2.get_text()
+        time.sleep(70)
+        self.refresh()
+        if dataTest.baseURL == 'http://172.30.48.40:8080/share/page/arm?code=SED':
+            assert "Согласовано" in self.statusInner_3.get_text()
+        else:
+            assert "Согласовано" in self.statusInner_2.get_text()

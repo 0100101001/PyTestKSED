@@ -194,6 +194,8 @@ class KSEDLocators:
     # (карточка документа)
     attachments = '//span[contains(@id, "action-expand")][contains(@class, "attachments-expand")]' #xpath # Переход во вкладку "Вложения"
     vlozheniya = '//h2[contains(@id, "heading")][contains(text(), "Вложения")]'  # xpath # Вложения (раскрытие раздела)
+    remarks = '//h2[contains(string(), "Замечания и внутреннее согласование")]'# xpath # замечания
+    remarksBtn = '//span[contains(@id, "yui")][contains(@class, "rn-approval-dashlet-expand")]'
     osnSvedeniya = '//h2[contains(@id, "heading")][contains(text(), "Основные сведения")]' #xpath # Основные сведения (раскрытие раздела)
     printForm = '//h2[contains(@id, "heading")][contains(text(), "Печатные формы")]' #xpath # Печатные формы (раскрытие раздела)
     printBarCode = '//a[contains(text(), "Штрих-код документа")]' #xpath #Печатная форма штрих кода документа
@@ -398,7 +400,8 @@ class KSEDLocators:
     btnAddPerson_2 = '(//span[text() = "Добавить сотрудника"]//parent::a[contains(@id, "onActionAddEmployee")])[1]'
     reserchInput = '//input[contains(@id, "employee-search-text")]'  # строка поиска
     zamechSogl = '(//div[contains(@class, "annotation-comment")])' # комментарии
-    statusSogl = '//a[contains(@onclick, "ApprovalResult")]'  # комментарии
+    statusSogl = '//a[contains(@onclick, "ApprovalResult")]'  # cтатус согласования
+    statusSogl_2 ='//a[contains(@class,"approval-approved-status")]' # cтатус согласования
     rejectSogl = '//div[contains(text(), "Отозвать с согласования")]' # кнопка отозвать с согласования
     reasonReject = '//textarea[@title = "Причина"]'  # причина отказа / отзыва
     btnAction = '//button[contains(@id, "-attachment-actions-button-button")]' # кнопка действие
@@ -411,6 +414,8 @@ class KSEDLocators:
     btnRejectInnerSogl = '//div[@title = "Отозвать внутреннее согласование"]' # кнопка отозвать внутреннее согласование
     statusInner = '(//div[contains(@class,"approver-item-status")])[2]' # статус внутреннего согласования
     statusInner_2 = '(//div[contains(@class,"approver-item-status")])[1]'  # статус внутреннего согласования
+    statusInner_3 = '//a[contains(@onclick,"viewApprovalResult")]'# статус внутреннего согласования
+    statusInner_4 = '(//div[contains(@class,"approver-decision-no-decision")])[2]'
     navedTaskInnerSogl = '(//div[text() = "Выполняется"])[1]' # для наведения на задачу согласования внутреннего
     btnRjctTaskInnerApp = '(//a[contains(@title, "Отозвать")])[1]' # кнопка отозвать задачу согласования внутреннего
     btnAddAtt = '//button[contains(@id, "attachment-add-button")]' # кнопка добавить вложение

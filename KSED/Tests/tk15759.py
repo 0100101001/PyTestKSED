@@ -255,7 +255,7 @@ class KSEDaddNewAtt(MPages, dataTest, KSEDLocators):
         # self.wait_page_loaded()
 
         # self._web_driver.current_url()
-        self.get(self._web_driver.current_url)
+        self.refresh()
         self.vlozheniya.move_to_element()
         self.vlozheniya.wait_to_be_clickable()
         self.vlozheniya.click()

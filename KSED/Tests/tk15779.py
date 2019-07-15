@@ -299,10 +299,10 @@ class KSEDrepeatInnerSogl_RD(MPages, dataTest, KSEDLocators):
         self.btnInApp_2.wait_to_be_clickable()
         self.btnInApp_2.click()
         self.wait_page_loaded()
-        self.btnAddPerson_2.wait_to_be_clickable() #для версии 4.4.9
-        self.btnAddPerson_2.click() #для версии 4.4.9
-        self.wait_page_loaded() #для версии 4.4.9
-        self.reserchInput.send_keys(u'Иванов11' + Keys.ENTER) #для версии 4.4.9
+        # self.btnAddPerson_2.wait_to_be_clickable() #для версии 4.4.9
+        # self.btnAddPerson_2.click() #для версии 4.4.9
+        # self.wait_page_loaded() #для версии 4.4.9
+        # self.reserchInput.send_keys(u'Иванов11' + Keys.ENTER) #для версии 4.4.9
         self.btnSelection1.wait_to_be_clickable()
         self.btnSelection1.click()  # кнопка + 1 выбор
         self.confirm_5.wait_to_be_clickable()

@@ -265,6 +265,7 @@ class KSEDrejectInnerSogl_RD(MPages, dataTest, KSEDLocators):
     @allure.step("Направление на внутреннее согласование")
     def innerSogl(self):
         self.get(self._web_driver.current_url)
+        self.refresh()
         self.btnInApp.wait_to_be_clickable()
         self.btnInApp.click()
         self.wait_page_loaded()
@@ -287,4 +288,8 @@ class KSEDrejectInnerSogl_RD(MPages, dataTest, KSEDLocators):
         self.confirm.click()
         self.wait_page_loaded()
 
-        assert "Отменено" in self.statusInner.get_text()
+
+        if dataTest.baseURL == 'http://172.30.48.40:8080/share/page/arm?code=SED':
+            assert "Отменено" in self.statusInner_4.get_text()
+        else:
+            assert "Отменено"  in self.statusInner.get_text()
